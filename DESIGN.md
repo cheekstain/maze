@@ -128,43 +128,81 @@ In addition to the struct itself, mazestruct contains methods to update and get 
 
 ### Pseudocode
  `AMStartup` parses command-line arguments, then messages the server with an `AM_INIT` message specifying `nAvatars` and `difficulty`.
+
 `AMStartup` receives `AM_INIT_OK`, parses the message.
+
  Calls the `avatars.c` program with necessary parameters, which begins the threads. `avatars.c` also contains three major variables, namely: 
+
 A common `mazestruct` data structure that contains all of the information gleaned about the maze as the search has progressed. This `mazestruct` module contains a few accessor and modifier methods that the avatars may use in the decision-making algorithm that picks the next best move.
+
 A common *set_t* data structure that uses the avatarIDs as its keys and *avatar* structs as its items. These *avatar* structs contain information specific to each avatar that is valuable when picking the next best move. This struct will be elaborated upon in the maze-solving portion of this pseudocode section.
+
 A struct named *last_move* which will hold two XYPos instances and one int avatarID. *last_move* holds the last move attempted by any avatar in the maze. “XYPos before” will hold the position of the avatar before the move was made, and “XYPos after” holds the position of the avatar after the move is attempted, provided the move is successfully made. “Int avatarID” will contain the avatarID of the avatar that attempted this move.
+
 The threads, `avatar_thread`, are initialized with parameters in avatar.c and begin running.
+
 The threads then each send the *AM_AVATAR_READY* message via the mazeport.
+
  Then, the `avatar_thread` function enters into a while loop that terminates only when the game has ended, as determined by the *avatarComm* module.  
+
 The turnID is determined using the avatarComm module, and if the turnID matches my avatarID (passed in as an argument):
+
 If the last_move attempted is not null (i.e) this is not the first move to be attempted:
+
 We first check the last move attempted and use the avatarComm module to see if the last move attempted was successful. 
+
 We then update the *mazeStruct* accordingly.
+
 Then, if the avatar which attempted the last move is currently on the path of another avatar that we are not currently following, then we will record in the *avatars* data structure that the last avatar that tried to make a move is now following the avatar whose path it is currently on. 
+
 If the last avatar that made a move is not following anyone (that is, it is not on anyone else’s path that has already been tagged with a path_id:
+
 Tag the new coordinate using *mazestruct*, specifying that this avatar is the first avatar to visit this coordinate. The path_id is also incremented, and this coordinate is tagged with this new path_id.
+
 The logfile is then updated to reflect the previous move.
+
 The UI is updated.
+
 Then we focus on the current turn. If the current turn avatar is not following another avatar:
+
 If  this is the not only avatar remaining that is not following another avatar’s path:
+
 If we see that we are one move away from moving into the path of another avatar (as determined by the *mazestruct* module) we will attempt to move into that spot. 
+
 Otherwise, we will then eliminate all of the directions that are known to have walls that prevent us from moving into that direction.
+
 We will then check to see whether we are at a dead end (that is, three directions are blocked and the only way out is the way we came). In this case, go back the way we came by checking the coordinates on all four directions, and selecting the direction which contains the lowest path_id that has been tagged by the current avatar whose turn it is.
+
 Or else, look at all of the directions that currently unexplored and pick one of those at random to explore.
+
 Then the *avatarComm* module is used to communicate to the server that this is the next move that the avatar wishes to make.
+
 Then, the last_move struct is updated accordingly to record the move that the avatar just attempted to make. 
+
 Otherwise (meaning this is the only avatar remaining that is not following another avatar’s path):
+
 Backtrack and follow the path that the current avatar has just come from by checking the coordinates on all four directions, and selecting the direction which contains the lowest path_id that has been tagged by the current avatar whose turn it is.
+
 Then the *avatarComm* module is used to communicate to the server that this is the next move that the avatar wishes to make.
+
 Then, the last_move struct is updated accordingly to record the move that the avatar just attempted to make. 
+
 Else (meaning it is following another avatar):
+
 We will check all four directions and check if one of the neighbouring coordinates was tagged as being part of the path of another avatar that we are not currently following. 
+
 If so, and if the avatar we are currently following happens to be following the path of the newly discovered avatar, then we will attempt to move in that direction (such that we are now on the path of the newly discovered avatar)
+
 Otherwise, we will check the coordinates on all four directions to see which ones are part of the path of the avatar we are currently following. If we find multiple coordinates, we will pick the coordinate with the highest path_id.
+
 Then the *avatarComm* module is used to communicate to the server that this is the next move that the avatar wishes to make.
+
 Then, the last_move struct is updated accordingly to record the move that this avatar just attempted to make. 
+
 Once the game has ended, we use the avatarComm module to determine success or failure, and we use the logfile to record this.
+
 We then clean-up all data structures and exit.
+
 
 ## Testing Plan
 
