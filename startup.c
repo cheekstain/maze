@@ -44,23 +44,8 @@ int main(int argc, char* argv[])
 	free(response);
 	fclose(comm_fp);
 
-	// make log file, open for appending
-	char* log_name = malloc(sizeof(char) * 50);
-	char* user_id = itoa(getuid());
-	strcpy(log_name, "Amazing_");
-	strcat(log_name, user_id); 
-	strcat(log_name, "_");
-	strcat(log_name, argv[1]);
-	strcat(log_name, "_")
-	strcat(log_name, argv[2]);
-	strcat(log_name, ".log");
+	make_log();
 
-	time_t curtime;
-    time(&curtime);
-
-	FILE *fp = (log_name, "a");
-	fprintf(fp, "User ID: %s, MazePort: %d, Date & Time: %s", user_id,
-									maze_port, ctime(&curtime));
 
 	// thread business
 	
@@ -100,7 +85,26 @@ static bool check_parameters(int argc, char* argv[])
 	return true;
 }
 
+FILE *fp make_log(char* argv[])
+{
+	// make log file, open for appending
+	char* log_name = malloc(sizeof(char) * 50);
+	char* user_id = itoa(getuid());
+	strcpy(log_name, "Amazing_");
+	strcat(log_name, user_id); 
+	strcat(log_name, "_");
+	strcat(log_name, argv[1]);
+	strcat(log_name, "_")
+	strcat(log_name, argv[2]);
+	strcat(log_name, ".log");
+	
+	time_t curtime;
+    	time(&curtime);
 
+	FILE *fp = (log_name, "a");
+	fprintf(fp, "User ID: %s, MazePort: %d, Date & Time: %s", user_id,
+						maze_port, ctime(&curtime));
+}
 
 
 
