@@ -117,13 +117,13 @@ In addition to the struct itself, mazestruct contains methods to update and get 
 1. `AMStartup` parses command-line arguments, then messages the server with an `AM_INIT` message specifying `nAvatars` and `difficulty`.
 2. `AMStartup` receives `AM_INIT_OK`, parses the message.
 Calls the `avatars.c` program with necessary parameters, which begins the threads. `avatars.c` also contains three major variables, namely: 
-	a. A common `mazestruct` data structure that contains all of the information gleaned about the maze as the search has progressed. This `mazestruct` module contains a few accessor and modifier methods that the avatars may use in the decision-making algorithm that picks the next best move.
-	b. A common `set_t` data structure that uses the avatarIDs as its keys and `avatar` structs as its items. These `avatar` structs contain information specific to each avatar that is valuable when picking the next best move. This struct will be elaborated upon in the maze-solving portion of this pseudocode section.
-	c. A struct named `last_move` which will hold two XYPos instances and one int avatarID. `last_move` holds the last move attempted by any avatar in the maze. `XYPos before` will hold the position of the avatar before the move was made, and `XYPos after` holds the position of the avatar after the move is attempted, provided the move is successfully made. `int avatarID` will contain the avatarID of the avatar that attempted this move.
+	* A common `mazestruct` data structure that contains all of the information gleaned about the maze as the search has progressed. This `mazestruct` module contains a few accessor and modifier methods that the avatars may use in the decision-making algorithm that picks the next best move.
+	* A common `set_t` data structure that uses the avatarIDs as its keys and `avatar` structs as its items. These `avatar` structs contain information specific to each avatar that is valuable when picking the next best move. This struct will be elaborated upon in the maze-solving portion of this pseudocode section.
+	* A struct named `last_move` which will hold two XYPos instances and one int avatarID. `last_move` holds the last move attempted by any avatar in the maze. `XYPos before` will hold the position of the avatar before the move was made, and `XYPos after` holds the position of the avatar after the move is attempted, provided the move is successfully made. `int avatarID` will contain the avatarID of the avatar that attempted this move.
 4. The threads, `avatar_thread`, are initialized with parameters in avatar.c and begin running.
 5. The threads then each send the `AM_AVATAR_READY` message via the mazeport.
 6. Then, the `avatar_thread` function enters into a while loop that terminates only when the game has ended, as determined by the `avatarComm` module.  
-	a. The turnID is determined using the avatarComm module, and if the turnID matches my avatarID (passed in as an argument):
+	* The turnID is determined using the avatarComm module, and if the turnID matches my avatarID (passed in as an argument):
 		i. If the last_move attempted is not null (i.e) this is not the first move to be attempted:
 			1. We first check the last move attempted and use the avatarComm module to see if the last move attempted was successful. 
 			2. We then update the `mazestruct` accordingly.
