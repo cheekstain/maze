@@ -124,14 +124,14 @@ Calls the `avatars.c` program with necessary parameters, which begins the thread
 5. The threads then each send the `AM_AVATAR_READY` message via the mazeport.
 6. Then, the `avatar_thread` function enters into a while loop that terminates only when the game has ended, as determined by the `avatarComm` module.  
 	* The turnID is determined using the avatarComm module, and if the turnID matches my avatarID (passed in as an argument):
-		i. If the last_move attempted is not null (i.e) this is not the first move to be attempted:
-			1. We first check the last move attempted and use the avatarComm module to see if the last move attempted was successful. 
-			2. We then update the `mazestruct` accordingly.
-			3. Then, if the avatar which attempted the last move is currently on the path of another avatar that we are not currently following, then we will record in the `avatars` data structure that the last avatar that tried to make a move is now following the avatar whose path it is currently on. 
-			4. If the last avatar that made a move is not following anyone (that is, it is not on anyone else’s path that has already been tagged with a path_id:
-				a. Tag the new coordinate using `mazestruct`, specifying that this avatar is the first avatar to visit this coordinate. The path_id is also incremented, and this coordinate is tagged with this new path_id.
-			5. The logfile is then updated to reflect the previous move.
-			6. The UI is updated.
+		** If the last_move attempted is not null (i.e) this is not the first move to be attempted:
+			*** We first check the last move attempted and use the avatarComm module to see if the last move attempted was successful. 
+			*** We then update the `mazestruct` accordingly.
+			*** Then, if the avatar which attempted the last move is currently on the path of another avatar that we are not currently following, then we will record in the `avatars` data structure that the last avatar that tried to make a move is now following the avatar whose path it is currently on. 
+			*** If the last avatar that made a move is not following anyone (that is, it is not on anyone else’s path that has already been tagged with a path_id:
+				**** Tag the new coordinate using `mazestruct`, specifying that this avatar is the first avatar to visit this coordinate. The path_id is also incremented, and this coordinate is tagged with this new path_id.
+			*** The logfile is then updated to reflect the previous move.
+			*** The UI is updated.
 		ii. Then we focus on the current turn. If the current turn avatar is not following another avatar:
 			1. If  this is the not only avatar remaining that is not following another avatar’s path:
 				a. If we see that we are one move away from moving into the path of another avatar (as determined by the `mazestruct` module) we will attempt to move into that spot. 
