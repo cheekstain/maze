@@ -46,13 +46,15 @@ static mazesquare_t *mazesquare_new(int num_avatars)
 }
 
 /******************************** maze_new ************************************/
-maze_t *maze_new(int width, int height, int num_avatars)
+maze_t *maze_new(const int width, const int height, const int num_avatars)
 {
 	//malloc for the maze itself
 	maze_t *maze = malloc(sizeof(maze_t));
 
 	//create an empty array
 	maze->array = calloc(width * height, sizeof(mazesquare_t));
+	maze->width = width;
+	maze->height = height;
 
 	//fill it by creating an empty array for each coordinate
 	for (int x = 0; x < width; x++) {
@@ -193,7 +195,15 @@ void maze_delte(maze_t *maze)
 /******************************** draw_maze ***********************************/
 void draw_maze(maze_t *maze)
 {
-	//go through the array and delete each mazesquare struct
+	//draw the top roof
+	//for each row
+		//
+		//draw a | on the left
+		//now iterate through all of the 
+	draw_top_row(maze->width);
+
+
+
 	for (int y = 0; y < height; y++) {
 		draw_floor();
 		printf("\n");
@@ -204,36 +214,41 @@ void draw_maze(maze_t *maze)
 	}
 }
 
+void draw_top_row(int width)
+{
+	for (int i = 0; i < width ; i++) {
+		printf(" ");
+		draw_floor();
+	}
+	printf("\n");
+}
+
 void draw_floor()
 {
-	printf(" _____");
+	printf("_____");
 }
 
 void draw_no_floor()
 {
-	printf("      ");
+	printf("     ");
 }
 
-/******************************** draw_maze ***********************************/
-/*
- * Draw only the left side and bottom of each square to avoid redrawing walls.
- */
-static void draw_square(mazesquare_t *square)
+void draw_maybe_floor()
 {
-
+	printf("?????");
 }
 
 /* Maze UI will look like this:
- _____ _____ _____
-|                 |
-|  1              |
-|      _____      |
-|     |           |
-|     |           |
-|     |_____      |
-|           |     |
-|           |  0  |
-|_____ _____|_____|
+1 _____ _____ _____
+2|     ?     ?     |
+3|  1  ?     ?     |
+4|     ?_____??????|
+5|     |           |
+6|     |           |
+7|     |_____      |
+8|           |     |
+9|           |  0  |
+0|_____ _____|_____|
 
 
 
@@ -241,7 +256,16 @@ static void draw_square(mazesquare_t *square)
 */
 
 
-For the first row, draw a 
+For the first row, call " " then draw_floor once per number in width
+for row 2, check left wall value of coord 0,0, then draw_no_floor, then 
+	check left wall value of coord 1,0, then draw_no_floor, then
+	check left wall value of coord 2,0, then draw_floor, then 
+
+
+
+
+
+
 
 
 

@@ -1,12 +1,6 @@
 /*
-* crawler.c - implements a crawler for the Tiny Search Engine
-*
-* The crawler takes a seed URL and a depth, and crawls through the relevant webpages.
-* It then collects information about these webpages and stores this information in a specified directory
-*
-* Written using class materials provided by Prof. Zhou (such as libcs50.a)
-* Arun Anand, July 2017
-*/
+ * Bashful Brigade, July 2017
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,11 +12,16 @@
 #include "mazestruct.h"
 #include "amazing.h"
 
-mazesquare_t maze;
+maze_t maze;
 set_t avatars;
 
 int main (int argc, char *argv[]){
-  if (argc != 8){ //testing incorrect number of arguments
+  /*
+    PARSE PARAMETERS
+    TODO: FILL IN ARG
+    TODO: Use strcpys and atois >:[
+   */
+  if (argc != [************]){ //testing incorrect number of arguments
     fprintf(stderr, "Incorrect number of arguments!\n");
     return 1;
   }
@@ -51,9 +50,11 @@ int main (int argc, char *argv[]){
   sscanf (argv[7], "%s", &filename);
 
   maze = maze_new(mazeWidth, mazeHeight);
-  avatars = set_new();
-  initialize_avatars(avatars);
+  avatars = set_new();  
+  initialize_avatars(avatars, nAvatars);
   
+  
+  /*
   if (setup_maze()){
     while(!is_game_over()){
       run_avatar();
@@ -62,6 +63,7 @@ int main (int argc, char *argv[]){
   else{
     return 1;
   }
+  */
 }
 
 void run_avatar(){
@@ -71,3 +73,26 @@ void run_avatar(){
   update_logfile();
   draw_maze(maze);
 }
+
+void initialize_avatars(set_t *avatar_set, int nAvatars){
+  for(int i = 0; i < nAvatars; i++){
+    runThread(avatar_thread);
+  }
+}
+
+void* avatar_thread(ARGSARGSARGSARGSARGSARGS){
+  //LITERALLY ALL CODE GOES HERE
+  
+  write(socket, avatarID, size);
+  while(!end){
+    
+  }
+}
+
+/******************HELPER FUNCTIONS AHOY************************/
+
+int readyMessage(int avatarID, socket server){
+  int result = write(avatarID, socket);
+  return result;
+}
+ 
