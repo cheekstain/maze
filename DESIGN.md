@@ -19,7 +19,6 @@ The maze program will be started with a C program. The avatars will be individua
 *`avatar_comm`: refers to a function(s) related to communications with the server, parsing/naming messages, et cetera.
 *`avatar_solve`: refers to a function(s) related to calculating and returning the next best move.
 *`maze_struct`: refers to the data structures and related functions dealing with storage and logical structures of the maze.
->>>>>>> 008e227857e1ad0ee2c612f5bcfb7a06b45cd3ff
 
 #### AMStartup.c
 AMStartup.c is a program that takes in arguments from the command line and uses them communicate with the server in order to initialize the maze and call the C function `run_avatar` in the `avatars.c` module which starts the threads to solve the maze.
@@ -110,9 +109,9 @@ In addition to the struct itself, mazestruct contains methods to update and get 
 `last_move` is a struct that holds the last move attempted by any of the avatars in the maze. It holds two XYPos variables and one int avatarID. `int avatarID` holds the avatarID of the last avatar that attempted to make a move. `XYPos before` holds the position of the avatar before the move is attempted, and `XYPos after` holds the position of the avatar after the move attempted, provided that this move is successfully made (that is, there are no walls preventing this from occurring).
 
 #### Data Flow Through Modules
-•	The `avatars.c` module updates information about the maze by conveying information about walls discovered and new coordinpates explored by avatars to the `mazestruct` module.
-•	The `avatarComm` modules listens and receives messages from the server and conveys to the `avatars` module that the game is over when the maze is solved or there is some error with the maze. It also sends the `avatars` modules information about whose turn is next, and the positions of all of the other avatars using the `AM_AVATAR_TURN` messages received from the server.
-•	The `mazeSolve` module contains all of the logic necessary to carry out the next move of the avatar whose turn it is. It receives information about the maze from the `mazestruct` module, and information about the avatars from the `avatars` module. It then sends information about the next move to the `avatarComm` module which uses this information to make the next move.
+* The `avatars.c` module updates information about the maze by conveying information about walls discovered and new coordinpates explored by avatars to the `mazestruct` module.
+* The `avatarComm` modules listens and receives messages from the server and conveys to the `avatars` module that the game is over when the maze is solved or there is some error with the maze. It also sends the `avatars` modules information about whose turn is next, and the positions of all of the other avatars using the `AM_AVATAR_TURN` messages received from the server.
+* The `mazeSolve` module contains all of the logic necessary to carry out the next move of the avatar whose turn it is. It receives information about the maze from the `mazestruct` module, and information about the avatars from the `avatars` module. It then sends information about the next move to the `avatarComm` module which uses this information to make the next move.
 
 #### Pseudocode
 * `AMStartup` parses command-line arguments, then messages the server with an `AM_INIT` message specifying `nAvatars` and `difficulty`.
