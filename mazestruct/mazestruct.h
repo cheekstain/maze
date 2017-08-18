@@ -34,16 +34,16 @@ int get_west_wall(maze_t *maze, int x_coord, int y_coord);
 
 bool get_visited(maze_t *maze, int x_coord, int y_coord);
 
-int get_tagged_by(maze_t *maze, int x_coord, y_coord);
+int get_tagged_by(maze_t *maze, int x_coord, int y_coord);
 
-int get_tag_strength(maze_t *maze, int x_coord, y_coord);
+int get_tag_strength(maze_t *maze, int x_coord, int y_coord);
 
 
 /**************** setters ****************/
 
-void set_north_wall(maze_t *maze, int x_coord, int y_coord);
+void set_north_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
 
-void set_south_wall(maze_t *maze, int x_coord, int y_coord);
+void set_south_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
 
 void set_east_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
 
@@ -56,9 +56,6 @@ void visit(maze_t *maze, int x_coord, int y_coord, int visitor, int tag_strength
 void maze_delte(maze_t *maze);
 
 void draw_maze(maze_t *maze);
-
-
-
 
 
 #endif //MAZESTRUCT_H

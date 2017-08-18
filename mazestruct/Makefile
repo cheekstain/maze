@@ -1,4 +1,4 @@
-# Makefile for 'crawler' module
+# Makefile for 'mazestruct' module
 #
 # Emma Hobday, July 2017
 
@@ -17,10 +17,7 @@ mazestructtest.o: mazestructtest.c
 mazestruct.o: mazestruct.h
 
 
-.PHONY: test clean common
-
-common:
-	$(MAKE) -C common
+.PHONY: test clean
 
 test: 
 	bash testmaze.sh

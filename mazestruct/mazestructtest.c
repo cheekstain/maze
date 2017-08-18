@@ -9,19 +9,19 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <mazestruct.h>
+#include "mazestruct.h"
 
 int main()
 {
 	//set up maze for simple test
 	const int width = 4;
-	const int height = 4
+	const int height = 4;
 	const int num_avatars = 2;
 
 
 	maze_t *maze = maze_new(width, height, num_avatars);
 
-	maze_draw(maze);
+	draw_maze(maze);
 }
 
 
