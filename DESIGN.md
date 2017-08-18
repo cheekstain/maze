@@ -1,5 +1,7 @@
 # CS50 Final Project
-## Arun Hari Anand, Bill Tang, Christina Lu, Emma Hobday, CS50 August 2017
+
+Arun Hari Anand, Bill Tang, Christina Lu, Emma Hobday, CS50 August 2017
+
 ## Written using class materials provided by Prof. Zhou
 
 This program is intended to run a simulation of a set of maze-solving avatars whose
@@ -7,9 +9,11 @@ function is to efficiently find each other, subject to the constraint that they 
 not exceed the maximum number of moves or the maximum amount of time allotted.
 
 ## Major Design Decisions
-The maze program will be started with a bash script. The avatars will be individual threads within a main C program with functions organized across different modules.
+The maze program will be started with a C program. The avatars will be individual threads within a main C program with functions organized and categorized under across different modules.
 
-[list of shared modules with brief descriptions]
+*`avatar_comm`: refers to a function(s) related to communications with the server, parsing/naming messages, et cetera.
+*`avatar_solve`: refers to a function(s) related to calculating and returning the next best move.
+*`maze_struct`: refers to the data structures and related functions dealing with storage and logical structures of the maze.
 
 ## Brief Overview
 
@@ -20,7 +24,7 @@ Avatars
 ## Startup Design
 
 ## AMStartup.sh
-AMStartup.sh is a bash script that takes in arguments from the command line and uses them communicate with the server in order to initialize the maze and call the avatar C program which starts the threads to solve the maze.
+AMStartup.sh is a c program that takes in arguments from the command line and uses them communicate with the server in order to initialize the maze and call the avatar C program which starts the threads to solve the maze.
 
 ### User Interface
 Takes in command line arguments: `./AMStartup nAvatars=... Difficult=... Hostname=...`
@@ -208,3 +212,4 @@ We then clean-up all data structures and exit.
 
 We’re planning on an integration testing approach where we start with small, simple mazes and work our way up to more difficult mazes. We will then check for inefficiencies in our algorithm and ensure that these inefficiencies are dealt with as appropriate. We will also ensure that the observed behavior of the avatars exactly match the intentions of the algorithm as laid out in the pseudocode section of this design document. If the observed behavior does diverge from the expected behavior, we will then debug our code such that these issues are sorted out and the program works as intended.
 Additionally, separate modules, such as the mazestruct module, are going to be unit tested using a separate script.
+
