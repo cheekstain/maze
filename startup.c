@@ -13,6 +13,7 @@
 #include <unistd.h>	      // read, write, close
 #include <strings.h>	      // bcopy, bzero
 #include <netdb.h>	      // socket-related structures
+#include <time.h>
 #include "amazing.h"
 
 /**************** functions ****************/
@@ -29,16 +30,41 @@ int main(int argc, char* argv[])
 	int difficulty = atoi(argv[2]);
 	char* hostname = argv[3];
 
-	// construct/send init, not sure about port here
+	// construct/send init, not sure about port # here
 	FILE *comm_fp = connect_to(hostname, port);
-
-	fflush(comm_fp);
+	
 	// receive init ok
 	char *response = readfilep(comm_fp);
+	
+	// parse response?
+	int maze_port =
+	int maze_height =
+	int maze_width = 
+
+	free(response);
+	fclose(comm_fp);
 
 	// make log file, open for appending
+	char* log_name = malloc(sizeof(char) * 50);
+	char* user_id = itoa(getuid());
+	strcpy(log_name, "Amazing_");
+	strcat(log_name, user_id); 
+	strcat(log_name, "_");
+	strcat(log_name, argv[1]);
+	strcat(log_name, "_")
+	strcat(log_name, argv[2]);
+	strcat(log_name, ".log");
 
+	time_t curtime;
+    time(&curtime);
 
+	FILE *fp = (log_name, "a");
+	fprintf(fp, "User ID: %s, MazePort: %d, Date & Time: %s", user_id,
+									maze_port, ctime(&curtime));
+
+	// thread business
+	
+	fclose(fp);
 }
 
 static bool check_parameters(int argc, char* argv[])
