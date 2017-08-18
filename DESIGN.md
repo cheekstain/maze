@@ -1,5 +1,7 @@
 # CS50 Final Project
-## Arun Hari Anand, Bill Tang, Christina Lu, Emma Hobday, CS50 August 2017
+
+Arun Hari Anand, Bill Tang, Christina Lu, Emma Hobday, CS50 August 2017
+
 ## Written using class materials provided by Prof. Zhou
 
 This program is intended to run a simulation of a set of maze-solving avatars whose
@@ -11,8 +13,17 @@ The maze program will be started with a C program. The avatars will be individua
 
 ### Startup Program Design
 
+#### Major Design Decisions
+The maze program will be started with a C program. The avatars will be individual threads within a main C program with functions organized and categorized under across different modules.
+
+*`avatar_comm`: refers to a function(s) related to communications with the server, parsing/naming messages, et cetera.
+*`avatar_solve`: refers to a function(s) related to calculating and returning the next best move.
+*`maze_struct`: refers to the data structures and related functions dealing with storage and logical structures of the maze.
+>>>>>>> 008e227857e1ad0ee2c612f5bcfb7a06b45cd3ff
+
 #### AMStartup.c
 AMStartup.c is a program that takes in arguments from the command line and uses them communicate with the server in order to initialize the maze and call the C function `run_avatar` in the `avatars.c` module which starts the threads to solve the maze.
+
 
 #### User Interface
 Takes in command line arguments: `./AMStartup nAvatars=... Difficult=... Hostname=...`
@@ -148,4 +159,7 @@ A common `mazestruct` data structure that contains all of the information gleane
 We’re planning on an integration testing approach where we start with small, simple mazes and work our way up to more difficult mazes. We will then check for inefficiencies in our algorithm and ensure that these inefficiencies are dealt with as appropriate. We will also ensure that the observed behavior of the avatars exactly match the intentions of the algorithm as laid out in the pseudocode section of this design document. If the observed behavior does diverge from the expected behavior, we will then debug our code such that these issues are sorted out and the program works as intended.
 Additionally, separate modules, such as the mazestruct module, are going to be unit tested using a separate script.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 008e227857e1ad0ee2c612f5bcfb7a06b45cd3ff
