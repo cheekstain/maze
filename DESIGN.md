@@ -33,14 +33,13 @@ Outputs:
 * error messages: printed to stderr 
 
 #### Pseudocode
-[modify]
 1. Validate arguments.
 2. Construct `AM_INIT` struct.
 3. Write `AM_INIT` to server.
 4. Wait to receive `AM_INIT_OK`.
 5. Extract `MazePort`, `MazeHeight`, and `MazeWidth`.
 6. Create log file Amazing_$USER_N_D.log.
-7. Write $USER, the MazePort, and the date and time to log file.
+7. Write user, the MazePort, and the date and time to log file.
 8. Call avatars.c with nAvatars, Difficulty, MazeHeight, MazeWidth, Host name, MazePort, and the file name of the log.
 
 ### Main Client Program
@@ -75,15 +74,15 @@ After the maze has been solved, the program cleans up by freeing the memory for 
 At each step in the maze, the UI will show an ASCII depiction of the maze as the avatars know it so far
 
 #### Maze-solution algorithm: high-level description
-1.	The `make_move` function uses an algorithm that depends on the avatars leaving a trail of “path_ids” on each of the maze coordinates that they occupy as they progress through a random exploration of the maze.
-2.	In their random exploration, avatars will not be allowed to explore coordinates that other avatars have explored.
-3.	These path_ids begin at zero for all of the avatars when they first begin the maze. Then, when an avatar (with avatarID of, say, 10) moves to the next coordinate in its exploration, it will increment its path_id by one. Then it will tag this coordinate in the maze (using the *mazestruct* module) with the new path_id. If it is the first avatar to explore this coordinate, it will also tag this coordinate with its own avatarID (in this case, 10), specifying that it is the first avatar to explore this coordinate.
-4.	If, in its random exploration, an avatar (with avatarID = 10 for example) happens to run into the trail of path_ids left by some other avatar (with avatarID 20, for example), then it will start to follow the trail of path_ids left by this avatar (of avatarID 20), in ascending order of path_ids. We will henceforth refer to avatarID = 20 as being the “leader avatar” and avatarID = 10 as the “follower avatar.”
-	a.	The leader avatar will continue its random exploration, and the follower avatar will follow its leader by following its path_ids.
-5.	When the follower avatar (avatar 10) encounters along its path another avatar (for example avatar 30), it will switch its “leader” from avatar 20 to avatar 30 if and only if avatar 30 is a leader of the avatar you are currently following (avatar 20).
-6.	When all but one avatar is following another avatar, the only avatar that remains a leader will stop its random exploration and backtrack until it meets another avatar.
-7.	The other avatars will keep following their trail and will eventually make their way to the coordinates of the only remaining leader.
-8.	In order to execute this algorithm we will make use of a *set_t* that contains as its keys the *avatarID* and as its item a struct called *avatar_t* that encapsulates all of the information specific to an avatar that is relevant in solving the maze, including the current path_id number with which each avatar tagged the current co-ordinate and the number of the avatar that each avatar is currently following (-1 if the avatar is not currently following any avatar).
+1. The `make_move` function uses an algorithm that depends on the avatars leaving a trail of “path_ids” on each of the maze coordinates that they occupy as they progress through a random exploration of the maze.
+2. In their random exploration, avatars will not be allowed to explore coordinates that other avatars have explored.
+3. These path_ids begin at zero for all of the avatars when they first begin the maze. Then, when an avatar (with avatarID of, say, 10) moves to the next coordinate in its exploration, it will increment its path_id by one. Then it will tag this coordinate in the maze (using the *mazestruct* module) with the new path_id. If it is the first avatar to explore this coordinate, it will also tag this coordinate with its own avatarID (in this case, 10), specifying that it is the first avatar to explore this coordinate.
+4. If, in its random exploration, an avatar (with avatarID = 10 for example) happens to run into the trail of path_ids left by some other avatar (with avatarID 20, for example), then it will start to follow the trail of path_ids left by this avatar (of avatarID 20), in ascending order of path_ids. We will henceforth refer to avatarID = 20 as being the “leader avatar” and avatarID = 10 as the “follower avatar.”
+	a. The leader avatar will continue its random exploration, and the follower avatar will follow its leader by following its path_ids.
+5. When the follower avatar (avatar 10) encounters along its path another avatar (for example avatar 30), it will switch its “leader” from avatar 20 to avatar 30 if and only if avatar 30 is a leader of the avatar you are currently following (avatar 20).
+6. When all but one avatar is following another avatar, the only avatar that remains a leader will stop its random exploration and backtrack until it meets another avatar.
+7. The other avatars will keep following their trail and will eventually make their way to the coordinates of the only remaining leader.
+8. In order to execute this algorithm we will make use of a *set_t* that contains as its keys the *avatarID* and as its item a struct called *avatar_t* that encapsulates all of the information specific to an avatar that is relevant in solving the maze, including the current path_id number with which each avatar tagged the current co-ordinate and the number of the avatar that each avatar is currently following (-1 if the avatar is not currently following any avatar).
 
 #### Functional Decomposition into Modules
 We anticipate the following modules: 
@@ -105,10 +104,10 @@ In addition to the struct itself, mazestruct contains methods to update and get 
 •	The `mazeSolve` module contains all of the logic necessary to carry out the next move of the avatar whose turn it is. It receives information about the maze from the `mazestruct` module, and information about the avatars from the `avatars` module. It then sends information about the next move to the `avatarComm` module which uses this information to make the next move.
 
 #### Pseudocode
-1.	`AMStartup` parses command-line arguments, then messages the server with an `AM_INIT` message specifying `nAvatars` and `difficulty`.
-2.	`AMStartup` receives `AM_INIT_OK`, parses the message.
-3.	Calls the `avatars.c` program with necessary parameters, which begins the threads. `avatars.c` also contains three major variables, namely: 
-	a.	A common `mazestruct` data structure that contains all of the information gleaned about the maze as the search has progressed. This `mazestruct` module contains a few accessor and modifier methods that the avatars may use in the decision-making algorithm that picks the next best move.
+* `AMStartup` parses command-line arguments, then messages the server with an `AM_INIT` message specifying `nAvatars` and `difficulty`.
+* `AMStartup` receives `AM_INIT_OK`, parses the message.
+Calls the `avatars.c` program with necessary parameters, which begins the threads. `avatars.c` also contains three major variables, namely: 
+A common `mazestruct` data structure that contains all of the information gleaned about the maze as the search has progressed. This `mazestruct` module contains a few accessor and modifier methods that the avatars may use in the decision-making algorithm that picks the next best move.
 	b.	A common `set_t` data structure that uses the avatarIDs as its keys and `avatar` structs as its items. These `avatar` structs contain information specific to each avatar that is valuable when picking the next best move. This struct will be elaborated upon in the maze-solving portion of this pseudocode section.
 	c.	A struct named `last_move` which will hold two XYPos instances and one int avatarID. `last_move` holds the last move attempted by any avatar in the maze. `XYPos before` will hold the position of the avatar before the move was made, and `XYPos after` holds the position of the avatar after the move is attempted, provided the move is successfully made. `int avatarID` will contain the avatarID of the avatar that attempted this move.
 4.	The threads, `avatar_thread`, are initialized with parameters in avatar.c and begin running.
