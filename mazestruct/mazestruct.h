@@ -53,7 +53,7 @@ void set_west_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
 
 void visit(maze_t *maze, int x_coord, int y_coord, int visitor, int tag_strength);
 
-void maze_delte(maze_t *maze);
+void maze_delete(maze_t *maze);
 
 void draw_maze(maze_t *maze);
 
