@@ -19,55 +19,44 @@ The maze program will be started with a C program. The avatars will be individua
 
 # Startup Design
 
-## AMStartup.c
-AMStartup.c is a C program that takes command-line args, connects with the server to initialize the maze, and finally start the avatar threads to solve the maze.
+## startup.c
+startup.c is a C program that takes command-line args, connects with the server to initialize the maze, and finally start the avatar threads to solve the maze.
 
 ### User Interface
-Takes in command line arguments: `./AMStartup nAvatars=... Difficult=... Hostname=...`
-* nAvatars: (`int`) the number of avatars in the maze
-* Difficult: (`int`) the difficulty level, on the scale 0 (easy) to 9 (excruciatingly difficult)
-* Hostname: (`char*`) the hostname of the server
+Takes in command line arguments: `./startup n_avatars=... difficulty=... hostname=...`
+* n_avatars: (`int`) the number of avatars in the maze
+* difficulty: (`int`) the difficulty level, on the scale 0 (easy) to 9 (excruciatingly difficult)
+* hostname: (`char*`) the hostname of the server
 
 ### Inputs and Outputs
 
 Inputs:
-* `int nAvatars`: number of avatars within maze
-* `int Difficulty`: ranging from 0 to 9, the difficulty of the maze
-* `char* Hostname`: the hostname of the server 
+* `int n_avatars`: number of avatars within maze
+* `int difficulty`: ranging from 0 to 9, the difficulty of the maze
+* `char* hostname`: the hostname of the server 
 
 Outputs:
-* `file Amazing_$USER_N_D.log`: where $USER is the current userid, N is the value of nAvatars and D is the value of Difficulty; passed to client program, avatars.c
-* `int nAvatars`, `MazeHeight`, `MazeWidth`, `MazePort`; `char* Hostname`: parsed from server, passed to client program, `avatars.c`
-* error messages: printed to stderr 
+* `file Amazing_$USER_N_D.log`: where $USER is the current userid, N is the value of n_avatars and D is the value of difficulty; open for appending
 
 ### Pseudocode
 1. validate arguments
 2. construct `AM_INIT` struct
 3. write `AM_INIT` to server
 4. wait to receive `AM_INIT_OK`
-5. extract `MazePort`, `MazeHeight`, and `MazeWidth`
+5. extract `maze_port`, `maze_height`, and `maze_width`
 6. create log file Amazing_$USER_N_D.log
 7. write $USER, the MazePort, and the date and time to log file
-8. call avatars.c with nAvatars, Difficulty, MazeHeight, MazeWidth, Host name, MazePort, and the file name of the log
+8. create three global structures, namely:
+    1. a `mazestruct` data structure that contains all of the information gleaned about the maze as the search has progressed. This `mazestruct` module contains a few accessor and modifier methods that the avatars may use in the decision-making algorithm that picks the next best move.
+    2. a `set_t` data structure that uses the avatarIDs as its keys and `avatar_t` structs as its items. These `avatar_t` structs contain information specific to each avatar that is valuable when picking the next best move. This struct will be elaborated upon in the maze-solving portion of this pseudocode section.
+    3. a struct named `last_move` which will hold two XYPos instances and one int avatarID. `last_move` holds the last move attempted by any avatar in the maze. `XYPos before` will hold the position of the avatar before the move was made, and `XYPos after` holds the position of the avatar after the move is attempted, provided the move is successfully made. `int avatarID` will contain the avatarID of the avatar that attempted this move.
+9. initialize `n_avatars` threads, call `avatar_thread` on each
+10. for loop waiting for threads to terminate
+11. use the `avatar_comm` module to determine success or failure, record in logfile
+12. clean up: delete structs and close files
 
 
-It initializes a maze data structure (as specified in the maze_struct module) as well as a counters data structure used for keeping track of what path each Avatar has found.
-
-It then initializes the the nAvatars number of threads, which represent each Avatar, with incrementing int IDs, and starts them on the maze solving function.
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Avatar Program
+## Avatar Programs
 ### avatar_thread
 avatar_thread is a method to be created as a thread that performs the majority of the maze-solving work by calling functions from various modules.
 
@@ -77,20 +66,31 @@ The user’s interface with the main client program is the ASCII UI, which displ
 ### Inputs and Outputs
 
 Inputs:
-* `int nAvatars`
-* `int Difficulty` 
-* `int MazeHeight, MazeWidth`
-* `char* Hostname`
-* `int MazePort`
+* `char* hostname`
+* `int maze_port`
 * `char* filename`
+* `int avatar_id`
 
 Outputs
-* Log File: The first line of the log file contains the MazePort, AvatarId, and the date and time. Then, the logfile documents all of the actions of each of the avatars. It ends with a note on whether the avatars succeeded in finding each other.
+* Log File: The first line of the log file contains the maze_port number, user ID, and the date and time, written by the startup program. Then, the logfile documents all of the actions of each of the avatars. It ends with a note on whether the avatars succeeded in finding each other.
 
 ### Description of Function
-Each `avatar_thread` instance will, upon reaching its turn, read the current state of the maze, calculate the best possible move according to the maze-solution algorithm, and then communicate the move to the server.
+Each `avatar_thread` instance will, upon reaching its turn, read the current state of the maze, calculate the best possible move by calling functions from the `avatar_solve` module, and then communicate the move to the server.
 
-### Maze-solution algorithm: high-level description
+
+### Functional Decomposition into Modules
+We anticipate the following modules: 
+* *avatar_comm* Module, which communicates with the Server and retrieves information from the mazestruct Module
+* *avatar_solve* Module, which takes information obtained from the maze_struct and the Server and computes the next best move, which is sent to the Server.
+* *maze_struct* Module, which contains the logic for making a maze data structure, which will be shared among all of the client threads.  
+
+### avatar_comm Module
+This module contains all the necessary functions for communication with the server. It allows messages to be constructed easily and parses the messages received with the necessary information. These commands will be used by both the Avatars and the startup program.
+
+### avatar_solve Module
+This module contains all the necessary functions for solving the maze and determining the next steps each Avatar should take. It will contain the bulk of the strategy.
+
+#### Maze-solution algorithm: high-level description
 The `avatar_solve` module has two primary modes: **Exploration**, and **Following**.
 
 In **Exploration Mode,** avatars will explore the maze randomly, while leaving behind a “trail” of variables under `int step_count`. The count begins at 0 and increments with every step. The program tags the current coordinate of the avatar in the `maze_struct` with `step_count`, and tags the coordinate with its `avatarID`.
@@ -103,13 +103,33 @@ The other avatars will keep following their trail and will eventually make their
 
 In order to execute this algorithm we will make use of a `set_t` that contains as its keys the `avatarID` and as its item a struct called `avatar_t` that encapsulates all of the information specific to an avatar that is relevant in solving the maze, including the current `step_count` with which each avatar tagged the current co-ordinate and the number of the avatar that each avatar is currently following.
 
-### Functional Decomposition into Modules
-We anticipate the following modules: 
-* *avatar_comm* Module, which communicates with the Server and retrieves information from the mazestruct Module
-* *avatar_solve* Module, which takes information obtained from the maze_struct and the Server and computes the next best move, which is sent to the Server.
-* *maze_struct* Module, which contains the logic for making a maze data structure, which will be shared among all of the client threads.  
+#### Maze-solution Pseudocode 
 
-### maze_struct Design
+1. The `turnID` is determined using the `avatarComm` module, and if the `turnID` matches my `avatarID`:
+	1. If the `last_move` attempted is not null (i.e) this is not the first move to be attempted:
+	2. We first check the last move attempted and see if it found a wall, and update the *maze_struct* accordingly.
+	3. We check to see if the previous avatar’s move found a path; if so, then set the previous avatar’s `maze_solve` mode to **Following.** 
+	4. If not, then tag the `maze_square` with the trail and increment step count.
+	5. Update logfile, UI.
+2. Then we focus on the current turn. If the current turn avatar is not following another avatar:
+	1. If this is the not only avatar remaining that is not following another avatar’s path:
+		1. Move onto another Avatar’s path if possible.
+    		2. If that has failed, eliminate all directions with known walls, and pick a random open direction to move towards, priority given to unexplored directions.
+		3. Communicate to the server the new move, and update `last_move` 
+        2. Otherwise (meaning this is the only avatar remaining that is not following another avatar’s path):
+		1. Backtrack along the avatar’s own trail.
+		2. Communicate to the server the new move, and update `last_move`. 
+        3. Else (meaning it is following another avatar):
+		1. Check if there exists a third Avatar’s path that we can move onto.
+		2. Check if said path belongs to the leader of our leader. If so, move onto it and change the path that the avatar is following.
+		3. Otherwise, continue following the trail.
+		4. Communicate to the server the new move, and update `last_move` 
+3. Update visualization
+4. Write move details to logfile
+
+### maze_struct Module
+
+This module contains the functions necessary for constructing and utilizing a `maze_struct` structure. It also contains methods for the visualization of the maze in a GUI.
 
 The `maze_struct` structure will be a two dimensional array of `maze_square` structs, representing a coordinate plane of squares.
 
@@ -130,40 +150,17 @@ In addition to the struct itself, mazestruct contains methods to update and get 
 
  `last_move` is a struct that holds the last move attempted by any of the avatars in the maze. It holds two `XYPos` variables and one `int avatarID`. `int avatarID` holds the avatarID of the last avatar that attempted to make a move. `XYPos before` holds the position of the avatar before the move is attempted, and `XYPos after` holds the position of the avatar after the move attempted. The two may be the same, meaning a wall was encountered.
 
-### Data Flow Through Modules
+### Data Flow Through All Modules
 
-### Pseudocode
-1. `AMStartup` parses command-line arguments, then messages the server with an `AM_INIT` message specifying `nAvatars` and `difficulty`.
-2. `AMStartup` receives `AM_INIT_OK`, parses the message.
-3. `AMStartup` also creates three major variables, namely:
-    1. A common `mazestruct` data structure that contains all of the information gleaned about the maze as the search has progressed. This `mazestruct` module contains a few accessor and modifier methods that the avatars may use in the decision-making algorithm that picks the next best move.
-    2. A common `set_t` data structure that uses the avatarIDs as its keys and `avatar_t` structs as its items. These `avatar_t` structs contain information specific to each avatar that is valuable when picking the next best move. This struct will be elaborated upon in the maze-solving portion of this pseudocode section.
-    3. A struct named `last_move` which will hold two XYPos instances and one int avatarID. `last_move` holds the last move attempted by any avatar in the maze. `XYPos before` will hold the position of the avatar before the move was made, and `XYPos after` holds the position of the avatar after the move is attempted, provided the move is successfully made. `int avatarID` will contain the avatarID of the avatar that attempted this move.
-4. `AMStartup` then creates the threads running the `avatar_thread` method with necessary parameters. the threads, `avatar_thread`, are initialized and begin running.
+1. `startup` parses command-line arguments, then messages the server with an `AM_INIT` message specifying `nAvatars` and `difficulty`.
+2. `startup` receives `AM_INIT_OK`, parses the message.
+4. `startup` then creates the threads running the `avatar_thread` method with necessary parameters. the threads, `avatar_thread`, are initialized and begin running.
 5. The threads then each send the `AM_AVATAR_READY` message via the mazeport.
-6. Then, the `avatar_thread` function enters into a while loop that terminates only when the game has ended, as determined by the *avatarComm* module:
-    1. The `turnID` is determined using the *avatarComm* module, and if the `turnID` matches my `avatarID`:
-        1. First, process the previous move:
-			1. If the `last_move` attempted is not null (i.e) this is not the first move to be attempted:
-			2. We first check the last move attempted and see if it found a wall, and update the *maze_struct* accordingly.
-			3. We check to see if the previous avatar’s move found a path; if so, then set the previous avatar’s `maze_solve` mode to **Following.** 
-			4. If not, then tag the `maze_square` with the trail and increment step count.
-			5. Update logfile, UI.
-    2. Then we focus on the current turn. If the current turn avatar is not following another avatar:
-		1. If this is the not only avatar remaining that is not following another avatar’s path:
-    		1. Move onto another Avatar’s path if possible.
-    		2. If that has failed, eliminate all directions with known walls, and pick a random open direction to move towards, priority given to unexplored directions.
-			3. Communicate to the server the new move, and update `last_move` 
-        2. Otherwise (meaning this is the only avatar remaining that is not following another avatar’s path):
-			1. Backtrack along the avatar’s own trail.
-			2. Communicate to the server the new move, and update `last_move`. 
-        3. Else (meaning it is following another avatar):
-			1. Check if there exists a third Avatar’s path that we can move onto.
-			2. Check if said path belongs to the leader of our leader. If so, move onto it and change the path that the avatar is following.
-			3. Otherwise, continue following the trail.
-			4. Communicate to the server the new move, and update `last_move` 
-7. Once the game has ended, we use the avatarComm module to determine success or failure, and we use the logfile to record this.
-8. We then clean-up all data structures and exit.
+6. Then, the `avatar_thread` function enters into a while loop that terminates only when the game has ended, as determined by the `avatar_comm` module
+	1. during the while loop, they communicate back and forth with the server using `avatar_comm` 
+	2. each avatar also writes to the logfile and updates the GUI
+7. Game ends with error messages or `AM_MAZE_SOLVED` which is written to the logfile
+8. Program terminates
 
 
 ## Testing Plan
