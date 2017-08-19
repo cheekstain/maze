@@ -39,6 +39,7 @@ Outputs:
 * `file Amazing_$USER_N_D.log`: where $USER is the current userid, N is the value of n_avatars and D is the value of difficulty; open for appending
 
 ### Pseudocode
+```
 1. validate arguments
 2. construct `AM_INIT` struct
 3. write `AM_INIT` to server
@@ -47,14 +48,14 @@ Outputs:
 6. create log file Amazing_$USER_N_D.log
 7. write $USER, the MazePort, and the date and time to log file
 8. create three global structures, namely:
-    1. a `mazestruct` data structure that contains all of the information gleaned about the maze as the search has progressed. This `mazestruct` module contains a few accessor and modifier methods that the avatars may use in the decision-making algorithm that picks the next best move.
-    2. a `set_t` data structure that uses the avatarIDs as its keys and `avatar_t` structs as its items. These `avatar_t` structs contain information specific to each avatar that is valuable when picking the next best move. This struct will be elaborated upon in the maze-solving portion of this pseudocode section.
-    3. a struct named `last_move` which will hold two XYPos instances and one int avatarID. `last_move` holds the last move attempted by any avatar in the maze. `XYPos before` will hold the position of the avatar before the move was made, and `XYPos after` holds the position of the avatar after the move is attempted, provided the move is successfully made. `int avatarID` will contain the avatarID of the avatar that attempted this move.
+	1. a `mazestruct` data structure that contains all of the information gleaned about the maze as the search has progressed. This `mazestruct` module contains a few accessor and modifier methods that the avatars may use in the decision-making algorithm that picks the next best move.
+	2. a `set_t` data structure that uses the avatarIDs as its keys and `avatar_t` structs as its items. These `avatar_t` structs contain information specific to each avatar that is valuable when picking the next best move. This struct will be elaborated upon in the maze-solving portion of this pseudocode section.
+	3. a struct named `last_move` which will hold two XYPos instances and one int avatarID. `last_move` holds the last move attempted by any avatar in the maze. `XYPos before` will hold the position of the avatar before the move was made, and `XYPos after` holds the position of the avatar after the move is attempted, provided the move is successfully made. `int avatarID` will contain the avatarID of the avatar that attempted this move.
 9. initialize `n_avatars` threads, call `avatar_thread` on each
 10. for loop waiting for threads to terminate
 11. use the `avatar_comm` module to determine success or failure, record in logfile
 12. clean up: delete structs and close files
-
+```
 
 ## Avatar Programs
 ### avatar_thread
@@ -113,18 +114,18 @@ In order to execute this algorithm we will make use of a `set_t` that contains a
 	4. If not, then tag the `maze_square` with the trail and increment step count.
 	5. Update logfile, UI.
 2. Then we focus on the current turn. If the current turn avatar is not following another avatar:
-    1. If this is the not only avatar remaining that is not following another avatar’s path:
-	* Move onto another Avatar’s path if possible.
-	* If that has failed, eliminate all directions with known walls, and pick a random open direction to move towards, priority given to unexplored directions.
-	* Communicate to the server the new move, and update `last_move` 
-    2. Otherwise (meaning this is the only avatar remaining that is not following another avatar’s path):
-	* Backtrack along the avatar’s own trail.
-	* Communicate to the server the new move, and update `last_move`. 
-    3. Else (meaning it is following another avatar):
-	* Check if there exists a third Avatar’s path that we can move onto.
-	* Check if said path belongs to the leader of our leader. If so, move onto it and change the path that the avatar is following.
-	* Otherwise, continue following the trail.
-	* Communicate to the server the new move, and update `last_move` 
+	1. If this is the not only avatar remaining that is not following another avatar’s path:
+		1. Move onto another Avatar’s path if possible.
+		2. If that has failed, eliminate all directions with known walls, and pick a random open direction to move towards, priority given to unexplored directions
+		3. Communicate to the server the new move, and update `last_move` 
+	2. Otherwise (meaning this is the only avatar remaining that is not following another avatar’s path)
+		1. Backtrack along the avatar’s own trail.
+		2. Communicate to the server the new move, and update `last_move`. 
+3. Else (meaning it is following another avatar):
+		1. Check if there exists a third Avatar’s path that we can move onto.
+		2. Check if said path belongs to the leader of our leader. If so, move onto it and change the path that the avatar is following.
+		3. Otherwise, continue following the trail.
+		4. Communicate to the server the new move, and update `last_move` 
 3. Update visualization
 4. Write move details to logfile
 ```
