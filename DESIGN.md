@@ -105,6 +105,7 @@ In order to execute this algorithm we will make use of a `set_t` that contains a
 
 #### Maze-solution Pseudocode 
 
+```
 1. The `turnID` is determined using the `avatarComm` module, and if the `turnID` matches my `avatarID`:
 	1. If the `last_move` attempted is not null (i.e) this is not the first move to be attempted:
 	2. We first check the last move attempted and see if it found a wall, and update the *maze_struct* accordingly.
@@ -126,6 +127,7 @@ In order to execute this algorithm we will make use of a `set_t` that contains a
 	* Communicate to the server the new move, and update `last_move` 
 3. Update visualization
 4. Write move details to logfile
+```
 
 ### maze_struct Module
 
