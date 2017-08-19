@@ -4,7 +4,7 @@
 
 *Written using class materials provided by Prof. Zhou*
 
-#Introduction
+# Introduction
 
 This program is intended to run a simulation of a set of maze-solving avatars whose
 function is to efficiently find each other, subject to the constraint that they may
@@ -13,11 +13,9 @@ not exceed the maximum number of moves or the maximum amount of time allotted.
 ## Major Design Decisions
 The maze program will be started with a C program. The avatars will be individual threads within a main C program with functions organized and categorized under across different modules.
 
-*`avatar_comm`: refers to a function(s) related to communications with the server, parsing/naming messages, et cetera.
-
-*`avatar_solve`: refers to a function(s) related to calculating and returning the next best move.
-
-*`maze_struct`: refers to the data structures and related functions dealing with storage and logical structures of the maze.
+* `avatar_comm`: refers to a function(s) related to communications with the server, parsing/naming messages, et cetera.
+* `avatar_solve`: refers to a function(s) related to calculating and returning the next best move.
+* `maze_struct`: refers to the data structures and related functions dealing with storage and logical structures of the maze.
 
 # Startup Design
 
@@ -33,13 +31,13 @@ Takes in command line arguments: `./AMStartup nAvatars=... Difficult=... Hostnam
 ### Inputs and Outputs
 
 Inputs:
-* int nAvatars: number of avatars within maze
-* int Difficulty: ranging from 0 to 9, the difficulty of the maze
-* char* Hostname: the hostname of the server 
+* `int nAvatars`: number of avatars within maze
+* `int Difficulty`: ranging from 0 to 9, the difficulty of the maze
+* `char* Hostname`: the hostname of the server 
 
 Outputs:
-* file Amazing_$USER_N_D.log: where $USER is the current userid, N is the value of nAvatars and D is the value of Difficulty; passed to client program, avatars.c
-* int nAvatars, MazeHeight, MazeWidth, MazePort; char* Hostname: parsed from server, passed to client program, avatars.c
+* `file Amazing_$USER_N_D.log`: where $USER is the current userid, N is the value of nAvatars and D is the value of Difficulty; passed to client program, avatars.c
+* `int nAvatars`, `MazeHeight`, `MazeWidth`, `MazePort`; `char* Hostname`: parsed from server, passed to client program, `avatars.c`
 * error messages: printed to stderr 
 
 ### Pseudocode
@@ -87,21 +85,23 @@ Inputs:
 * `char* filename`
 
 Outputs
-* logfile: The first line of the logfile contains the MazePort, AvatarId, and the date and time. Then, the logfile documents all of the actions of each of the avatars. It ends with a note on whether the avatars succeeded in finding each other.
+* Log File: The first line of the log file contains the MazePort, AvatarId, and the date and time. Then, the logfile documents all of the actions of each of the avatars. It ends with a note on whether the avatars succeeded in finding each other.
 
 ### Description of Function
 Each `avatar_thread` instance will, upon reaching its turn, read the current state of the maze, calculate the best possible move according to the maze-solution algorithm, and then communicate the move to the server.
 
 ### Maze-solution algorithm: high-level description
-The `make_move` function uses an algorithm that depends on the avatars leaving a trail of “path_ids” on each of the maze coordinates that they occupy as they progress through a random exploration of the maze.
-In their random exploration, avatars will not be allowed to explore coordinates that other avatars have explored.
-These path_ids begin at zero for all of the avatars when they first begin the maze. Then, when an avatar (with avatarID of, say, 10) moves to the next coordinate in its exploration, it will increment its path_id by one. Then it will tag this coordinate in the maze (using the *mazestruct* module) with the new path_id. If it is the first avatar to explore this coordinate, it will also tag this coordinate with its own avatarID (in this case, 10), specifying that it is the first avatar to explore this coordinate.
-If, in its random exploration, an avatar (with avatarID = 10 for example) happens to run into the trail of path_ids left by some other avatar (with avatarID 20, for example), then it will start to follow the trail of path_ids left by this avatar (of avatarID 20), in ascending order of path_ids. We will henceforth refer to avatarID = 20 as being the “leader avatar” and avatarID = 10 as the “follower avatar.”
-The leader avatar will continue its random exploration, and the follower avatar will follow its leader by following its path_ids.
-When the follower avatar (avatar 10) encounters along its path another avatar (for example avatar 30), it will switch its “leader” from avatar 20 to avatar 30 if and only if avatar 30 is a leader of the avatar you are currently following (avatar 20).
-When all but one avatar is following another avatar, the only avatar that remains a leader will stop its random exploration and backtrack until it meets another avatar.
+The `avatar_solve` module has two primary modes: **Exploration**, and **Following**.
+
+In **Exploration Mode,** avatars will explore the maze randomly, while leaving behind a “trail” of variables under `int step_count`. The count begins at 0 and increments with every step. The program tags the current coordinate of the avatar in the `maze_struct` with `step_count`, and tags the coordinate with its `avatarID`.
+
+If, in its random exploration, an avatar meets the trail left by some other avatar, it will begin to follow the trail in ascending order; in this way, the follower avatar is guaranteed to trace the path of the avatar that it follows. If the follower avatar encounters along its path the path of another avatar, it will switch its leader if and only if the new avatar is a leader of the avatar that it currently follows. 
+
+When all but one avatar is following another avatar (indicating that all avatars are in a “train” of sorts), the only avatar that remains a leader will stop its random exploration and backtrack until it meets another avatar.
+
 The other avatars will keep following their trail and will eventually make their way to the coordinates of the only remaining leader.
-In order to execute this algorithm we will make use of a *set_t* that contains as its keys the *avatarID* and as its item a struct called *avatar_t* that encapsulates all of the information specific to an avatar that is relevant in solving the maze, including the current path_id number with which each avatar tagged the current co-ordinate and the number of the avatar that each avatar is currently following (-1 if the avatar is not currently following any avatar).
+
+In order to execute this algorithm we will make use of a `set_t` that contains as its keys the `avatarID` and as its item a struct called `avatar_t` that encapsulates all of the information specific to an avatar that is relevant in solving the maze, including the current `step_count` with which each avatar tagged the current co-ordinate and the number of the avatar that each avatar is currently following.
 
 ### Functional Decomposition into Modules
 We anticipate the following modules: 
@@ -124,7 +124,7 @@ In addition to the struct itself, mazestruct contains methods to update and get 
 ### Major Data Structures 
 `maze_t` is a struct representing the maze itself, represented by a two-dimensional array of `mazesquare_t` objects, each of which contains information about the walls, tags, and avatars within it (see mazestruct.c for more info about each of these structures).
 
-`avatar_t` is a struct, which hold information about a given avatar such as its ID, the current `path_id` of the avatar and the `avatarID` of the avatar that it is following.
+`avatar_t` is a struct, which hold information about a given avatar such as its ID, the current `step_count` of the avatar and the `avatarID` of the avatar that it is following.
 
 `avatars` is a `set_t` data structure which stores information about each avatar that is relevant in algorithmically determining the next best move of each avatar. It takes the `avatarID` as keys, holding `avatar_t` items.
 
@@ -147,26 +147,26 @@ In addition to the struct itself, mazestruct contains methods to update and get 
 	2. We first check the last move attempted and use the avatarComm module to see if the last move attempted was successful. 
 	3. We then update the *mazeStruct* accordingly.
 	4. Then, if the avatar which attempted the last move is currently on the path of another avatar that we are not currently following, then we will record in the *avatars* data structure that the last avatar that tried to make a move is now following the avatar whose path it is currently on. 
-	5. If the last avatar that made a move is not following anyone (that is, it is not on anyone else’s path that has already been tagged with a path_id:
-	6. Tag the new coordinate using *mazestruct*, specifying that this avatar is the first avatar to visit this coordinate. The path_id is also incremented, and this coordinate is tagged with this new path_id.
+	5. If the last avatar that made a move is not following anyone (that is, it is not on anyone else’s path that has already been tagged with a step_count:
+	6. Tag the new coordinate using *mazestruct*, specifying that this avatar is the first avatar to visit this coordinate. The step_count is also incremented, and this coordinate is tagged with this new step_count.
 	7. The logfile is then updated to reflect the previous move.
 	8. The UI is updated.
 11. Then we focus on the current turn. If the current turn avatar is not following another avatar:
 	1. If this is the not only avatar remaining that is not following another avatar’s path:
 		2. If we see that we are one move away from moving into the path of another avatar (as determined by the *mazestruct* module) we will attempt to move into that spot. 
 		3. Otherwise, we will then eliminate all of the directions that are known to have walls that prevent us from moving into that direction.
-	2. We will then check to see whether we are at a dead end (that is, three directions are blocked and the only way out is the way we came). In this case, go back the way we came by checking the coordinates on all four directions, and selecting the direction which contains the lowest path_id that has been tagged by the current avatar whose turn it is.
+	2. We will then check to see whether we are at a dead end (that is, three directions are blocked and the only way out is the way we came). In this case, go back the way we came by checking the coordinates on all four directions, and selecting the direction which contains the lowest step_count that has been tagged by the current avatar whose turn it is.
 	3. Or else, look at all of the directions that currently unexplored and pick one of those at random to explore.
 	4. Then the *avatarComm* module is used to communicate to the server that this is the next move that the avatar wishes to make.
 	5. Then, the last_move struct is updated accordingly to record the move that the avatar just attempted to make. 
 12. Otherwise (meaning this is the only avatar remaining that is not following another avatar’s path):
-	1. Backtrack and follow the path that the current avatar has just come from by checking the coordinates on all four directions, and selecting the direction which contains the lowest path_id that has been tagged by the current avatar whose turn it is.
+	1. Backtrack and follow the path that the current avatar has just come from by checking the coordinates on all four directions, and selecting the direction which contains the lowest step_count that has been tagged by the current avatar whose turn it is.
 	2. Then the *avatarComm* module is used to communicate to the server that this is the next move that the avatar wishes to make.
 	3. Then, the last_move struct is updated accordingly to record the move that the avatar just attempted to make. 
 13. Else (meaning it is following another avatar):
 	1. We will check all four directions and check if one of the neighbouring coordinates was tagged as being part of the path of another avatar that we are not currently following. 
 	2. If so, and if the avatar we are currently following happens to be following the path of the newly discovered avatar, then we will attempt to move in that direction (such that we are now on the path of the newly discovered avatar)
-	3. Otherwise, we will check the coordinates on all four directions to see which ones are part of the path of the avatar we are currently following. If we find multiple coordinates, we will pick the coordinate with the highest path_id.
+	3. Otherwise, we will check the coordinates on all four directions to see which ones are part of the path of the avatar we are currently following. If we find multiple coordinates, we will pick the coordinate with the highest step_count.
 	4. Then the *avatarComm* module is used to communicate to the server that this is the next move that the avatar wishes to make.
 	5. Then, the last_move struct is updated accordingly to record the move that this avatar just attempted to make. 
 14. Once the game has ended, we use the avatarComm module to determine success or failure, and we use the logfile to record this.
