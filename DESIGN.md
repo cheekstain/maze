@@ -106,24 +106,24 @@ In order to execute this algorithm we will make use of a `set_t` that contains a
 #### Maze-solution Pseudocode 
 
 1. The `turnID` is determined using the `avatarComm` module, and if the `turnID` matches my `avatarID`:
-	1. If the `last_move` attempted is not null (i.e) this is not the first move to be attempted:
-	2. We first check the last move attempted and see if it found a wall, and update the *maze_struct* accordingly.
-	3. We check to see if the previous avatar’s move found a path; if so, then set the previous avatar’s `maze_solve` mode to **Following.** 
-	4. If not, then tag the `maze_square` with the trail and increment step count.
-	5. Update logfile, UI.
+    1. If the `last_move` attempted is not null (i.e) this is not the first move to be attempted:
+    2. We first check the last move attempted and see if it found a wall, and update the *maze_struct* accordingly.
+    3. We check to see if the previous avatar’s move found a path; if so, then set the previous avatar’s `maze_solve` mode to **Following.** 
+    4. If not, then tag the `maze_square` with the trail and increment step count.
+    5. Update logfile, UI.
 2. Then we focus on the current turn. If the current turn avatar is not following another avatar:
-	1. If this is the not only avatar remaining that is not following another avatar’s path:
-		1. Move onto another Avatar’s path if possible.
-    		2. If that has failed, eliminate all directions with known walls, and pick a random open direction to move towards, priority given to unexplored directions.
-		3. Communicate to the server the new move, and update `last_move` 
-        2. Otherwise (meaning this is the only avatar remaining that is not following another avatar’s path):
-		1. Backtrack along the avatar’s own trail.
-		2. Communicate to the server the new move, and update `last_move`. 
-        3. Else (meaning it is following another avatar):
-		1. Check if there exists a third Avatar’s path that we can move onto.
-		2. Check if said path belongs to the leader of our leader. If so, move onto it and change the path that the avatar is following.
-		3. Otherwise, continue following the trail.
-		4. Communicate to the server the new move, and update `last_move` 
+    1. If this is the not only avatar remaining that is not following another avatar’s path:
+	1. Move onto another Avatar’s path if possible.
+	2. If that has failed, eliminate all directions with known walls, and pick a random open direction to move towards, priority given to unexplored directions.
+	3. Communicate to the server the new move, and update `last_move` 
+    2. Otherwise (meaning this is the only avatar remaining that is not following another avatar’s path):
+	1. Backtrack along the avatar’s own trail.
+	2. Communicate to the server the new move, and update `last_move`. 
+    3. Else (meaning it is following another avatar):
+	1. Check if there exists a third Avatar’s path that we can move onto.
+	2. Check if said path belongs to the leader of our leader. If so, move onto it and change the path that the avatar is following.
+	3. Otherwise, continue following the trail.
+	4. Communicate to the server the new move, and update `last_move` 
 3. Update visualization
 4. Write move details to logfile
 
