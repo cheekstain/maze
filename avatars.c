@@ -16,6 +16,7 @@ maze_t maze;
 set_t avatars;
 
 int main (int argc, char *argv[]){
+	
   /*
     PARSE PARAMETERS
     TODO: FILL IN ARG
