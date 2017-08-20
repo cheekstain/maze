@@ -14,14 +14,22 @@
 int main()
 {
 	//set up maze for simple test
-	const int width = 4;
+	const int width = 5;
 	const int height = 4;
 	const int num_avatars = 2;
 
+	printf("Creating maze...\n");
 
 	maze_t *maze = maze_new(width, height, num_avatars);
 
+
+	printf("Drawing maze...\n");
+
 	draw_maze(maze);
+
+	//maze_delete(maze);
+
+	//printf("After maze_delete\n");
 }
 
 
