@@ -13,7 +13,7 @@
 #ifndef __MAZESTRUCT_H
 #define __MAZESTRUCT_H
 
-#import "../amazing.h"
+#include "../amazing.h"
 
 /**************** global types ****************/
 typedef struct maze maze_t;	// opaque to users of the module
@@ -155,9 +155,9 @@ void maze_delete(maze_t *maze);
  *|  1  ?     ?     |  currently unknown, and the numbers 0-9 represent the
  *|     ?_____??????|  avatars of the corresponding ids.
  *|     |           |
- *|     |           |
- *|     |_____      |
- *|           |     |
+ *|     |           |  Note: the printable version is actually 7 chars across, 
+ *|     |_____      |  not 5 like in the diagram on the left, due to slightly
+ *|           |     |  different spacing between editors and the terminal.
  *|           |  0  |
  *|_____ _____|_____|
  */

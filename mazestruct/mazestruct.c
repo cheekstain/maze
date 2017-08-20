@@ -266,7 +266,7 @@ void draw_maze(maze_t *maze)
 				draw_wall(wall_status);
 
 				if (counter == 1) {
-					printf("     ");
+					printf("       ");
 				}
 
 				if (counter == 2) {
@@ -286,7 +286,7 @@ void draw_maze(maze_t *maze)
 static void draw_top_row(int width)
 {
 	for (int i = 0; i < width ; i++) {
-		printf(" _____");
+		printf(" _______");
 	}
 	printf("\n");
 }
@@ -307,22 +307,22 @@ static void draw_wall(int wall_status)
 
 static void draw_people(maze_t *maze)  // TODO!!!!!!!!!!!!!!
 {
-	printf("     ");
+	printf("       ");
 }
 
 
 static void draw_floor(int floor_status)
 {
 	if (floor_status == -1) {
-		printf("?????");
+		printf("???????");
 	}
 
 	if (floor_status == 0) {
-		printf("     ");
+		printf("       ");
 	}
 
 	if (floor_status == 1) {
-		printf("_____");
+		printf("_______");
 	}
 }
 
