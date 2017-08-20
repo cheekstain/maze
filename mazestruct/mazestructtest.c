@@ -27,7 +27,9 @@ int main()
 
 	draw_maze(maze);
 
-	//maze_delete(maze);
+	printf("Deleting maze...\n");
+
+	maze_delete(maze);
 
 	//printf("After maze_delete\n");
 }

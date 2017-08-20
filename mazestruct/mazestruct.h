@@ -13,6 +13,7 @@
 #ifndef __MAZESTRUCT_H
 #define __MAZESTRUCT_H
 
+#import "../amazing.h"
 
 /**************** global types ****************/
 typedef struct maze maze_t;	// opaque to users of the module
@@ -29,7 +30,7 @@ typedef struct maze maze_t;	// opaque to users of the module
  * Returns 0 if there is no wall, 1 if there is a wall, and -1 if the wall
  * status is unknown.
  */
-int get_north_wall(maze_t *maze, int x_coord, int y_coord);
+int get_north_wall(maze_t *maze, XYPos *pos);
 
 /*
  * Provided with a maze and x and y coordinates, return the wall status to the 
@@ -38,7 +39,7 @@ int get_north_wall(maze_t *maze, int x_coord, int y_coord);
  * Returns 0 if there is no wall, 1 if there is a wall, and -1 if the wall
  * status is unknown.
  */
-int get_south_wall(maze_t *maze, int x_coord, int y_coord);
+int get_south_wall(maze_t *maze, XYPos *pos);
 
 /*
  * Provided with a maze and x and y coordinates, return the wall status to the 
@@ -47,7 +48,7 @@ int get_south_wall(maze_t *maze, int x_coord, int y_coord);
  * Returns 0 if there is no wall, 1 if there is a wall, and -1 if the wall
  * status is unknown.
  */
-int get_east_wall(maze_t *maze, int x_coord, int y_coord);
+int get_east_wall(maze_t *maze, XYPos *pos);
 
 /*
  * Provided with a maze and x and y coordinates, return the wall status to the 
@@ -56,7 +57,7 @@ int get_east_wall(maze_t *maze, int x_coord, int y_coord);
  * Returns 0 if there is no wall, 1 if there is a wall, and -1 if the wall
  * status is unknown.
  */
-int get_west_wall(maze_t *maze, int x_coord, int y_coord);
+int get_west_wall(maze_t *maze, XYPos *pos);
 
 /*
  * Provided with a maze and x and y coordinates, return which avatar, if any, 
@@ -65,7 +66,7 @@ int get_west_wall(maze_t *maze, int x_coord, int y_coord);
  * Returns the number of that avatar (0-9) if any avatar has tagged it, or -1
  * if the square is still unvisited.
  */
-int get_tagged_by(maze_t *maze, int x_coord, int y_coord);
+int get_tagged_by(maze_t *maze, XYPos *pos);
 
 /*
  * Provided with a maze and x and y coordinates, return the strength of the tag
@@ -74,7 +75,7 @@ int get_tagged_by(maze_t *maze, int x_coord, int y_coord);
  * Since the tag strengths left by the avatars start at zero, a tag_strength of
  * -1 means the square is unvisited.
  */
-int get_tag_strength(maze_t *maze, int x_coord, int y_coord);
+int get_tag_strength(maze_t *maze, XYPos *pos);
 
 
 /**************** setters ****************/
@@ -86,7 +87,7 @@ int get_tag_strength(maze_t *maze, int x_coord, int y_coord);
  * new_val should be 0 if there is no wall, 1 if there is a wall, and -1 if the 
  * wall status is unknown.
  */
-void set_north_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
+void set_north_wall(maze_t *maze, XYPos *pos, int new_val);
 
 /*
  * Provided with a maze and x and y coordinates, set the wall status to the 
@@ -95,7 +96,7 @@ void set_north_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
  * new_val should be 0 if there is no wall, 1 if there is a wall, and -1 if the 
  * wall status is unknown.
  */
-void set_south_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
+void set_south_wall(maze_t *maze, XYPos *pos, int new_val);
 
 /*
  * Provided with a maze and x and y coordinates, set the wall status to the 
@@ -104,7 +105,7 @@ void set_south_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
  * new_val should be 0 if there is no wall, 1 if there is a wall, and -1 if the 
  * wall status is unknown.
  */
-void set_east_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
+void set_east_wall(maze_t *maze, XYPos *pos, int new_val);
 
 /*
  * Provided with a maze and x and y coordinates, set the wall status to the 
@@ -113,7 +114,7 @@ void set_east_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
  * new_val should be 0 if there is no wall, 1 if there is a wall, and -1 if the 
  * wall status is unknown.
  */
-void set_west_wall(maze_t *maze, int x_coord, int y_coord, int new_val);
+void set_west_wall(maze_t *maze, XYPos *pos, int new_val);
 
 /**************** other ****************/
 
@@ -134,7 +135,7 @@ maze_t *maze_new(const int width, const int height, const int num_avatars);
  * and the tag_strength is their current step number; it starts at 0 and
  * increases with every step that avatar makes.
  */
-void visit(maze_t *maze, int x_coord, int y_coord, int visitor, int tag_strength);
+void visit(maze_t *maze, XYPos *pos, int visitor, int tag_strength);
 
 /*
  * Frees the maze as well as all of the allocated structures within it. No 
