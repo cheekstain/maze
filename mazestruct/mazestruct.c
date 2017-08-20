@@ -16,7 +16,6 @@ typedef struct mazesquare {
 	int east_wall;
 	int south_wall;
 	int west_wall;
-	bool visited;
 	int tagged_by;
 	int tag_strength;
 	int *avatars_here;
@@ -65,9 +64,8 @@ static mazesquare_t *mazesquare_new(int num_avatars)
 	square->south_wall = -1;
 	square->east_wall = -1;
 	square->west_wall = -1;
-	square->visited = false;
 	square->tagged_by = -1;
-	square->tag_strength =-1;
+	square->tag_strength = -1;
 
 	return square;
 }
@@ -196,13 +194,6 @@ void set_west_wall(maze_t *maze, int x_coord, int y_coord, int new_val)
 }
 
 /******************************** get_visited *********************************/
-bool get_visited(maze_t *maze, int x_coord, int y_coord)
-{
-	mazesquare_t *square = get_square_at_coords(maze, x_coord, y_coord);
-	return square->visited;
-}
-
-/******************************** get_visited *********************************/
 int get_tagged_by(maze_t *maze, int x_coord, int y_coord)
 {
 	mazesquare_t *square = get_square_at_coords(maze, x_coord, y_coord);
@@ -212,7 +203,7 @@ int get_tagged_by(maze_t *maze, int x_coord, int y_coord)
 int get_tag_strength(maze_t *maze, int x_coord, int y_coord)
 {
 	mazesquare_t *square = get_square_at_coords(maze, x_coord, y_coord);
-	return square->tagged_by;
+	return square->tag_strength;
 }
 
 /******************************** set_visited *********************************/
@@ -329,20 +320,6 @@ static void draw_floor(int floor_status)
 		printf("_____");
 	}
 }
-
-/* Maze UI will look like this:
-1 _____ _____ _____
-2|     ?     ?     |
-3|  1  ?     ?     |
-4|     ?_____??????|
-5|     |           |
-6|     |           |
-7|     |_____      |
-8|           |     |
-9|           |  0  |
-0|_____ _____|_____|
-
-*/
 
 
 
