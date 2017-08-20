@@ -99,6 +99,22 @@ int get_position_array();
 */
 bool is_game_over();
 
+/*
+*
+* Returns whether the game ended due to a server timeout
+* 
+*
+*/
+  bool is_timeout();
+
+/*
+*
+* Returns whether the game ended because the number of moves allotted was exceeded
+* 
+*
+*/
+  bool is_moves_execeeded();
+
 
 
 
