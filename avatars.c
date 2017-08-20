@@ -58,7 +58,7 @@ void update_last_move(int avatarID);
 
 void setup_datastructures(){
   maze = maze_new(get_maze_width(), get_maze_height(), get_num_avatars());
-  
+
   avatars = set_new();
   for(int i = 0; i<get_num_avatars(); i++){
     avatar_t *new_avatar;
