@@ -16,7 +16,7 @@
 *Sends the AM_INIT message to the server
 *
 */
-void send_init(int nAvatars, int difficulty);
+void send_init(int nAvatars, int difficulty, char *hostname);
 
 /*
 *
