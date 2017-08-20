@@ -11,7 +11,7 @@
 #include "amazing.h"
 
 static bool is_init_successful = false;
-static int mazeport;
+static int mazeport; \
 static int maze_width;
 static int maze_height;
 static int turnID;
@@ -27,10 +27,11 @@ static struct sockaddr_in server;
 
 /*
 *
-*Sends the AM_INIT message to the server
+* Establishes a connection to the server, and sends the AM_INIT message.
 *
 */
-void send_init(int nAvatars, int difficulty, char *hostname){
+void send_init(int nAvatars, int difficulty, char *hostname)
+{
 	AM_Message initialize;
 	initialize.type = AM_INIT
 	initialize.type.Avatars = htonl(nAvatars);
@@ -65,12 +66,13 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 
 /*
 *
-* Sends the AM_AVATAR_READY message to the server
+* Establishes a connection through the mazeport and sends the AM_AVATAR_READY message to the server.
 *
 */
-  void send_avatar_ready(int avatarID){
+  void send_avatar_ready(int avatarID)
+  {
 	//server.sin_family = AF_INET;
-	server.sin_port = htonl(mazeport);
+  	server.sin_port = htonl(mazeport);
 	// Look up the hostname specified on command line
   	//struct hostent *hostp = gethostbyname(hostname); // server hostname
   	//if (hostp == NULL) {
@@ -97,11 +99,12 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * Sends the AM_AVATAR_MOVE message
 *
 */
-  void send_move(int avatarID, int direction){
+  void send_move(int avatarID, int direction)
+  {
   	AM_Message msg;
   	msg.type = AM_AVATAR_MOVE;
-  	msg.type.AvatarId = avatarID;
-  	msg.type.Direction = direction;
+  	msg.type.AvatarId = htons(avatarID);
+  	msg.type.Direction = htons(direction);
   	if (write(comm_sock, &msg, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
   		exit(4);
@@ -115,60 +118,61 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * In other words, it must be called any time a mesage is sent from the client to the server.
 *
 */
-  void receive_message(){
+  void receive_message()
+  {
   	char buf [BUFSIZE];
   	if ((bytes_read = read(comm_sock, buf, BUFSIZE-1)) < 0) {
-      fprintf(stderr, "Error reading from server.");
-      exit(5);
-    }
+  		fprintf(stderr, "Error reading from server.");
+  		exit(5);
+  	}
 
-    AM_Message *msg = (AM_Message *) buf;
-    if (msg->type == AM_INIT_OK){
-    	mazeport = ntohl(msg->init_ok.MazePort);
-    	maze_width = ntohl(msg->init_ok.MazeWidth);
-    	maze_height = ntohl(msg->init_ok.MazeHeight);
-    	is_init_successful = true;
-    }
+  	AM_Message *msg = (AM_Message *) buf;
+  	if (msg->type == AM_INIT_OK){
+  		mazeport = ntohl(msg->init_ok.MazePort);
+  		maze_width = ntohl(msg->init_ok.MazeWidth);
+  		maze_height = ntohl(msg->init_ok.MazeHeight);
+  		is_init_successful = true;
+  	}
 
-    else if (msg->type == AM_INIT_FAILED){
-    	is_init_successful = false;
-    }
-    else if (msg->type == AM_NO_SUCH_AVATAR){
-    	fprintf(stderr, "No such Avatar!");
-    	exit(6);
-    }
-    else if (msg->type == AM_AVATAR_TURN){
-    	turnID = ntohl(msg->avatar_turn.TurnId);
-    	positions = ntohl(msg->avatar_turn.Pos);
-    }
-    else if (msg->type == AM_UNKNOWN_MSG_TYPE){
-    	fprintf(stderr, "Unknown message type!");
-    	exit(7);
-    }
-    else if (msg->type == AM_UNEXPECTED_MSG_TYPE){
-    	fprintf(stderr, "Unexpected message type!");
-    	exit(8);
-    }
-    else if (msg->type == AM_AVATAR_OUT_OF_TURN){
-    	fprintf(stderr, "Avatar out of turn!");
-    	exit(9);
-    }
-    else if (msg->type == AM_TOO_MANY_MOVES){
-    	is_game_over = true;
-    	is_too_many_moves = true;
-    }
-    else if (msg->type == AM_SERVER_TIMEOUT){
-    	is_game_over = true;
-    	is_timeout = true;
-    }
-    else if (msg->type == AM_SERVER_DISK_QUOTA){
-    	fprintf(stderr, "Exceeeded server disk quota!");
-    	exit(9);
-    }
-    else if (msg->type == AM_SERVER_OUT_OF_MEM){
-    	fprintf(stderr, "Exceeeded server memory!");
-    	exit(9);
-    }
+  	else if (msg->type == AM_INIT_FAILED){
+  		is_init_successful = false;
+  	}
+  	else if (msg->type == AM_NO_SUCH_AVATAR){
+  		fprintf(stderr, "No such Avatar!");
+  		exit(6);
+  	}
+  	else if (msg->type == AM_AVATAR_TURN){
+  		turnID = ntohl(msg->avatar_turn.TurnId);
+  		positions = ntohl(msg->avatar_turn.Pos);
+  	}
+  	else if (msg->type == AM_UNKNOWN_MSG_TYPE){
+  		fprintf(stderr, "Unknown message type!");
+  		exit(7);
+  	}
+  	else if (msg->type == AM_UNEXPECTED_MSG_TYPE){
+  		fprintf(stderr, "Unexpected message type!");
+  		exit(8);
+  	}
+  	else if (msg->type == AM_AVATAR_OUT_OF_TURN){
+  		fprintf(stderr, "Avatar out of turn!");
+  		exit(9);
+  	}
+  	else if (msg->type == AM_TOO_MANY_MOVES){
+  		is_game_over = true;
+  		is_too_many_moves = true;
+  	}
+  	else if (msg->type == AM_SERVER_TIMEOUT){
+  		is_game_over = true;
+  		is_timeout = true;
+  	}
+  	else if (msg->type == AM_SERVER_DISK_QUOTA){
+  		fprintf(stderr, "Exceeeded server disk quota!");
+  		exit(9);
+  	}
+  	else if (msg->type == AM_SERVER_OUT_OF_MEM){
+  		fprintf(stderr, "Exceeeded server memory!");
+  		exit(9);
+  	}
   }
 
 /*
@@ -176,7 +180,8 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * returns whether or not the AM_INIT message was successfully sent and the server responded with AM_INIT_OK
 *
 */
-  bool is_init_successful(){
+  bool is_init_successful()
+  {
   	return is_init_successful;
   }
 
@@ -185,7 +190,8 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * Returns the mazeport
 *
 */
-  int get_mazeport(){
+  int get_mazeport()
+  {
   	return mazeport;
   }
 
@@ -194,7 +200,8 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * Returns the width of the maze
 *
 */
-  int get_maze_width(){
+  int get_maze_width()
+  {
   	return maze_width;
   }
 
@@ -203,7 +210,8 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * Returns the height of the maze
 *
 */
-  int get_maze_height(){
+  int get_maze_height()
+  {
   	return maze_height;
   }
 
@@ -213,7 +221,8 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * Precondition: receive_message() must be called after the send_move function in order to provide the accurate turnID
 *
 */
-  int get_turnID(){
+  int get_turnID()
+  {
   	return turnID;
   }
 
@@ -223,7 +232,8 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * Precondition: receive_message() must be called after the send_move function in order to provide the accurate position array
 *
 */
-  int get_position_array(){
+  int get_position_array()
+  {
   	return positions;
   }
 
@@ -234,7 +244,8 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * 
 *
 */
-  bool is_game_over(){
+  bool is_game_over()
+  {
   	return is_game_over;
   }
 
@@ -245,7 +256,8 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * 
 *
 */
-  bool is_timeout(){
+  bool is_timeout()
+  {
   	return is_timeout;
   }
 
@@ -255,7 +267,8 @@ void send_init(int nAvatars, int difficulty, char *hostname){
 * 
 *
 */
-  bool is_moves_execeeded(){
+  bool is_moves_execeeded()
+  {
   	return is_too_many_moves;
   }
 

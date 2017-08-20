@@ -11,16 +11,17 @@
 
 
 /**************** message sending functions ****************/
+
 /*
 *
-*Sends the AM_INIT message to the server
+* Establishes a connection to the server, and sends the AM_INIT message.
 *
 */
 void send_init(int nAvatars, int difficulty, char *hostname);
 
 /*
 *
-* Sends the AM_AVATAR_READY message to the server
+* Establishes a connection through the mazeport and sends the AM_AVATAR_READY message to the server.
 *
 */
 void send_avatar_ready(int avatarID);
