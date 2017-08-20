@@ -77,7 +77,6 @@ int get_tagged_by(maze_t *maze, XYPos *pos);
  */
 int get_tag_strength(maze_t *maze, XYPos *pos);
 
-
 /**************** setters ****************/
 
 /*
@@ -138,6 +137,27 @@ maze_t *maze_new(const int width, const int height, const int num_avatars);
 void visit(maze_t *maze, XYPos *pos, int visitor, int tag_strength);
 
 /*
+ * Called any time an avatar successfully moves from one square to another, this
+ * function updates the maze to reflect that the avatar is now in the new square
+ * and not in the old one.
+ *
+ * The position object provided should refer to the position of the new square
+ * that the avatar inhabits.
+ */
+void set_avatar_position(maze_t *maze, XYPos *pos, int avatar);
+
+/*
+ * Takes in an empty array that has at least as many slots as there are avatars
+ * in the maze. In running is_collision, it will be filled with every avatar 
+ * that is on the squre associated with the given pos. It may end up still 
+ * empty if there are no avatars on that square.
+ * 
+ * Returns true if there are two or more avatars in the same square; returns
+ * false otherwise.
+ */
+bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[]);
+
+/*
  * Frees the maze as well as all of the allocated structures within it. No 
  * freeing is necessary beyond calling maze_delete.
  */
@@ -155,7 +175,7 @@ void maze_delete(maze_t *maze);
  *|  1  ?     ?     |  currently unknown, and the numbers 0-9 represent the
  *|     ?_____??????|  avatars of the corresponding ids.
  *|     |           |
- *|     |           |  Note: the printable version is actually 7 chars across, 
+ *|     |           |  Note: the printable version's squares are 7 chars across, 
  *|     |_____      |  not 5 like in the diagram on the left, due to slightly
  *|           |     |  different spacing between editors and the terminal.
  *|           |  0  |
