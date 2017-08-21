@@ -88,10 +88,10 @@ We anticipate the following modules:
 ### avatar_comm Module
 This module contains all the necessary functions for communication with the server. It allows messages to be constructed easily and parses the messages received with the necessary information. These commands will be used by both the Avatars and the startup program.
 
-### avatar_solve Module
+## avatar_solve Module
 This module contains all the necessary functions for solving the maze and determining the next steps each Avatar should take. It will contain the bulk of the strategy.
 
-#### avatar_solve Exported Functions
+### avatar_solve Exported Functions
 The `avatar_solve` module exports four functions, three of which are called
 in different circumstances in order to decide the next move an avatar should
 take.
@@ -128,7 +128,7 @@ Avatar's path if the third Avatar is being followed by the Avatar the current
 Avatar is following. Otherwise, it continues to follow the path it is on. It
 writes its attempt to move to the log.
 
-#### avatar_solve Data Structures
+### avatar_solve Data Structures
 The `avatar_solve` module exports one data structure, `move_t`. This structure
 is comprised of two `int` variables, one which represents the `avatar_id` and
 one which represents the `direction` of the move it wishes to take, where
@@ -138,7 +138,7 @@ one which represents the `direction` of the move it wishes to take, where
 moves for the avatar: `maze_solve`, `leader_solve`, `follower_solve`. It 
 contains the information needed to pass the attempted move to the server.
 
-#### Maze-solution algorithm: high-level description
+### Maze-solution algorithm: high-level description
 The `avatar_solve` module has two primary modes: *Exploration*, and *Following*.
 
 In *Exploration Mode*, avatars will explore the maze randomly, while leaving behind a “trail” of variables under `int strength`. The count begins at 0 and increments with every step. The program tags the current coordinate of the avatar in the `maze_struct` with `strength`, and tags the coordinate with its `avatar_id`.
@@ -152,7 +152,7 @@ The other avatars will keep following their trail and will eventually make their
 In order to execute this algorithm we will make use of a `counters_t` that contains as its keys the `avatar_id` and the id of the avatar it is following as the
 count.
 
-### maze_struct Module
+## maze_struct Module
 
 This module contains the functions necessary for constructing and utilizing a `maze_struct` structure. It also contains methods for the visualization of the maze in a GUI.
 
