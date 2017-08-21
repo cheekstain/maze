@@ -26,7 +26,7 @@ typedef struct maze_data_pointer_struct {
   maze_t* maze;
   lastmove_t* lastmove;
   counters_t* follow_list;
-  int strength = 0;
+  int strength;
 } maze_pointers_t;
 
 /*
@@ -48,6 +48,7 @@ maze_pointers_t* maze_pointers_new(char* hostname,
   tmp->maze = maze;
   tmp->lastmove = lastmove;
   tmp->follow_list = follow_list;
+  tmp->strength = 0;
   return tmp;
 }
 
