@@ -14,7 +14,6 @@
 #include "counters.h"
 #include "memory.h"
 #include <string.h>
-#include <mazestruct.h>
 
 typedef struct maze_data_pointer_struct {
   const char* hostname;
