@@ -244,7 +244,7 @@ bool send_init(int nAvatars, int difficulty, char *hostname)
 * Precondition: receive_message() must be called after the send_move function in order to provide the accurate position array
 *
 */
-  int get_position_array()
+  XYPos *get_position_array()
   {
   	return positions;
   }
