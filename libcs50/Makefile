@@ -6,7 +6,7 @@
 
 # object files, and the target library
 OBJS = bag.o counters.o file.o hashtable.o jhash.o memory.o \
-       set.o webpage.o maze_pointers.o
+       set.o webpage.o
 LIB = libcs50.a
 
 # add -DNOSLEEP to disable the automatic sleep after web-page fetches
@@ -32,7 +32,6 @@ jhash.o: jhash.h
 memory.o: memory.h
 set.o: set.h
 webpage.o:  webpage.h
-maze_pointers.o: maze_pointers.c
 
 .PHONY: clean sourcelist
 
