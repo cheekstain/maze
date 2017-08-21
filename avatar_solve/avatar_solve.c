@@ -8,10 +8,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "avatar_solve.h"
-#include "amazing.h"
-#include "avatar.h"
-#include "./mazestruct/mazestruct.h"
-#include "counters.h"
+#include "../amazing.h"
+#include "../mazestruct/mazestruct.h"
+#include "../maze_pointer/maze_pointers.h"
+#include "../libcs50/counters.h"
 
 /****************** global types ******************/
 typedef struct move {
@@ -40,7 +40,7 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 	int prev_dir = move->direction;
 	XYPos pos = move->after;
 
-    if (move != NULL && receive_message()) { // not the first move 
+    if (prev_id != -1) { // not the first move 
         if (is_xypos_equal(move->before, move->after)) {
         	// move has not been made, must be a wall
         	log_wall(move, log);
@@ -265,11 +265,14 @@ char* get_dir(int dir) {
  */
 void log_wall(lastmove_t* move, char* log)
 {
+	FILE *fp = fopen(log, "a");
+
 	int x = move->after->x;
 	int y = move->after->y;
 	char* dir = get_dir(move->direction);
 
-	fprintf(log, "Move failed. %s wall added to (%d, %d).\n", dir, x, y);
+	fprintf(fp, "Move failed. %s wall added to (%d, %d).\n", dir, x, y);
+	fclose(fp);
 }
 
 /* log_move is a function that updates the log with an avatar move if it
@@ -279,11 +282,14 @@ void log_wall(lastmove_t* move, char* log)
  */
 void log_move(lastmove_t* move, char* log)
 {
+	FILE *fp = fopen(log, "a");
+
 	int id = move->avatarID;
 	int x = move->after->x;
 	int y = move->after->y;
 
-	fprintf(log, "Avatar %d moved to (%d, %d).\n", id, x, y);
+	fprintf(fp, "Avatar %d moved to (%d, %d).\n", id, x, y);
+	fclose(fp);
 }
 
 /* log_following is a function that updates the log with who an avatar is
@@ -293,7 +299,10 @@ void log_move(lastmove_t* move, char* log)
  */
 void log_following(int me, int following, char* log)
 {
-	fprintf(log, "Avatar %d is on avatar %d's path.\n", me, following);
+	FILE *fp = fopen(log, "a");
+
+	fprintf(fp, "Avatar %d is on avatar %d's path.\n", me, following);
+	fclose(fp);
 }
 
 /* log_attempt is a function that updates the log with an avatar's move
@@ -303,12 +312,15 @@ void log_following(int me, int following, char* log)
  */
 void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 {
+	FILE *fp = fopen(log, "a");
+	
 	int x = *pos->x;
 	int y = *pos->y;
 	char* dir = get_dir(attempt_dir);
 
-	fprintf(log, "Avatar %d attempted to move %s to (%d, %d).\n", 
+	fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
 							   id, dir, x, y);
+	fclose(fp);
 }
 
 
