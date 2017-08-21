@@ -9,7 +9,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <gtk/gtk.h>
+#include <unistd.h>
+//#include <gtk/gtk.h>
 #include "../amazing.h"
 
 /**************** local types ****************/
@@ -20,12 +21,13 @@ typedef struct mazesquare {
 	int west_wall;
 	int tagged_by;
 	int tag_strength;
-	bool *avatar_here;
+	bool *avatar_here; //array of booleans, one for each avatar, keeping track
+						//of whether that avatar is in this square
 } mazesquare_t;
 
 /**************** global types ****************/
 typedef struct maze {
-	mazesquare_t ***array;											//revisit this
+	mazesquare_t ***array;
 	int width;
 	int height;	
 	int num_avatars;														
@@ -156,6 +158,8 @@ int get_wall(maze_t *maze, XYPos *pos, int wall)
 	if (wall == 3) {
 		return get_east_wall(maze, pos);
 	}
+
+	return -1; //this only happens if someone passes an incorrect wall parameter
 }
 
 /******************************** get_north_wall ******************************/
@@ -370,30 +374,10 @@ void maze_delete(maze_t *maze)
 /******************************** draw_maze ***********************************/
 void draw_maze(maze_t *maze)
 {
-	/*
-	GtkWidget *window;
-  	GtkWidget *label;
+	sleep(1);
 
-  	gtk_init();
+	system("clear");
 
-  	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-  	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
-  	gtk_window_set_title(GTK_WINDOW(window), "No sleep");
-  	gtk_container_set_border_width(GTK_CONTAINER(window), 15);
-
-  	label = gtk_label_new("Hello");
-
-  	gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_CENTER);
-  	gtk_container_add(GTK_CONTAINER(window), label);
-
-  	g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-
-  	gtk_widget_show_all(window);
-
-  	gtk_main();
-  	*/
-
-	
 	draw_top_row(maze->width);
 	
 	for (int y = 0; y < maze->height; y++) {
@@ -465,7 +449,6 @@ static void draw_people(maze_t *maze, XYPos *pos)
 	if (num_here > 1) {
 		printf("*");
 	}
-
 	printf("   ");
 }
 

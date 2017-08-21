@@ -34,25 +34,25 @@ int main()
 
 	//test setting some south walls to 0 and 1
 	printf("Set some south walls\n");
-	set_south_wall(maze, &pos_0_0, 1);
-	set_south_wall(maze, &pos_1_0, 0);
+	set_wall(maze, &pos_0_0, 1, 2);
+	set_wall(maze, &pos_1_0, 0, 2);
 
 	//test setting some north walls to 0 and 1
 	printf("Set some north walls\n");
-	set_north_wall(maze, &pos_1_2, 1);
-	set_north_wall(maze, &pos_0_2, 0);
-	set_north_wall(maze, &pos_0_3, 1);
+	set_wall(maze, &pos_1_2, 1, 1);
+	set_wall(maze, &pos_0_2, 0, 1);
+	set_wall(maze, &pos_0_3, 1, 1);
 
 	//test setting some east walls to 0 and 1
 	printf("Set some east walls\n");
-	set_east_wall(maze, &pos_1_0, 1);
-	set_east_wall(maze, &pos_0_1, 0);
-	set_east_wall(maze, &pos_0_3, 1);
+	set_wall(maze, &pos_1_0, 1, 3);
+	set_wall(maze, &pos_0_1, 0, 3);
+	set_wall(maze, &pos_0_3, 1, 3);
 
 	//test setting some west walls to 0 and 1
 	printf("Set some west walls\n");
-	set_west_wall(maze, &pos_1_0, 0);
-	set_west_wall(maze, &pos_1_2, 1);
+	set_wall(maze, &pos_1_0, 0, 0);
+	set_wall(maze, &pos_1_2, 1, 0);
 
 	printf("Put some avatars in the maze\n");
 	set_avatar_position(maze, &pos_1_1, 0);
@@ -76,11 +76,19 @@ int main()
 
 	draw_maze(maze);
 
-	printf("Have 0 successfully move east\n");
+	//printf("Have 0 successfully move east\n");
 	set_avatar_position(maze, &pos_2_1, 0);
-	set_east_wall(maze, &pos_1_1, 0);
+	set_wall(maze, &pos_1_1, 0, 3);
 
 	draw_maze(maze);
+
+	set_avatar_position(maze, &pos_1_1, 0);
+	draw_maze(maze);
+	set_avatar_position(maze, &pos_0_1, 0);
+	draw_maze(maze);
+	set_avatar_position(maze, &pos_1_0, 2);
+	draw_maze(maze);
+
 
 	printf("Deleting maze...\n");
 
