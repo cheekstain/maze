@@ -15,7 +15,12 @@
 #include <../mazestruct/mazestruct.h>
 
 typedef struct maze_data_pointer_struct maze_pointers_t;
-typedef struct lastmove lastmove_t;
+typedef struct lastmove{
+  XYPos before;
+  XYPos after;
+  int avatarID;
+  int direction;
+} lastmove_t;
 maze_pointers_t* maze_pointers_new(char* hostname, 
                          int maze_port,
                          char* filename,
