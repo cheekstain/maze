@@ -14,6 +14,13 @@ typedef struct comm comm_t;
 /**************** comm_new ****************/
 comm_t *comm_new();
 
+/**************** close_sockets ****************/
+ /*
+  *
+  * A function to close all of the sockets when communication has ended.
+  *
+  */
+  void close_sockets(comm_t *com)
 
 /**************** message sending functions ****************/
 

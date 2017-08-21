@@ -10,6 +10,7 @@
 #include <stdbool.h>
 //#include "mazestruct.h"
 #include "amazing.h"
+#include "set.h"
 
  
 typedef struct comm{     
@@ -25,6 +26,8 @@ bool is_too_many_moves;
 int comm_sock;
 struct sockaddr_in server;
 int nAvatars;
+int *sockets[AM_MAX_AVATAR];
+char *hostname;
 } comm_t;
 
 /**************** file-local constants ****************/
@@ -34,6 +37,7 @@ int nAvatars;
 comm_t *comm_new()
 {
 	comm_t *com = malloc(sizeof(comm_t));
+  com->sockets = set_new();
 	com->is_init_successful = false;
 	com->is_game_over = false;
 	com->is_timeout = false;
@@ -77,10 +81,14 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 
   	if (write(com->comm_sock, &msg, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
+      close(comm_sock);
   		return false;
   	}
 
     com->nAvatars = nAvatars;
+    com->hostname = malloc(strlen(hostname)+1);
+    strcpy(com->hostname, hostname);
+    close(comm_sock);
   	return true;
   }
 
@@ -106,14 +114,34 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   		//fprintf(stderr, "Error connecting stream socket.");
   		//return false;
   	//}
+  int avatar_sock = socket(AF_INET, SOCK_STREAM, 0);
+  if (avatar_sock < 0) {
+    fprintf(stderr, "Error opening socket.");
+    return false;
+  }
+
+  com->server.sin_family = AF_INET;
+  com->server.sin_port = htons(atoi(com->mazeport));
+  // Look up the hostname specified on command line
+    struct hostent *hostp = gethostbyname(com->hostname); // server hostname
+    if (hostp == NULL) {
+      fprintf(stderr, "%s: unknown host\n", com->hostname);
+      return false;
+    }  
+    memcpy(&(com->server.sin_addr), hostp->h_addr_list[0], hostp->h_length);
+
+    if (connect(avatar_sock, (struct sockaddr *) &(com->server), sizeof(com->server)) < 0) {
+      fprintf(stderr, "Error connecting stream socket.");
+      return false;
+    }
   	AM_Message msg;
   	msg.type = htonl(AM_AVATAR_READY);
   	msg.avatar_ready.AvatarId = htonl(avatarID);
-  	if (write(com->comm_sock, &msg, sizeof(AM_Message)) < 0)  {
+  	if (write(avatar_sock, &msg, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
   		return false;
   	}
-
+    *(com->sockets[avatarID]) = avatar_sock;
   	return true;
   }
 
@@ -129,7 +157,8 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   	msg.type = htonl(AM_AVATAR_MOVE);
   	msg.avatar_move.AvatarId = htonl(avatarID);
   	msg.avatar_move.Direction = htonl(direction);
-  	if (write(com->comm_sock, &msg, sizeof(AM_Message)) < 0)  {
+    avatar_sock = com->sockets[avatarID];
+  	if (write(avatar_sock, &msg, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
   		return false;
   	}
@@ -300,5 +329,15 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   	return 3;
   }
 
-
+  /*
+  *
+  * A function to close all of the sockets when communication has ended.
+  *
+  */
+  void close_sockets(comm_t *com)
+  {
+    for (int i = 0; i<com->nAvatars; i++){
+      close(com->sockets[i]);
+    }
+  }
 
