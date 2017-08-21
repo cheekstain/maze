@@ -28,7 +28,7 @@ typedef struct lastmove{
 typedef struct maze_data_pointer_struct {
   char* hostname;
   int maze_port;
-  char* filename;
+  FILE* fp;
   int avatar_id;
   maze_t* maze;
   lastmove_t* lastmove;
@@ -41,7 +41,7 @@ typedef struct maze_data_pointer_struct {
  */
 maze_pointers_t* maze_pointers_new(char* hostname, 
                          int maze_port,
-                         char* filename,
+                         FILE* fp,
                          int avatar_id,
                          maze_t* maze,
                          lastmove_t* lastmove,
@@ -49,7 +49,7 @@ maze_pointers_t* maze_pointers_new(char* hostname,
   maze_pointers_t* tmp = allocate(sizeof(maze_pointers_t));
   tmp->hostname = strdup(hostname);
   tmp->maze_port = maze_port;
-  tmp->filename = strdup(filename);
+  tmp->fp = fp;
   tmp->avatar_id = avatar_id;
   tmp->maze = maze;
   tmp->lastmove = lastmove;
@@ -69,8 +69,8 @@ const int get_maze_port(maze_pointers_t *ptr){
   return ptr->maze_port;
 }
 
-const char* get_filename(maze_pointers_t *ptr){
-  return ptr->filename;
+const FILE* get_filenstream(maze_pointers_t *ptr){
+  return ptr->fp;
 }
 
 const int get_avatar_id(maze_pointers_t *ptr){
@@ -100,8 +100,8 @@ void set_maze_port(maze_pointers_t *ptr, int maze_port){
   ptr->maze_port = maze_port;
 }
 
-void set_filename(maze_pointers_t *ptr, char* filename){
-  ptr->filename = strdup(filename);
+void set_filename(maze_pointers_t *ptr, FILE* fp){
+  ptr->fp = fp;
 }
 
 void set_avatar_id(maze_pointers_t *ptr, int avatar_id){
@@ -126,7 +126,6 @@ void set_follow_list(maze_pointers_t *ptr, counters_t* follow_list){
  */
 void pointers_delete(maze_pointers_t *ptr){
   free(ptr->hostname);
-  free(ptr->filename);
   free(ptr);
 }
 
