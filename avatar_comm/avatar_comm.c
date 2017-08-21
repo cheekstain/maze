@@ -10,7 +10,6 @@
 #include <stdbool.h>
 //#include "mazestruct.h"
 #include "amazing.h"
-#include "set.h"
 
  
 typedef struct comm{     
@@ -30,6 +29,13 @@ int *sockets[AM_MAX_AVATAR];
 char *hostname;
 } comm_t;
 
+typedef struct ready_param{
+  comm_t *com;
+  int avatarID;
+} avatar_ready_param_t;
+
+
+
 /**************** file-local constants ****************/
 #define BUFSIZE 1024     // read/write buffer size
 
@@ -37,12 +43,19 @@ char *hostname;
 comm_t *comm_new()
 {
 	comm_t *com = malloc(sizeof(comm_t));
-  com->sockets = set_new();
 	com->is_init_successful = false;
 	com->is_game_over = false;
 	com->is_timeout = false;
 	com->is_too_many_moves = false;
 	return com;
+}
+
+/**************** param_new ****************/
+avatar_ready_param_t *param_new(int avatarID, comm_t *com){
+  avatar_ready_param_t *p = malloc(sizeof(avatar_ready_param_t));
+  p->avatarID = avatarID;
+  p->com = com;
+  return p;
 }
 
 /*
@@ -81,14 +94,13 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 
   	if (write(com->comm_sock, &msg, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
-      close(comm_sock);
   		return false;
   	}
 
     com->nAvatars = nAvatars;
     com->hostname = malloc(strlen(hostname)+1);
     strcpy(com->hostname, hostname);
-    close(comm_sock);
+    
   	return true;
   }
 
@@ -98,8 +110,10 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 * Returns true if and only if the init message was able to sent without running into errors. 
 *
 */
-  bool send_avatar_ready(comm_t *com, int avatarID)
+  bool send_avatar_ready(avatar_ready_param_t *p)
   {
+    int avatarID = p->avatarID;
+    comm_t *com = p->com;
 	//server.sin_family = AF_INET;
   	com->server.sin_port = htons(com->mazeport);
 	// Look up the hostname specified on command line
@@ -121,7 +135,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   }
 
   com->server.sin_family = AF_INET;
-  com->server.sin_port = htons(atoi(com->mazeport));
+  com->server.sin_port = htons(com->mazeport);
   // Look up the hostname specified on command line
     struct hostent *hostp = gethostbyname(com->hostname); // server hostname
     if (hostp == NULL) {
@@ -157,7 +171,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   	msg.type = htonl(AM_AVATAR_MOVE);
   	msg.avatar_move.AvatarId = htonl(avatarID);
   	msg.avatar_move.Direction = htonl(direction);
-    avatar_sock = com->sockets[avatarID];
+    int avatar_sock = *(com->sockets[avatarID]);
   	if (write(avatar_sock, &msg, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
   		return false;
@@ -337,7 +351,8 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   void close_sockets(comm_t *com)
   {
     for (int i = 0; i<com->nAvatars; i++){
-      close(com->sockets[i]);
+      close(*com->sockets[i]);
+      close(com->comm_sock);
     }
   }
 
