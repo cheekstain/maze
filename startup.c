@@ -51,25 +51,25 @@ int main(int argc, char* argv[]){
 
 	// Main "Program"
 	
-  //our three "global variables"
+  //initialize the public dataset that everyone has access to
+  set_t* avatarDataSet = set_new();
+  
+  //Initialize the data in the public dataset
+  //maze, followinglist, and lastmove;
   maze_t* maze = maze_new(maze_width, maze_height, n_avatars);
-  set_t* avatars = set_new();
-  //followingList
   counters_t* avatarFollowing = counters_new();
   lastmove_t lastmove;
-  //array of pthreads
-  pthread_t threads[n_avatars];
   
   //array of pointer data (for the threads)
   pointers_t* data;
   for(int i = 0; i < n_avatars; i++){
     //generate individual data for avatars 1, 2, 3...etc.
-    counters_add(avatarFollowing, i);
+    counters_set(avatarFollowing, i, i);
     data = pointers_new(hostname, maze_port, [LOGFILENAME], i, maze, &lastmove);
     set_insert(avatars, i, data);
     free(data);
   }
-  
+  pthread_t threads[n_avatars]
   int threadError;
   //set the threads running
   for(int i = 0; i < n_avatars; i++){
@@ -87,11 +87,8 @@ int main(int argc, char* argv[]){
   //FREE EVERYTHING
 	fclose(fp);
   maze_delete(maze);
-  set_delete(avatars);
+  set_delete(avatars, pointers_delete);
   counters_delete(avatarFollowing);
-  for(int i = 0; i < n_avatars; i++){
-    pointers_delete(data[i]);
-  }
   free(data);
 }
 
