@@ -1,8 +1,8 @@
 /*
- * counters.h - header file for CS50 'avatarComm' module
+ * avatar_comm.h - header file for CS50 'avatar_comm' module
  *
  *
-  * Compiled using class materials provided by Prof Zhou, July, 2017
+ * Compiled using class materials provided by Prof Zhou, July, 2017
  * Arun Anand, July 2017
  */
 
