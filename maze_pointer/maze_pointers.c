@@ -19,13 +19,13 @@
 char *strdup(const char *c);
 
 typedef struct maze_data_pointer_struct {
-  const char* hostname;
-  const int maze_port;
-  const char* filename;
-  const int avatar_id;
-  const maze_t* maze;
-  const lastmove_t* lastmove;
-  const counters_t* follow_list;
+  char* hostname;
+  int maze_port;
+  char* filename;
+  int avatar_id;
+  maze_t* maze;
+  lastmove_t* lastmove;
+  counters_t* follow_list;
 } maze_pointers_t;
 
 /*
@@ -39,7 +39,7 @@ maze_pointers_t* maze_pointers_new(const char* hostname,
                          const maze_t* maze,
                          const lastmove_t* lastmove,
                          const counters_t* follow_list){
-  maze_pointers_t* tmp = allocate(sizeof(pointers_t));
+  maze_pointers_t* tmp = allocate(sizeof(maze_pointers_t));
   tmp->hostname = strdup(hostname);
   tmp->maze_port = maze_port;
   tmp->filename = strdup(filename);
