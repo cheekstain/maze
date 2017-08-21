@@ -4,6 +4,7 @@
  * This module initializes the game
  *
  * Bashful Brigade: Christina Lu, August 2017
+ * Emma Hobday, August 2017
  */
 
 #include <stdio.h>
@@ -20,7 +21,7 @@
 
 /**************** functions ****************/
 static bool check_parameters(int argc, char* argv[]);
-char *make_log(const int num_avatars, const int difficulty, const int maze_port);
+static char *make_log(const int num_avatars, const int difficulty, const int maze_port);
 
 int main(int argc, char* argv[]){
 	if (!check_parameters(argc, argv)) {
@@ -133,7 +134,7 @@ static bool check_parameters(int argc, char* argv[]){
 }
 
 /******************************** make_log ************************************/
-char *make_log(const int num_avatars, const int difficulty, const int maze_port){
+static char *make_log(const int num_avatars, const int difficulty, const int maze_port){
 	// make log file, open for appending
 	char* log_name = malloc(sizeof(char) * 50);
 	sprintf(log_name, "Amazing_%d_%d_%d.log", getuid(), num_avatars, difficulty);
