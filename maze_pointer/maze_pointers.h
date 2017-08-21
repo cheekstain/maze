@@ -40,6 +40,12 @@ const int get_avatar_id(maze_pointers_t *ptr);
 const maze_t* get_maze(maze_pointers_t *ptr);
 const lastmove_t* get_lastmove(maze_pointers_t *ptr);
 const counters_t* get_follow_list(maze_pointers_t *ptr);
+int get_path_strength(maze_pointers_t *ptr);
+
+/*
+ * Dealing with Path Strength
+ */
+void increment_path_strength(maze_pointers_t *ptr);
 
 /*
  * Setter Methods - use these to change, if necessary.
