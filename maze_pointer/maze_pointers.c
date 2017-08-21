@@ -21,7 +21,7 @@ char *strdup(const char *c);
 typedef struct maze_data_pointer_struct {
   char* hostname;
   int maze_port;
-  FILE* fp;
+  char* fp;
   int avatar_id;
   maze_t* maze;
   lastmove_t* lastmove;
@@ -35,7 +35,7 @@ typedef struct maze_data_pointer_struct {
  */
 maze_pointers_t* maze_pointers_new(char* hostname, 
                          int maze_port,
-                         FILE* fp,
+                         char* fp,
                          int avatar_id,
                          maze_t* maze,
                          lastmove_t* lastmove,
@@ -64,7 +64,7 @@ const int get_maze_port(maze_pointers_t *ptr){
   return ptr->maze_port;
 }
 
-const FILE* get_filenstream(maze_pointers_t *ptr){
+const char* get_filenstream(maze_pointers_t *ptr){
   return ptr->fp;
 }
 
@@ -106,7 +106,7 @@ void set_maze_port(maze_pointers_t *ptr, int maze_port){
   ptr->maze_port = maze_port;
 }
 
-void set_filename(maze_pointers_t *ptr, FILE* fp){
+void set_filename(maze_pointers_t *ptr, char* fp){
   ptr->fp = fp;
 }
 
