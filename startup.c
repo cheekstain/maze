@@ -65,17 +65,15 @@ int main(int argc, char* argv[]){
   	//Initialize the data in the public dataset
   	//maze, followinglist, and lastmove;
   	maze_t* maze = maze_new(maze_width, maze_height, n_avatars);
-  	counters_t* avatarFollowing = counters_new();
-  	lastmove_t lastmove;
-  
-  	//array of pointer data (for the threads)
-  	pointers_t* data;
+  	counters_t* avatar_following = counters_new();
+  	lastmove_t* lastmove = allocate(sizeof(lastmove_t));
+    lastmove->avatarID = -1;
+  	maze_pointers_t* data;
   	for(int i = 0; i < n_avatars; i++){
    		//generate individual data for avatars 1, 2, 3...etc.
-    	counters_set(avatarFollowing, i, i);
-    	data = pointers_new(hostname, maze_port, [LOGFILENAME], i, maze, &lastmove);
+    	counters_set(avatar_following, i, i);
+    	data = maze_pointers_new(hostname, maze_port, log_name, i, maze, &lastmove, avatar_following);
     	set_insert(avatars, i, data);
-    	free(data);
   	}
 
   	pthread_t threads[n_avatars]
@@ -96,8 +94,9 @@ int main(int argc, char* argv[]){
   
   	//FREE EVERYTHING
   	maze_delete(maze);
-  	set_delete(avatars, pointers_delete);
+  	set_delete(avatars, maze_pointers_delete);
   	counters_delete(avatarFollowing);
+    free(lastmove);
 }
 
 static bool check_parameters(int argc, char* argv[]){
