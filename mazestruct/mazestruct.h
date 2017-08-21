@@ -22,102 +22,51 @@ typedef struct maze maze_t;	// opaque to users of the module
 /**************** functions ****************/
 
 
-/**************** getters ****************/
-
+/******************************** get_wall ************************************/
 /*
- * Provided with a maze and x and y coordinates, return the wall status to the 
- * north (ie the top wall of the square).
+ * Provided with a maze and position, return the wall status of the indicated 
+ * direction, given by the param `wall` where 0 is West, 1 is North, 2 is South
+ * and 3 is East.
  *
  * Returns 0 if there is no wall, 1 if there is a wall, and -1 if the wall
  * status is unknown.
  */
-int get_north_wall(maze_t *maze, XYPos *pos);
+int get_wall(maze_t *maze, XYPos *pos, int wall);
 
+/******************************** get_tagged_by *******************************/
 /*
- * Provided with a maze and x and y coordinates, return the wall status to the 
- * south (ie the bottom wall of the square).
- *
- * Returns 0 if there is no wall, 1 if there is a wall, and -1 if the wall
- * status is unknown.
- */
-int get_south_wall(maze_t *maze, XYPos *pos);
-
-/*
- * Provided with a maze and x and y coordinates, return the wall status to the 
- * east (ie the right wall of the square).
- *
- * Returns 0 if there is no wall, 1 if there is a wall, and -1 if the wall
- * status is unknown.
- */
-int get_east_wall(maze_t *maze, XYPos *pos);
-
-/*
- * Provided with a maze and x and y coordinates, return the wall status to the 
- * west (ie the left wall of the square).
- *
- * Returns 0 if there is no wall, 1 if there is a wall, and -1 if the wall
- * status is unknown.
- */
-int get_west_wall(maze_t *maze, XYPos *pos);
-
-/*
- * Provided with a maze and x and y coordinates, return which avatar, if any, 
- * was the first to visit it and has thus "tagged it", leaving its trail behind.
+ * Provided with a maze and position, return which avatar, if any, was the first 
+ * to visit it and has thus "tagged it", leaving its trail behind.
  *
  * Returns the number of that avatar (0-9) if any avatar has tagged it, or -1
  * if the square is still unvisited.
  */
 int get_tagged_by(maze_t *maze, XYPos *pos);
 
+/******************************** get_tag_strength ****************************/
 /*
- * Provided with a maze and x and y coordinates, return the strength of the tag
- * left by the tagging avatar on this square.
+ * Provided with a maze and position, return the strength of the tag left by the 
+ * tagging avatar on this square.
  *
  * Since the tag strengths left by the avatars start at zero, a tag_strength of
  * -1 means the square is unvisited.
  */
 int get_tag_strength(maze_t *maze, XYPos *pos);
 
-/**************** setters ****************/
-
+/******************************** set_wall ************************************/
 /*
- * Provided with a maze and x and y coordinates, set the wall status to the 
- * north (ie the top wall of the square) to the given new_val.
+ * Provided with a maze and position, set the wall status of the indicated 
+ * direction, given by the param `wall` where 0 is West, 1 is North, 2 is South
+ * and 3 is East, to the given new_val.
  *
  * new_val should be 0 if there is no wall, 1 if there is a wall, and -1 if the 
  * wall status is unknown.
  */
-void set_north_wall(maze_t *maze, XYPos *pos, int new_val);
-
-/*
- * Provided with a maze and x and y coordinates, set the wall status to the 
- * south (ie the bottom wall of the square) to the given new_val.
- *
- * new_val should be 0 if there is no wall, 1 if there is a wall, and -1 if the 
- * wall status is unknown.
- */
-void set_south_wall(maze_t *maze, XYPos *pos, int new_val);
-
-/*
- * Provided with a maze and x and y coordinates, set the wall status to the 
- * east (ie the right wall of the square) to the given new_val.
- *
- * new_val should be 0 if there is no wall, 1 if there is a wall, and -1 if the 
- * wall status is unknown.
- */
-void set_east_wall(maze_t *maze, XYPos *pos, int new_val);
-
-/*
- * Provided with a maze and x and y coordinates, set the wall status to the 
- * west (ie the left wall of the square) to the given new_val.
- *
- * new_val should be 0 if there is no wall, 1 if there is a wall, and -1 if the 
- * wall status is unknown.
- */
-void set_west_wall(maze_t *maze, XYPos *pos, int new_val);
+void set_wall(maze_t *maze, XYPos *pos, int new_val, int wall);
 
 /**************** other ****************/
 
+/******************************** maze_new ************************************/
 /*
  * Creates a maze with the provided width and height, and creates a mazesquare
  * for every coordinate within it. 
@@ -127,6 +76,7 @@ void set_west_wall(maze_t *maze, XYPos *pos, int new_val);
  */
 maze_t *maze_new(const int width, const int height, const int num_avatars);
 
+/******************************** visit ***************************************/
 /*
  * Called when an avatar is visiting a square that it must tag, usually because
  * it is the first one to visit that square.
@@ -137,6 +87,7 @@ maze_t *maze_new(const int width, const int height, const int num_avatars);
  */
 void visit(maze_t *maze, XYPos *pos, int visitor, int tag_strength);
 
+/******************************** set_avatar_position *************************/
 /*
  * Called any time an avatar successfully moves from one square to another, this
  * function updates the maze to reflect that the avatar is now in the new square
@@ -147,6 +98,7 @@ void visit(maze_t *maze, XYPos *pos, int visitor, int tag_strength);
  */
 void set_avatar_position(maze_t *maze, XYPos *pos, int avatar);
 
+/******************************** is_collision ********************************/
 /*
  * Takes in an empty array that has at least as many slots as there are avatars
  * in the maze. In running is_collision, it will be filled with every avatar 
@@ -158,12 +110,14 @@ void set_avatar_position(maze_t *maze, XYPos *pos, int avatar);
  */
 bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[]);
 
+/******************************** maze_delete *********************************/
 /*
  * Frees the maze as well as all of the allocated structures within it. No 
  * freeing is necessary beyond calling maze_delete.
  */
 void maze_delete(maze_t *maze);
 
+/******************************** draw_maze *********************************/
 /*
  * Given a maze, draw_maze will print out ASCII art of the maze as it is at the 
  * instant of draw_maze's call to a window opened by gtk. For best use, 
@@ -182,6 +136,7 @@ void maze_delete(maze_t *maze);
  *|           |  0  |
  *|_____ _____|_____|
  */
+
 void draw_maze(maze_t *maze);
 
 

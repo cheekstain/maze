@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <gtk/gtk.h>
 #include "../amazing.h"
 
 /**************** local types ****************/
@@ -32,16 +33,17 @@ typedef struct maze {
 
 /**************** functions ****************/
 maze_t *maze_new(const int width, const int height, const int num_avatars);
-int get_north_wall(maze_t *maze, XYPos *pos);
-int get_south_wall(maze_t *maze, XYPos *pos);
-int get_east_wall(maze_t *maze, XYPos *pos);
-int get_west_wall(maze_t *maze, XYPos *pos);
+int get_wall(maze_t *maze, XYPos *pos, int wall);
+static int get_north_wall(maze_t *maze, XYPos *pos);
+static int get_south_wall(maze_t *maze, XYPos *pos);
+static int get_east_wall(maze_t *maze, XYPos *pos);
+static int get_west_wall(maze_t *maze, XYPos *pos);
 int get_tagged_by(maze_t *maze, XYPos *pos);
 int get_tag_strength(maze_t *maze, XYPos *pos);
-void set_north_wall(maze_t *maze, XYPos *pos, int new_val);
-void set_south_wall(maze_t *maze, XYPos *pos, int new_val);
-void set_east_wall(maze_t *maze, XYPos *pos, int new_val);
-void set_west_wall(maze_t *maze, XYPos *pos, int new_val);
+static void set_north_wall(maze_t *maze, XYPos *pos, int new_val);
+static void set_south_wall(maze_t *maze, XYPos *pos, int new_val);
+static void set_east_wall(maze_t *maze, XYPos *pos, int new_val);
+static void set_west_wall(maze_t *maze, XYPos *pos, int new_val);
 void set_avatar_position(maze_t *maze, XYPos *pos, int avatar);
 void visit(maze_t *maze, XYPos *pos, int visitor, int tag_strength);
 bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[]);
@@ -133,15 +135,55 @@ static mazesquare_t *get_square_at_coords(maze_t *maze, XYPos *pos)
 	return square;
 }
 
+/******************************** get_wall ************************************/
+int get_wall(maze_t *maze, XYPos *pos, int wall)
+{
+	if (wall == 0) {
+		return get_west_wall(maze, pos);
+	}
+
+	if (wall == 1) {
+		return get_north_wall(maze, pos);
+	}
+
+	if (wall == 2) {
+		return get_south_wall(maze, pos);
+	}
+
+	if (wall == 3) {
+		return get_east_wall(maze, pos);
+	}
+}
+
+/******************************** set_wall ************************************/
+void set_wall(maze_t *maze, XYPos *pos, int new_val, int wall) 
+{
+	if (wall == 0) {
+		set_west_wall(maze, pos, new_val);
+	}
+
+	if (wall == 1) {
+		set_north_wall(maze, pos, new_val);
+	}
+
+	if (wall == 2) {
+		set_south_wall(maze, pos, new_val);
+	}
+
+	if (wall == 3) {
+		set_east_wall(maze, pos, new_val);
+	}
+}
+
 /******************************** get_north_wall ******************************/
-int get_north_wall(maze_t *maze, XYPos *pos)
+static int get_north_wall(maze_t *maze, XYPos *pos)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 	return square->north_wall;
 }
 
 /******************************** set_north_wall ******************************/
-void set_north_wall(maze_t *maze, XYPos *pos, int new_val)
+static void set_north_wall(maze_t *maze, XYPos *pos, int new_val)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 
@@ -156,14 +198,14 @@ void set_north_wall(maze_t *maze, XYPos *pos, int new_val)
 }
 
 /******************************** get_south_wall ******************************/
-int get_south_wall(maze_t *maze, XYPos *pos)
+static int get_south_wall(maze_t *maze, XYPos *pos)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 	return square->south_wall;
 }
 
 /******************************** set_south_wall ******************************/
-void set_south_wall(maze_t *maze, XYPos *pos, int new_val)
+static void set_south_wall(maze_t *maze, XYPos *pos, int new_val)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 	square->south_wall = new_val;
@@ -177,14 +219,14 @@ void set_south_wall(maze_t *maze, XYPos *pos, int new_val)
 }
 
 /******************************** get_east_wall ******************************/
-int get_east_wall(maze_t *maze, XYPos *pos)
+static int get_east_wall(maze_t *maze, XYPos *pos)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 	return square->east_wall;
 }
 
 /******************************** set_east_wall *******************************/
-void set_east_wall(maze_t *maze, XYPos *pos, int new_val)
+static void set_east_wall(maze_t *maze, XYPos *pos, int new_val)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 	square->east_wall = new_val;
@@ -198,14 +240,14 @@ void set_east_wall(maze_t *maze, XYPos *pos, int new_val)
 }
 
 /******************************** get_west_wall *******************************/
-int get_west_wall(maze_t *maze, XYPos *pos)
+static int get_west_wall(maze_t *maze, XYPos *pos)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 	return square->west_wall;
 }
 
 /******************************** set_west_wall *******************************/
-void set_west_wall(maze_t *maze, XYPos *pos, int new_val)
+static void set_west_wall(maze_t *maze, XYPos *pos, int new_val)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 	square->west_wall = new_val;
@@ -324,13 +366,35 @@ void maze_delete(maze_t *maze)
 
 /******************************** draw_maze ***********************************/
 void draw_maze(maze_t *maze)
-{	
+{
+	/*
+	GtkWidget *window;
+  	GtkWidget *label;
+
+  	gtk_init();
+
+  	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+  	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+  	gtk_window_set_title(GTK_WINDOW(window), "No sleep");
+  	gtk_container_set_border_width(GTK_CONTAINER(window), 15);
+
+  	label = gtk_label_new("Hello");
+
+  	gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_CENTER);
+  	gtk_container_add(GTK_CONTAINER(window), label);
+
+  	g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
+  	gtk_widget_show_all(window);
+
+  	gtk_main();
+  	*/
+
+	
 	draw_top_row(maze->width);
 	
 	for (int y = 0; y < maze->height; y++) {
-
 		for (int counter = 1; counter < 4; counter++) {
-
 			for (int x = 0; x < maze->width; x++) {
 
 				XYPos curr_pos = {x, y};
@@ -350,7 +414,6 @@ void draw_maze(maze_t *maze)
 					draw_floor(floor_status);
 				}
 			}
-
 			printf("|\n");
 		}
 	}
