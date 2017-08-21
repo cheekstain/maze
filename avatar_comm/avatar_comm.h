@@ -10,6 +10,7 @@
 #define __AVATARCOMM_H
 
 typedef struct comm comm_t;
+typedef struct avatar_ready_param avatar_ready_param_t;
 
 /**************** comm_new ****************/
 comm_t *comm_new();
@@ -20,7 +21,7 @@ comm_t *comm_new();
   * A function to close all of the sockets when communication has ended.
   *
   */
-  void close_sockets(comm_t *com)
+  void close_sockets(comm_t *com);
 
 /**************** message sending functions ****************/
 

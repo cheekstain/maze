@@ -24,5 +24,23 @@ int main()
   if (!a){
   	fprintf(stderr, "receive message error");
   }
+
+  int iret1 = pthread_create(&t1, NULL, , NULL);
+  if (iret1) {
+    fprintf(stderr,"Cannot create thread, rc=%d\n", iret1);
+  }
+
+  int iret2 = pthread_create(&t1, NULL, , NULL);
+  if (iret1) {
+    fprintf(stderr,"Cannot create thread, rc=%d\n", iret1);
+  }
+
+  int iret3 = pthread_create(&t1, NULL, , NULL);
+  if (iret1) {
+    fprintf(stderr,"Cannot create thread, rc=%d\n", iret1);
+  }
+  
+
   return 0;
 }
+
