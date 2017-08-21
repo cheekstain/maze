@@ -27,7 +27,7 @@ move_t* maze_solve(maze_t* maze, int id, counters_t* followers, char* log);
  *
  * it returns a move struct with information necessary to send to the server.
  */
-move_t* leader_solve(maze_t* maze, int id, counters_t* followers, char* log);
+move_t* leader_solve(maze_t* maze, int id, XYPos pos, char* log);
 
 /* follower_solve checks if there is a third avatar's path we can move onto,
  * check if it belongs to the leader of our leader, and moves onto it if so.

@@ -24,11 +24,14 @@ typedef struct move {
 /* see avatar_solve.h for comments about exported functions */
 
 /*************** local functions ****************/
-bool is_xypos_equal(XYPos before, XYPos after);
+bool is_pos_equal(XYPos before, XYPos after);
+XYPos get_adjacent_pos(XYPos pos, int dir);
+char* get_dir(int dir);
 
 void log_wall(lastmove_t* move, char* log);
 void log_move(lastmove_t* move, char* log);
 void log_following(int me, int following, char* log);
+void log_attempt(int id, int dir, XYPos pos, char* log);
 
 void calculate_random(maze_t* maze); //TODO: unsure of paramters
 void calculate_move(maze_t* maze); //TODO: unsure of paramters
@@ -71,10 +74,10 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
     }
 }
 
-/* is_xypos_equal is a helper function that returns true if the two XYPos
+/* is_pos_equal is a helper function that returns true if the two XYPos
  * are equal and false otherwise.
  */
-bool is_xypos_equal(XYPos before, XYPos after)
+bool is_pos_equal(XYPos before, XYPos after)
 {
         if ((before->x == after->x) && (before->y == after->y)) {
         	return true;
@@ -91,20 +94,29 @@ void log_wall(lastmove_t* move, char* log)
 	int x = move->after->x;
 	int y = move->after->y;
 
-	char* dir;
-	if (prev_dir == 0) {
-		dir = "West";
-	} else if (prev_dir == 1) {
-		dir = "North";
-	} else if (prev_dir == 2) {
-		dir = "South"
-	} else {
-		dir = "East"
-	}
+	char* dir = get_dir(prev_dir);
 
 	fprintf(log, "Move fail. %s wall added to (%d, %d)\n", dir, x, y);
 }
 
+/* get_dir takes an int dir (0 - west, 1 - north, 2 - south, 3 - east)
+ * and returns a char string
+ */
+char* get_dir(int dir) {
+	char* string;
+
+	if (dir == 0) {
+		string = "West";
+	} else if (dir == 1) {
+		string = "North";
+	} else if (dir == 2) {
+		string = "South";
+	} else {
+		string = "East";
+	}
+
+	return string;
+}
 
 /* log_move is a function that updates the log with an avatar move if it
  * was sucessful.
@@ -127,7 +139,17 @@ void log_following(int me, int following, char* log)
 	fprintf(log, "Avatar %d is on avatar %d's path\n", me, following);
 }
 
+/* log_attempt is a function that updates the log with an avatar's move
+ * attempt
+ */
+void log_attempt(int id, int attempt_dir, XYPos pos, char* log)
+{
+	int x = pos->x;
+	int y = pos->y;
+	char* dir = get_dir(attempt_dir);
 
+	fprintf(log, "Avatar %d attempting to go %s to (%d, %d)\n", id, dir, x, y);
+}
 
 
 /****************** functions for choosing moves ******************/
@@ -139,10 +161,60 @@ move_t* maze_solve(maze_t* maze, int id, counters_t* followers, char* log)
 }
 
 /****************** leader_solve() ******************/
-move_t* leader_solve(maze_t* maze, int id, counters_t* followers, char* log)
+move_t* leader_solve(maze_t* maze, int id, XYPos pos, char* log)
 {
-	
+	XYPos final_pos = pos;
+	int dir = 4;
+	int strength = get_tag_strength(maze, &pos);
+	int wall;
+
+	for (int i = 0; i < 4; i++) {
+		wall = get_wall(maze, &pos, i); // get status of that wall;
+		if (wall == 0) { // if there is no wall
+			XYPos new_pos = get_adjacent_pos(pos, i); 
+
+			int tagger = get_tagged_by(maze, &new_pos);
+			if (tagger == id) { // if tagger of adjacent square is me
+				
+				int new_strength = get_tag_strength(maze, &new_pos);
+				if (new_strength < strength) {
+					// if strength of adjacent is less than current strength
+					// set attempt direction to that square
+					strength = new_strength;
+					dir = i;
+					final_pos = new_pos;
+				}
+			}
+		}
+	}
+
+	log_attempt(id, dir, final_pos, log);
+	move_t move = { id, dir };
+	return &move;
 }
+
+/* get_adjacent_pos returns the pos of the square at a certain adjacent
+ * direction.
+ */
+XYPos get_adjacent_pos(XYPos pos, int dir) 
+{
+	int x = pos->x;
+	int y = pos->y;
+
+	if (dir == 0) { // west
+		x -= 1;
+	} else if (dir == 1) { // north
+		y -= 1;
+	} else if (dir == 2) { // south
+		y += 1;
+	} else { // east
+		x += 1;
+	}
+
+	XYPos new_pos = { x, y };
+	return new_pos;
+}
+
 
 /****************** follower_solve() ******************/
 move_t* follower_solve(maze_t* maze, int id, counters_t* followers, char* log)
