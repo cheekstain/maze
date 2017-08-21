@@ -16,6 +16,8 @@
 #include <string.h>
 #include "maze_pointers.h"
 
+char *strdup(const char *c);
+
 typedef struct maze_data_pointer_struct {
   const char* hostname;
   const int maze_port;
