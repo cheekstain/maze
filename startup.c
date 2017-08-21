@@ -16,7 +16,7 @@
 #include <time.h>
 #include "amazing.h"
 #include "avatar.c"
-#include "avatar_comm.c"
+#include "avatar_comm.h"
 
 /**************** functions ****************/
 static bool check_parameters(int argc, char* argv[]);
@@ -30,66 +30,74 @@ int main(int argc, char* argv[]){
 	const int n_avatars = atoi(argv[1]);
 	int difficulty = atoi(argv[2]);
 	char* hostname = argv[3];
+	comm_t *com = comm_new();
 
-	// construct/send init, not sure about port # here
-	send_init(n_avatars, difficulty, hostname);
-  if(is_init_successful)
+	send_init(com, n_avatars, difficulty, hostname);
+	bool recieved = receive_message(com);
+
+	if (recieved && is_init_successful(com)){
+   		printf("Connected! The mazeport is %d", get_mazeport(com));
+   		printf("the width of the maze is %d", get_maze_width(com));
+   		printf("and the height of the maze is %d\n", get_maze_height(com)); 
+  	}
+	else if (!is_init_successful(com)){
+    	fprintf(stderr, "Error: init unsuccessful\n");
+    	exit(2);
+	}
+	if (!received){
+  		fprintf(stderr, "Error: no message recieved from server\n");
+  		exit(3);
+	}
 	
-	// receive init ok
-	char *response = readfilep(comm_fp);
-	
-	// parse response?
-	int maze_port =
-	const int maze_height =
-	const int maze_width = 
+	//mine data out of com structure
+	int maze_port = get_mazeport(com);
+	const int maze_height = get_maze_height(com);
+	const int maze_width = get_maze_width(com);
 
-	free(response);
-	fclose(comm_fp);
-
-	make_log();
+	FILE *fp = make_log();
 
 
 	// Main "Program"
 	
-  //initialize the public dataset that everyone has access to
-  set_t* avatarDataSet = set_new();
+	//initialize the public dataset that everyone has access to
+  	set_t* avatarDataSet = set_new();
   
-  //Initialize the data in the public dataset
-  //maze, followinglist, and lastmove;
-  maze_t* maze = maze_new(maze_width, maze_height, n_avatars);
-  counters_t* avatarFollowing = counters_new();
-  lastmove_t lastmove;
+  	//Initialize the data in the public dataset
+  	//maze, followinglist, and lastmove;
+  	maze_t* maze = maze_new(maze_width, maze_height, n_avatars);
+  	counters_t* avatarFollowing = counters_new();
+  	lastmove_t lastmove;
   
-  //array of pointer data (for the threads)
-  pointers_t* data;
-  for(int i = 0; i < n_avatars; i++){
-    //generate individual data for avatars 1, 2, 3...etc.
-    counters_set(avatarFollowing, i, i);
-    data = pointers_new(hostname, maze_port, [LOGFILENAME], i, maze, &lastmove);
-    set_insert(avatars, i, data);
-    free(data);
-  }
-  pthread_t threads[n_avatars]
-  int threadError;
-  //set the threads running
-  for(int i = 0; i < n_avatars; i++){
-    threadError = int pthread_create(&threads[i], NULL, avatar_thread, data[i]);
-    if(threadError){
-      printf("thread creation failed, rc=%d.\n", threadError);
-      return (threadError);
-    }
-  }
-  while(check_game_status() == 0){ 
-  }
+  	//array of pointer data (for the threads)
+  	pointers_t* data;
+  	for(int i = 0; i < n_avatars; i++){
+   		//generate individual data for avatars 1, 2, 3...etc.
+    	counters_set(avatarFollowing, i, i);
+    	data = pointers_new(hostname, maze_port, [LOGFILENAME], i, maze, &lastmove);
+    	set_insert(avatars, i, data);
+    	free(data);
+  	}
+
+  	pthread_t threads[n_avatars]
+  	int threadError;
+  	//set the threads running
+  	for(int i = 0; i < n_avatars; i++){
+    	threadError = int pthread_create(&threads[i], NULL, avatar_thread, data[i]);
+    	if(threadError) {
+      		printf("thread creation failed, rc=%d.\n", threadError);
+      		return (threadError);
+    	}
+  	}
+
+  	while(check_game_status(com) == 0){ 
+  	}
   
-  //post-game cleanup
+  	//post-game cleanup
   
-  //FREE EVERYTHING
-	fclose(fp);
-  maze_delete(maze);
-  set_delete(avatars, pointers_delete);
-  counters_delete(avatarFollowing);
-  free(data);
+  	//FREE EVERYTHING
+  	maze_delete(maze);
+  	set_delete(avatars, pointers_delete);
+  	counters_delete(avatarFollowing);
 }
 
 static bool check_parameters(int argc, char* argv[]){
@@ -120,11 +128,10 @@ static bool check_parameters(int argc, char* argv[]){
 		fprintf(stderr, "invalid hostname\n");
 		return false;
 	}
-
 	return true;
 }
 
-FILE *fp make_log(char* argv[]){
+FILE *make_log(char* argv[]){
 	// make log file, open for appending
 	char* log_name = malloc(sizeof(char) * 50);
 	char* user_id = itoa(getuid());
