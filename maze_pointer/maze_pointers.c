@@ -32,13 +32,13 @@ typedef struct maze_data_pointer_struct {
  * Makes deep copies of everything except maze, for obvious reasons. The free function
  * deals with everything but maze, which should be freed elsewhere.
  */
-maze_pointers_t* maze_pointers_new(const char* hostname, 
-                         const int maze_port,
-                         const char* filename,
-                         const int avatar_id,
-                         const maze_t* maze,
-                         const lastmove_t* lastmove,
-                         const counters_t* follow_list){
+maze_pointers_t* maze_pointers_new(char* hostname, 
+                         int maze_port,
+                         char* filename,
+                         int avatar_id,
+                         maze_t* maze,
+                         lastmove_t* lastmove,
+                         counters_t* follow_list){
   maze_pointers_t* tmp = allocate(sizeof(maze_pointers_t));
   tmp->hostname = strdup(hostname);
   tmp->maze_port = maze_port;
@@ -46,7 +46,7 @@ maze_pointers_t* maze_pointers_new(const char* hostname,
   tmp->avatar_id = avatar_id;
   tmp->maze = maze;
   tmp->lastmove = lastmove;
-  tmp->follow_list = follow_list);
+  tmp->follow_list = follow_list;
   return tmp;
 }
 
@@ -118,8 +118,8 @@ void set_follow_list(maze_pointers_t *ptr, counters_t* follow_list){
  * itself be freed elsewhere.
  */
 void pointers_delete(maze_pointers_t *ptr){
-  free(ptr.hostname);
-  free(ptr.filename);
+  free(ptr->hostname);
+  free(ptr->filename);
   free(ptr);
 }
 
