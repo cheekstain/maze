@@ -12,6 +12,9 @@
 typedef struct comm comm_t;
 typedef struct avatar_ready_param avatar_ready_param_t;
 
+/**************** param_new ****************/
+avatar_ready_param_t *param_new(int avatarID, comm_t *com);
+
 /**************** comm_new ****************/
 comm_t *comm_new();
 
@@ -39,7 +42,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname);
 * Returns true if and only if the init message was able to sent without running into errors. 
 *
 */
-bool send_avatar_ready(comm_t *com, int avatarID);
+bool send_avatar_ready(avatar_ready_param_t *p);
 
 /*
 *
