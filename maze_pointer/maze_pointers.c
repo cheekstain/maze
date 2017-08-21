@@ -18,13 +18,6 @@
 
 char *strdup(const char *c);
 
-typedef struct lastmove{
-  XYPos before;
-  XYPos after;
-  int avatarID;
-  int direction;
-} lastmove_t;
-
 typedef struct maze_data_pointer_struct {
   char* hostname;
   int maze_port;
