@@ -5,8 +5,8 @@
  * Bashful Brigade, August 2017
  */
 
-#ifndef __AVATAR_SOLVE_H
-#define __AVATAR_SOLVE_H
+#ifndef __AVATARSOLVE_H
+#define __AVATARSOLVE_H
 
 /* make_move is called within the avatar thread and determines the move to 
  * make, communicates with the server, makes the move and updates the 
@@ -21,6 +21,6 @@ void make_move(maze_t* maze, avatars_t* avatars, char* log, int my_id);
  *
  */
 
-void check_previous(maze_t* maze, lastmove_t* move, char* log, int my_id);
+void check_previous(maze_t* maze, lastmove_t* move, char* log, int strength);
 
 #endif // __AVATAR_SOLVE_H
