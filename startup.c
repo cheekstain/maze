@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 
-	int n_avatars = atoi(argv[1]);
+	const int n_avatars = atoi(argv[1]);
 	int difficulty = atoi(argv[2]);
 	char* hostname = argv[3];
 
@@ -38,8 +38,8 @@ int main(int argc, char* argv[])
 	
 	// parse response?
 	int maze_port =
-	int maze_height =
-	int maze_width = 
+	const int maze_height =
+	const int maze_width = 
 
 	free(response);
 	fclose(comm_fp);
@@ -47,9 +47,33 @@ int main(int argc, char* argv[])
 	make_log();
 
 
-	// thread business
+	// Main "Program"
 	
+  //our three "global variables"
+  maze_t* maze = maze_new(maze_width, maze_height, n_avatars);
+  set_t* avatars = set_new();
+  lastmove_t lastmove;
+  //array of pthreads
+  pthread_t threads[n_avatars];
+  
+  
+  
+  int threadError;
+  //set the threads running
+  //TODO: Make a struct containing all the args we need (args_struct)
+  for(int i = 0; i < n_avatars; i++){
+    threadError = int pthread_create(&threads[i], NULL, avatar_main, args_struct);
+    if(threadError){
+      printf("thread creation failed, rc=%d.\n", threadError);
+      return (threadError);
+    }
+  }
+  
+  
+  //FREE EVERYTHING
 	fclose(fp);
+  maze_delete(maze);
+  set_delete(avatars);
 }
 
 static bool check_parameters(int argc, char* argv[])
