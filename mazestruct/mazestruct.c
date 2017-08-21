@@ -386,16 +386,18 @@ static void draw_people(maze_t *maze, XYPos *pos)
 
 	int num_here = get_num_avatars_here(maze, pos, avatars_here);
 
-	if (num_here > 1) {
-		printf("*");
-	}
-
-	if (num_here == 1) {
-		printf("%d", avatars_here[1]);
-	}
+	//printf("Num here is %d\n", num_here);
 
 	if (num_here == 0) {
 		printf(" ");
+	}
+
+	if (num_here == 1) {
+		printf("%d", avatars_here[0]);
+	}
+
+	if (num_here > 1) {
+		printf("*");
 	}
 
 	printf("   ");

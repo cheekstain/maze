@@ -13,6 +13,7 @@
 #ifndef __MAZESTRUCT_H
 #define __MAZESTRUCT_H
 
+#include <stdbool.h>
 #include "../amazing.h"
 
 /**************** global types ****************/
