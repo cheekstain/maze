@@ -11,7 +11,10 @@
 /* the move structure contains the information needed to send a move to the
  * server, namely the direction attempted and the id of the avatar.
  */
-typedef struct move_t move;
+typedef struct move {
+	int avatar_id;
+	int direction; // 0 west, 1 north, 2 south, 3 east
+} move_t;
 
 /* check_previous is called in order to check if the previous move was 
  * sucessful.
