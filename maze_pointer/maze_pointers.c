@@ -85,23 +85,23 @@ const counters_t* get_follow_list(maze_pointers_t *ptr){
 /*
  * Setter Methods
  */
-void set_hostname(maze_pointers_t *ptr, const char* hostname){
+void set_hostname(maze_pointers_t *ptr, char* hostname){
   ptr->hostname = strdup(hostname);
 } 
 
-void set_maze_port(maze_pointers_t *ptr, const int maze_port){
+void set_maze_port(maze_pointers_t *ptr, int maze_port){
   ptr->maze_port = maze_port;
 }
 
-void set_filename(maze_pointers_t *ptr, const char* filename){
+void set_filename(maze_pointers_t *ptr, char* filename){
   ptr->filename = strdup(filename);
 }
 
-void set_avatar_id(maze_pointers_t *ptr, const int avatar_id){
+void set_avatar_id(maze_pointers_t *ptr, int avatar_id){
   ptr->avatar_id = avatar_id;
 }
 
-void set_maze(maze_pointers_t *ptr, const maze_t* maze){
+void set_maze(maze_pointers_t *ptr, maze_t* maze){
   ptr->maze = maze;
 }
 
