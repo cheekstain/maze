@@ -60,7 +60,7 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 
         	} else { // visited square by someone else
         		// set following of avatar to tagger
-        		counters_set(followers, prev_id, tagger); // TODO revisit
+        		counters_set(followers, prev_id, tagger); 
         		log_following(prev_id, tagger, log);
 
         	}	
@@ -87,20 +87,18 @@ move_t* maze_solve(maze_t* maze, int id, XYPos pos, char* log)
 			XYPos new_pos = get_adjacent_pos(pos, i);
 			int tagger = get_tagged_by(maze, &new_pos);
 
-			if (tagger != id) { // if the tagger isn't me
-				int new_strength = get_tag_strength(maze, 
-								    &new_pos);
+			if (tagger != id) { // if the tagger of the square isnt me
+				int new_strength = get_tag_strength(maze, &new_pos);
 
-				if (new_strength > strength) {
-					strength = new_strength;
+				if (new_strength > strength) { // TODO, 
+					// if adjacent strength is greater than the other sides
+					strength = new_strength; 
 					dir = i;
 					final_pos = new_pos;
 				}
 			}
-
 		} else if (wall == -1 && strength == -1) { // unknown
-			// and strength has not been updated
-			// i.e. no path found yet
+			// and strength has not been updated, i.e. no path found yet
 			final_pos = get_adjacent_pos(pos, i);
 			dir = i;
 		}
@@ -125,11 +123,11 @@ move_t* leader_solve(maze_t* maze, int id, XYPos pos, char* log)
 			XYPos new_pos = get_adjacent_pos(pos, i); 
 			int tagger = get_tagged_by(maze, &new_pos);
 
-			if (tagger == id) { // if tagger of adjacent is me
-				int new_strength = get_tag_strength(maze, 
-								    &new_pos);
+			if (tagger == id) { // if tagger of adjacent square is me
+				int new_strength = get_tag_strength(maze, &new_pos);
 
 				if (new_strength < strength) {
+					// if strength of adjacent is less than current strength
 					// set attempt direction to that square
 					strength = new_strength;
 					dir = i;
@@ -145,13 +143,48 @@ move_t* leader_solve(maze_t* maze, int id, XYPos pos, char* log)
 }
 
 /****************** follower_solve() ******************/
-move_t* follower_solve(maze_t* maze, int id, counters_t* followers, char* log)
+move_t* follower_solve(maze_t* maze, int id, XYPos pos, 
+									counters_t* followers, char* log)
 {
-	
+	XYPos final_pos = pos;
+	int dir = 4;
+	int strength = get_tag_strength(maze, &pos);
+	int following = counters_get(followers, id);
+	bool found_new = false;
+	int wall;
+
+	for (int i = 0; i < 4; i++) {
+		wall = get_wall(maze, &pos, i);
+		if (wall == 0) { // no wall
+			XYPos new_pos = get_adjacent_pos(pos, i);
+			int tagger = get_tagged_by(maze, &new_pos);
+
+			if (tagger != following && tagger != id) {
+				// tagger was not me or the avatar im following
+				int leader = counters_get(followers, following);
+				if (tagger == leader) { // switch path
+					final_pos = new_pos;
+					dir = i;
+					found_new = true;
+				}
+			} else if (tagger == following && !found_new) {
+				// tagger was the avatar im following and i havent found
+				// a new path
+				int new_strength = get_tag_strength(maze, &new_pos);
+
+				if (new_strength > strength) {
+					strength = new_strength;
+					dir = i;
+					final_pos = new_pos;
+				}
+			}
+		}
+	}
+
+	log_attempt(id, dir, final_pos, log);
+	move_t move = { id, dir };
+	return &move;
 }
-
-
-
 
 
 
@@ -253,8 +286,7 @@ void log_attempt(int id, int attempt_dir, XYPos pos, char* log)
 	int y = pos->y;
 	char* dir = get_dir(attempt_dir);
 
-	fprintf(log, "Avatar %d attempting to go %s to (%d, %d)\n", id, dir, 
-									x, y);
+	fprintf(log, "Avatar %d attempting to go %s to (%d, %d)\n", id, dir, x, y);
 }
 
 

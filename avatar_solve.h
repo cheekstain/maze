@@ -35,7 +35,8 @@ move_t* leader_solve(maze_t* maze, int id, XYPos pos, char* log);
  * 
  * it returns a move struct with information necessary to send to the server.
  */
-move_t* follower_solve(maze_t* maze, int id, counters_t* followers, char* log);
+move_t* follower_solve(maze_t* maze, int id, XYPos pos, counters_t* followers, 
+								char* log);
 
 /* check_previous is called in order to check if the previous move was sucessful
  * and to update the maze/logfile with it.
