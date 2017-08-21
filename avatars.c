@@ -71,7 +71,16 @@ char *strdup(const char *c){
  */
 void* avatar_thread(void *ptr){
   pointers_t *data = ptr;
-  
+  int turnID = get_turnID([DATA]);
+  if(turnID == this.ID){
+    update_previous_turn([DATA]);
+    if(!is_following(this.ID, DATA)){
+      if(!is_following(that, other, DATA){
+        move m = mazeSolve();
+        send_move(m);
+      }
+    }
+  }
 }
 
 
@@ -79,11 +88,6 @@ void* avatar_thread(void *ptr){
 
 bool cleanedup;
 bool setup = false;
-
-typedef struct avatar {
-  int avatar_following;
-  int current_pathID;
-} avatar_t;
 
 typedef struct lastmove{
   XYPos before;
