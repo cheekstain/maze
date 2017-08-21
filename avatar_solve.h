@@ -12,8 +12,15 @@
  * make, communicates with the server, makes the move and updates the 
  * visualization and the log file.
  *
- * it takes three parameters, the maze struct, ...?
  */
-void make_move(maze_t maze, lastmove_t move, avatars_t avatars, char* log);
+
+void make_move(maze_t* maze, avatars_t* avatars, char* log, int my_id);
+
+/* check_previous is called in order to check if the previous move was sucessful
+ * and to update the maze/logfile with it.
+ *
+ */
+
+void check_previous(maze_t* maze, lastmove_t* move, char* log, int my_id);
 
 #endif // __AVATAR_SOLVE_H
