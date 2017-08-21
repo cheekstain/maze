@@ -26,6 +26,7 @@ typedef struct maze_data_pointer_struct {
   maze_t* maze;
   lastmove_t* lastmove;
   counters_t* follow_list;
+  int strength = 0;
 } maze_pointers_t;
 
 /*
@@ -80,6 +81,17 @@ const lastmove_t* get_lastmove(maze_pointers_t *ptr){
 
 const counters_t* get_follow_list(maze_pointers_t *ptr){
   return ptr->follow_list;
+}
+
+int get_path_strength(maze_pointers_t *ptr){
+  return ptr->strength;
+}
+
+/*
+ * Dealing with Path Strength
+ */
+void increment_path_strength(maze_pointers_t *ptr){
+    ptr->strength++;
 }
 
 /*
