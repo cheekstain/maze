@@ -10,11 +10,15 @@
 #include "avatar_solve.h"
 #include "avatar_comm.h"
 #include "avatar.h"
-#include "mazestruct.h"
+#include "./mazestruct/mazestruct.h"
 #include "amazing.h"
 #include "counters.h"
 
-/****************** local types ******************/
+/****************** global types ******************/
+typedef struct move {
+	int avatar_id;
+	int direction; // 0 west, 1 north, 2 south, 3 east
+} move_t;
 
 /*************** global functions ***************/
 /* see avatar_solve.h for comments about exported functions */
@@ -28,6 +32,8 @@ void log_following(int me, int following, char* log);
 
 void calculate_random(maze_t* maze); //TODO: unsure of paramters
 void calculate_move(maze_t* maze); //TODO: unsure of paramters
+
+/************ functions used to check previous attempt ************/
 
 /*************** check_previous() ***************/
 void check_previous(maze_t* maze, lastmove_t* move, char* log, 
@@ -121,6 +127,28 @@ void log_following(int me, int following, char* log)
 	fprintf(log, "Avatar %d is on avatar %d's path\n", me, following);
 }
 
+
+
+
+/****************** functions for choosing moves ******************/
+
+/****************** maze_solve() ******************/
+move_t* maze_solve(maze_t* maze, int id, counters_t* followers, char* log)
+{
+
+}
+
+/****************** leader_solve() ******************/
+move_t* leader_solve(maze_t* maze, int id, counters_t* followers, char* log)
+{
+	
+}
+
+/****************** follower_solve() ******************/
+move_t* follower_solve(maze_t* maze, int id, counters_t* followers, char* log)
+{
+	
+}
 
 /****************** make_move() ******************/
 void make_move(maze_t* maze, avatars_t* avatars, char* log, int my_id)
