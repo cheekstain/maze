@@ -91,44 +91,66 @@ This module contains all the necessary functions for communication with the serv
 ### avatar_solve Module
 This module contains all the necessary functions for solving the maze and determining the next steps each Avatar should take. It will contain the bulk of the strategy.
 
+#### avatar_solve Exported Functions
+The `avatar_solve` module exports four functions, three of which are called
+in different circumstances in order to decide the next move an avatar should
+take.
+
+`check_previous` is a function which checks if the previous move was 
+sucessful or not. It takes the maze structure, a lastmove structure, the
+log name, the strength of the path, and the counters which keeps track of
+the followers. 
+
+If the current move is not the first, the function will begin checking the 
+outcome of the last attempted move. It will figure out if there is a wall or
+an opening, and whether the avatar has found a path or not. It updates the 
+log file with the outcome, modifies the maze, and changes the followers 
+struct if necessary. It finishes by redrawing the maze if it has been 
+modified. 
+
+`maze_solve` is the default move selection method for an Avatar in 
+*Exploration Mode*. It takes the maze structure, the ID of the avatar, a 
+pointer to the XYPos of the Avatar, and the name of the log file. It checks
+all four adjacent squares, and attempts to move to another Avatar's path if 
+possible. Otherwise, it moves towards an unknown direction to continue
+exploring. It writes its attempt to move to the log, then returns the 
+
+`leader_solve` is a move used for the leader of all paths. It also takes the
+maze structure, the ID of the avatar, a pointer to the XYPos of the Avatar, 
+and the name of the log file. It selects the move that allows the Avatar to
+backtrack its own trail, and writes its attempt to the log.
+
+`follower_solve` is a move used for an Avatar that is in *Following Mode* and
+on the path of another Avatar. It takes the maze structure, the Avatar ID, the
+pointer to the XYPos of the Avatar, the counters that keeps track of all 
+followers, and the file name of the log. It attempts to move to a third 
+Avatar's path if the third Avatar is being followed by the Avatar the current
+Avatar is following. Otherwise, it continues to follow the path it is on. It
+writes its attempt to move to the log.
+
+#### avatar_solve Data Structures
+The `avatar_solve` module exports one data structure, `move_t`. This structure
+is comprised of two `int` variables, one which represents the `avatar_id` and
+one which represents the `direction` of the move it wishes to take, where
+0 - West, 1 - North, 2 - South, 3 - East. 
+
+`move_t` is returned by the three functions within `avatar_solve` that choose
+moves for the avatar: `maze_solve`, `leader_solve`, `follower_solve`. It 
+contains the information needed to pass the attempted move to the server.
+
 #### Maze-solution algorithm: high-level description
-The `avatar_solve` module has two primary modes: **Exploration**, and **Following**.
+The `avatar_solve` module has two primary modes: *Exploration*, and *Following*.
 
-In **Exploration Mode,** avatars will explore the maze randomly, while leaving behind a “trail” of variables under `int step_count`. The count begins at 0 and increments with every step. The program tags the current coordinate of the avatar in the `maze_struct` with `step_count`, and tags the coordinate with its `avatarID`.
+In *Exploration Mode*, avatars will explore the maze randomly, while leaving behind a “trail” of variables under `int strength`. The count begins at 0 and increments with every step. The program tags the current coordinate of the avatar in the `maze_struct` with `strength`, and tags the coordinate with its `avatar_id`.
 
-If, in its random exploration, an avatar meets the trail left by some other avatar, it will enter **Following Mode** and follow the trail in ascending order; in this way, the follower avatar is guaranteed to trace the path of the avatar that it follows. If the follower avatar encounters along its path the path of another avatar, it will switch its leader if and only if the new avatar is a leader of the avatar that it currently follows. 
+If, in its random exploration, an avatar meets the trail left by some other avatar, it will enter *Following Mode* and follow the trail in ascending order; in this way, the follower avatar is guaranteed to trace the path of the avatar that it follows. If the follower avatar encounters along its path the path of another avatar, it will switch its leader if and only if the new avatar is a leader of the avatar that it currently follows. 
 
 When all but one avatar is following another avatar (indicating that all avatars are in a “train” of sorts), the only avatar that remains a leader will stop its random exploration and backtrack until it meets another avatar.
 
 The other avatars will keep following their trail and will eventually make their way to the coordinates of the only remaining leader.
 
-In order to execute this algorithm we will make use of a `set_t` that contains as its keys the `avatarID` and as its item a struct called `avatar_t` that encapsulates all of the information specific to an avatar that is relevant in solving the maze, including the current `step_count` with which each avatar tagged the current co-ordinate and the number of the avatar that each avatar is currently following.
-
-#### Maze-solution Pseudocode 
-
-```
-1. The `turnID` is determined using the `avatarComm` module, and if the `turnID` matches my `avatarID`:
-	1. If the `last_move` attempted is not null (i.e) this is not the first move to be attempted:
-	2. We first check the last move attempted and see if it found a wall, and update the *maze_struct* accordingly.
-	3. We check to see if the previous avatar’s move found a path; if so, then set the previous avatar’s `maze_solve` mode to **Following.** 
-	4. If not, then tag the `maze_square` with the trail and increment step count.
-	5. Update logfile, UI.
-2. Then we focus on the current turn. If the current turn avatar is not following another avatar:
-	1. If this is the not only avatar remaining that is not following another avatar’s path:
-		1. Move onto another Avatar’s path if possible.
-		2. If that has failed, eliminate all directions with known walls, and pick a random open direction to move towards, priority given to unexplored directions
-		3. Communicate to the server the new move, and update `last_move` 
-	2. Otherwise (meaning this is the only avatar remaining that is not following another avatar’s path)
-		1. Backtrack along the avatar’s own trail.
-		2. Communicate to the server the new move, and update `last_move`. 
-3. Else (meaning it is following another avatar):
-		1. Check if there exists a third Avatar’s path that we can move onto.
-		2. Check if said path belongs to the leader of our leader. If so, move onto it and change the path that the avatar is following.
-		3. Otherwise, continue following the trail.
-		4. Communicate to the server the new move, and update `last_move` 
-3. Update visualization
-4. Write move details to logfile
-```
+In order to execute this algorithm we will make use of a `counters_t` that contains as its keys the `avatar_id` and the id of the avatar it is following as the
+count.
 
 ### maze_struct Module
 
