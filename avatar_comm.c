@@ -28,9 +28,10 @@ static struct sockaddr_in server;
 /*
 *
 * Establishes a connection to the server, and sends the AM_INIT message.
+* Returns true if and only if the init message was able to sent without running into errors.
 *
 */
-void send_init(int nAvatars, int difficulty, char *hostname)
+bool send_init(int nAvatars, int difficulty, char *hostname)
 {
 	AM_Message initialize;
 	initialize.type = AM_INIT
@@ -40,7 +41,7 @@ void send_init(int nAvatars, int difficulty, char *hostname)
 	comm_sock = socket(AF_INET, SOCK_STREAM, 0);
 	if (comm_sock < 0) {
 		fprintf(stderr, "Error opening socket.");
-		exit(1);
+		return false;
 	}
 
 	server.sin_family = AF_INET;
@@ -49,27 +50,30 @@ void send_init(int nAvatars, int difficulty, char *hostname)
   	struct hostent *hostp = gethostbyname(hostname); // server hostname
   	if (hostp == NULL) {
   		fprintf(stderr, "%s: unknown host '%s'\n", hostname);
-  		exit(2);
+  		return false;
   	}  
   	memcpy(&server.sin_addr, hostp->h_addr_list[0], hostp->h_length);
 
   	if (connect(comm_sock, (struct sockaddr *) &server, sizeof(server)) < 0) {
   		fprintf("Error connecting stream socket.");
-  		exit(3);
+  		return false;
   	}
 
   	if (write(comm_sock, &initialize, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
-  		exit(4);
+  		return false;
   	}
+
+  	return true;
   }
 
 /*
 *
 * Establishes a connection through the mazeport and sends the AM_AVATAR_READY message to the server.
+* Returns true if and only if the init message was able to sent without running into errors. 
 *
 */
-  void send_avatar_ready(int avatarID)
+  bool send_avatar_ready(int avatarID)
   {
 	//server.sin_family = AF_INET;
   	server.sin_port = htonl(mazeport);
@@ -83,23 +87,26 @@ void send_init(int nAvatars, int difficulty, char *hostname)
 
   	if (connect(comm_sock, (struct sockaddr *) &server, sizeof(server)) < 0) {
   		fprintf("Error connecting stream socket.");
-  		exit(3);
+  		return false;
   	}
   	AM_Message msg;
   	msg.type = AM_AVATAR_READY;
   	msg.type.AvatarId = avatarID;
   	if (write(comm_sock, &msg, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
-  		exit(4);
+  		return false;
   	}
+
+  	return true;
   }
 
 /*
 *
 * Sends the AM_AVATAR_MOVE message
+* Returns true if and only if the init message was able to sent without running into errors.
 *
 */
-  void send_move(int avatarID, int direction)
+  bool send_move(int avatarID, int direction)
   {
   	AM_Message msg;
   	msg.type = AM_AVATAR_MOVE;
@@ -107,8 +114,10 @@ void send_init(int nAvatars, int difficulty, char *hostname)
   	msg.type.Direction = htons(direction);
   	if (write(comm_sock, &msg, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
-  		exit(4);
+  		return false;
   	}
+
+  	return true;
   }
 
 /*
@@ -116,14 +125,15 @@ void send_init(int nAvatars, int difficulty, char *hostname)
 * Calling this function alerts the module that a new message should be received from the server.
 * This function must be called whenever a server-to-client message is expected.
 * In other words, it must be called any time a mesage is sent from the client to the server.
+* Returns true if and only if there were no error messages returned from the server, such as "Unknown Avatar" or "Unknown Message Type."
 *
 */
-  void receive_message()
+  bool receive_message()
   {
   	char buf [BUFSIZE];
   	if ((bytes_read = read(comm_sock, buf, BUFSIZE-1)) < 0) {
   		fprintf(stderr, "Error reading from server.");
-  		exit(5);
+  		return false;
   	}
 
   	AM_Message *msg = (AM_Message *) buf;
@@ -139,7 +149,7 @@ void send_init(int nAvatars, int difficulty, char *hostname)
   	}
   	else if (msg->type == AM_NO_SUCH_AVATAR){
   		fprintf(stderr, "No such Avatar!");
-  		exit(6);
+  		return false;
   	}
   	else if (msg->type == AM_AVATAR_TURN){
   		turnID = ntohl(msg->avatar_turn.TurnId);
@@ -147,15 +157,15 @@ void send_init(int nAvatars, int difficulty, char *hostname)
   	}
   	else if (msg->type == AM_UNKNOWN_MSG_TYPE){
   		fprintf(stderr, "Unknown message type!");
-  		exit(7);
+  		return false;
   	}
   	else if (msg->type == AM_UNEXPECTED_MSG_TYPE){
   		fprintf(stderr, "Unexpected message type!");
-  		exit(8);
+  		return false;
   	}
   	else if (msg->type == AM_AVATAR_OUT_OF_TURN){
   		fprintf(stderr, "Avatar out of turn!");
-  		exit(9);
+  		return false;
   	}
   	else if (msg->type == AM_TOO_MANY_MOVES){
   		is_game_over = true;
@@ -167,12 +177,14 @@ void send_init(int nAvatars, int difficulty, char *hostname)
   	}
   	else if (msg->type == AM_SERVER_DISK_QUOTA){
   		fprintf(stderr, "Exceeeded server disk quota!");
-  		exit(9);
+  		return false;
   	}
   	else if (msg->type == AM_SERVER_OUT_OF_MEM){
   		fprintf(stderr, "Exceeeded server memory!");
-  		exit(9);
+  		return false;
   	}
+
+  	return true;
   }
 
 /*
@@ -241,34 +253,27 @@ void send_init(int nAvatars, int difficulty, char *hostname)
 *
 * Returns whether the game is over because the avatars were successful in finding each other, or because the movelimit or timelimit
 * was reached, or because there was an error in the messaging
-* 
+* Returns 0 if the game is still in progress.
+* Returns 1 if there was a server timeout.
+* Returns 2 if the move limit was reached.
+* returns 3 if an error message was sent from the server.
 *
 */
-  bool is_game_over()
+  bool check_game_status()
   {
-  	return is_game_over;
+  	if (!is_game_over){
+  		return 0;
+  	}
+  	else if (is_timeout){
+  		return 1;
+  	}
+  	else if (is_moves_execeeded){
+  		return 2;
+  	}
+  	else{
+  		return 3;
+  	}
   }
 
 
-/*
-*
-* Returns whether the game ended due to a server timeout
-* 
-*
-*/
-  bool is_timeout()
-  {
-  	return is_timeout;
-  }
-
-/*
-*
-* Returns whether the game ended because the number of moves allotted was exceeded
-* 
-*
-*/
-  bool is_moves_execeeded()
-  {
-  	return is_too_many_moves;
-  }
 
