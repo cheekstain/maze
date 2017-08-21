@@ -37,7 +37,7 @@ maze_pointers_t* maze_pointers_new(const char* hostname,
                          const maze_t* maze,
                          const lastmove_t* lastmove,
                          const counters_t* follow_list){
-  pointers_t* tmp = allocate(sizeof(pointers_t));
+  maze_pointers_t* tmp = allocate(sizeof(pointers_t));
   tmp.hostname = strdup(hostname);
   tmp.maze_port = maze_port;
   tmp.filename = strdup(filename);
