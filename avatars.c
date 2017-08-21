@@ -33,12 +33,12 @@ pointers_t* pointers_new(const char* hostname,
                  const lastmove_t lastmove){
   pointers_t* tmp = malloc(sizeof(pointers_t));
   memset(tmp, 0, sizeof(pointers_t));
-  tmp.hostname = 
-  tmp.maze_port =
-  tmp.filename =
-  tmp.avatar_id =
-  tmp.maze =
-  tmp.lastmove =
+  tmp.hostname = strdup(hostname);
+  tmp.maze_port = maze_port;
+  tmp.filename = strdup(filename);
+  tmp.avatar_id = avatar_id;
+  tmp.maze = maze;
+  tmp.lastmove = lastmove;
   return tmp;
 }
 
@@ -52,6 +52,21 @@ void pointers_delete(pointers_t *ptr){
   free(ptr.filename);
   free(ptr);
 }
+
+/*
+ * Duplicates a string, returns a pointer. Useful helper func.
+ */
+
+char *strdup(const char *c)
+{
+    char *dup = malloc(strlen(c) + 1);
+
+    if (dup != NULL)
+       strcpy(dup, c);
+
+    return dup;
+}
+
 
 /*
  * the primary avatar thread. it should be passed with an arg
