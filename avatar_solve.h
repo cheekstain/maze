@@ -20,7 +20,7 @@ typedef struct move_t move;
  * it returns a move struct with information necessary to send to the server.
  */
 
-move_t* maze_solve(maze_t* maze, int id, counters_t* followers, char* log);
+move_t* maze_solve(maze_t* maze, int id, XYPos pos, char* log);
 
 /* leader_solve backtracks along the avatar's own trail. it updates the log file
  * with that attempt.

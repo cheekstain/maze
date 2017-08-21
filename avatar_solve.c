@@ -33,11 +33,6 @@ void log_move(lastmove_t* move, char* log);
 void log_following(int me, int following, char* log);
 void log_attempt(int id, int dir, XYPos pos, char* log);
 
-void calculate_random(maze_t* maze); //TODO: unsure of paramters
-void calculate_move(maze_t* maze); //TODO: unsure of paramters
-
-/************ functions used to check previous attempt ************/
-
 /*************** check_previous() ***************/
 void check_previous(maze_t* maze, lastmove_t* move, char* log, 
 				int strength, counters_t* followers)
@@ -74,90 +69,46 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
     }
 }
 
-/* is_pos_equal is a helper function that returns true if the two XYPos
- * are equal and false otherwise.
- */
-bool is_pos_equal(XYPos before, XYPos after)
-{
-        if ((before->x == after->x) && (before->y == after->y)) {
-        	return true;
-        }
-        return false;
-} 
-
-/* log_wall is a function that updates the log with a wall if the move
- * has failed.
- */
-void log_wall(lastmove_t* move, char* log)
-{
-	int prev_dir = move->direction;
-	int x = move->after->x;
-	int y = move->after->y;
-
-	char* dir = get_dir(prev_dir);
-
-	fprintf(log, "Move fail. %s wall added to (%d, %d)\n", dir, x, y);
-}
-
-/* get_dir takes an int dir (0 - west, 1 - north, 2 - south, 3 - east)
- * and returns a char string
- */
-char* get_dir(int dir) {
-	char* string;
-
-	if (dir == 0) {
-		string = "West";
-	} else if (dir == 1) {
-		string = "North";
-	} else if (dir == 2) {
-		string = "South";
-	} else {
-		string = "East";
-	}
-
-	return string;
-}
-
-/* log_move is a function that updates the log with an avatar move if it
- * was sucessful.
- */
-void log_move(lastmove_t* move, char* log)
-{
-	int id = move->avatarID;
-	int x = move->after->x;
-	int y = move->after->y;
-
-	fprintf(log, "Avatar %d moved to (%d, %d)\n", id, x, y);
-}
-
-
-/* log_following is a function that updates the log with who an avatar is
- * following if it happens on that path
- */
-void log_following(int me, int following, char* log)
-{
-	fprintf(log, "Avatar %d is on avatar %d's path\n", me, following);
-}
-
-/* log_attempt is a function that updates the log with an avatar's move
- * attempt
- */
-void log_attempt(int id, int attempt_dir, XYPos pos, char* log)
-{
-	int x = pos->x;
-	int y = pos->y;
-	char* dir = get_dir(attempt_dir);
-
-	fprintf(log, "Avatar %d attempting to go %s to (%d, %d)\n", id, dir, x, y);
-}
-
 
 /****************** functions for choosing moves ******************/
 
 /****************** maze_solve() ******************/
-move_t* maze_solve(maze_t* maze, int id, counters_t* followers, char* log)
+move_t* maze_solve(maze_t* maze, int id, XYPos pos, char* log)
 {
+	XYPos final_pos = pos;
+	int strength = -1;
+	int dir = 4;
+	int wall;
 
+	for (int i = 0; i < 4; i++) {
+		wall = get_wall(maze, &pos, i);
+		if (wall == 0) { // if there is no wall
+			// check for path
+			XYPos new_pos = get_adjacent_pos(pos, i);
+			int tagger = get_tagged_by(maze, &new_pos);
+
+			if (tagger != id) { // if the tagger isn't me
+				int new_strength = get_tag_strength(maze, 
+								    &new_pos);
+
+				if (new_strength > strength) {
+					strength = new_strength;
+					dir = i;
+					final_pos = new_pos;
+				}
+			}
+
+		} else if (wall == -1 && strength == -1) { // unknown
+			// and strength has not been updated
+			// i.e. no path found yet
+			final_pos = get_adjacent_pos(pos, i);
+			dir = i;
+		}
+	}
+
+	log_attempt(id, dir, final_pos, log);
+	move_t move = { id, dir };
+	return &move;
 }
 
 /****************** leader_solve() ******************/
@@ -172,13 +123,13 @@ move_t* leader_solve(maze_t* maze, int id, XYPos pos, char* log)
 		wall = get_wall(maze, &pos, i); // get status of that wall;
 		if (wall == 0) { // if there is no wall
 			XYPos new_pos = get_adjacent_pos(pos, i); 
-
 			int tagger = get_tagged_by(maze, &new_pos);
-			if (tagger == id) { // if tagger of adjacent square is me
-				
-				int new_strength = get_tag_strength(maze, &new_pos);
+
+			if (tagger == id) { // if tagger of adjacent is me
+				int new_strength = get_tag_strength(maze, 
+								    &new_pos);
+
 				if (new_strength < strength) {
-					// if strength of adjacent is less than current strength
 					// set attempt direction to that square
 					strength = new_strength;
 					dir = i;
@@ -192,6 +143,31 @@ move_t* leader_solve(maze_t* maze, int id, XYPos pos, char* log)
 	move_t move = { id, dir };
 	return &move;
 }
+
+/****************** follower_solve() ******************/
+move_t* follower_solve(maze_t* maze, int id, counters_t* followers, char* log)
+{
+	
+}
+
+
+
+
+
+
+
+/****************** helper/local functions *******************/
+
+/* is_pos_equal is a helper function that returns true if the two XYPos
+ * are equal and false otherwise.
+ */
+bool is_pos_equal(XYPos before, XYPos after)
+{
+        if ((before->x == after->x) && (before->y == after->y)) {
+        	return true;
+        }
+        return false;
+} 
 
 /* get_adjacent_pos returns the pos of the square at a certain adjacent
  * direction.
@@ -215,43 +191,70 @@ XYPos get_adjacent_pos(XYPos pos, int dir)
 	return new_pos;
 }
 
+/* get_dir takes an int dir (0 - west, 1 - north, 2 - south, 3 - east)
+ * and returns a char string
+ */
+char* get_dir(int dir) {
+	char* string;
 
-/****************** follower_solve() ******************/
-move_t* follower_solve(maze_t* maze, int id, counters_t* followers, char* log)
-{
-	
+	if (dir == 0) {
+		string = "West";
+	} else if (dir == 1) {
+		string = "North";
+	} else if (dir == 2) {
+		string = "South";
+	} else {
+		string = "East";
+	}
+
+	return string;
 }
 
-/****************** make_move() ******************/
-void make_move(maze_t* maze, avatars_t* avatars, char* log, int my_id)
+/* log_wall is a function that updates the log with a wall if the move
+ * has failed.
+ */
+void log_wall(lastmove_t* move, char* log)
 {
-        //avatar_comm function to get AM_AVATAR_TURN message
-        int my_x = // parse from message
-        int my_y =
-        int turn_id =
-        if (turn_id == my_id) {
-                calculate_random(maze, my_x, my_y);
-                //update visualization, function from mazestruct.h
-                draw_maze(maze);
+	int prev_dir = move->direction;
+	int x = move->after->x;
+	int y = move->after->y;
 
-                //write move details to logfile
-                update_log(log);
+	char* dir = get_dir(prev_dir);
 
-                //avatar_comm function to send AM_AVATAR_MOVE to server
-                //
-        }
-
-        // update/check if move failed as well?
+	fprintf(log, "Move fail. %s wall added to (%d, %d)\n", dir, x, y);
 }
 
-
-void calculate_move(maze_t* maze)
+/* log_move is a function that updates the log with an avatar move if it
+ * was sucessful.
+ */
+void log_move(lastmove_t* move, char* log)
 {
+	int id = move->avatarID;
+	int x = move->after->x;
+	int y = move->after->y;
 
+	fprintf(log, "Avatar %d moved to (%d, %d)\n", id, x, y);
 }
 
-void calculate_random(maze_t* maze)
+/* log_following is a function that updates the log with who an avatar is
+ * following if it happens on that path
+ */
+void log_following(int me, int following, char* log)
 {
-
+	fprintf(log, "Avatar %d is on avatar %d's path\n", me, following);
 }
+
+/* log_attempt is a function that updates the log with an avatar's move
+ * attempt
+ */
+void log_attempt(int id, int attempt_dir, XYPos pos, char* log)
+{
+	int x = pos->x;
+	int y = pos->y;
+	char* dir = get_dir(attempt_dir);
+
+	fprintf(log, "Avatar %d attempting to go %s to (%d, %d)\n", id, dir, 
+									x, y);
+}
+
 
