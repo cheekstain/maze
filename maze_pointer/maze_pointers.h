@@ -12,7 +12,6 @@
 #include "counters.h"
 #include "memory.h"
 #include <string.h>
-#include <maze_pointers.h>
 #include <../mazestruct/mazestruct.h>
 
 maze_pointers_t* maze_pointers_new(const char* hostname, 
