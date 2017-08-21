@@ -31,55 +31,37 @@ typedef struct maze {
 	int num_avatars;														
 } maze_t;
 
-/**************** functions ****************/
+/**************** global functions ****************/
 maze_t *maze_new(const int width, const int height, const int num_avatars);
 int get_wall(maze_t *maze, XYPos *pos, int wall);
-static int get_north_wall(maze_t *maze, XYPos *pos);
-static int get_south_wall(maze_t *maze, XYPos *pos);
-static int get_east_wall(maze_t *maze, XYPos *pos);
-static int get_west_wall(maze_t *maze, XYPos *pos);
 int get_tagged_by(maze_t *maze, XYPos *pos);
 int get_tag_strength(maze_t *maze, XYPos *pos);
-static void set_north_wall(maze_t *maze, XYPos *pos, int new_val);
-static void set_south_wall(maze_t *maze, XYPos *pos, int new_val);
-static void set_east_wall(maze_t *maze, XYPos *pos, int new_val);
-static void set_west_wall(maze_t *maze, XYPos *pos, int new_val);
 void set_avatar_position(maze_t *maze, XYPos *pos, int avatar);
 void visit(maze_t *maze, XYPos *pos, int visitor, int tag_strength);
 bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[]);
 void maze_delete(maze_t *maze);
 void draw_maze(maze_t *maze);
 
-/**************** static functions ****************/
+/**************** local functions ****************/
 static mazesquare_t *mazesquare_new(int num_avatars);
 static mazesquare_t *get_square_at_coords(maze_t *maze, XYPos *pos);
+
+static int get_north_wall(maze_t *maze, XYPos *pos);
+static int get_south_wall(maze_t *maze, XYPos *pos);
+static int get_east_wall(maze_t *maze, XYPos *pos);
+static int get_west_wall(maze_t *maze, XYPos *pos);
+
+static void set_north_wall(maze_t *maze, XYPos *pos, int new_val);
+static void set_south_wall(maze_t *maze, XYPos *pos, int new_val);
+static void set_east_wall(maze_t *maze, XYPos *pos, int new_val);
+static void set_west_wall(maze_t *maze, XYPos *pos, int new_val);
+
 static int get_num_avatars_here(maze_t *maze, XYPos *pos, int colliding_avatars[]);
 static void draw_top_row(int width);
 static void draw_floor(int floor_status);
 static void draw_wall(int wall_status);
 static void draw_people(maze_t *maze, XYPos *pos);
 
-
-/******************************** mazesquare_new ******************************/
-static mazesquare_t *mazesquare_new(int num_avatars)
-{	
-	mazesquare_t *square = malloc(sizeof(mazesquare_t));
-
-	square->avatar_here = calloc(num_avatars, sizeof(bool));
-
-	for (int i = 0; i < num_avatars; i++) {
-		square->avatar_here[i] = false;
-	}
-
-	square->north_wall = -1;
-	square->south_wall = -1;
-	square->east_wall = -1;
-	square->west_wall = -1;
-	square->tagged_by = -1;
-	square->tag_strength = -1;
-
-	return square;
-}
 
 /******************************** maze_new ************************************/
 maze_t *maze_new(const int width, const int height, const int num_avatars)
@@ -125,6 +107,27 @@ maze_t *maze_new(const int width, const int height, const int num_avatars)
 	return maze;
 }
 
+/******************************** mazesquare_new ******************************/
+static mazesquare_t *mazesquare_new(int num_avatars)
+{	
+	mazesquare_t *square = malloc(sizeof(mazesquare_t));
+
+	square->avatar_here = calloc(num_avatars, sizeof(bool));
+
+	for (int i = 0; i < num_avatars; i++) {
+		square->avatar_here[i] = false;
+	}
+
+	square->north_wall = -1;
+	square->south_wall = -1;
+	square->east_wall = -1;
+	square->west_wall = -1;
+	square->tagged_by = -1;
+	square->tag_strength = -1;
+
+	return square;
+}
+
 /******************************** get_square_at_coords ************************/
 static mazesquare_t *get_square_at_coords(maze_t *maze, XYPos *pos)
 {
@@ -155,6 +158,34 @@ int get_wall(maze_t *maze, XYPos *pos, int wall)
 	}
 }
 
+/******************************** get_north_wall ******************************/
+static int get_north_wall(maze_t *maze, XYPos *pos)
+{
+	mazesquare_t *square = get_square_at_coords(maze, pos);
+	return square->north_wall;
+}
+
+/******************************** get_south_wall ******************************/
+static int get_south_wall(maze_t *maze, XYPos *pos)
+{
+	mazesquare_t *square = get_square_at_coords(maze, pos);
+	return square->south_wall;
+}
+
+/******************************** get_east_wall ******************************/
+static int get_east_wall(maze_t *maze, XYPos *pos)
+{
+	mazesquare_t *square = get_square_at_coords(maze, pos);
+	return square->east_wall;
+}
+
+/******************************** get_west_wall *******************************/
+static int get_west_wall(maze_t *maze, XYPos *pos)
+{
+	mazesquare_t *square = get_square_at_coords(maze, pos);
+	return square->west_wall;
+}
+
 /******************************** set_wall ************************************/
 void set_wall(maze_t *maze, XYPos *pos, int new_val, int wall) 
 {
@@ -175,13 +206,6 @@ void set_wall(maze_t *maze, XYPos *pos, int new_val, int wall)
 	}
 }
 
-/******************************** get_north_wall ******************************/
-static int get_north_wall(maze_t *maze, XYPos *pos)
-{
-	mazesquare_t *square = get_square_at_coords(maze, pos);
-	return square->north_wall;
-}
-
 /******************************** set_north_wall ******************************/
 static void set_north_wall(maze_t *maze, XYPos *pos, int new_val)
 {
@@ -195,13 +219,6 @@ static void set_north_wall(maze_t *maze, XYPos *pos, int new_val)
 		mazesquare_t *northern_square = get_square_at_coords(maze, &new_pos);
 		northern_square->south_wall = new_val;
 	}
-}
-
-/******************************** get_south_wall ******************************/
-static int get_south_wall(maze_t *maze, XYPos *pos)
-{
-	mazesquare_t *square = get_square_at_coords(maze, pos);
-	return square->south_wall;
 }
 
 /******************************** set_south_wall ******************************/
@@ -218,13 +235,6 @@ static void set_south_wall(maze_t *maze, XYPos *pos, int new_val)
 	}
 }
 
-/******************************** get_east_wall ******************************/
-static int get_east_wall(maze_t *maze, XYPos *pos)
-{
-	mazesquare_t *square = get_square_at_coords(maze, pos);
-	return square->east_wall;
-}
-
 /******************************** set_east_wall *******************************/
 static void set_east_wall(maze_t *maze, XYPos *pos, int new_val)
 {
@@ -237,13 +247,6 @@ static void set_east_wall(maze_t *maze, XYPos *pos, int new_val)
 		mazesquare_t *eastern_square = get_square_at_coords(maze, &new_pos);
 		eastern_square->west_wall = new_val;
 	}
-}
-
-/******************************** get_west_wall *******************************/
-static int get_west_wall(maze_t *maze, XYPos *pos)
-{
-	mazesquare_t *square = get_square_at_coords(maze, pos);
-	return square->west_wall;
 }
 
 /******************************** set_west_wall *******************************/
@@ -317,6 +320,17 @@ void visit(maze_t *maze, XYPos *pos, int visitor, int tag_strength)
 	square->tag_strength = tag_strength;
 }
 
+/******************************** is_collision ********************************/
+bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[])
+{
+	int num_here = get_num_avatars_here(maze, pos, colliding_avatars);
+
+	if (num_here > 1) {
+		return true;
+	}
+	return false;
+}
+
 /******************************** get_num_avatars_here ************************/
 static int get_num_avatars_here(maze_t *maze, XYPos *pos, int colliding_avatars[])
 {
@@ -331,17 +345,6 @@ static int get_num_avatars_here(maze_t *maze, XYPos *pos, int colliding_avatars[
 		}
 	}
 	return first_free_index;
-}
-
-/******************************** is_collision ********************************/
-bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[])
-{
-	int num_here = get_num_avatars_here(maze, pos, colliding_avatars);
-
-	if (num_here > 1) {
-		return true;
-	}
-	return false;
 }
 
 /******************************** maze_delete *********************************/
