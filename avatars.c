@@ -24,13 +24,12 @@ typedef struct data_pointer_struct {
  * Makes deep copies of everything except maze, for obvious reasons. The free function
  * deals with everything but maze, which should be freed elsewhere.
  */
-
 pointers_t* pointers_new(const char* hostname, 
                  const int maze_port,
                  const char* filename,
                  const int avatar_id,
                  const maze_t* maze,
-                 const lastmove_t lastmove){
+                 const lastmove_t* lastmove){
   pointers_t* tmp = malloc(sizeof(pointers_t));
   memset(tmp, 0, sizeof(pointers_t));
   tmp.hostname = strdup(hostname);
@@ -46,7 +45,6 @@ pointers_t* pointers_new(const char* hostname,
  * Free func for pointers_t. Nota bene: this all deep copies, but not maze, which should
  * itself be freed elsewhere.
  */
-
 void pointers_delete(pointers_t *ptr){
   free(ptr.hostname);
   free(ptr.filename);
@@ -56,9 +54,7 @@ void pointers_delete(pointers_t *ptr){
 /*
  * Duplicates a string, returns a pointer. Useful helper func.
  */
-
-char *strdup(const char *c)
-{
+char *strdup(const char *c){
     char *dup = malloc(strlen(c) + 1);
 
     if (dup != NULL)
@@ -74,6 +70,7 @@ char *strdup(const char *c)
  * to various information that we need
  */
 void* avatar_thread(void *ptr){
+  pointers_t *data = ptr;
   
 }
 
