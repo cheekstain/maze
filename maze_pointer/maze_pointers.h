@@ -14,6 +14,8 @@
 #include <string.h>
 #include <../mazestruct/mazestruct.h>
 
+typedef struct maze_data_pointer_struct maze_pointers_t;
+
 maze_pointers_t* maze_pointers_new(const char* hostname, 
                          const int maze_port,
                          const char* filename,
