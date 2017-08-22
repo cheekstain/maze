@@ -259,9 +259,8 @@ XYPos* get_adjacent_pos(XYPos* pos, int dir)
 		x += 1;
 	}
 	
-	XYPos* adjacent = malloc(sizeof(XYPos*));
-	XYPos new_pos = { x, y };
-	adjacent = &new_pos;
+	XYPos* adjacent = malloc(sizeof(XYPos));
+	*adjacent = { x, y }
 	return adjacent;
 }
 
