@@ -9,61 +9,9 @@
 #include <stdbool.h>
 #include "mazestruct.h"
 #include "amazing.h"
-
-/**************** structs ******************/
-typedef struct data_pointer_struct {
-  const char* hostname;
-  const int maze_port;
-  const char* filename;
-  const int avatar_id;
-  const maze_t* maze;
-  const lastmove_t lastmove;
-} pointers_t;
+#include <maze_pointers.h>
 
 static bool logfile_finished = false;
-/*
- * Makes deep copies of everything except maze, for obvious reasons. The free function
- * deals with everything but maze, which should be freed elsewhere.
- */
-pointers_t* pointers_new(const char* hostname, 
-                 const int maze_port,
-                 const char* filename,
-                 const int avatar_id,
-                 const maze_t* maze,
-                 const lastmove_t* lastmove){
-  pointers_t* tmp = malloc(sizeof(pointers_t));
-  memset(tmp, 0, sizeof(pointers_t));
-  tmp.hostname = strdup(hostname);
-  tmp.maze_port = maze_port;
-  tmp.filename = strdup(filename);
-  tmp.avatar_id = avatar_id;
-  tmp.maze = maze;
-  tmp.lastmove = lastmove;
-  return tmp;
-}
-
-/*
- * Free func for pointers_t. Nota bene: this all deep copies, but not maze, which should
- * itself be freed elsewhere.
- */
-void pointers_delete(pointers_t *ptr){
-  free(ptr.hostname);
-  free(ptr.filename);
-  free(ptr);
-}
-
-/*
- * Duplicates a string, returns a pointer. Useful helper func.
- */
-char *strdup(const char *c){
-    char *dup = malloc(strlen(c) + 1);
-
-    if (dup != NULL)
-       strcpy(dup, c);
-
-    return dup;
-}
-
 
 /*
  * the primary avatar thread. it should be passed with an arg
@@ -73,12 +21,21 @@ char *strdup(const char *c){
 void* avatar_thread(void *ptr){
   pointers_t *data = ptr;
   comm_t *com = comm_new();
-  send_avtatar_ready(com, get_avatarID(data));
+  send_avatar_ready(com, get_avatar_id(data));
   while(!receive_message(com)){}
   while (game_status(com) == 0){
-    if (get_turnID(com) == get_avatarID(data)){
-      update_last_move(data);
-      move_t *next_move = maze_solve(data);
+    if (get_turnID(com) == get_avatar_id(data)){
+      check_previous(get_maze(data), get_lastmove(data), 
+               get_filestream(data), get_path_strength(data), get_follow_list(data));
+      counters_t* follow_list = get_follow_list(data);
+      if(counters_get(follow_list, get_avatar_id(data)) == get_avatar_id(data)){
+        bool last_leader = false;
+        counters_iterate(follow_list, last_leader, check_all_following);
+        
+      }
+      else{
+        move_t *next_move = maze_solve(data);
+      }
     }
   }
   if (!logfile_finished){
@@ -90,7 +47,9 @@ void finish_logfile(pointers_t *data){
   
 }
 
-
+/*
+ * Helper function. Checks if all 
+ */
 
 
 
