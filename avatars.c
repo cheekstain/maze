@@ -29,12 +29,26 @@ void* avatar_thread(void *ptr){
                get_filestream(data), get_path_strength(data), get_follow_list(data));
       counters_t* follow_list = get_follow_list(data);
       if(counters_get(follow_list, get_avatar_id(data)) == get_avatar_id(data)){
-        bool last_leader = false;
-        counters_iterate(follow_list, last_leader, check_all_following);
-        
-      }
-      else{
-        move_t *next_move = maze_solve(data);
+        follower_t f;
+        f.id = get_avatar_id(data);
+        f.b = false;
+        counters_iterate(follow_list, f, check_all_following);
+        if(f.b){
+          move_t* m = maze_solve(get_maze(data), get_avatar_id(data), SOMEHOW GET THE LOCATION, get_filestream(data)));
+          if(m != NULL){
+            #SEND M TO PLACE
+          }
+        } else {
+          move_t* m = leader_solve(get_maze(data), get_avatar_id(data), SOMEHOW GET THE LOCATION, get_filestream(data)));
+          if(m != NULL){
+            #SEND M TO PLACE
+          }
+        }
+      } else {
+        move_t* m = follower_solve(get_maze(data), get_avatar_id(data), SOMEHOW GET THE LOCATION, get_filestream(data)));
+        if(m != NULL){
+          #SEND M TO PLACE
+        }
       }
     }
   }
@@ -48,9 +62,24 @@ void finish_logfile(pointers_t *data){
 }
 
 /*
- * Helper function. Checks if all 
+ * Helper struct for check_all_following et cetera functions.
  */
 
+typedef struct following_bool {
+  int id;
+  bool b;
+} follower_t;
+ 
+/*
+ * Helper function. Checks if the avatar in question is the last leader
+ */
+void check_all_following(follower_t a, const int key, int count){
+  if(key != a.id){
+    if(key == count){
+      a.b = false;
+    }
+  }
+}
 
 
 
