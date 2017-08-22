@@ -33,7 +33,7 @@ int main()
 	maze_t* maze = maze_new(5, 5, 3);
 
 	set_wall(maze, &me, 0, 1);
-	set_wall(maze, &me, 1, 0);
+	set_wall(maze, &me, 0, 0);
 	set_wall(maze, &me, 0, 3);
 	set_wall(maze, &other1, 0, 1);
 	set_wall(maze, &other1, 1, 0);
@@ -43,18 +43,21 @@ int main()
 	//set_wall(maze, &other4, 0, 1);
 	set_wall(maze, &other4, 0, 2);
 	
-
+	counters_t* followers = counters_new();
+	counters_set(followers, 0, 1);
+	counters_set(followers, 1, 2);
 
 	set_avatar_position(maze, &me, id);
 
-	visit(maze, &me, 0, 2);
-	visit(maze, &other0, 0, 1);
-	visit(maze, &other2, 0, 3);
-	//draw_maze(maze);	
-	move_t* move = leader_solve(maze, id, &me, log);
-
+	visit(maze, &me, 1, 2);
+	visit(maze, &other0, 3, 5);
+	visit(maze, &other2, 1, 4);
+	draw_maze(maze);	
+	move_t* move = follower_solve(maze, id, &me, followers, log);
+	
 	free(move);
 	maze_delete(maze);
+	counters_delete(followers);
 	return 0;
 }
 
