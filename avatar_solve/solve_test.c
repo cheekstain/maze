@@ -40,6 +40,7 @@ int main()
 	if (move != NULL) {
 		printf("id: %d, direction: %d", move->avatar_id, move->direction);
 	}
+	free(move);
 	maze_delete(maze);
 	return 0;
 }
