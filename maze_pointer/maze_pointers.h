@@ -9,10 +9,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "counters.h"
-#include "memory.h"
+#include "../libcs50/counters.h"
+#include "../libcs50/memory.h"
 #include <string.h>
-#include <../mazestruct/mazestruct.h>
+#include "../mazestruct/mazestruct.h"
 
 typedef struct maze_data_pointer_struct maze_pointers_t;
 typedef struct lastmove{
