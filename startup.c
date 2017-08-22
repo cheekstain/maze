@@ -4,6 +4,7 @@
  * This module initializes the game
  *
  * Bashful Brigade: Christina Lu, August 2017
+ * Emma Hobday, August 2017
  */
 
 #include <stdio.h>
@@ -20,7 +21,7 @@
 
 /**************** functions ****************/
 static bool check_parameters(int argc, char* argv[]);
-
+static char *make_log(const int num_avatars, const int difficulty, const int maze_port);
 
 int main(int argc, char* argv[]){
 	if (!check_parameters(argc, argv)) {
@@ -54,7 +55,7 @@ int main(int argc, char* argv[]){
 	const int maze_height = get_maze_height(com);
 	const int maze_width = get_maze_width(com);
 
-	FILE *fp = make_log();
+	char *log_name = make_log(n_avatars, difficulty, maze_port);
 
 
 	// Main "Program"
@@ -93,12 +94,14 @@ int main(int argc, char* argv[]){
   	//post-game cleanup
   
   	//FREE EVERYTHING
+  	free(log_name);
   	maze_delete(maze);
   	set_delete(avatars, maze_pointers_delete);
   	counters_delete(avatarFollowing);
     free(lastmove);
 }
 
+/******************************** check_parameters ****************************/
 static bool check_parameters(int argc, char* argv[]){
 	if (argc != 4) {
 		fprintf(stderr, "usage: n_avatars difficulty hostname\n");
@@ -130,24 +133,20 @@ static bool check_parameters(int argc, char* argv[]){
 	return true;
 }
 
-FILE *make_log(char* argv[]){
+/******************************** make_log ************************************/
+static char *make_log(const int num_avatars, const int difficulty, const int maze_port){
 	// make log file, open for appending
 	char* log_name = malloc(sizeof(char) * 50);
-	char* user_id = itoa(getuid());
-	strcpy(log_name, "Amazing_");
-	strcat(log_name, user_id); 
-	strcat(log_name, "_");
-	strcat(log_name, argv[1]);
-	strcat(log_name, "_")
-	strcat(log_name, argv[2]);
-	strcat(log_name, ".log");
+	sprintf(log_name, "Amazing_%d_%d_%d.log", getuid(), num_avatars, difficulty);
 	
 	time_t curtime;
-    	time(&curtime);
+    time(&curtime);
 
-	FILE *fp = (log_name, "a");
-	fprintf(fp, "User ID: %s, MazePort: %d, Date & Time: %s", user_id,
-						maze_port, ctime(&curtime));
+	FILE *fp = fopen(log_name, "a");
+	fprintf(fp, "User ID: %d, MazePort: %d, Date & Time: %s", getuid(),
+		maze_port, ctime(&curtime));
+	fclose(fp);
+	return log_name;
 }
 
 

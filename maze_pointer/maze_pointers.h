@@ -16,8 +16,8 @@
 
 typedef struct maze_data_pointer_struct maze_pointers_t;
 typedef struct lastmove{
-  XYPos before;
-  XYPos after;
+  XYPos *before;
+  XYPos *after;
   int avatarID;
   int direction;
 } lastmove_t;
