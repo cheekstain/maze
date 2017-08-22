@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include "../amazing.h"
 #include "../mazestruct/mazestruct.h"
 #include "../maze_pointer/maze_pointers.h"
@@ -16,7 +17,10 @@ int main()
 {
 	char* log = "test_file";
 	int id = 0;
-	XYPos me = { 2, 4 };
+	uint32_t two = 2;
+	uint32_t four = 4;
+	
+	XYPos me = { two, four };
 	
 	XYPos other1 = { 1, 4 };
 	XYPos other2 = { 2, 3 };

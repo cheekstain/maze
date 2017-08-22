@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include "../amazing.h"
 #include "../mazestruct/mazestruct.h"
 #include "../maze_pointer/maze_pointers.h"
@@ -70,19 +71,23 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 
 /****************** maze_solve() ******************/
 move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
-{
+{	
+
 	XYPos* final_pos = pos;
 	int strength = -1;
 	int dir = 4;
 	int wall;
-
+	
 	for (int i = 0; i < 4; i++) {
 		wall = get_wall(maze, pos, i);
-
+		
 		if (wall == 0) { // if there is no wall, check for path
 			XYPos *new_pos = get_adjacent_pos(pos, i);
-			int tagger = get_tagged_by(maze, new_pos);
+			printf("x: %d, y: %d\n", new_pos->x, new_pos->y);
 
+	
+			int tagger = get_tagged_by(maze, new_pos);
+			
 			if (tagger != id) { // if the tagger isn't me
 				int new_strength = get_tag_strength(maze, 
 								new_pos);
@@ -126,7 +131,8 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 		wall = get_wall(maze, pos, i); // get status of that wall;
 
 		if (wall == 0) { // if there is no wall
-			XYPos* new_pos = get_adjacent_pos(pos, i); 
+			XYPos* new_pos = get_adjacent_pos(pos, i);
+			printf("%d, %d\n", (int) pos->x, (int) pos->y); 
 			int tagger = get_tagged_by(maze, new_pos);
 
 			if (tagger == id) { // if tagger is me
@@ -237,8 +243,8 @@ bool is_pos_equal(XYPos* before, XYPos* after)
  */
 XYPos* get_adjacent_pos(XYPos* pos, int dir) 
 {
-	int x = pos->x;
-	int y = pos->y;
+	uint32_t x = pos->x;
+	uint32_t y = pos->y;
 
 	if (dir == 0) { // west
 		x -= 1;
@@ -290,8 +296,8 @@ void log_wall(lastmove_t* move, char* log)
 {
 	FILE *fp = fopen(log, "a");
 
-	int x = move->after->x;
-	int y = move->after->y;
+	uint32_t x = move->after->x;
+	uint32_t y = move->after->y;
 	char* dir = get_dir(move->direction);
 
 	fprintf(fp, "Move failed. %s wall added to (%d, %d).\n", dir, x, y);
@@ -308,8 +314,8 @@ void log_move(lastmove_t* move, char* log)
 	FILE *fp = fopen(log, "a");
 
 	int id = move->avatarID;
-	int x = move->after->x;
-	int y = move->after->y;
+	uint32_t x = move->after->x;
+	uint32_t y = move->after->y;
 
 	fprintf(fp, "Avatar %d moved to (%d, %d).\n", id, x, y);
 	fclose(fp);
@@ -337,8 +343,8 @@ void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 {
 	FILE *fp = fopen(log, "a");
 	
-	int x = pos->x;
-	int y = pos->y;
+	uint32_t x = pos->x;
+	uint32_t y = pos->y;
 	char* dir = get_dir(attempt_dir);
 	
 		
