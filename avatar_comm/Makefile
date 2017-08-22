@@ -4,10 +4,10 @@
 #Arun Anand, 2017
 
 PROG = commtest
-OBJS = commtest.o avatar_comm.o 
-LIBS = -lm
+OBJS = commtest.o avatar_comm.o
+LIBS = -lm -lpthread
 
-all: commtest.o avatar_comm.o
+all: commtest
 # uncomment the following to turn on verbose memory logging
 # TESTING=-DMEMTEST
 

@@ -8,6 +8,7 @@
 #include <math.h>
 #include <netdb.h>
 #include <stdbool.h>
+#include <pthread.h>
 //#include "mazestruct.h"
 #include "amazing.h"
 
@@ -20,20 +21,17 @@ uint32_t maze_height;
 uint32_t turnID;
 XYPos positions[AM_MAX_AVATAR];
 bool is_game_over;
+bool is_maze_solved;
 bool is_timeout;
 bool is_too_many_moves;
 int comm_sock;
 struct sockaddr_in server;
 int nAvatars;
-int *sockets[AM_MAX_AVATAR];
 char *hostname;
 } comm_t;
 
-typedef struct ready_param{
-  comm_t *com;
-  int avatarID;
-} avatar_ready_param_t;
 
+pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 
 
 /**************** file-local constants ****************/
@@ -47,16 +45,10 @@ comm_t *comm_new()
 	com->is_game_over = false;
 	com->is_timeout = false;
 	com->is_too_many_moves = false;
+  com->is_maze_solved = false;
 	return com;
 }
 
-/**************** param_new ****************/
-avatar_ready_param_t *param_new(int avatarID, comm_t *com){
-  avatar_ready_param_t *p = malloc(sizeof(avatar_ready_param_t));
-  p->avatarID = avatarID;
-  p->com = com;
-  return p;
-}
 
 /*
 *
@@ -66,6 +58,7 @@ avatar_ready_param_t *param_new(int avatarID, comm_t *com){
 */
 bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 {
+  printf("sending init\n");
 	AM_Message msg;
 	msg.type = htonl(AM_INIT);
 	msg.init.nAvatars = htonl(nAvatars);
@@ -91,12 +84,11 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   		fprintf(stderr, "Error connecting stream socket.");
   		return false;
   	}
-
-  	if (write(com->comm_sock, &msg, sizeof(AM_Message)) < 0)  {
+    int bytes_written = 0;
+  	if ((bytes_written = write(com->comm_sock, &msg, sizeof(AM_Message))) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
   		return false;
   	}
-
     com->nAvatars = nAvatars;
     com->hostname = malloc(strlen(hostname)+1);
     strcpy(com->hostname, hostname);
@@ -110,10 +102,10 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 * Returns true if and only if the init message was able to sent without running into errors. 
 *
 */
-  bool send_avatar_ready(avatar_ready_param_t *p)
+  int send_avatar_ready(comm_t *com, int avatarID)
   {
-    int avatarID = p->avatarID;
-    comm_t *com = p->com;
+    pthread_mutex_lock(&mutex1); 
+    printf("sending avatar ready\n");
 	//server.sin_family = AF_INET;
   	com->server.sin_port = htons(com->mazeport);
 	// Look up the hostname specified on command line
@@ -131,7 +123,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   int avatar_sock = socket(AF_INET, SOCK_STREAM, 0);
   if (avatar_sock < 0) {
     fprintf(stderr, "Error opening socket.");
-    return false;
+    return -1;
   }
 
   com->server.sin_family = AF_INET;
@@ -140,23 +132,24 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
     struct hostent *hostp = gethostbyname(com->hostname); // server hostname
     if (hostp == NULL) {
       fprintf(stderr, "%s: unknown host\n", com->hostname);
-      return false;
+      return -1;
     }  
     memcpy(&(com->server.sin_addr), hostp->h_addr_list[0], hostp->h_length);
 
     if (connect(avatar_sock, (struct sockaddr *) &(com->server), sizeof(com->server)) < 0) {
       fprintf(stderr, "Error connecting stream socket.");
-      return false;
+      return -1;
     }
   	AM_Message msg;
   	msg.type = htonl(AM_AVATAR_READY);
   	msg.avatar_ready.AvatarId = htonl(avatarID);
-  	if (write(avatar_sock, &msg, sizeof(AM_Message)) < 0)  {
+    int bytes_written = 0;
+  	if ((bytes_written = write(avatar_sock, &msg, sizeof(AM_Message))) <= 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
-  		return false;
+  		return -1;
   	}
-    *(com->sockets[avatarID]) = avatar_sock;
-  	return true;
+    pthread_mutex_unlock(&mutex1);
+  	return avatar_sock;
   }
 
 /*
@@ -165,14 +158,14 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 * Returns true if and only if the init message was able to sent without running into errors.
 *
 */
-  bool send_move(comm_t *com, int avatarID, int direction)
+  bool send_move(comm_t *com, int avatarID, int direction, int sock)
   {
+    printf("sending move, thread %d\n", avatarID);
   	AM_Message msg;
   	msg.type = htonl(AM_AVATAR_MOVE);
   	msg.avatar_move.AvatarId = htonl(avatarID);
   	msg.avatar_move.Direction = htonl(direction);
-    int avatar_sock = *(com->sockets[avatarID]);
-  	if (write(avatar_sock, &msg, sizeof(AM_Message)) < 0)  {
+  	if (write(sock, &msg, sizeof(AM_Message)) < 0)  {
   		fprintf(stderr, "Error writing on stream socket.");
   		return false;
   	}
@@ -183,19 +176,35 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 /*
 *
 * Calling this function alerts the module that a new message should be received from the server.
-* This function must be called whenever a server-to-client message is expected.
+* This function must be called wshenever a server-to-client message is expected.
 * In other words, it must be called any time a mesage is sent from the client to the server.
-* Returns true if and only if there were no error messages returned from the server, such as "Unknown Avatar" or "Unknown Message Type."
+* Returns true if and only if there were no error messages returned from the server, such as "Unknown Avatar" or "Unknown Message Type," and there
+* was actually a message in the pipe to be read.
 *
 */
-  bool receive_message(comm_t *com)
+  bool receive_message(comm_t *com, int avatarID, int sock)
   {
   	char buf [BUFSIZE];
     int bytes_read;
-  	if ((bytes_read = read(com->comm_sock, buf, BUFSIZE-1)) < 0) {
-  		fprintf(stderr, "Error reading from server.");
-  		return false;
-  	}
+    if (sock == -1){
+    	if ((bytes_read = read(com->comm_sock, buf, BUFSIZE-1)) < 0) {
+    		fprintf(stderr, "Error reading from server.");
+    		return false;
+    	}
+      else if (bytes_read == 0){
+        return false;
+      }
+    }
+    else{
+      if ((bytes_read = read(sock, buf, BUFSIZE-1)) < 0) {
+        fprintf(stderr, "Error reading from server.");
+        return false;
+      }
+      else if (bytes_read == 0){
+        return false;
+      }
+    }
+
     printf("bytes read %d\n", bytes_read);
 
   	AM_Message *msg = (AM_Message *) buf;
@@ -204,14 +213,18 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   		com->maze_width = ntohl(msg->init_ok.MazeWidth);
   		com->maze_height = ntohl(msg->init_ok.MazeHeight);
   		com->is_init_successful = true;
+      printf("init ok\n");
   	}
 
   	else if (ntohl(msg->type) == AM_INIT_FAILED){
   		com->is_init_successful = false;
+      com->is_game_over = true;
       fprintf(stderr, "Init failed!");
   	}
   	else if (ntohl(msg->type) == AM_NO_SUCH_AVATAR){
   		fprintf(stderr, "No such Avatar!");
+      com->is_game_over = true;
+      printf("no such avatar, thread %d\n", avatarID);
   		return false;
   	}
   	else if (ntohl(msg->type) == AM_AVATAR_TURN){
@@ -223,6 +236,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
       	new_pos.x = ntohl(x);
       	new_pos.y = ntohl(y);
       	com->positions[i] = new_pos;
+        printf("avatar turn, thread %d\n", avatarID);
       }
   	}
   	else if (ntohl(msg->type) == AM_UNKNOWN_MSG_TYPE){
@@ -240,19 +254,29 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   	else if (ntohl(msg->type) == AM_TOO_MANY_MOVES){
   		com->is_game_over = true;
   		com->is_too_many_moves = true;
+      printf("too many moves, thread %d\n", avatarID);
   	}
   	else if (ntohl(msg->type) == AM_SERVER_TIMEOUT){
   		com->is_game_over = true;
   		com->is_timeout = true;
+      printf("server timeout, thread %d\n", avatarID);
   	}
   	else if (ntohl(msg->type) == AM_SERVER_DISK_QUOTA){
   		fprintf(stderr, "Exceeeded server disk quota!");
+      com->is_game_over = true;
   		return false;
   	}
   	else if (ntohl(msg->type) == AM_SERVER_OUT_OF_MEM){
   		fprintf(stderr, "Exceeeded server memory!");
+      com->is_game_over = true;
   		return false;
   	}
+    else if (ntohl(msg->type) == AM_MAZE_SOLVED){
+      fprintf(stdout, "MAZE SOLVED");
+      com->is_game_over = true;
+      com->is_maze_solved = true;
+      return true;
+    }
 
   	return true;
   }
@@ -348,11 +372,5 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   * A function to close all of the sockets when communication has ended.
   *
   */
-  void close_sockets(comm_t *com)
-  {
-    for (int i = 0; i<com->nAvatars; i++){
-      close(*com->sockets[i]);
-      close(com->comm_sock);
-    }
-  }
+  
 
