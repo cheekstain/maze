@@ -340,11 +340,14 @@ void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 	int x = pos->x;
 	int y = pos->y;
 	char* dir = get_dir(attempt_dir);
-
+	
+		
 	fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
 							   id, dir, x, y);
 	fclose(fp);
-	free(pos);
+	if (pos != NULL) {
+		free(pos);
+	}
 }
 
 

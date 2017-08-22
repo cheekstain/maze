@@ -4,30 +4,34 @@
 # Bashful Brigade: Christina Lu, August 2017
 
 PROG = solve_test
-OBJS = avatar_solve.o ../amazing.o ../mazestruct/mazestruct.o ../libcs50/counters.o 
-LIBS = -lm
+OBJS = avatar_solve.o ../mazestruct/mazestruct.o ../libcs50/memory.o ../libcs50/counters.o solve_test.o 
+LIBS = 
 
-CFLAGS = -Wall -pedantic -std=c11 -ggdb $(TESTING) -I../libcs50 ../ 
+CFLAGS = -Wall -pedantic -std=c11 -ggdb -I../libcs50 
 CC = gcc
 MAKE = make
 
 $(PROG): $(OBJS)
 	$(CC) $(CFLAGS) -o $(PROG) $(OBJS) $(LIBS)
 
-solve_test.o: solve_test.c
 
 avatar_solve.o: avatar_solve.h ../amazing.h ../mazestruct/mazestruct.h ../maze_pointer/maze_pointers.h ../libcs50/counters.h 
 
-amazing.o: ../amazing.h
+mazestruct.o: ../mazestruct/mazestruct.h 
 
-mazestruct.o: ../mazestruct/mazestruct.h
+memory.o: ../libcs50/memory.h
 
-counters.o: ../libcs50/counters.h ../libcs50/memory.h
+counters.o: ../libcs50/memory.h ../libcs50/counters.h
 
-.PHONY: test clean
+solve_test.o: avatar_solve.h ../amazing.h ../mazestruct/mazestruct.h ../maze_pointer/maze_pointers.h 
+
+
+.PHONY: test clean 
 
 test: $(PROG)
 	./$(PROG)
 
+
 clean: 
 	rm -rf $(PROG)
+	rm -rf *.o
