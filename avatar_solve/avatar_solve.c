@@ -82,10 +82,7 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 		wall = get_wall(maze, pos, i);
 		
 		if (wall == 0) { // if there is no wall, check for path
-			XYPos *new_pos = get_adjacent_pos(pos, i);
-			printf("x: %d, y: %d\n", new_pos->x, new_pos->y);
-
-	
+			XYPos *new_pos = get_adjacent_pos(pos, i);	
 			int tagger = get_tagged_by(maze, new_pos);
 			
 			if (tagger != id) { // if the tagger isn't me
@@ -94,6 +91,10 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 				if (new_strength > strength) {
 					// if the tag strength is higher
+					
+					if (!is_pos_equal(final_pos, pos)) {
+						free(final_pos);
+					}
 					strength = new_strength; 
 					dir = i;
 					final_pos = new_pos;
@@ -103,8 +104,10 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 			} else{
 			    free(new_pos);
 			}
+	
 		} else if (wall == -1 && strength == -1) {
 			// unknown wall and no path found yet
+			printf("here");
 			final_pos = get_adjacent_pos(pos, i);
 			dir = i;
 		}
@@ -131,7 +134,6 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 		if (wall == 0) { // if there is no wall
 			XYPos* new_pos = get_adjacent_pos(pos, i);
-			printf("%d, %d\n", (int) pos->x, (int) pos->y); 
 			int tagger = get_tagged_by(maze, new_pos);
 
 			if (tagger == id) { // if tagger is me
@@ -259,10 +261,8 @@ XYPos* get_adjacent_pos(XYPos* pos, int dir)
 	}
 	
 	XYPos* adjacent = malloc(sizeof(XYPos));
-	printf("x:%d, y:%d\n", x, y);
 	adjacent->x = x;
 	adjacent->y = y;
-	printf("x:%d, y:%d\n", adjacent->x, adjacent->y);
 	return adjacent;
 }
 

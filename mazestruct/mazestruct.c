@@ -270,7 +270,6 @@ static void set_west_wall(maze_t *maze, XYPos *pos, int new_val)
 /******************************** get_tagged_by *******************************/
 int get_tagged_by(maze_t *maze, XYPos *pos)
 {
-	//printf("x: %d, y: %d\n", pos->x, pos->y);
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 	return square->tagged_by;
 }
