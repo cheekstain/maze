@@ -97,9 +97,12 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 					strength = new_strength; 
 					dir = i;
 					final_pos = new_pos;
+				} else {
+				    free(new_pos);
 				}
+			} else{
+			    free(new_pos);
 			}
-			free(new_pos);
 		} else if (wall == -1 && strength == -1) {
 			// unknown wall and no path found yet
 			final_pos = get_adjacent_pos(pos, i);
