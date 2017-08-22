@@ -25,6 +25,12 @@ void* avatar_thread(void *ptr){
   while(!receive_message(com)){}
   while (game_status(com) == 0){
     if (get_turnID(com) == get_avatar_id(data)){
+      int prev_strength;
+      if(get_avatar_id(data) == 0){
+        prev_strength = get_path_strength(data);
+      } else {
+        prev_strength = get_path_strength(data) + 1;
+      }
       check_previous(get_maze(data), get_lastmove(data), 
                get_filestream(data), get_path_strength(data), get_follow_list(data));
       counters_t* follow_list = get_follow_list(data);
@@ -50,6 +56,7 @@ void* avatar_thread(void *ptr){
           #SEND M TO PLACE
         }
       }
+      increment_path_strength(data);
     }
   }
   if (!logfile_finished){
