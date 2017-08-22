@@ -65,10 +65,27 @@ int main()
 	int colliders[10];
 
 	if (is_collision(maze, &pos_0_0, colliders)) {
-		printf("Collision at 0,0\n");
+		printf("-- Collision at 0,0\n");
 	}
 	else {
-		printf("No collision at 0,0\n");
+		printf("-- No collision at 0,0\n");
+	}
+
+	printf("Test visiting and tagging\n");
+	visit(maze, &pos_0_3, 4, 10); //tag square 0,3 as avatar 4 with strenght 10
+	int visitor = get_tagged_by(maze, &pos_0_3);
+	int tag_strength = get_tag_strength(maze, &pos_0_3);
+	if (visitor != 4) {
+		printf("Problem with first visitor\n");
+	}
+	else {
+		printf("-- First visitor successful\n");
+	}
+	if (tag_strength != 10) {
+		printf("Problem with tag strength\n");
+	}
+	else {
+		printf("-- Tag strength successful\n");
 	}
 
 
