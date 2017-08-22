@@ -113,8 +113,8 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 	log_attempt(id, dir, final_pos, log);
 	move_t* attempt = malloc(sizeof(move_t));
-	move_t move = { id, dir };
-	attempt = &move;
+	attempt->id = id;
+	attempt->dir = dir;
 
 	return attempt;
 }
@@ -155,8 +155,8 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 	log_attempt(id, dir, final_pos, log);
 	move_t* attempt = malloc(sizeof(move_t));
-	move_t move = { id, dir };
-	attempt = &move;
+	attempt->id = id;
+	attempt->dir = dir;
 
 	return attempt;
 
@@ -216,8 +216,8 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 	log_attempt(id, dir, final_pos, log);
 	
 	move_t* attempt = malloc(sizeof(move_t));
-	move_t move = { id, dir };
-	attempt = &move;
+	attempt->id = id;
+	attempt->dir = dir;
 
 	return attempt;
 }
