@@ -7,24 +7,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "avatar_solve.h"
+#include <stdint.h>
 #include "../amazing.h"
 #include "../mazestruct/mazestruct.h"
 #include "../maze_pointer/maze_pointers.h"
 #include "../libcs50/counters.h"
+#include "avatar_solve.h"
 
 /****************** global types ******************/
-typedef struct move {
-	int avatar_id;
-	int direction; // 0 west, 1 north, 2 south, 3 east
-} move_t;
+/* see avatar_solve.h for exported types */
 
 /*************** global functions ***************/
 /* see avatar_solve.h for comments about exported functions */
 
 /*************** local functions ****************/
 bool is_pos_equal(XYPos* before, XYPos* after);
-XYPos get_adjacent_pos(XYPos* pos, int dir);
+XYPos* get_adjacent_pos(XYPos* pos, int dir);
 char* get_dir(int dir);
 
 void log_wall(lastmove_t* move, char* log);
@@ -38,24 +36,24 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 {
 	int prev_id = move->avatarID;
 	int prev_dir = move->direction;
-	XYPos pos = move->after;
+	XYPos* pos = move->after;
 
     if (prev_id != -1) { // not the first move 
-        if (is_xypos_equal(move->before, move->after)) {
+        if (is_pos_equal(move->before, move->after)) {
         	// move has not been made, must be a wall
         	log_wall(move, log);
-        	set_wall(maze, &pos, 1, prev_dir);
+        	set_wall(maze, pos, 1, prev_dir);
 
         } else { // move has been made
         	log_move(move, log);
-        	set_wall(maze, &pos, 0, prev_dir);
-        	set_avatar_position(maze, &pos, prev_id); 
+        	set_wall(maze, pos, 0, prev_dir);
+        	set_avatar_position(maze, pos, prev_id); 
 
-        	int tagger = get_tagged_by(maze, &pos);
+        	int tagger = get_tagged_by(maze, pos);
 
         	if (tagger == -1 || tagger == prev_id) { 
         		// unvisited or previously visited by me
-        		visit(maze, &pos, prev_id, strength); // tag square
+        		visit(maze, pos, prev_id, strength); // tag square
 
         	} else { // found path, set following of avatar to tagger
         		counters_set(followers, prev_id, tagger); 
@@ -73,41 +71,54 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 
 /****************** maze_solve() ******************/
 move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
-{
+{	
+
 	XYPos* final_pos = pos;
 	int strength = -1;
 	int dir = 4;
 	int wall;
-
+	
 	for (int i = 0; i < 4; i++) {
 		wall = get_wall(maze, pos, i);
-
+		
 		if (wall == 0) { // if there is no wall, check for path
-			XYPos *new_pos = get_adjacent_pos(pos, i);
+			XYPos *new_pos = get_adjacent_pos(pos, i);	
 			int tagger = get_tagged_by(maze, new_pos);
-
+			
 			if (tagger != id) { // if the tagger isn't me
 				int new_strength = get_tag_strength(maze, 
 								new_pos);
 
-				if (new_strength > strength) { // TODO
+				if (new_strength > strength) {
 					// if the tag strength is higher
+					
+					if (!is_pos_equal(final_pos, pos)) {
+						free(final_pos);
+					}
 					strength = new_strength; 
 					dir = i;
 					final_pos = new_pos;
+				} else {
+				    free(new_pos);
 				}
+			} else{
+			    free(new_pos);
 			}
-
+	
 		} else if (wall == -1 && strength == -1) {
 			// unknown wall and no path found yet
+			printf("here");
 			final_pos = get_adjacent_pos(pos, i);
 			dir = i;
 		}
 	}
 
 	log_attempt(id, dir, final_pos, log);
-	move_t move = { id, dir };
-	return &move;
+	move_t* attempt = malloc(sizeof(move_t));
+	attempt->avatar_id = id;
+	attempt->direction = dir;
+
+	return attempt;
 }
 
 /****************** leader_solve() ******************/
@@ -122,7 +133,7 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 		wall = get_wall(maze, pos, i); // get status of that wall;
 
 		if (wall == 0) { // if there is no wall
-			XYPos* new_pos = get_adjacent_pos(pos, i); 
+			XYPos* new_pos = get_adjacent_pos(pos, i);
 			int tagger = get_tagged_by(maze, new_pos);
 
 			if (tagger == id) { // if tagger is me
@@ -134,14 +145,22 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 					strength = new_strength;
 					dir = i;
 					final_pos = new_pos;
+				} else {
+					free(new_pos);
 				}
+			} else {
+				free(new_pos);
 			}
 		}
 	}
 
 	log_attempt(id, dir, final_pos, log);
-	move_t move = { id, dir };
-	return &move;
+	move_t* attempt = malloc(sizeof(move_t));
+	attempt->avatar_id = id;
+	attempt->direction = dir;
+
+	return attempt;
+
 }
 
 /****************** follower_solve() ******************/
@@ -173,8 +192,9 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 					final_pos = new_pos;
 					dir = i;
 					found_new = true;
+				} else {
+					free(new_pos);
 				}
-
 			} else if (tagger == following && !found_new) {
 				// tagger was the avatar i'm following 
 				// and i haven't found a new path yet
@@ -185,14 +205,22 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 					strength = new_strength;
 					dir = i;
 					final_pos = new_pos;
+				} else {
+					free(new_pos);
 				}
+			} else {
+				free(new_pos);
 			}
 		}
 	}
 
 	log_attempt(id, dir, final_pos, log);
-	move_t move = { id, dir };
-	return &move;
+	
+	move_t* attempt = malloc(sizeof(move_t));
+	attempt->avatar_id = id;
+	attempt->direction = dir;
+
+	return attempt;
 }
 
 
@@ -205,7 +233,7 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
  */
 bool is_pos_equal(XYPos* before, XYPos* after)
 {
-        if ((*before->x == *after->x) && (*before->y == *after->y)) {
+        if ((before->x == after->x) && (before->y == after->y)) {
         	return true;
         }
         return false;
@@ -216,8 +244,8 @@ bool is_pos_equal(XYPos* before, XYPos* after)
  */
 XYPos* get_adjacent_pos(XYPos* pos, int dir) 
 {
-	int x = *pos->x;
-	int y = *pos->y;
+	uint32_t x = pos->x;
+	uint32_t y = pos->y;
 
 	if (dir == 0) { // west
 		x -= 1;
@@ -231,9 +259,11 @@ XYPos* get_adjacent_pos(XYPos* pos, int dir)
 	} else { // east
 		x += 1;
 	}
-
-	XYPos new_pos = { x, y };
-	return &new_pos;
+	
+	XYPos* adjacent = malloc(sizeof(XYPos));
+	adjacent->x = x;
+	adjacent->y = y;
+	return adjacent;
 }
 
 /* get_dir takes an int dir (0 - west, 1 - north, 2 - south, 3 - east)
@@ -267,8 +297,8 @@ void log_wall(lastmove_t* move, char* log)
 {
 	FILE *fp = fopen(log, "a");
 
-	int x = move->after->x;
-	int y = move->after->y;
+	uint32_t x = move->after->x;
+	uint32_t y = move->after->y;
 	char* dir = get_dir(move->direction);
 
 	fprintf(fp, "Move failed. %s wall added to (%d, %d).\n", dir, x, y);
@@ -285,8 +315,8 @@ void log_move(lastmove_t* move, char* log)
 	FILE *fp = fopen(log, "a");
 
 	int id = move->avatarID;
-	int x = move->after->x;
-	int y = move->after->y;
+	uint32_t x = move->after->x;
+	uint32_t y = move->after->y;
 
 	fprintf(fp, "Avatar %d moved to (%d, %d).\n", id, x, y);
 	fclose(fp);
@@ -314,13 +344,17 @@ void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 {
 	FILE *fp = fopen(log, "a");
 	
-	int x = *pos->x;
-	int y = *pos->y;
+	uint32_t x = pos->x;
+	uint32_t y = pos->y;
 	char* dir = get_dir(attempt_dir);
-
+	
+		
 	fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
 							   id, dir, x, y);
 	fclose(fp);
+	if (pos != NULL) {
+		free(pos);
+	}
 }
 
 
