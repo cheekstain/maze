@@ -261,8 +261,9 @@ XYPos* get_adjacent_pos(XYPos* pos, int dir)
 	
 	XYPos* adjacent = malloc(sizeof(XYPos));
 	printf("x:%d, y:%d\n", x, y);
+	adjacent->x = x;
+	adjacent->y = y;
 	printf("x:%d, y:%d\n", adjacent->x, adjacent->y);
-	*adjacent = { x, y };
 	return adjacent;
 }
 
