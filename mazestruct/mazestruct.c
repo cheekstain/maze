@@ -110,6 +110,15 @@ maze_t *maze_new(const int width, const int height, const int num_avatars)
 }
 
 /******************************** mazesquare_new ******************************/
+/*
+ * Construct a new square in the maze, which is held in a certain x,y coordinate
+ * and keeps track of a number of status variables for that square, including
+ * the status of each wall (either a wall, not a wall, or unknown), the id of
+ * the first avatar to visit that square and how strong the tag it left is.
+ * 
+ * Both the mazesquare itself and the array `avatar_here` within it are malloced
+ * and thus must be freed by `mazestruct_delete()`.
+ */
 static mazesquare_t *mazesquare_new(int num_avatars)
 {	
 	mazesquare_t *square = malloc(sizeof(mazesquare_t));
@@ -131,6 +140,12 @@ static mazesquare_t *mazesquare_new(int num_avatars)
 }
 
 /******************************** get_square_at_coords ************************/
+/*
+ * Given a position, returns the mazesquare structure found in that position in
+ * the maze.
+ * 
+ * For internal use only. 
+ */
 static mazesquare_t *get_square_at_coords(maze_t *maze, XYPos *pos)
 {
 	int x_coord = pos->x;
@@ -163,6 +178,11 @@ int get_wall(maze_t *maze, XYPos *pos, int wall)
 }
 
 /******************************** get_north_wall ******************************/
+/*
+ * Returns the wall status for the wall to the north of the given position.
+ * 
+ * Helper method for get_wall. For internal use only.
+ */
 static int get_north_wall(maze_t *maze, XYPos *pos)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
@@ -170,13 +190,23 @@ static int get_north_wall(maze_t *maze, XYPos *pos)
 }
 
 /******************************** get_south_wall ******************************/
+/*
+ * Returns the wall status for the wall to the south of the given position.
+ * 
+ * Helper method for get_wall. For internal use only.
+ */
 static int get_south_wall(maze_t *maze, XYPos *pos)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 	return square->south_wall;
 }
 
-/******************************** get_east_wall ******************************/
+/******************************** get_east_wall *******************************/
+/*
+ * Returns the wall status for the wall to the east of the given position.
+ * 
+ * Helper method for get_wall. For internal use only.
+ */
 static int get_east_wall(maze_t *maze, XYPos *pos)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
@@ -184,6 +214,11 @@ static int get_east_wall(maze_t *maze, XYPos *pos)
 }
 
 /******************************** get_west_wall *******************************/
+/*
+ * Returns the wall status for the wall to the west of the given position.
+ * 
+ * Helper method for get_wall. For internal use only.
+ */
 static int get_west_wall(maze_t *maze, XYPos *pos)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
@@ -211,6 +246,12 @@ void set_wall(maze_t *maze, XYPos *pos, int new_val, int wall)
 }
 
 /******************************** set_north_wall ******************************/
+/*
+ * Sets the wall status for the wall to the north of the given position to the
+ * given new_val, which should be 0, 1, or -1.
+ * 
+ * Helper method for get_wall. For internal use only.
+ */
 static void set_north_wall(maze_t *maze, XYPos *pos, int new_val)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
@@ -226,6 +267,12 @@ static void set_north_wall(maze_t *maze, XYPos *pos, int new_val)
 }
 
 /******************************** set_south_wall ******************************/
+/*
+ * Sets the wall status for the wall to the south of the given position to the
+ * given new_val, which should be 0, 1, or -1.
+ * 
+ * Helper method for get_wall. For internal use only.
+ */
 static void set_south_wall(maze_t *maze, XYPos *pos, int new_val)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
@@ -240,6 +287,12 @@ static void set_south_wall(maze_t *maze, XYPos *pos, int new_val)
 }
 
 /******************************** set_east_wall *******************************/
+/*
+ * Sets the wall status for the wall to the east of the given position to the
+ * given new_val, which should be 0, 1, or -1.
+ * 
+ * Helper method for get_wall. For internal use only.
+ */
 static void set_east_wall(maze_t *maze, XYPos *pos, int new_val)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
@@ -254,6 +307,12 @@ static void set_east_wall(maze_t *maze, XYPos *pos, int new_val)
 }
 
 /******************************** set_west_wall *******************************/
+/*
+ * Sets the wall status for the wall to the west of the given position to the
+ * given new_val, which should be 0, 1, or -1.
+ * 
+ * Helper method for get_wall. For internal use only.
+ */
 static void set_west_wall(maze_t *maze, XYPos *pos, int new_val)
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
@@ -336,6 +395,12 @@ bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[])
 }
 
 /******************************** get_num_avatars_here ************************/
+/*
+ * Returns how many avatars there currently are in a given square of the maze.
+ *
+ * Helper method for `draw_maze()` necessary because a square with more than one
+ * avatar in it draws a * instead of an avatar number.
+ */
 static int get_num_avatars_here(maze_t *maze, XYPos *pos, int colliding_avatars[])
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
@@ -406,6 +471,14 @@ void draw_maze(maze_t *maze)
 	}
 }
 
+/******************************** draw_top_row ********************************/
+/*
+ * Because I display floors (ie walls to the north or south) with underscores, 
+ * in order to draw the north wall of the top row it's necessary to make a row
+ * at the top.
+ *
+ * Helper method for `draw_maze()`
+ */
 static void draw_top_row(int width)
 {
 	for (int i = 0; i < width ; i++) {
@@ -414,6 +487,14 @@ static void draw_top_row(int width)
 	printf("\n");
 }
 
+/******************************** draw_wall ***********************************/
+/*
+ * Given a wall status for a certain wall, draw the symbol that represents that
+ * wall status. Walls are pipes, empty spaces are spaces, and unknown walls are
+ * question marks.
+ * 
+ * Helper method for `draw_maze()`
+ */
 static void draw_wall(int wall_status)
 {
 	if (wall_status == -1) {
@@ -428,6 +509,15 @@ static void draw_wall(int wall_status)
 	}
 }
 
+/******************************** draw_people *********************************/
+/*
+ * This is to draw the middle row of a mazesquare. If there are no avatars there, 
+ * it's empty (seven spaces). If there is exactly one avatar there, draw its 
+ * number in the middle of the spaces. If there are more than one avatar 
+ * colliding on the square, draw an asterix.
+ *
+ * Helper method for `draw_maze()`
+ */
 static void draw_people(maze_t *maze, XYPos *pos)
 {
 	printf("   ");
@@ -452,7 +542,13 @@ static void draw_people(maze_t *maze, XYPos *pos)
 	printf("   ");
 }
 
-
+/******************************** draw_floor **********************************/
+/*
+ * Given the status of a floor, draw the symbols corresponding to that floor 
+ * status.
+ *
+ * Helper method for `draw_maze()`
+ */
 static void draw_floor(int floor_status)
 {
 	if (floor_status == -1) {
