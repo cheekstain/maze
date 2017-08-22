@@ -80,7 +80,7 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 	
 	for (int i = 0; i < 4; i++) {
 		wall = get_wall(maze, pos, i);
-		
+			
 		if (wall == 0) { // if there is no wall, check for path
 			XYPos *new_pos = get_adjacent_pos(pos, i);	
 			int tagger = get_tagged_by(maze, new_pos);
@@ -95,6 +95,7 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 					if (!is_pos_equal(final_pos, pos)) {
 						free(final_pos);
 					}
+
 					strength = new_strength; 
 					dir = i;
 					final_pos = new_pos;
@@ -107,7 +108,10 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 	
 		} else if (wall == -1 && strength == -1) {
 			// unknown wall and no path found yet
-			printf("here");
+			if (!is_pos_equal(final_pos, pos)) {
+				free(final_pos);
+			}
+
 			final_pos = get_adjacent_pos(pos, i);
 			dir = i;
 		}
@@ -142,12 +146,18 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 				if (new_strength < strength) {
 					// go to lower strength square
+					if (!is_pos_equal(final_pos, pos)) {
+						free(final_pos);
+					}
+
 					strength = new_strength;
 					dir = i;
 					final_pos = new_pos;
+
 				} else {
 					free(new_pos);
 				}
+
 			} else {
 				free(new_pos);
 			}
@@ -189,12 +199,18 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 				if (tagger == leader) { 
 					// switch path if third avatar is
 					// leader of my leader
+					if (!is_pos_equal(final_pos, pos)) {
+						free(final_pos);
+					}
+
 					final_pos = new_pos;
 					dir = i;
 					found_new = true;
+
 				} else {
 					free(new_pos);
 				}
+
 			} else if (tagger == following && !found_new) {
 				// tagger was the avatar i'm following 
 				// and i haven't found a new path yet
@@ -202,12 +218,18 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 								  new_pos);
 				
 				if (new_strength > strength) {
+					if (!is_pos_equal(final_pos, pos)) {
+						free(final_pos);
+					}
+
 					strength = new_strength;
 					dir = i;
 					final_pos = new_pos;
+
 				} else {
 					free(new_pos);
 				}
+
 			} else {
 				free(new_pos);
 			}

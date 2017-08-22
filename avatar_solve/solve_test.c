@@ -22,21 +22,36 @@ int main()
 	
 	XYPos me = { two, four };
 	
+	XYPos other0 = { 3, 4 };
 	XYPos other1 = { 1, 4 };
 	XYPos other2 = { 2, 3 };
+	XYPos other3 = { 1, 3 };
+	XYPos other4 = { 0, 3 };
+//	XYPos other5 = { 0, 4 };
+//	XYPos other6 = { 0, 2 };
 
 	maze_t* maze = maze_new(5, 5, 3);
 
 	set_wall(maze, &me, 0, 1);
-	set_wall(maze, &me, 0, 0);
+	set_wall(maze, &me, 1, 0);
 	set_wall(maze, &me, 0, 3);
+	set_wall(maze, &other1, 0, 1);
+	set_wall(maze, &other1, 1, 0);
+	set_wall(maze, &other3, 0, 0);
+	set_wall(maze, &other3, 1, 1);
+	set_wall(maze, &other3, 1, 3);
+	//set_wall(maze, &other4, 0, 1);
+	set_wall(maze, &other4, 0, 2);
+	
+
+
 	set_avatar_position(maze, &me, id);
 
 	visit(maze, &me, 0, 2);
-	visit(maze, &other1, 1, 3);
-	visit(maze, &other2, 2, 4);
-	
-	move_t* move = maze_solve(maze, id, &me, log);
+	visit(maze, &other0, 0, 1);
+	visit(maze, &other2, 0, 3);
+	//draw_maze(maze);	
+	move_t* move = leader_solve(maze, id, &me, log);
 
 	free(move);
 	maze_delete(maze);
