@@ -24,7 +24,7 @@ test:
 	bash solve_maze_test.sh
 
 clean:
-	rm -f *~ *.o *.dSYM
+	rm -f *~ *.o *.dSYM *.log
 	rm -f $(PROG)
 	$(MAKE) -C avatar_comm clean
 	$(MAKE) -C avatar_solve clean
@@ -33,15 +33,6 @@ clean:
 	rm -f *~ *.o *.dSYM
 	cd ..
 
-	#cd avatar_comm
-	#rm -f *~ *.o *.dSYM
-	#cd ../avatar_solve
-	#rm -f *~ *.o *.dSYM
-	#cd ../maze_pointer
-	#rm -f *~ *.o *.dSYM
-	#cd ../mazestruct
-	#rm -f *~ *.o *.dSYM
-	#cd ..
 
 
 
