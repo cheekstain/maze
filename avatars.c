@@ -11,6 +11,8 @@
 #include "mazestruct/mazestruct.h"
 #include "amazing.h"
 #include "maze_pointer/maze_pointers.h"
+#include "avatar_solve/avatar_solve.h"
+#include "avatar_comm/avatar_comm.h"
 
 static bool logfile_finished = false;
 
