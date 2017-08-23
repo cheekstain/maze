@@ -89,6 +89,11 @@ int main(int argc, char* argv[]){
     	}
   	}
 
+  	//join all the threads, so they'll end gracefully
+  	for (int i = 0; i < n_avatars; i++) {
+  		pthread_join(threads[i],NULL);
+  	}
+
   	while(check_game_status(com) == 0){ 
   	}
   
