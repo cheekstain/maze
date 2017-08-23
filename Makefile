@@ -6,7 +6,7 @@ PROG = AM_STARTUP
 OBJS = startup.o mazestruct/mazestruct.o libcs50/libcs50.a avatar_comm/avatar_comm.o avatar_solve/avatar_solve.o maze_pointer/libmaze_pointers.a
 LIBS = -lpthread
 LIBS2 = -lcs50
-IDIR = ../libcs50
+IDIR = libcs50
 LDIR = $(IDIR)
 CFLAGS = -Wall -pedantic -std=c11 -ggdb -I$(IDIR) -L$(LDIR)
 CC = gcc
