@@ -147,14 +147,14 @@ void* run_avatar (void *ptr)
     printf("failure");
   }
   
-  bool was_my_turn = false;
+  //bool was_my_turn = false;
   while (check_game_status(com) == 0){
     //printf("thread %d enters loop\n", *avatarID);
     
     int num_moves = 0;
     if (get_turnID(com) == *avatarID ){//&& !was_my_turn){
       usleep(70000);
-      was_my_turn = true;
+      //was_my_turn = true;
       //printf("%d is the turnID\n", get_turnID(com));
       int move = rand() % 4;
       //printf("about to send move from thread %d\n", *avatarID);
@@ -162,7 +162,7 @@ void* run_avatar (void *ptr)
       //printf("%d!\n", check_game_status(com));
     }
     else{
-      was_my_turn = false;
+      //was_my_turn = false;
     }
     printf("nummoves = %d", num_moves);
     while (!receive_message(com, *avatarID, sock) && check_game_status(com) == 0){}

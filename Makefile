@@ -3,21 +3,20 @@
 # Emma Hobday, July 2017
 
 PROG = AM_STARTUP
-OBJS = startup.o mazestruct/mazestruct.o libcs50/libcs50.a avatar_comm/avatar_comm.o avatar_solve/avatar_solve.o maze_pointer/libmaze_pointers.a
-LIBS = -lpthread
-LIBS2 = -lcs50
-IDIR = libcs50
-LDIR = $(IDIR)
-CFLAGS = -Wall -pedantic -std=c11 -ggdb -I$(IDIR) -L$(LDIR)
+OBJS = startup.o mazestruct/mazestruct.o avatar_comm/avatar_comm.o maze_pointer/maze_pointers.o avatar_solve/avatar_solve.o 
+LIBS = -lpthread libcs50/libcs50.a
+CFLAGS = -Wall -pedantic -std=c11 -ggdb
 CC = gcc
 MAKE = make
 
 $(PROG): $(OBJS)
-	$(CC) $(CFLAGS) -o $(PROG) $(OBJS) $(LIBS) $(LIBS2)
+	$(CC) $(CFLAGS) -o $(PROG) $(OBJS) $(LIBS)
 
 startup.o: startup.c amazing.h
-mazestruct.o: amazing.h mazestruct/mazestruct.h
-avatar_comm.o: amazing.h avatar_comm/avatar_comm.h
+mazestruct/mazestruct.o: mazestruct/mazestruct.h amazing.h 
+avatar_comm/avatar_comm.o: avatar_comm/avatar_comm.h amazing.h 
+maze_pointer/maze_pointers.o: maze_pointer/maze_pointers.h 
+avatar_solve/avatar_solve.o: avatar_solve/avatar_solve.h amazing.h 
 
 .PHONY: test clean
 

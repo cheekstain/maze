@@ -11,13 +11,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "counters.h"
-#include "memory.h"
-#include <string.h>
+#include "../libcs50/counters.h"
+#include "../libcs50/memory.h"
 #include "maze_pointers.h"
 #include "../avatar_comm/avatar_comm.h"
 
-char *strdup(char *c);
+char *strduplicate(char *c);
 
 typedef struct maze_data_pointer_struct {
   char* hostname;
@@ -44,7 +43,7 @@ maze_pointers_t* maze_pointers_new(char* hostname,
                          counters_t* follow_list, 
                          comm_t *com){
   maze_pointers_t* tmp = allocate(sizeof(maze_pointers_t));
-  tmp->hostname = strdup(hostname);
+  tmp->hostname = strduplicate(hostname);
   tmp->maze_port = maze_port;
   tmp->fp = fp;
   tmp->avatar_id = avatar_id;
@@ -107,7 +106,7 @@ void increment_path_strength(maze_pointers_t *ptr){
  * Setter Methods
  */
 void set_hostname(maze_pointers_t *ptr, char* hostname){
-  ptr->hostname = strdup(hostname);
+  ptr->hostname = strduplicate(hostname);
 } 
 
 void set_maze_port(maze_pointers_t *ptr, int maze_port){
@@ -147,7 +146,7 @@ void maze_pointers_delete(void *ptr){
 /*
  * Duplicates a string, returns a pointer. Useful helper func.
  */
-char *strdup(char *c){
+char *strduplicate(char *c){
     char *dup = malloc(strlen(c) + 1);
 
     if (dup != NULL)
