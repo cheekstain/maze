@@ -35,8 +35,8 @@ int main()
     */
 
 	//set up maze for simple test
-	const int width = 5;
-	const int height = 4;
+	const int width = 20;
+	const int height = 20;
 	const int num_avatars = 4;
 
 	printf("Creating maze...\n");

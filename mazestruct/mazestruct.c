@@ -81,6 +81,7 @@ static void draw_floor(int floor_status);
 static void draw_wall(int wall_status);
 static void draw_people(maze_t *maze, XYPos *pos);
 static void change_color(int tagged_by);
+static void draw_corner(maze_t *maze, XYPos *pos);
 
 
 /******************************** maze_new ************************************/
@@ -464,45 +465,77 @@ void draw_maze(maze_t *maze)
 	draw_top_row(maze->width);
 	
 	for (int y = 0; y < maze->height; y++) {
-		for (int counter = 1; counter < 4; counter++) {
+		for (int counter = 1; counter < 3; counter++) {
 			for (int x = 0; x < maze->width; x++) {
 
 				XYPos curr_pos = {x, y};
 
-				int wall_status = get_west_wall(maze, &curr_pos);
-				draw_wall(wall_status);
+				//draw middle, draw floor
 
 				if (counter == 1) {
-					printf("       ");
-				}
-
-				if (counter == 2) {
+					int wall_status = get_west_wall(maze, &curr_pos);
+					draw_wall(wall_status);
 					draw_people(maze, &curr_pos);
 				}
-				if (counter == 3) {
+				if (counter == 2) {
+					draw_corner(maze, &curr_pos);
 					int floor_status = get_south_wall(maze, &curr_pos);
 					draw_floor(floor_status);
 				}
 			}
-			printf("|\n");
+			if (y + 1 == maze->height && counter == 2) {
+				printf("+\n");
+			}
+			else {
+				printf("|\n");
+			}
 		}
+	}
+}
+
+/******************************** draw_corner *********************************/
+/*
+ * Called whenever we draw the seam between two walls. Usually we want that seam
+ * to be a plus, but sometimes the situation is special, for example if it's on
+ * an outer wall.
+ */
+static void draw_corner(maze_t *maze, XYPos *pos)
+{
+	//if it's the bottom left corner, draw a + (for nice corner)
+	if (pos->y + 1 == maze->height && pos->x == 0) {
+		printf("+");
+	}
+
+	//if it's on the left wall, draw a pipe
+	else if (pos->x == 0) {
+		printf("|");
+	}
+
+	//if it's on the bottom wall, draw a -
+	else if (pos->y + 1 == maze->height) {
+		printf("-");
+	}
+
+	//otherwise, draw an all-ways connector
+	else { 
+		printf("+");
 	}
 }
 
 /******************************** draw_top_row ********************************/
 /*
- * Because I display floors (ie walls to the north or south) with underscores, 
- * in order to draw the north wall of the top row it's necessary to make a row
- * at the top.
+ * Since the regular drawing method only draws the west and south walls of each
+ * square, we need to draw the north wall of the top row before we begin.
  *
  * Helper method for `draw_maze()`
  */
 static void draw_top_row(int width)
 {
-	for (int i = 0; i < width ; i++) {
-		printf(" _______");
+	printf("+-----");
+	for (int i = 1; i < width ; i++) {
+		printf("------");
 	}
-	printf("\n");
+	printf("+\n");
 }
 
 /******************************** draw_wall ***********************************/
@@ -530,7 +563,7 @@ static void draw_wall(int wall_status)
 /******************************** draw_people *********************************/
 /*
  * This is to draw the middle row of a mazesquare. If there are no avatars there, 
- * it's empty (seven spaces). If there is exactly one avatar there, draw its 
+ * it's empty (five spaces). If there is exactly one avatar there, draw its 
  * number in the middle of the spaces. If there are more than one avatar 
  * colliding on the square, draw an asterix.
  *
@@ -538,7 +571,7 @@ static void draw_wall(int wall_status)
  */
 static void draw_people(maze_t *maze, XYPos *pos)
 {
-	printf("   ");
+	printf("  ");
 
 	int avatars_here[maze->num_avatars];
 
@@ -565,7 +598,7 @@ static void draw_people(maze_t *maze, XYPos *pos)
 		printf("*");
 	}
 
-	printf("%s   ", RESET); //print the end spaces and return to normal color
+	printf("%s  ", RESET); //print the end spaces and return to normal color
 }
 
 /******************************** change_color ******************s**************/
@@ -634,21 +667,14 @@ static void change_color(int avatar)
 static void draw_floor(int floor_status)
 {
 	if (floor_status == -1) {
-		printf("???????");
+		printf("--?--");
 	}
 
 	if (floor_status == 0) {
-		printf("       ");
+		printf("     ");
 	}
 
 	if (floor_status == 1) {
-		printf("_______");
+		printf("-----");
 	}
 }
-
-
-
-
-
-
-

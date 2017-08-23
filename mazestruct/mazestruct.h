@@ -124,18 +124,16 @@ void maze_delete(maze_t *maze);
  * a new wall being discovered or an avatar moving.
  *
  * This is an example of what the maze art looks like:
- * _____ _____ _____
- *|     ?     ?     |  where | and _ are walls, ? is for walls that are
- *|  1  ?     ?     |  currently unknown, and the numbers 0-9 represent the
- *|     ?_____??????|  avatars of the corresponding ids.
- *|     |           |
- *|     |           |  Note: the printable version's squares are 7 chars across, 
- *|     |_____      |  not 5 like in the diagram on the left, due to slightly
- *|           |     |  different spacing between editors and the terminal.
- *|           |  0  |
- *|_____ _____|_____|
+ *
+ * +-----------------+  where | and - are walls, ? is for walls that are
+ * |        0  ?     |  currently unknown, and the numbers 0-9 represent the
+ * |     +-----+--?--|  avatars of the corresponding ids.
+ * |  *  |     ?     | 
+ * |--?--+--?--+--?--|  Note: while still wider than it is tall, the version
+ * |     |  1        |  printed to the console looks less lopsided due to slightly
+ * +-----------------+  different spacing between editors and the terminal.
+ *
  */
-
 void draw_maze(maze_t *maze);
 
 
