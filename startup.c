@@ -116,7 +116,7 @@ int main(int argc, char* argv[]){
  */
 static bool check_parameters(int argc, char* argv[]){
 	if (argc != 4) {
-		fprintf(stderr, "usage: ./startup n_avatars difficulty hostname\n");
+		fprintf(stderr, "usage: ./AM_STARTUP n_avatars difficulty hostname\n");
 		return false;
 	}
 
