@@ -30,13 +30,5 @@ void* avatar_thread(void *ptr);
  */
 void check_all_following(void* follower, const int key, int count);
 
-/******************************** finish_logfile ******************************/
-/*
- * Once the game is finished, we want to print a final message to the log
- * indicating the end status of the game (ie whether it timed out, ran out of
- * moves, or was successful).
- */
-void finish_logfile(pointers_t *data);
-
 
 #endif //__MAZESTRUCT_H
