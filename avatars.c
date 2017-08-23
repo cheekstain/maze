@@ -20,7 +20,7 @@ static bool logfile_finished = false;
  * to various information that we need
  */
 void* avatar_thread(void *ptr){
-  pointers_t *data = ptr;
+  maze_pointers_t *data = ptr;
   comm_t *com = comm_new();
   int sock = 0;
   sock = send_avatar_ready(com, get_avatar_id(data));
