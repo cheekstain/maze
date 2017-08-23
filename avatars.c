@@ -58,7 +58,7 @@ void* avatar_thread(void *ptr){
         follower_t f;
         f.id = get_avatar_id(data);
         f.b = false;
-        counters_iterate(follow_list, (void*)f, check_all_following);
+        counters_iterate(follow_list, (void*)(*f), check_all_following);
         XYPos positions[AM_MAX_AVATAR];
         positions = get_position_array(com);
         XYPos my_pos = positions[get_avatar_id(data)];
