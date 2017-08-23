@@ -91,7 +91,7 @@ int main(int argc, char* argv[]){
     	thread_error = pthread_create(&threads[i], NULL, avatar_thread, set_find(avatars, str));
     	if(thread_error) {
       		printf("thread creation failed, rc=%d.\n", thread_error);
-      		return (threadError);
+      		return (thread_error);
     	}
   	}
 
