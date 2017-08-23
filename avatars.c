@@ -10,9 +10,9 @@
 #include <stdbool.h>
 #include "mazestruct/mazestruct.h"
 #include "amazing.h"
-#include "maze_pointer/maze_pointers.h"
 #include "avatar_solve/avatar_solve.h"
 #include "avatar_comm/avatar_comm.h"
+#include "maze_pointer/maze_pointers.h"
 
 /*
  * Helper struct for check_all_following et cetera functions.
