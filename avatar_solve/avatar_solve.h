@@ -8,6 +8,9 @@
 #ifndef __AVATARSOLVE_H
 #define __AVATARSOLVE_H
 
+#include "../maze_pointers.h"
+#include "../libcs50/counters.h"
+
 /* the move structure contains the information needed to send a move to the
  * server, namely the direction attempted and the id of the avatar.
  */

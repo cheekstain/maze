@@ -10,7 +10,7 @@
 #include <stdint.h>
 #include "../amazing.h"
 #include "../mazestruct/mazestruct.h"
-#include "../maze_pointer/maze_pointers.h"
+#include "../maze_pointers.h"
 #include "../libcs50/counters.h"
 #include "avatar_solve.h"
 

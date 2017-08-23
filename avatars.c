@@ -12,7 +12,7 @@
 #include "amazing.h"
 #include "avatar_solve/avatar_solve.h"
 #include "avatar_comm/avatar_comm.h"
-#include "maze_pointer/maze_pointers.h"
+#include "maze_pointers.h"
 
 /*
  * Helper struct for check_all_following et cetera functions.
@@ -20,7 +20,7 @@
 
 typedef struct following_bool {
   int id;
-  bool b;
+  bool is_last_leader;
 } follower_t;
 
 void check_all_following(void* follower, const int key, int count);
@@ -40,10 +40,11 @@ void* avatar_thread(void *ptr){
     return NULL;
   }
   while(!receive_message(com, get_avatar_id(data), sock)){}
+  XYPos *position = get_position_array(com);
+  set_avatar_position(get_maze(data), &position[get_avatar_id(data)], get_avatar_id(data));
   bool was_my_turn = false;
   while (check_game_status(com) == 0){
     if (get_turnID(com) == get_avatar_id(data) && !was_my_turn){
-      draw_maze(get_maze(data));
       was_my_turn = true;
       usleep(70000);
       int prev_strength = 0;
@@ -52,6 +53,7 @@ void* avatar_thread(void *ptr){
       } else {
         prev_strength = get_path_strength(data) + 1;
       }
+      printf("57\n");
       check_previous(get_maze(data), get_lastmove(data), 
                get_filestream(data), prev_strength, get_follow_list(data));
       counters_t* follow_list = get_follow_list(data);
@@ -60,16 +62,19 @@ void* avatar_thread(void *ptr){
       if(counters_get(follow_list, get_avatar_id(data)) == get_avatar_id(data)){
         follower_t f;
         f.id = get_avatar_id(data);
-        f.b = false;
+        f.is_last_leader = false;
+        printf("67\n");
         counters_iterate(follow_list, &f, check_all_following);
-        if(f.b){
+        if(!f.is_last_leader){
+            printf("mmyes\n");
           move_t* m = maze_solve(get_maze(data), get_avatar_id(data), 
-                &my_pos, get_filestream(data));
+                &my_pos, get_follow_list(data), get_filestream(data));
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
           }
         } else {
+            printf("mmno\n");
           move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
                 &my_pos, get_filestream(data));
           if(m != NULL){
@@ -102,7 +107,7 @@ void check_all_following(void* follower, const int key, int count){
   follower_t *a = follower;
   if(key != a->id){
     if(key == count){
-      a->b = false;
+      a->is_last_leader = false;
     }
   }
 }
