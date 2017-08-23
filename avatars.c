@@ -64,7 +64,7 @@ void* avatar_thread(void *ptr){
         counters_iterate(follow_list, &f, check_all_following);
         if(f.b){
           move_t* m = maze_solve(get_maze(data), get_avatar_id(data), 
-                &my_pos, get_filestream(data));
+                &my_pos, get_follow_list(data), get_filestream(data));
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
