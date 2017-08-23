@@ -46,6 +46,8 @@ void check_follower_solve_args(maze_t* maze, int id, XYPos* pos,
 void check_previous(maze_t* maze, lastmove_t* move, char* log, 
 				int strength, counters_t* followers)
 {
+	printf("one");
+	
 	if (move == NULL) {
 		fprintf(stderr, "check_previous error: null last move\n");
 		exit(1);
@@ -54,18 +56,21 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 	int prev_id = move->avatarID;
 
     if (prev_id != -1) { // not the first move 
+	printf("two");
     	int prev_dir = move->direction;
-		XYPos* after = move->after;
-		XYPos* before = move->before;
+	XYPos* after = move->after;
+	XYPos* before = move->before;
 
     	check_previous_args(maze, move, strength, followers);
 
         if (is_pos_equal(after, before)) {
+		printf("three");
         	// move has not been made, must be a wall
         	log_wall(move, log);
         	set_wall(maze, before, 1, prev_dir);
 
         } else { // move has been made
+		printf("four");
         	log_move(move, log);
         	set_wall(maze, before, 0, prev_dir);
         	set_avatar_position(maze, after, prev_id); 
