@@ -103,7 +103,7 @@ int main(int argc, char* argv[]){
   	free(log_name);
   	maze_delete(maze);
   	set_delete(avatars, maze_pointers_delete);
-  	counters_delete(avatarFollowing);
+  	counters_delete(avatar_following);
     free(lastmove);
 }
 
