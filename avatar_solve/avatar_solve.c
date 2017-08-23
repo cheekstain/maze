@@ -21,6 +21,8 @@
 /* see avatar_solve.h for comments about exported functions */
 
 /*************** local functions ****************/
+
+bool is_following(int me, int to_find, counters_t* followers);
 bool is_pos_equal(XYPos* before, XYPos* after);
 bool is_pos_valid(XYPos* pos);
 XYPos* get_adjacent_pos(XYPos* pos, int dir);
@@ -32,11 +34,10 @@ void log_following(int me, int following, char* log);
 void log_attempt(int id, int dir, XYPos* pos, char* log);
 
 void check_previous_args(maze_t* maze, lastmove_t* move, int strength, 
-											counters_t* followers);
+						counters_t* followers);
 void check_maze_solve_args(maze_t* maze, int id, XYPos* pos);
 void check_leader_solve_args(maze_t* maze, int id, XYPos* pos);
-void check_follower_solve_args(maze_t* maze, int id, XYPos* pos, 
-												counters_t* followers);
+void check_follower_solve_args(maze_t* maze, int id, XYPos* pos,								counters_t* followers);
 
 /*************** check_previous() ***************/
 void check_previous(maze_t* maze, lastmove_t* move, char* log, 
@@ -348,6 +349,25 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 
 
 /****************** helper/local functions *******************/
+
+/* is_following is a recursive helper function that returns true if the id
+ * to be found is in front of a given id in the following chain, otherwise,
+ * it returns false.
+ */
+bool is_following(int me, int to_find, counters_t* followers)
+{
+	int leader = counters_get(followers, me); // who i'm following 
+
+	if (leader == to_find) {
+		return true;
+
+	} else if (leader == me || leader < 0) {
+		return false;
+
+	} else {
+		return is_following(leader, to_find, followers);
+	}
+}
 
 /* is_pos_equal is a helper function that returns true if the two XYPos
  * are equal and false otherwise.
