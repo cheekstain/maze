@@ -41,7 +41,8 @@ maze_pointers_t* maze_pointers_new(char* hostname,
                          int avatar_id,
                          maze_t* maze,
                          lastmove_t* lastmove,
-                         counters_t* follow_list, comm_t *com){
+                         counters_t* follow_list, 
+                         comm_t *com){
   maze_pointers_t* tmp = allocate(sizeof(maze_pointers_t));
   tmp->hostname = strdup(hostname);
   tmp->maze_port = maze_port;
