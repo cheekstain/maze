@@ -62,20 +62,23 @@ void* avatar_thread(void *ptr){
         positions = get_position_array(com);
         XYPos my_pos = positions[get_avatar_id(data)];
         if(f.b){
-          move_t* m = maze_solve(get_maze(data), get_avatar_id(data), &my_pos, get_filestream(data)));
+          move_t* m = maze_solve(get_maze(data), get_avatar_id(data), 
+                &my_pos, get_filestream(data)));
           if(m != NULL){
             int move = m.direction;
             send_move(com, get_avatar_id(data), move, sock);
           }
         } else {
-          move_t* m = leader_solve(get_maze(data), get_avatar_id(data), &my_pos, get_filestream(data)));
+          move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
+                &my_pos, get_filestream(data)));
           if(m != NULL){
             int move = m.direction;
             send_move(com, get_avatar_id(data), move, sock);
           }
         }
       } else {
-        move_t* m = follower_solve(get_maze(data), get_avatar_id(data), &my_pos, get_filestream(data)));
+        move_t* m = follower_solve(get_maze(data), get_avatar_id(data), &my_pos, 
+                follow_list, get_filestream(data)));
         if(m != NULL){
           int move = m.direction;
           send_move(com, get_avatar_id(data), move, sock);
