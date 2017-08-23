@@ -53,8 +53,7 @@ void* avatar_thread(void *ptr){
       check_previous(get_maze(data), get_lastmove(data), 
                get_filestream(data), prev_strength, get_follow_list(data));
       counters_t* follow_list = get_follow_list(data);
-      XYPos positions[AM_MAX_AVATAR];
-      positions = get_position_array(com);
+      XYPos *positions = get_position_array(com);
       XYPos my_pos = positions[get_avatar_id(data)];
       if(counters_get(follow_list, get_avatar_id(data)) == get_avatar_id(data)){
         follower_t f;
