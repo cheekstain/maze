@@ -16,8 +16,9 @@
 #include <netdb.h>	      // socket-related structures
 #include <time.h>
 #include "amazing.h"
-#include "avatar.c"
-#include "avatar_comm.h"
+#include "avatars.c"
+#include "avatar_comm/avatar_comm.h"
+#include "mazestruct/mazestruct.h"
 
 /**************** functions ****************/
 static bool check_parameters(int argc, char* argv[]);
@@ -77,7 +78,7 @@ int main(int argc, char* argv[]){
     	set_insert(avatars, i, data);
   	}
 
-  	pthread_t threads[n_avatars]
+  	pthread_t threads[n_avatars];
   	int threadError;
   	//set the threads running
   	for(int i = 0; i < n_avatars; i++){
@@ -104,7 +105,7 @@ int main(int argc, char* argv[]){
 /******************************** check_parameters ****************************/
 static bool check_parameters(int argc, char* argv[]){
 	if (argc != 4) {
-		fprintf(stderr, "usage: n_avatars difficulty hostname\n");
+		fprintf(stderr, "usage: ./startup n_avatars difficulty hostname\n");
 		return false;
 	}
 

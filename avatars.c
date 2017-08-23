@@ -7,9 +7,9 @@
 #include <dirent.h>
 #include <math.h>
 #include <stdbool.h>
-#include "mazestruct.h"
+#include "mazestruct/mazestruct.h"
 #include "amazing.h"
-#include <maze_pointers.h>
+#include "maze_pointer/maze_pointers.h"
 
 static bool logfile_finished = false;
 
