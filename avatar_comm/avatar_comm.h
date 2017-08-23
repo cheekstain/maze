@@ -15,6 +15,9 @@ typedef struct comm comm_t;
 /**************** comm_new ****************/
 comm_t *comm_new();
 
+/**************** comm_delete ****************/
+void comm_delete(comm_t *com);
+
 
 /**************** message sending functions ****************/
 

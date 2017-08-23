@@ -54,6 +54,14 @@ comm_t *comm_new()
 	return com;
 }
 
+/**************** comm_delete ****************/
+void comm_delete(comm_t *com)
+{
+  if (com->hostname != NULL){
+    free(com->hostname);
+  }
+  free(com);
+}
 
 /*
 *
@@ -409,6 +417,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   {
     return com->difficulty;
   }
+
 
   
 
