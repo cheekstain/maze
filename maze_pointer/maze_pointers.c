@@ -15,6 +15,7 @@
 #include "memory.h"
 #include <string.h>
 #include "maze_pointers.h"
+#include "avatar_comm.h"
 
 char *strdup(char *c);
 
@@ -27,6 +28,7 @@ typedef struct maze_data_pointer_struct {
   lastmove_t* lastmove;
   counters_t* follow_list;
   int strength;
+  comm_t *com;
 } maze_pointers_t;
 
 /*
@@ -39,7 +41,7 @@ maze_pointers_t* maze_pointers_new(char* hostname,
                          int avatar_id,
                          maze_t* maze,
                          lastmove_t* lastmove,
-                         counters_t* follow_list){
+                         counters_t* follow_list, comm_t *com){
   maze_pointers_t* tmp = allocate(sizeof(maze_pointers_t));
   tmp->hostname = strdup(hostname);
   tmp->maze_port = maze_port;
@@ -49,6 +51,7 @@ maze_pointers_t* maze_pointers_new(char* hostname,
   tmp->lastmove = lastmove;
   tmp->follow_list = follow_list;
   tmp->strength = 0;
+  tmp->com = com;
   return tmp;
 }
 
@@ -64,7 +67,7 @@ int get_maze_port(maze_pointers_t *ptr){
   return ptr->maze_port;
 }
 
-char* get_filenstream(maze_pointers_t *ptr){
+char* get_filestream(maze_pointers_t *ptr){
   return ptr->fp;
 }
 
@@ -86,6 +89,10 @@ counters_t* get_follow_list(maze_pointers_t *ptr){
 
 int get_path_strength(maze_pointers_t *ptr){
   return ptr->strength;
+}
+
+comm_t *get_comm(maze_pointers_t *ptr){
+  return ptr->com;
 }
 
 /*

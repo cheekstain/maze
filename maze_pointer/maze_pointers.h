@@ -41,6 +41,7 @@ maze_t* get_maze(maze_pointers_t *ptr);
 lastmove_t* get_lastmove(maze_pointers_t *ptr);
 counters_t* get_follow_list(maze_pointers_t *ptr);
 int get_path_strength(maze_pointers_t *ptr);
+comm_t *get_comm(maze_pointers_t *ptr);
 
 /*
  * Dealing with Path Strength
