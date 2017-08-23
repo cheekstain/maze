@@ -88,6 +88,24 @@ We anticipate the following modules:
 ### avatar_comm Module
 This module contains all the necessary functions for communication with the server. It allows messages to be constructed easily and parses the messages received with the necessary information. These commands will be used by both the Avatars and the startup program.
 
+This module consists of the following functions, exported through avatar_comm.h
+* `comm_t *comm_new()` is a function that initializes the comm_t struct that holds all the information relevant to the server-client communication, as
+well as the maze information passed back and forth between the server and client.
+* `bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)` - Establishes a connection to the server, and sends the AM_INIT message. Returns true if and only if the init message was able to sent without running into errors.
+* `int send_avatar_ready(comm_t *com, int avatarID)` - Establishes a connection through the mazeport and sends the AM_AVATAR_READY message to the server. Returns true if and only if the init message was able to sent without running into errors. 
+* `bool send_move(comm_t *com, int avatarID, int Direction, int sock)` - Sends the AM_AVATAR_MOVE message. Returns true if and only if the init message was able to sent without running into errors.
+* `bool receive_message(comm_t *com, int avatarID, int sock)` - Calling this function alerts the module that a new message should be received from the server. This function must be called whenever a server-to-client message is expected. In other words, it must be called any time a mesage is sent from the client to the server. Returns true if and only if there were no error messages returned from the server, such as "Unknown Avatar" or "Unknown Message Type," and there was a message to be received.
+* `bool is_init_successful(comm_t *com)` - Returns whether or not the AM_INIT message was successfully sent and the server responded with AM_INIT_OK.
+* `int get_mazeport(comm_t *com)` - Returns the mazeport.
+* `int get_maze_width(comm_t *com)` - Returns the width of the maze.
+* `int get_maze_height(comm_t *com)` - Returns the height of the maze.
+* `int get_turnID(comm_t *com)` -  Gets the turnID of the current avatar that has to make a move. Precondition: receive_message() must be called after the send_move function in order to provide the accurate turnID.
+* `XYPos *get_position_array(comm_t *com)` - Gets the positions of all of the avatars on the maze in a position array, where the array index represents the avatarID. Precondition: receive_message() must be called after the send_move function in order to provide the accurate position array.
+* `int check_game_status(comm_t *com)` - Returns whether the game is over because the avatars were successful in finding each other, or because the movelimit or timelimit was reached, or because there was an error in the messaging. Returns 0 if the game is still in progress. Returns 1 if there was a server timeout. Returns 2 if the move limit was reached.
+* `int get_hash(comm_t *com)`- A function to get the hashcode when the maze has been solved.
+* `int get_nMoves (comm_t *com)` - A function to get the number of total moves when the maze has been solved.
+* `int get_difficulty(comm_t *com)` - A function to get the difficulty when the maze has been solved.
+
 ## avatar_solve Module
 This module contains all the necessary functions for solving the maze and determining the next steps each Avatar should take. It will contain the bulk of the strategy.
 
