@@ -42,7 +42,7 @@ maze_pointers_t* maze_pointers_new(char* hostname,
                          maze_t* maze,
                          lastmove_t* lastmove,
                          counters_t* follow_list, 
-                         comm_t *com
+                         comm_t *com,
                          int n_avatars){
   maze_pointers_t* tmp = allocate(sizeof(maze_pointers_t));
   tmp->hostname = strduplicate(hostname);
