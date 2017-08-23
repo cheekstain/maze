@@ -33,13 +33,13 @@ maze_pointers_t* maze_pointers_new(char* hostname,
  * at no point are ANY of these pointers to be modified. These are for
  * information purposes ONLY.
  */
-const char* get_hostname(maze_pointers_t *ptr);
-const int get_maze_port(maze_pointers_t *ptr);
-const FILE* get_filestream(maze_pointers_t *ptr);
-const int get_avatar_id(maze_pointers_t *ptr);
-const maze_t* get_maze(maze_pointers_t *ptr);
-const lastmove_t* get_lastmove(maze_pointers_t *ptr);
-const counters_t* get_follow_list(maze_pointers_t *ptr);
+char* get_hostname(maze_pointers_t *ptr);
+int get_maze_port(maze_pointers_t *ptr);
+FILE* get_filestream(maze_pointers_t *ptr);
+int get_avatar_id(maze_pointers_t *ptr);
+maze_t* get_maze(maze_pointers_t *ptr);
+lastmove_t* get_lastmove(maze_pointers_t *ptr);
+counters_t* get_follow_list(maze_pointers_t *ptr);
 int get_path_strength(maze_pointers_t *ptr);
 
 /*
