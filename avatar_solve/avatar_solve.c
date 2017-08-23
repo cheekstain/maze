@@ -137,6 +137,35 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 		} 
 	}
 
+	strength = get_tag_strength(maze, pos);
+	if (is_pos_equal(final_pos, pos)) { // no new pos found so far
+		// only options are old squares tagged by me, in a dead end
+		// must backtrace
+		for (int i = 0; i < 4; i++) {
+			wall = get_wall(maze, pos, i);
+
+			if (wall == 0) {
+				XYPos *new_pos = get_adjacent_pos(pos, i);
+				int new_strength = get_tag_strength(maze, 
+								    new_pos);
+
+				if (new_strength < strength) {
+
+					if (!is_pos_equal(final_pos, pos)) {
+						free(final_pos);
+					}
+
+					strength = new_strength;
+					dir = i;
+					final_pos = new_pos;
+					
+				} else {
+					free(new_pos);
+				}
+			}
+		}
+	}
+
 	if (dir == 4) {
 		fprintf(stderr, "maze_solve error: no new direction found\n");
 		exit(2);
@@ -229,7 +258,7 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 /****************** follower_solve() ******************/
 move_t* follower_solve(maze_t* maze, int id, XYPos* pos, 
-							counters_t* followers, char* log)
+					counters_t* followers, char* log)
 {
 	check_follower_solve_args(maze, id, pos, followers);
 
