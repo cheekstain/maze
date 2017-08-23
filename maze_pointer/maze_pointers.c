@@ -15,7 +15,7 @@
 #include "memory.h"
 #include <string.h>
 #include "maze_pointers.h"
-#include "avatar_comm.h"
+#include "../avatar_comm/avatar_comm.h"
 
 char *strdup(char *c);
 
