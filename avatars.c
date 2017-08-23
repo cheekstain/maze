@@ -73,7 +73,6 @@ void* avatar_thread(void *ptr){
         f.is_last_leader = false;
         counters_iterate(follow_list, &f, check_all_following);
         if(!f.is_last_leader){
-            printf("mmyes\n");
           move_t* m = maze_solve(get_maze(data), get_avatar_id(data), 
                 &my_pos, get_follow_list(data), get_filestream(data));
           lm->avatarID = get_avatar_id(data);
@@ -85,7 +84,6 @@ void* avatar_thread(void *ptr){
             free(m);
           }
         } else {
-            printf("mmno\n");
           move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
                 &my_pos, get_filestream(data));
           lm->avatarID = get_avatar_id(data);
