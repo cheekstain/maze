@@ -36,24 +36,25 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 {
 	int prev_id = move->avatarID;
 	int prev_dir = move->direction;
-	XYPos* pos = move->after;
+	XYPos* after = move->after;
+	XYPos* before = move->before;
 
     if (prev_id != -1) { // not the first move 
-        if (is_pos_equal(move->before, move->after)) {
+        if (is_pos_equal(after, before)) {
         	// move has not been made, must be a wall
         	log_wall(move, log);
-        	set_wall(maze, pos, 1, prev_dir);
+        	set_wall(maze, before, 1, prev_dir);
 
         } else { // move has been made
         	log_move(move, log);
-        	set_wall(maze, pos, 0, prev_dir);
-        	set_avatar_position(maze, pos, prev_id); 
+        	set_wall(maze, before, 0, prev_dir);
+        	set_avatar_position(maze, after, prev_id); 
 
-        	int tagger = get_tagged_by(maze, pos);
+        	int tagger = get_tagged_by(maze, after);
 
         	if (tagger == -1 || tagger == prev_id) { 
         		// unvisited or previously visited by me
-        		visit(maze, pos, prev_id, strength); // tag square
+        		visit(maze, after, prev_id, strength); // tag square
 
         	} else { // found path, set following of avatar to tagger
         		counters_set(followers, prev_id, tagger); 
