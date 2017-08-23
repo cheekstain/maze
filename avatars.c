@@ -16,6 +16,16 @@
 
 static bool logfile_finished = false;
 
+
+/*
+ * Helper struct for check_all_following et cetera functions.
+ */
+
+typedef struct following_bool {
+  int id;
+  bool b;
+} follower_t;
+
 /*
  * the primary avatar thread. it should be passed with an arg
  * and this arg is a pointer to a struct containing a ton of pointers
@@ -88,15 +98,6 @@ void finish_logfile(pointers_t *data){
   
 }
 
-/*
- * Helper struct for check_all_following et cetera functions.
- */
-
-typedef struct following_bool {
-  int id;
-  bool b;
-} follower_t;
- 
 /*
  * Helper function. Checks if the avatar in question is the last leader
  */
