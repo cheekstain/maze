@@ -48,6 +48,7 @@ void* avatar_thread(void *ptr){
       was_my_turn = true;
       usleep(70000);
       int prev_strength = 0;
+      int prev_id;
       if(get_avatar_id(data) == 0){
         prev_strength = get_path_strength(data);
       } else {
@@ -59,7 +60,7 @@ void* avatar_thread(void *ptr){
       } else {
           prev_id = get_avatar_id(data) - 1;
       }
-      XYPos prev_pos = positions[prev_id]
+      XYPos prev_pos = positions[prev_id];
       lastmove_t* lm = get_lastmove(data);
       lm->after = &prev_pos;
       check_previous(get_maze(data), lm, 
@@ -67,7 +68,6 @@ void* avatar_thread(void *ptr){
       counters_t* follow_list = get_follow_list(data);
       XYPos *positions = get_position_array(com);
       XYPos my_pos = positions[get_avatar_id(data)];
-      int prev_id;
       if(counters_get(follow_list, get_avatar_id(data)) == get_avatar_id(data)){
         follower_t f;
         f.id = get_avatar_id(data);
