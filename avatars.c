@@ -21,10 +21,17 @@ static bool logfile_finished = false;
 void* avatar_thread(void *ptr){
   pointers_t *data = ptr;
   comm_t *com = comm_new();
-  send_avatar_ready(com, get_avatar_id(data));
+  int sock = 0;
+  sock = send_avatar_ready(com, get_avatar_id(data));
+  if (sock == -1){
+    fprintf("Error receiving avatar's socket, avatarID = %d", get_avatar_id(data));
+  }
   while(!receive_message(com)){}
+  bool was_my_turn = false;
   while (game_status(com) == 0){
-    if (get_turnID(com) == get_avatar_id(data)){
+    if (get_turnID(com) == get_avatar_id(data) && !was_my_turn){
+      was_my_turn = true;
+      usleep(70000);
       int prev_strength;
       if(get_avatar_id(data) == 0){
         prev_strength = get_path_strength(data);
@@ -39,25 +46,35 @@ void* avatar_thread(void *ptr){
         f.id = get_avatar_id(data);
         f.b = false;
         counters_iterate(follow_list, f, check_all_following);
+        XYPos positions[AM_MAX_AVATAR];
+        positions = get_position_array(com);
+        XYPos my_pos = positions[get_avatar_id(data)];
         if(f.b){
-          move_t* m = maze_solve(get_maze(data), get_avatar_id(data), SOMEHOW GET THE LOCATION, get_filestream(data)));
+          move_t* m = maze_solve(get_maze(data), get_avatar_id(data), my_pos, get_filestream(data)));
           if(m != NULL){
-            #SEND M TO PLACE
+            int move = m.direction;
+            send_move(com, get_avatar_id(data), move, sock);
           }
         } else {
-          move_t* m = leader_solve(get_maze(data), get_avatar_id(data), SOMEHOW GET THE LOCATION, get_filestream(data)));
+          move_t* m = leader_solve(get_maze(data), get_avatar_id(data), my_pos, get_filestream(data)));
           if(m != NULL){
-            #SEND M TO PLACE
+            int move = m.direction;
+            send_move(com, get_avatar_id(data), move, sock);
           }
         }
       } else {
-        move_t* m = follower_solve(get_maze(data), get_avatar_id(data), SOMEHOW GET THE LOCATION, get_filestream(data)));
+        move_t* m = follower_solve(get_maze(data), get_avatar_id(data), my_pos, get_filestream(data)));
         if(m != NULL){
-          #SEND M TO PLACE
+          int move = m.direction;
+          send_move(com, get_avatar_id(data), move, sock);
         }
       }
       increment_path_strength(data);
     }
+    else{
+      was_my_turn = false;
+    }
+    while (!receive_message(com, *avatarID, sock) && check_game_status(com) == 0){}
   }
   if (!logfile_finished){
   finish_logfile(data);
