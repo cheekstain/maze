@@ -14,7 +14,17 @@
 #include "avatar_solve/avatar_solve.h"
 #include "avatar_comm/avatar_comm.h"
 
+/*
+ * Helper struct for check_all_following et cetera functions.
+ */
+
+typedef struct following_bool {
+  int id;
+  bool b;
+} follower_t;
+
 static bool logfile_finished = false;
+void check_all_following(follower_t a, const int key, int count);
 
 /*
  * the primary avatar thread. it should be passed with an arg
@@ -88,15 +98,6 @@ void finish_logfile(pointers_t *data){
   
 }
 
-/*
- * Helper struct for check_all_following et cetera functions.
- */
-
-typedef struct following_bool {
-  int id;
-  bool b;
-} follower_t;
- 
 /*
  * Helper function. Checks if the avatar in question is the last leader
  */
