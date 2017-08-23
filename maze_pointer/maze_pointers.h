@@ -23,7 +23,7 @@ typedef struct lastmove{
 } lastmove_t;
 maze_pointers_t* maze_pointers_new(char* hostname, 
                          int maze_port,
-                         FILE* fp,
+                         char* fp,
                          int avatar_id,
                          maze_t* maze,
                          lastmove_t* lastmove,
@@ -33,13 +33,13 @@ maze_pointers_t* maze_pointers_new(char* hostname,
  * at no point are ANY of these pointers to be modified. These are for
  * information purposes ONLY.
  */
-const char* get_hostname(maze_pointers_t *ptr);
-const int get_maze_port(maze_pointers_t *ptr);
-const FILE* get_filestream(maze_pointers_t *ptr);
-const int get_avatar_id(maze_pointers_t *ptr);
-const maze_t* get_maze(maze_pointers_t *ptr);
-const lastmove_t* get_lastmove(maze_pointers_t *ptr);
-const counters_t* get_follow_list(maze_pointers_t *ptr);
+char* get_hostname(maze_pointers_t *ptr);
+int get_maze_port(maze_pointers_t *ptr);
+char* get_filestream(maze_pointers_t *ptr);
+int get_avatar_id(maze_pointers_t *ptr);
+maze_t* get_maze(maze_pointers_t *ptr);
+lastmove_t* get_lastmove(maze_pointers_t *ptr);
+counters_t* get_follow_list(maze_pointers_t *ptr);
 int get_path_strength(maze_pointers_t *ptr);
 
 /*
@@ -52,7 +52,7 @@ void increment_path_strength(maze_pointers_t *ptr);
  */
 void set_hostname(maze_pointers_t *ptr, char* hostname);
 void set_maze_port(maze_pointers_t *ptr, int maze_port);
-void set_filestream(maze_pointers_t *ptr, FILE* fp);
+void set_filestream(maze_pointers_t *ptr, char* fp);
 void set_avatar_id(maze_pointers_t *ptr, int avatar_id);
 void set_maze(maze_pointers_t *ptr, maze_t* maze);
 void set_lastmove(maze_pointers_t *ptr, lastmove_t* lastmove);

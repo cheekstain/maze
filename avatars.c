@@ -11,6 +11,8 @@
 #include "mazestruct/mazestruct.h"
 #include "amazing.h"
 #include "maze_pointer/maze_pointers.h"
+#include "avatar_solve/avatar_solve.h"
+#include "avatar_comm/avatar_comm.h"
 
 static bool logfile_finished = false;
 
@@ -20,16 +22,16 @@ static bool logfile_finished = false;
  * to various information that we need
  */
 void* avatar_thread(void *ptr){
-  pointers_t *data = ptr;
+  maze_pointers_t *data = ptr;
   comm_t *com = comm_new();
   int sock = 0;
   sock = send_avatar_ready(com, get_avatar_id(data));
   if (sock == -1){
-    fprintf("Error receiving avatar's socket, avatarID = %d", get_avatar_id(data));
+    printf("Error receiving avatar's socket, avatarID = %d", get_avatar_id(data));
   }
-  while(!receive_message(com)){}
+  while(!receive_message(com, get_avatar_id(data), sock)){}
   bool was_my_turn = false;
-  while (game_status(com) == 0){
+  while (check_game_status(com) == 0){
     if (get_turnID(com) == get_avatar_id(data) && !was_my_turn){
       was_my_turn = true;
       usleep(70000);
