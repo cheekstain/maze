@@ -77,8 +77,8 @@ int main(int argc, char* argv[]){
    		//generate individual data for avatars 1, 2, 3...etc.
     	counters_set(avatar_following, i, i);
     	data = maze_pointers_new(hostname, maze_port, log_name, i, maze, lastmove, avatar_following);
-    	char* string = allocate(sizeof(char) * 160);
-    	sprintf(string, "%d", i);
+    	char str[160];
+    	sprintf(str, "%d", i);
     	set_insert(avatars, string, data);
   	}
 
@@ -86,7 +86,9 @@ int main(int argc, char* argv[]){
   	int thread_error;
   	//set the threads running
   	for(int i = 0; i < n_avatars; i++){
-    	thread_error = pthread_create(&threads[i], NULL, avatar_thread, data[i]);
+  	    char str[160];
+  	    sprintf(str, "%d", i);
+    	thread_error = pthread_create(&threads[i], NULL, avatar_thread, set_find(avatars, str));
     	if(thread_error) {
       		printf("thread creation failed, rc=%d.\n", threadError);
       		return (threadError);
