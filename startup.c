@@ -7,6 +7,7 @@
  * Emma Hobday, August 2017
  */
 
+#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,6 +16,7 @@
 #include <strings.h>	      // bcopy, bzero
 #include <netdb.h>	      // socket-related structures
 #include <time.h>
+#include "libcs50/set.h"
 #include "amazing.h"
 #include "avatars.c"
 #include "avatar_comm/avatar_comm.h"
@@ -35,9 +37,9 @@ int main(int argc, char* argv[]){
 	comm_t *com = comm_new();
 
 	send_init(com, n_avatars, difficulty, hostname);
-	bool recieved = receive_message(com);
+	bool received = receive_message(com, -1, -1);
 
-	if (recieved && is_init_successful(com)){
+	if (received && is_init_successful(com)){
    		printf("Connected! The mazeport is %d", get_mazeport(com));
    		printf("the width of the maze is %d", get_maze_width(com));
    		printf("and the height of the maze is %d\n", get_maze_height(com)); 
@@ -74,18 +76,22 @@ int main(int argc, char* argv[]){
   	for(int i = 0; i < n_avatars; i++){
    		//generate individual data for avatars 1, 2, 3...etc.
     	counters_set(avatar_following, i, i);
-    	data = maze_pointers_new(hostname, maze_port, log_name, i, maze, &lastmove, avatar_following);
-    	set_insert(avatars, i, data);
+    	data = maze_pointers_new(hostname, maze_port, log_name, i, maze, lastmove, avatar_following);
+    	char str[160];
+    	sprintf(str, "%d", i);
+    	set_insert(avatars, str, data);
   	}
 
   	pthread_t threads[n_avatars];
-  	int threadError;
+  	int thread_error;
   	//set the threads running
   	for(int i = 0; i < n_avatars; i++){
-    	threadError = int pthread_create(&threads[i], NULL, avatar_thread, data[i]);
-    	if(threadError) {
-      		printf("thread creation failed, rc=%d.\n", threadError);
-      		return (threadError);
+  	    char str[160];
+  	    sprintf(str, "%d", i);
+    	thread_error = pthread_create(&threads[i], NULL, avatar_thread, set_find(avatars, str));
+    	if(thread_error) {
+      		printf("thread creation failed, rc=%d.\n", thread_error);
+      		return (thread_error);
     	}
   	}
 
