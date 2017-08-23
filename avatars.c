@@ -82,6 +82,7 @@ void* avatar_thread(void *ptr){
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
+            free(m);
           }
         } else {
             printf("mmno\n");
@@ -93,6 +94,7 @@ void* avatar_thread(void *ptr){
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
+            free(m);
           }
         }
       } else {
@@ -104,6 +106,7 @@ void* avatar_thread(void *ptr){
         if(m != NULL){
           int move = m->direction;
           send_move(com, get_avatar_id(data), move, sock);
+          free(m);
         }
       }
       increment_path_strength(data);
