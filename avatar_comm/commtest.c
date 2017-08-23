@@ -21,7 +21,7 @@ void* run_avatar (void *id);
 int main()
 {
   com = comm_new();
-  send_init(com, 2, 0, "flume.cs.dartmouth.edu");
+  send_init(com, 10, 9, "flume.cs.dartmouth.edu");
   bool a = receive_message(com, -1, -1);
   if (a && is_init_successful(com)){
     printf("Connected! The mazeport is %d, the width of the maze is %d and the height of the maze is %d\n", get_mazeport(com), get_maze_width(com), get_maze_height(com));
@@ -64,7 +64,7 @@ int main()
     fprintf(stderr,"Cannot create thread, rc=%d\n", iret2);
   }
 
-  /*int iret3 = pthread_create(&t3, NULL, run_avatar, &id3);
+  int iret3 = pthread_create(&t3, NULL, run_avatar, &id3);
 
   if (iret3) {
     fprintf(stderr,"Cannot create thread, rc=%d\n", iret3);
@@ -111,18 +111,18 @@ int main()
 
   if (iret10) {
     fprintf(stderr,"Cannot create thread, rc=%d\n", iret10);
-  }*/
+  }
 
   pthread_join(t1, NULL);
   pthread_join(t2, NULL);
-  //pthread_join(t3, NULL);
-  //pthread_join(t4, NULL);
-  //pthread_join(t5, NULL);
-  //pthread_join(t6, NULL);
-  //pthread_join(t7, NULL);
-  //pthread_join(t8, NULL);
-  //pthread_join(t9, NULL);
-  //pthread_join(t10, NULL);
+  pthread_join(t3, NULL);
+  pthread_join(t4, NULL);
+  pthread_join(t5, NULL);
+  pthread_join(t6, NULL);
+  pthread_join(t7, NULL);
+  pthread_join(t8, NULL);
+  pthread_join(t9, NULL);
+  pthread_join(t10, NULL);
 
 
 

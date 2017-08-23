@@ -134,7 +134,10 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   com->server.sin_family = AF_INET;
   com->server.sin_port = htons(com->mazeport);
   // Look up the hostname specified on command line
-    struct hostent *hostp = gethostbyname(com->hostname); // server hostname
+    for (int i = 0; i<134768; i++){
+      printf("%s is the hostname", com->hostname);
+    }
+    struct hostent *hostp = gethostbyname("flume.cs.dartmouth.edu"); // server hostname
     if (hostp == NULL) {
       fprintf(stderr, "%s: unknown host\n", com->hostname);
       return -1;
