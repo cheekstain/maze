@@ -28,7 +28,8 @@ maze_pointers_t* maze_pointers_new(char* hostname,
                          int avatar_id,
                          maze_t* maze,
                          lastmove_t* lastmove,
-                         counters_t* follow_list);
+                         counters_t* follow_list,
+                         comm_t* comm);
 /*
  * Getter Funcs
  * at no point are ANY of these pointers to be modified. These are for
