@@ -6,22 +6,27 @@
  * 
  */
 
+#ifndef __MAZE_POINTERS_H
+#define __MAZE_POINTERS_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "../libcs50/counters.h"
 #include "../libcs50/memory.h"
-#include <string.h>
 #include "../mazestruct/mazestruct.h"
 #include "../avatar_comm/avatar_comm.h"
 
 typedef struct maze_data_pointer_struct maze_pointers_t;
-typedef struct lastmove{
+
+typedef struct lastmove {
   XYPos *before;
   XYPos *after;
   int avatarID;
   int direction;
 } lastmove_t;
+
+
 maze_pointers_t* maze_pointers_new(char* hostname, 
                          int maze_port,
                          char* fp,
@@ -66,3 +71,10 @@ void set_follow_list(maze_pointers_t *ptr, counters_t* follow_list);
  * itself be freed elsewhere.
  */
 void maze_pointers_delete(void *ptr);
+
+
+
+#endif //MAZE_POINTERS_H
+
+
+

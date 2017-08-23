@@ -15,7 +15,7 @@ $(PROG): $(OBJS)
 startup.o: startup.c amazing.h
 mazestruct/mazestruct.o: mazestruct/mazestruct.h amazing.h 
 avatar_comm/avatar_comm.o: avatar_comm/avatar_comm.h amazing.h 
-maze_pointer/maze_pointers.o: maze_pointer/maze_pointers.h 
+maze_pointers/maze_pointers.o: maze_pointer/maze_pointers.h 
 avatar_solve/avatar_solve.o: avatar_solve/avatar_solve.h amazing.h 
 
 .PHONY: test clean
@@ -26,4 +26,24 @@ test:
 clean:
 	rm -f *~ *.o *.dSYM
 	rm -f $(PROG)
+	$(MAKE) -C avatar_comm clean
+	$(MAKE) -C avatar_solve clean
+	$(MAKE) -C mazestruct clean
+	cd maze_pointer
+	rm -f *~ *.o *.dSYM
+	cd ..
+
+	#cd avatar_comm
+	#rm -f *~ *.o *.dSYM
+	#cd ../avatar_solve
+	#rm -f *~ *.o *.dSYM
+	#cd ../maze_pointer
+	#rm -f *~ *.o *.dSYM
+	#cd ../mazestruct
+	#rm -f *~ *.o *.dSYM
+	#cd ..
+
+
+
+
 	
