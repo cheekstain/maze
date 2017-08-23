@@ -22,6 +22,7 @@
 
 /*************** local functions ****************/
 bool is_pos_equal(XYPos* before, XYPos* after);
+bool is_pos_valid(XYPos* pos);
 XYPos* get_adjacent_pos(XYPos* pos, int dir);
 char* get_dir(int dir);
 
@@ -30,16 +31,31 @@ void log_move(lastmove_t* move, char* log);
 void log_following(int me, int following, char* log);
 void log_attempt(int id, int dir, XYPos* pos, char* log);
 
+void check_previous_args(maze_t* maze, lastmove_t* move, int strength, 
+											counters_t* followers);
+void check_maze_solve_args(maze_t* maze, int id, XYPos* pos);
+void check_leader_solve_args(maze_t* maze, int id, XYPos* pos);
+void check_follower_solve_args(maze_t* maze, int id, XYPos* pos, 
+												counters_t* followers);
+
 /*************** check_previous() ***************/
 void check_previous(maze_t* maze, lastmove_t* move, char* log, 
 				int strength, counters_t* followers)
 {
+	if (move == NULL) {
+		fprintf(stderr, "check_previous error: null last move\n");
+		exit(1);
+	}
+
 	int prev_id = move->avatarID;
-	int prev_dir = move->direction;
-	XYPos* after = move->after;
-	XYPos* before = move->before;
 
     if (prev_id != -1) { // not the first move 
+    	int prev_dir = move->direction;
+		XYPos* after = move->after;
+		XYPos* before = move->before;
+
+    	check_previous_args(maze, move, strength, followers);
+
         if (is_pos_equal(after, before)) {
         	// move has not been made, must be a wall
         	log_wall(move, log);
@@ -73,6 +89,7 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 /****************** maze_solve() ******************/
 move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 {	
+	check_maze_solve_args(maze, id, pos);
 
 	XYPos* final_pos = pos;
 	int strength = -1;
@@ -100,9 +117,11 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 					strength = new_strength; 
 					dir = i;
 					final_pos = new_pos;
+
 				} else {
 				    free(new_pos);
 				}
+
 			} else{
 			    free(new_pos);
 			}
@@ -115,7 +134,22 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 			final_pos = get_adjacent_pos(pos, i);
 			dir = i;
-		}
+		} 
+	}
+
+	if (dir == 4) {
+		fprintf(stderr, "maze_solve error: no new direction found\n");
+		exit(2);
+	}
+
+	if (is_pos_equal(final_pos, pos)) {
+		fprintf(stderr, "maze_solve error: no new position found\n");
+		exit(2);
+	}
+
+	if (!is_pos_valid(final_pos)) {
+		fprintf(stderr, "maze_solve error: pos out of range\n");
+		exit(2);
 	}
 
 	log_attempt(id, dir, final_pos, log);
@@ -126,9 +160,12 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 	return attempt;
 }
 
+
 /****************** leader_solve() ******************/
 move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 {
+	check_leader_solve_args(maze, id, pos);
+
 	XYPos* final_pos = pos;
 	int dir = 4;
 	int strength = get_tag_strength(maze, pos);
@@ -165,6 +202,21 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 		}
 	}
 
+	if (dir == 4) {
+		fprintf(stderr, "leader_solve error: no new direction found\n");
+		exit(3);
+	}
+
+	if (is_pos_equal(final_pos, pos)) {
+		fprintf(stderr, "leader_solve error: no new position found\n");
+		exit(3);
+	}
+
+	if (!is_pos_valid(final_pos)) {
+		fprintf(stderr, "leader_solve error: pos out of range\n");
+		exit(3);
+	}
+
 	log_attempt(id, dir, final_pos, log);
 	move_t* attempt = malloc(sizeof(move_t));
 	attempt->avatar_id = id;
@@ -174,10 +226,13 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 }
 
+
 /****************** follower_solve() ******************/
 move_t* follower_solve(maze_t* maze, int id, XYPos* pos, 
-					counters_t* followers, char* log)
+							counters_t* followers, char* log)
 {
+	check_follower_solve_args(maze, id, pos, followers);
+
 	XYPos* final_pos = pos;
 	int dir = 4;
 	int strength = get_tag_strength(maze, pos);
@@ -237,6 +292,22 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 		}
 	}
 
+	if (dir == 4) {
+		fprintf(stderr, 
+			"follower_solve error: no new direction found\n");
+		exit(4);
+	}
+
+	if (is_pos_equal(final_pos, pos)) {
+		fprintf(stderr, "follower_solve error: no new position found\n");
+		exit(4);
+	}
+
+	if (!is_pos_valid(final_pos)) {
+		fprintf(stderr, "follower_solve error: pos out of range\n");
+		exit(4);
+	}
+
 	log_attempt(id, dir, final_pos, log);
 	
 	move_t* attempt = malloc(sizeof(move_t));
@@ -247,8 +318,6 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 }
 
 
-
-
 /****************** helper/local functions *******************/
 
 /* is_pos_equal is a helper function that returns true if the two XYPos
@@ -256,11 +325,22 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
  */
 bool is_pos_equal(XYPos* before, XYPos* after)
 {
-        if ((before->x == after->x) && (before->y == after->y)) {
-        	return true;
-        }
-        return false;
+    if ((before->x == after->x) && (before->y == after->y)) {
+    	return true;
+    }
+    return false;
 } 
+
+/* is_pos_valid is a helper function that returns true if the x and y
+ * of the pos are between 0 and 99. otherwise, it returns false.
+ */
+bool is_pos_valid(XYPos* pos)
+{	
+	if (pos->x > 99 || pos->y > 99) {
+		return false;
+	}
+	return true;
+}
 
 /* get_adjacent_pos returns the pos of the square at a certain adjacent
  * direction.
@@ -320,8 +400,8 @@ void log_wall(lastmove_t* move, char* log)
 {
 	FILE *fp = fopen(log, "a");
 
-	uint32_t x = move->after->x;
-	uint32_t y = move->after->y;
+	uint32_t x = move->before->x;
+	uint32_t y = move->before->y;
 	char* dir = get_dir(move->direction);
 
 	fprintf(fp, "Move failed. %s wall added to (%d, %d).\n", dir, x, y);
@@ -375,9 +455,141 @@ void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 	fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
 							   id, dir, x, y);
 	fclose(fp);
-	if (pos != NULL) {
-		free(pos);
+}
+
+/* check_previous_args takes the arguments passed into check_prevous
+ * and validates them. it exits with error code 1 if any are 
+ * encountered.
+ */
+void check_previous_args(maze_t* maze, lastmove_t* move, int strength, 
+											counters_t* followers)
+{
+	int prev_id = move->avatarID;
+	int prev_dir = move->direction;
+	XYPos* after = move->after;
+	XYPos* before = move->before;
+
+	if (maze == NULL) {
+		fprintf(stderr, "check_previous error: null maze\n");
+		exit(1);
+	}
+
+	if (after == NULL || before == NULL) {
+		fprintf(stderr, "check_previous error: null position\n");
+		exit(1);
+	}
+
+	if (followers == NULL) {
+		fprintf(stderr, "check_previous error: null counters\n");
+		exit(1);
+	}
+
+	if (prev_id < 0) {
+		fprintf(stderr, "check_previous error: negative id\n");
+		exit(1);
+	}
+
+	if (prev_dir > 0 || prev_dir > 3) {
+		fprintf(stderr, 
+			"check_previous error: direction out of range\n");
+		exit(1);
+	}
+
+	if (strength < 0) {
+		fprintf(stderr, "check_previous error: negative strength\n");
+		exit(1);
+	}
+
+	if (!is_pos_valid(before) || !is_pos_valid(after)) {
+		fprintf(stderr, "check_previous error: pos out of range\n");
+		exit(1);
 	}
 }
 
+/* check_maze_solve_args takes the arguments passed into maze_solve
+ * and validates them. it exits with error code 2 if any are 
+ * encountered.
+ */
+void check_maze_solve_args(maze_t* maze, int id, XYPos* pos)
+{
+	if (maze == NULL) {
+		fprintf(stderr, "maze_solve error: null maze\n");
+		exit(2);
+	}
+
+	if (pos == NULL) {
+		fprintf(stderr, "maze_solve error: null position\n");
+		exit(2);
+	}
+
+	if (id < 0) {
+		fprintf(stderr, "maze_solve error: negative id\n");
+		exit(2);
+	}
+
+	if (!is_pos_valid(pos)) {
+		fprintf(stderr, "maze_solve error: pos out of range\n");
+		exit(2);
+	}
+}
+
+/* check_leader_solve_args takes the arguments passed into leader_solve
+ * and validates them. it exits with error code 3 if any are 
+ * encountered.
+ */
+void check_leader_solve_args(maze_t* maze, int id, XYPos* pos)
+{
+	if (maze == NULL) {
+		fprintf(stderr, "leader_solve error: null maze\n");
+		exit(3);
+	}
+
+	if (pos == NULL) {
+		fprintf(stderr, "leader_solve error: null position\n");
+		exit(3);
+	}
+
+	if (id < 0) {
+		fprintf(stderr, "leader_solve error: negative id\n");
+		exit(3);
+	}
+
+	if (!is_pos_valid(pos)) {
+		fprintf(stderr, "leader_solve error: pos out of range\n");
+		exit(3);
+	}
+}
+
+/* check_follower_solve_args takes the arguments passed into follower_solve
+ * and validates them. it exits with error code 4 if any are 
+ * encountered.
+ */
+void check_follower_solve_args(maze_t* maze, int id, XYPos* pos, 
+												counters_t* followers)
+{
+	if (maze == NULL) {
+		fprintf(stderr, "follower_solve error: null maze\n");
+		exit(4);
+	}
+
+	if (pos == NULL) {
+		fprintf(stderr, "follower_solve error: null position\n");
+		exit(4);
+	}
+
+	if (followers == NULL) {
+		fprintf(stderr, "follower_solve error: null counters\n");
+		exit(4);
+	}
+
+	if (id < 0) {
+		fprintf(stderr, "follower_solve error: negative id\n");
+		exit(4);
+	}
+
+	if (!is_pos_valid(pos)) {
+		fprintf(stderr, "follower_solve error: pos out of range\n");
+		exit(4);
+	}
+}
 

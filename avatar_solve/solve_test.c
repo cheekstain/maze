@@ -50,6 +50,7 @@ int main()
 	set_avatar_position(maze, &other2, id);
 
 	visit(maze, &other2, 1, 2);
+	visit(maze, &me, 2, 3);
 	//visit(maze, &other0, 3, 5);
 	//visit(maze, &other2, 1, 4);
 	draw_maze(maze);	
