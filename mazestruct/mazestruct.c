@@ -458,8 +458,6 @@ void maze_delete(maze_t *maze)
 /******************************** draw_maze ***********************************/
 void draw_maze(maze_t *maze)
 {
-	sleep(1);
-
 	system("clear");
 
 	draw_top_row(maze->width);
