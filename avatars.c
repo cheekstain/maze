@@ -48,27 +48,37 @@ void* avatar_thread(void *ptr){
       was_my_turn = true;
       usleep(70000);
       int prev_strength = 0;
+      int prev_id;
+      XYPos *positions = get_position_array(com);
+      XYPos my_pos = positions[get_avatar_id(data)];
       if(get_avatar_id(data) == 0){
         prev_strength = get_path_strength(data);
       } else {
         prev_strength = get_path_strength(data) + 1;
       }
-      printf("57\n");
-      check_previous(get_maze(data), get_lastmove(data), 
+      if(get_avatar_id(data) == 0){
+          prev_id = get_n_avatars(data) - 1;
+      } else {
+          prev_id = get_avatar_id(data) - 1;
+      }
+      XYPos prev_pos = positions[prev_id];
+      lastmove_t* lm = get_lastmove(data);
+      lm->after = &prev_pos;
+      check_previous(get_maze(data), lm, 
                get_filestream(data), prev_strength, get_follow_list(data));
       counters_t* follow_list = get_follow_list(data);
-      XYPos *positions = get_position_array(com);
-      XYPos my_pos = positions[get_avatar_id(data)];
       if(counters_get(follow_list, get_avatar_id(data)) == get_avatar_id(data)){
         follower_t f;
         f.id = get_avatar_id(data);
         f.is_last_leader = false;
-        printf("67\n");
         counters_iterate(follow_list, &f, check_all_following);
         if(!f.is_last_leader){
             printf("mmyes\n");
           move_t* m = maze_solve(get_maze(data), get_avatar_id(data), 
                 &my_pos, get_follow_list(data), get_filestream(data));
+          lm->avatarID = get_avatar_id(data);
+          lm->direction = m->direction;
+          lm->before = &my_pos;
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
@@ -77,6 +87,9 @@ void* avatar_thread(void *ptr){
             printf("mmno\n");
           move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
                 &my_pos, get_filestream(data));
+          lm->avatarID = get_avatar_id(data);
+          lm->direction = m->direction;
+          lm->before = &my_pos;
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
@@ -85,6 +98,9 @@ void* avatar_thread(void *ptr){
       } else {
         move_t* m = follower_solve(get_maze(data), get_avatar_id(data), &my_pos, 
                 follow_list, get_filestream(data));
+        lm->avatarID = get_avatar_id(data);
+        lm->direction = m->direction;
+        lm->before = &my_pos;
         if(m != NULL){
           int move = m->direction;
           send_move(com, get_avatar_id(data), move, sock);

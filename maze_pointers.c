@@ -28,6 +28,7 @@ typedef struct maze_data_pointer_struct {
   counters_t* follow_list;
   int strength;
   comm_t *com;
+  int n_avatars;
 } maze_pointers_t;
 
 /*
@@ -41,7 +42,8 @@ maze_pointers_t* maze_pointers_new(char* hostname,
                          maze_t* maze,
                          lastmove_t* lastmove,
                          counters_t* follow_list, 
-                         comm_t *com){
+                         comm_t *com,
+                         int n_avatars){
   maze_pointers_t* tmp = allocate(sizeof(maze_pointers_t));
   tmp->hostname = strduplicate(hostname);
   tmp->maze_port = maze_port;
@@ -52,6 +54,7 @@ maze_pointers_t* maze_pointers_new(char* hostname,
   tmp->follow_list = follow_list;
   tmp->strength = 0;
   tmp->com = com;
+  tmp->n_avatars = n_avatars;
   return tmp;
 }
 
@@ -93,6 +96,10 @@ int get_path_strength(maze_pointers_t *ptr){
 
 comm_t *get_comm(maze_pointers_t *ptr){
   return ptr->com;
+}
+
+int get_n_avatars(maze_pointers_t *ptr){
+  return ptr->n_avatars;
 }
 
 /*

@@ -76,7 +76,7 @@ int main(int argc, char* argv[]){
   	for(int i = 0; i < n_avatars; i++){
    		//generate individual data for avatars 1, 2, 3...etc.
     	counters_set(avatar_following, i, i);
-    	data = maze_pointers_new(hostname, maze_port, log_name, i, maze, lastmove, avatar_following, com);
+    	data = maze_pointers_new(hostname, maze_port, log_name, i, maze, lastmove, avatar_following, com, n_avatars);
     	char str[80];
     	sprintf(str, "%d", i);
     	set_insert(avatars, str, data);
