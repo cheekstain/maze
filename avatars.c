@@ -15,7 +15,7 @@
 #include "avatar_comm/avatar_comm.h"
 
 static bool logfile_finished = false;
-
+void check_all_following(follower_t a, const int key, int count);
 
 /*
  * Helper struct for check_all_following et cetera functions.
