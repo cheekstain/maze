@@ -62,4 +62,4 @@ void set_follow_list(maze_pointers_t *ptr, counters_t* follow_list);
  * Free func for maze_pointers_t. Nota bene: this all deep copies, but not maze, lastmove, and counters, which should
  * itself be freed elsewhere.
  */
-void maze_pointers_delete(maze_pointers_t *ptr);
+void maze_pointers_delete(void *ptr);
