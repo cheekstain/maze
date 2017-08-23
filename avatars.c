@@ -30,14 +30,14 @@ void check_all_following(void* follower, const int key, int count);
  * and this arg is a pointer to a struct containing a ton of pointers
  * to various information that we need
  */
-void avatar_thread(void *ptr){
+void* avatar_thread(void *ptr){
   maze_pointers_t *data = ptr;
-  comm_t *com = comm_new();
+  comm_t *com = comm_new(); //DELET THIS TY
   int sock = 0;
   sock = send_avatar_ready(com, get_avatar_id(data));
   if (sock == -1){
     printf("Error receiving avatar's socket, avatarID = %d", get_avatar_id(data));
-    return;
+    return 1;
   }
   while(!receive_message(com, get_avatar_id(data), sock)){}
   bool was_my_turn = false;
@@ -91,6 +91,7 @@ void avatar_thread(void *ptr){
     }
     while (!receive_message(com, get_avatar_id(data), sock) && check_game_status(com) == 0){}
   }
+  return 0;
 }
 
 /*
