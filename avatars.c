@@ -66,7 +66,7 @@ void* avatar_thread(void *ptr){
         f.is_last_leader = false;
         printf("67\n");
         counters_iterate(follow_list, &f, check_all_following);
-        if(f.is_last_leader){
+        if(!f.is_last_leader){
             printf("mmyes\n");
           move_t* m = maze_solve(get_maze(data), get_avatar_id(data), 
                 &my_pos, get_follow_list(data), get_filestream(data));
