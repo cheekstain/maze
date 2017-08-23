@@ -513,6 +513,7 @@ void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 		
 	fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
 							   id, dir, x, y);
+	free(pos);
 	fclose(fp);
 }
 
