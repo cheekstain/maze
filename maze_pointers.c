@@ -11,10 +11,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../libcs50/counters.h"
-#include "../libcs50/memory.h"
+#include "libcs50/counters.h"
+#include "libcs50/memory.h"
 #include "maze_pointers.h"
-#include "../avatar_comm/avatar_comm.h"
+#include "avatar_comm/avatar_comm.h"
 
 char *strduplicate(char *c);
 

@@ -12,10 +12,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../libcs50/counters.h"
-#include "../libcs50/memory.h"
-#include "../mazestruct/mazestruct.h"
-#include "../avatar_comm/avatar_comm.h"
+#include "libcs50/counters.h"
+#include "libcs50/memory.h"
+#include "mazestruct/mazestruct.h"
+#include "avatar_comm/avatar_comm.h"
 
 typedef struct maze_data_pointer_struct maze_pointers_t;
 
