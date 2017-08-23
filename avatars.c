@@ -113,7 +113,7 @@ void* avatar_thread(void *ptr){
     }
     while (!receive_message(com, get_avatar_id(data), sock) && check_game_status(com) == 0){}
   }
-  close(socket);
+  close(sock);
   return NULL;
 }
 
