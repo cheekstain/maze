@@ -27,9 +27,9 @@ void* avatar_thread(void *ptr){
   int sock = 0;
   sock = send_avatar_ready(com, get_avatar_id(data));
   if (sock == -1){
-    fprintf("Error receiving avatar's socket, avatarID = %d", get_avatar_id(data));
+    printf("Error receiving avatar's socket, avatarID = %d", get_avatar_id(data));
   }
-  while(!receive_message(com)){}
+  while(!receive_message(com, get_avatard_id, sock)){}
   bool was_my_turn = false;
   while (game_status(com) == 0){
     if (get_turnID(com) == get_avatar_id(data) && !was_my_turn){
