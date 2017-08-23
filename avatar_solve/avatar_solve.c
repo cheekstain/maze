@@ -548,7 +548,7 @@ void check_previous_args(maze_t* maze, lastmove_t* move, int strength,
 		exit(1);
 	}
 
-	if (prev_dir > 0 || prev_dir > 3) {
+	if (prev_dir < 0 || prev_dir > 3) {
 		fprintf(stderr, 
 			"check_previous error: direction out of range\n");
 		exit(1);
