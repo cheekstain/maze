@@ -15,16 +15,16 @@
 
 int main()
 {
-	char* log = "test_file";
+	/*char* log = "test_file";
 	int id = 0;
 	uint32_t two = 2;
 	uint32_t four = 4;
 	
 	XYPos me = { two, four };
 	
-	//XYPos other0 = { 3, 4 };
+	XYPos other0 = { 3, 4 };
 	XYPos other1 = { 1, 4 };
-	XYPos other2 = { 2, 3 };
+//	XYPos other2 = { 2, 3 };
 	XYPos other3 = { 1, 3 };
 	XYPos other4 = { 0, 3 };
 //	XYPos other5 = { 0, 4 };
@@ -32,7 +32,7 @@ int main()
 
 	maze_t* maze = maze_new(5, 5, 3);
 
-	//set_wall(maze, &me, 0, 1);
+	set_wall(maze, &me, 1, 1);
 	set_wall(maze, &me, 0, 0);
 	set_wall(maze, &me, 0, 3);
 	set_wall(maze, &other1, 0, 1);
@@ -47,26 +47,45 @@ int main()
 	//counters_set(followers, 0, 1);
 	//counters_set(followers, 1, 2);
 
-	set_avatar_position(maze, &other2, id);
+	set_avatar_position(maze, &me, id);
 
-	visit(maze, &other2, 1, 2);
-	visit(maze, &me, 2, 3);
+	visit(maze, &other0, 0, 5);
+	visit(maze, &me, 0, 4);
+	visit(maze, &other1, 0, 2);
 	//visit(maze, &other0, 3, 5);
 	//visit(maze, &other2, 1, 4);
 	draw_maze(maze);	
-	//move_t* move = follower_solve(maze, id, &me, followers, log);
+	move_t* move = maze_solve(maze, id, &me, log);
 
 	// last 
 	// before - &other2
 	// after - &me
 	
-	lastmove_t last = { &other2, &me, 0, 2 };
-	check_previous(maze, &last, log, 7, followers);
+	//lastmove_t last = { &other2, &me, 0, 2 };
+	//check_previous(maze, &last, log, 7, followers);
 		
-	//free(move)
+	free(move);
 	//free(&last);
 	maze_delete(maze);
 	counters_delete(followers);
-	return 0;
+	return 0;*/
+	
+	counters_t* followers = counters_new();
+	counters_set(followers, 5, 8);
+	counters_set(followers, 8, 2);
+	counters_set(followers, 2, 3);
+	counters_set(followers, 3, 3);
+	
+	if (is_following(5, 3, followers)) {
+		printf("result: true\n");
+	} else {
+		printf("result: false\n");
+	}
+	
+	if (is_following(5, 5, followers)) {
+		printf("result: true\n");
+	} else {
+		printf("result: false\n");
+	}
 }
 

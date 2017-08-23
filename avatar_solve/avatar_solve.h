@@ -16,6 +16,8 @@ typedef struct move {
 	int direction; // 0 west, 1 north, 2 south, 3 east
 } move_t;
 
+bool is_following(int me, int to_find, counters_t* followers);
+
 /* check_previous is called in order to check if the previous move was 
  * sucessful.
  * 
@@ -51,7 +53,8 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
  * 	move_t* move - information about desired move to send to the server
  */
 
-move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log);
+move_t* maze_solve(maze_t* maze, int id, XYPos* pos, counters_t* followers, 
+								char* log);
 
 /* leader_solve backtracks along the avatar's own trail. it updates the log file
  * with the attempt.

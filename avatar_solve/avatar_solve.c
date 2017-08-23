@@ -25,6 +25,7 @@
 bool is_following(int me, int to_find, counters_t* followers);
 bool is_pos_equal(XYPos* before, XYPos* after);
 bool is_pos_valid(XYPos* pos);
+
 XYPos* get_adjacent_pos(XYPos* pos, int dir);
 char* get_dir(int dir);
 
@@ -34,10 +35,12 @@ void log_following(int me, int following, char* log);
 void log_attempt(int id, int dir, XYPos* pos, char* log);
 
 void check_previous_args(maze_t* maze, lastmove_t* move, int strength, 
-						counters_t* followers);
+							counters_t* followers);
 void check_maze_solve_args(maze_t* maze, int id, XYPos* pos);
 void check_leader_solve_args(maze_t* maze, int id, XYPos* pos);
-void check_follower_solve_args(maze_t* maze, int id, XYPos* pos,								counters_t* followers);
+void check_follower_solve_args(maze_t* maze, int id, XYPos* pos, 
+							counters_t* followers);
+
 
 /*************** check_previous() ***************/
 void check_previous(maze_t* maze, lastmove_t* move, char* log, 
@@ -69,10 +72,10 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 
         	int tagger = get_tagged_by(maze, after);
 
-        	if (tagger == -1 || tagger == prev_id) { 
-        		// unvisited or previously visited by me
+        	if (tagger == -1 || is_following(tagger, prev_id, followers)) { 
+        		// unvisited or previously visited by me or below
+        		// me on chain
         		visit(maze, after, prev_id, strength); // tag square
-
         	} else { // found path, set following of avatar to tagger
         		counters_set(followers, prev_id, tagger); 
         		log_following(prev_id, tagger, log);
@@ -88,7 +91,8 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 /****************** functions for choosing moves ******************/
 
 /****************** maze_solve() ******************/
-move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
+move_t* maze_solve(maze_t* maze, int id, XYPos* pos, 
+					counters_t* followers, char* log)
 {	
 	check_maze_solve_args(maze, id, pos);
 
@@ -104,7 +108,8 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 			XYPos *new_pos = get_adjacent_pos(pos, i);	
 			int tagger = get_tagged_by(maze, new_pos);
 			
-			if (tagger != id) { // if the tagger isn't me
+			if (!is_following(tagger, id, followers)) { 
+			// if the tagger isn't me or my follower
 				int new_strength = get_tag_strength(maze, 
 								new_pos);
 
@@ -140,15 +145,15 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 	strength = get_tag_strength(maze, pos);
 	if (is_pos_equal(final_pos, pos)) { // no new pos found so far
-		// only options are old squares tagged by me, in a dead end
-		// must backtrace
+		// only options are old squares tagged by me or my follower
+		// in a dead end, must backtrace
 		for (int i = 0; i < 4; i++) {
 			wall = get_wall(maze, pos, i);
 
 			if (wall == 0) {
 				XYPos *new_pos = get_adjacent_pos(pos, i);
 				int new_strength = get_tag_strength(maze, 
-								    new_pos);
+								   new_pos);
 
 				if (new_strength < strength) {
 
@@ -279,12 +284,10 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 
 			if (tagger != following && tagger != id) {
 				// tagger is a third avatar
-				int leader = counters_get(followers, 
-								  following);
-				
-				if (tagger == leader) { 
-					// switch path if third avatar is
-					// leader of my leader
+								
+				if (is_following(following, tagger, followers)) { 
+					// switch path if tagger is above me in 
+					// the chain
 					if (!is_pos_equal(final_pos, pos)) {
 						free(final_pos);
 					}
@@ -329,7 +332,8 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 	}
 
 	if (is_pos_equal(final_pos, pos)) {
-		fprintf(stderr, "follower_solve error: no new position found\n");
+		fprintf(stderr, 
+			"follower_solve error: no new position found\n");
 		exit(4);
 	}
 
@@ -350,15 +354,16 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 
 /****************** helper/local functions *******************/
 
-/* is_following is a recursive helper function that returns true if the id
- * to be found is in front of a given id in the following chain, otherwise,
- * it returns false.
+/* is_following is a recursive helper funcrtion that returns true if
+ * the to_find id is above me in the follower chain, or false 
+ * otherwise.
  */
+
 bool is_following(int me, int to_find, counters_t* followers)
 {
 	int leader = counters_get(followers, me); // who i'm following 
 
-	if (leader == to_find) {
+	if (leader == to_find || me == to_find) {
 		return true;
 
 	} else if (leader == me || leader < 0) {
