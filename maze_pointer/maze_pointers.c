@@ -16,7 +16,7 @@
 #include <string.h>
 #include "maze_pointers.h"
 
-char *strdup(const char *c);
+char *strdup(char *c);
 
 typedef struct maze_data_pointer_struct {
   char* hostname;
@@ -56,31 +56,31 @@ maze_pointers_t* maze_pointers_new(char* hostname,
  * Getter Funcs
  */
 
-const char* get_hostname(maze_pointers_t *ptr){
+char* get_hostname(maze_pointers_t *ptr){
   return ptr->hostname;
 } 
 
-const int get_maze_port(maze_pointers_t *ptr){
+int get_maze_port(maze_pointers_t *ptr){
   return ptr->maze_port;
 }
 
-const char* get_filenstream(maze_pointers_t *ptr){
+char* get_filenstream(maze_pointers_t *ptr){
   return ptr->fp;
 }
 
-const int get_avatar_id(maze_pointers_t *ptr){
+int get_avatar_id(maze_pointers_t *ptr){
   return ptr->avatar_id;
 }
 
-const maze_t* get_maze(maze_pointers_t *ptr){
+maze_t* get_maze(maze_pointers_t *ptr){
   return ptr->maze;
 }
 
-const lastmove_t* get_lastmove(maze_pointers_t *ptr){
+lastmove_t* get_lastmove(maze_pointers_t *ptr){
   return ptr->lastmove;
 }
 
-const counters_t* get_follow_list(maze_pointers_t *ptr){
+counters_t* get_follow_list(maze_pointers_t *ptr){
   return ptr->follow_list;
 }
 
@@ -138,7 +138,7 @@ void pointers_delete(maze_pointers_t *ptr){
 /*
  * Duplicates a string, returns a pointer. Useful helper func.
  */
-char *strdup(const char *c){
+char *strdup(char *c){
     char *dup = malloc(strlen(c) + 1);
 
     if (dup != NULL)
