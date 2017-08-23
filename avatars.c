@@ -43,6 +43,7 @@ void* avatar_thread(void *ptr){
   bool was_my_turn = false;
   while (check_game_status(com) == 0){
     if (get_turnID(com) == get_avatar_id(data) && !was_my_turn){
+      draw_maze(get_maze(data));
       was_my_turn = true;
       usleep(70000);
       int prev_strength = 0;
