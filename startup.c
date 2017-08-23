@@ -108,6 +108,12 @@ int main(int argc, char* argv[]){
 }
 
 /******************************** check_parameters ****************************/
+/*
+ * Checks the number of arguments, whether difficulty and number of avatars are
+ * each integers between one and nine, and whether the hostname is flume.
+ * 
+ * If any argument is not what we expect, return false. Otherwise, return true.
+ */
 static bool check_parameters(int argc, char* argv[]){
 	if (argc != 4) {
 		fprintf(stderr, "usage: ./startup n_avatars difficulty hostname\n");
@@ -126,7 +132,7 @@ static bool check_parameters(int argc, char* argv[]){
 	}
 
 	if (n < 0 || n > 9) {
-		fprintf(stderr, "difficulty must be between 0 and 9\n");
+		fprintf(stderr, "difficulty and number of avatars must be between 0 and 9\n");
 		return false;
 	}
 
@@ -140,6 +146,12 @@ static bool check_parameters(int argc, char* argv[]){
 }
 
 /******************************** make_log ************************************/
+/*
+ * Creates a logfile with the name "Amazing_$USER_N_D" and prints the user ID, 
+ * mazeport, and date and time to it.
+ *
+ * Returns the string name of the logfile.
+ */
 static char *make_log(const int num_avatars, const int difficulty, const int maze_port){
 	// make log file, open for appending
 	char* log_name = malloc(sizeof(char) * 50);
