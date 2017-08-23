@@ -14,9 +14,6 @@
 #include "avatar_solve/avatar_solve.h"
 #include "avatar_comm/avatar_comm.h"
 
-static bool logfile_finished = false;
-void check_all_following(follower_t a, const int key, int count);
-
 /*
  * Helper struct for check_all_following et cetera functions.
  */
@@ -25,6 +22,9 @@ typedef struct following_bool {
   int id;
   bool b;
 } follower_t;
+
+static bool logfile_finished = false;
+void check_all_following(follower_t a, const int key, int count);
 
 /*
  * the primary avatar thread. it should be passed with an arg
