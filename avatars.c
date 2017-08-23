@@ -24,7 +24,7 @@ typedef struct following_bool {
 } follower_t;
 
 static bool logfile_finished = false;
-void check_all_following(follower_t a, const int key, int count);
+void check_all_following(void* follower, const int key, int count);
 
 /*
  * the primary avatar thread. it should be passed with an arg
@@ -58,7 +58,7 @@ void* avatar_thread(void *ptr){
         follower_t f;
         f.id = get_avatar_id(data);
         f.b = false;
-        counters_iterate(follow_list, f, check_all_following);
+        counters_iterate(follow_list, (void*)f, check_all_following);
         XYPos positions[AM_MAX_AVATAR];
         positions = get_position_array(com);
         XYPos my_pos = positions[get_avatar_id(data)];
@@ -101,7 +101,8 @@ void finish_logfile(pointers_t *data){
 /*
  * Helper function. Checks if the avatar in question is the last leader
  */
-void check_all_following(follower_t a, const int key, int count){
+void check_all_following(void* follower, const int key, int count){
+  follower_t *a = follower;
   if(key != a.id){
     if(key == count){
       a.b = false;
