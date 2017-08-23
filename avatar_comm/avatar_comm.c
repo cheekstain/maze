@@ -1,3 +1,5 @@
+#define _XOPEN_SOURCE 500
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -28,11 +30,14 @@ int comm_sock;
 struct sockaddr_in server;
 int nAvatars;
 char *hostname;
+int Hash;
+int nMoves;
+int difficulty;
 } comm_t;
 
 
 pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
-
+pthread_mutex_t mutex2 = PTHREAD_MUTEX_INITIALIZER;
 
 /**************** file-local constants ****************/
 #define BUFSIZE 1024     // read/write buffer size
@@ -170,7 +175,9 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   		return false;
   	}
 
+    printf("move message sent by avatar %d!", avatarID);
   	return true;
+
   }
 
 /*
@@ -184,6 +191,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 */
   bool receive_message(comm_t *com, int avatarID, int sock)
   {
+    //pthread_mutex_lock(&mutex2);
   	char buf [BUFSIZE];
     int bytes_read;
     if (sock == -1){
@@ -205,7 +213,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
       }
     }
 
-    printf("bytes read %d\n", bytes_read);
+    //printf("bytes read %d\n", bytes_read);
 
   	AM_Message *msg = (AM_Message *) buf;
   	if (ntohl(msg->type) == AM_INIT_OK){
@@ -237,6 +245,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
       	new_pos.y = ntohl(y);
       	com->positions[i] = new_pos;
         printf("avatar turn, thread %d\n", avatarID);
+       // return true;
       }
   	}
   	else if (ntohl(msg->type) == AM_UNKNOWN_MSG_TYPE){
@@ -275,9 +284,13 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
       fprintf(stdout, "MAZE SOLVED");
       com->is_game_over = true;
       com->is_maze_solved = true;
-      return true;
+      com->nAvatars = ntohl(msg->maze_solved.nAvatars);
+      com->difficulty = ntohl(msg->maze_solved.Difficulty);
+      com->nMoves = ntohl(msg->maze_solved.nMoves);
+      com->Hash = ntohl(msg->maze_solved.Hash);
+      //return true;
     }
-
+    //pthread_mutex_unlock(&mutex1);
   	return true;
   }
 
@@ -369,8 +382,33 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 
   /*
   *
-  * A function to close all of the sockets when communication has ended.
+  * A function to get the hashcode when the maze has been solved
   *
   */
+  int get_hash(comm_t *com)
+  {
+    return com->Hash;
+  }
+
+  /*
+  *
+  * A function to get the number of total moves when the maze has been solved
+  *
+  */
+  int get_nMoves(comm_t *com)
+  {
+    return com->nMoves;
+  }
+
+  /*
+  *
+  * A function to get the difficulty when the maze has been solved
+  *
+  */
+  int get_difficulty(comm_t *com)
+  {
+    return com->difficulty;
+  }
+
   
 

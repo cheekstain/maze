@@ -113,6 +113,27 @@ XYPos *get_position_array(comm_t *com);
 */
 int check_game_status(comm_t *com);
 
+/*
+*
+* A function to get the hashcode when the maze has been solved
+*
+*/
+int get_hash(comm_t *com);
+
+/*
+*
+* A function to get the number of total moves when the maze has been solved
+*
+*/
+int get_nMoves (comm_t *com);
+
+/*
+*
+* A function to get the difficulty when the maze has been solved
+*
+*/
+int get_difficulty(comm_t *com);
+
 
 
 
