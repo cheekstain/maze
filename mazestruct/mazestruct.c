@@ -10,8 +10,25 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <unistd.h>
-//#include <gtk/gtk.h>
 #include "../amazing.h"
+
+//color codes to change color of terminal output
+//WARNING: works for linux and mac, but portability beyond this is unclear
+#define RED 	"\033[22;31m"
+#define GREEN 	"\033[22;32m"
+#define YELLOW 	"\033[22;33m"
+#define BLUE 	"\033[22;34m"
+#define MAGENTA "\033[22;35m"
+#define CYAN 	"\033[22;36m"
+#define GRAY 	"\033[22;37m"
+#define L_RED 	"\033[01;31m"
+#define L_GREEN "\033[01;32m"
+#define L_YEL  	"\033[01;33m"
+#define L_BLUE	"\033[01;34m"
+#define L_MAG 	"\033[01;35m"
+#define L_CYAN 	"\033[01;36m"
+#define WHITE 	"\033[01;37m"
+#define RESET 	"\033[22;0m"
 
 /**************** local types ****************/
 typedef struct mazesquare {
@@ -63,6 +80,7 @@ static void draw_top_row(int width);
 static void draw_floor(int floor_status);
 static void draw_wall(int wall_status);
 static void draw_people(maze_t *maze, XYPos *pos);
+static void change_color(int tagged_by);
 
 
 /******************************** maze_new ************************************/
@@ -525,21 +543,85 @@ static void draw_people(maze_t *maze, XYPos *pos)
 	int avatars_here[maze->num_avatars];
 
 	int num_here = get_num_avatars_here(maze, pos, avatars_here);
-
-	//printf("Num here is %d\n", num_here);
+	int tagged_by = get_tagged_by(maze, pos);
 
 	if (num_here == 0) {
-		printf(" ");
+		if (get_tagged_by(maze, pos) == -1) {
+			printf(" ");
+		}
+		else {
+			change_color(tagged_by);
+			printf("-");
+		}
 	}
 
 	if (num_here == 1) {
-		printf("%d", avatars_here[0]);
+		int this_avatar = avatars_here[0];
+		change_color(this_avatar);
+		printf("%d", this_avatar);
 	}
 
 	if (num_here > 1) {
 		printf("*");
 	}
-	printf("   ");
+
+	printf("%s   ", RESET); //print the end spaces and return to normal color
+}
+
+/******************************** change_color ******************s**************/
+/*
+ * Change the color of written to the terminal based on what avatar tagged it.
+ *
+ * The colors are as follows:
+ * Avatar 0: red
+ * Avatar 1: blue
+ * Avatar 2: green
+ * Avatar 3: yellow
+ * Avatar 4: magenta
+ * Avatar 5: light cyan
+ * Avatar 6: light red
+ * Avatar 7: light blue
+ * Avatar 8: light green
+ * Avatar 9: light magenta
+ *
+ * Helper method for `draw_maze()`
+ */
+static void change_color(int avatar)
+{
+	char *color = RESET;
+
+	if (avatar == 0) {
+		color = RED;
+	}
+	if (avatar == 1) {
+		color = BLUE;
+	}
+	if (avatar == 2) {
+		color = GREEN;
+	}
+	if (avatar == 3) {
+		color = YELLOW;
+	}
+	if (avatar == 4) {
+		color = MAGENTA;
+	}
+	if (avatar == 5) {
+		color = L_CYAN;
+	}
+	if (avatar == 6) {
+		color = L_RED;
+	}
+	if (avatar == 7) {
+		color = L_BLUE;
+	}
+	if (avatar == 8) {
+		color = L_GREEN;
+	}
+	if (avatar == 9) {
+		color = L_MAG;
+	}
+
+	printf("%s", color);
 }
 
 /******************************** draw_floor **********************************/

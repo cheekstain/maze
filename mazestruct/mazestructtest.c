@@ -12,8 +12,28 @@
 #include "mazestruct.h"
 #include "../amazing.h"
 
+
 int main()
 {
+	/*
+    printf("%sblack\n", BLACK);
+    printf("%sred\n", RED);
+    printf("%sgreen\n", GREEN);
+    printf("%syellow\n", YELLOW);
+    printf("%sblue\n", BLUE);
+    printf("%smagenta\n", MAGENTA);
+    printf("%scyan\n", CYAN);
+    printf("%sgray\n", GRAY);
+    printf("%slight red\n", L_RED);
+    printf("%slight green\n", L_GREEN);
+    printf("%slight yellow\n", L_YEL);
+    printf("%slight blue\n", L_BLUE);
+    printf("%slight magenta\n", L_MAG);
+    printf("%slight cyan\n", L_CYAN);
+    printf("%swhite\n", WHITE);
+    printf("%slinux reset\n", LIN_RESET);
+    */
+
 	//set up maze for simple test
 	const int width = 5;
 	const int height = 4;
@@ -54,10 +74,16 @@ int main()
 	set_wall(maze, &pos_1_0, 0, 0);
 	set_wall(maze, &pos_1_2, 1, 0);
 
+	void visit(maze_t *maze, XYPos *pos, int visitor, int tag_strength);
+
+
 	printf("Put some avatars in the maze\n");
 	set_avatar_position(maze, &pos_1_1, 0);
+	visit(maze, &pos_1_1, 0, 10);  //av 0, tag str 10
 	set_avatar_position(maze, &pos_0_3, 1);
+	visit(maze, &pos_0_3, 1, 10);  //av 1, tag str 10
 	set_avatar_position(maze, &pos_0_0, 2);
+	visit(maze, &pos_0_0, 2, 10);  //av 2, tag str 10
 	set_avatar_position(maze, &pos_0_0, 3);
 
 	printf("Testing collisions\n");
@@ -72,7 +98,7 @@ int main()
 	}
 
 	printf("Test visiting and tagging\n");
-	visit(maze, &pos_0_3, 4, 10); //tag square 0,3 as avatar 4 with strenght 10
+	visit(maze, &pos_1_2, 4, 10); //tag square 0,3 as avatar 4 with strength 10
 	int visitor = get_tagged_by(maze, &pos_0_3);
 	int tag_strength = get_tag_strength(maze, &pos_0_3);
 	if (visitor != 4) {
@@ -95,15 +121,19 @@ int main()
 
 	//printf("Have 0 successfully move east\n");
 	set_avatar_position(maze, &pos_2_1, 0);
+	visit(maze, &pos_2_1, 0, 11);  //av 0, tag str 11
 	set_wall(maze, &pos_1_1, 0, 3);
 
 	draw_maze(maze);
 
 	set_avatar_position(maze, &pos_1_1, 0);
+	visit(maze, &pos_1_1, 0, 12);  //av 0, tag str 12
 	draw_maze(maze);
 	set_avatar_position(maze, &pos_0_1, 0);
+	visit(maze, &pos_0_1, 0, 13);
 	draw_maze(maze);
 	set_avatar_position(maze, &pos_1_0, 2);
+	visit(maze, &pos_1_0, 2, 11);
 	draw_maze(maze);
 
 
