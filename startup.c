@@ -79,7 +79,7 @@ int main(int argc, char* argv[]){
     	data = maze_pointers_new(hostname, maze_port, log_name, i, maze, lastmove, avatar_following);
     	char str[160];
     	sprintf(str, "%d", i);
-    	set_insert(avatars, string, data);
+    	set_insert(avatars, str, data);
   	}
 
   	pthread_t threads[n_avatars];
@@ -90,7 +90,7 @@ int main(int argc, char* argv[]){
   	    sprintf(str, "%d", i);
     	thread_error = pthread_create(&threads[i], NULL, avatar_thread, set_find(avatars, str));
     	if(thread_error) {
-      		printf("thread creation failed, rc=%d.\n", threadError);
+      		printf("thread creation failed, rc=%d.\n", thread_error);
       		return (threadError);
     	}
   	}
