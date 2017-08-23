@@ -41,6 +41,7 @@ void* avatar_thread(void *ptr){
   }
   while(!receive_message(com, get_avatar_id(data), sock)){}
   XYPos *position = get_position_array(com);
+  printf("x:%d, y:%d\n", position[get_avatar_id(data)]->x, position[get_avatar_id(data)]->y);
   set_avatar_position(get_maze(data), position[get_avatar_id(data)], get_avatar(id));
   bool was_my_turn = false;
   while (check_game_status(com) == 0){
