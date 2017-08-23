@@ -37,7 +37,7 @@ void* avatar_thread(void *ptr){
   sock = send_avatar_ready(com, get_avatar_id(data));
   if (sock == -1){
     printf("Error receiving avatar's socket, avatarID = %d", get_avatar_id(data));
-    return 1;
+    return NULL;
   }
   while(!receive_message(com, get_avatar_id(data), sock)){}
   bool was_my_turn = false;
@@ -91,7 +91,7 @@ void* avatar_thread(void *ptr){
     }
     while (!receive_message(com, get_avatar_id(data), sock) && check_game_status(com) == 0){}
   }
-  return 0;
+  return NULL;
 }
 
 /*
