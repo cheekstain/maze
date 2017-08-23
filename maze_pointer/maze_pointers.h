@@ -13,6 +13,7 @@
 #include "../libcs50/memory.h"
 #include <string.h>
 #include "../mazestruct/mazestruct.h"
+#include "../avatar_comm/avatar_comm.h"
 
 typedef struct maze_data_pointer_struct maze_pointers_t;
 typedef struct lastmove{
