@@ -62,7 +62,7 @@ int main(int argc, char* argv[]){
 	// Main "Program"
 	
 	//initialize the public dataset that everyone has access to
-  	set_t* avatarDataSet = set_new();
+  	set_t* avatars = set_new();
   
   	//Initialize the data in the public dataset
   	//maze, followinglist, and lastmove;
