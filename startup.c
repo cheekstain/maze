@@ -83,15 +83,15 @@ int main(int argc, char* argv[]){
   	}
 
   	pthread_t threads[n_avatars];
-  	int threadError;
+  	int thread_error;
   	//set the threads running
   	for(int i = 0; i < n_avatars; i++){
   	    char str[80];
     	sprintf(str, "%d", i);
-    	threadError = int pthread_create(&threads[i], NULL, avatar_thread, set_find(avatars, str));
-    	if(threadError) {
-      		printf("thread creation failed, rc=%d.\n", threadError);
-      		return (threadError);
+    	thread_error = pthread_create(&threads[i], NULL, avatar_thread, set_find(avatars, str));
+    	if(thread_error) {
+      		printf("thread creation failed, rc=%d.\n", thread_error);
+      		return (thread_error);
     	}
   	}
 
