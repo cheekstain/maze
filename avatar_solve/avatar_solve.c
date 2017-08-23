@@ -88,7 +88,7 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
         	}	
         }
 
-        draw_maze(maze); // update maze
+        //draw_maze(maze); // update maze
     }
 }
 
@@ -513,6 +513,7 @@ void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 		
 	fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
 							   id, dir, x, y);
+	free(pos);
 	fclose(fp);
 }
 
