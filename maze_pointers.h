@@ -34,7 +34,8 @@ maze_pointers_t* maze_pointers_new(char* hostname,
                          maze_t* maze,
                          lastmove_t* lastmove,
                          counters_t* follow_list,
-                         comm_t* comm);
+                         comm_t* comm,
+                         int n_avatars);
 /*
  * Getter Funcs
  * at no point are ANY of these pointers to be modified. These are for
@@ -49,6 +50,7 @@ lastmove_t* get_lastmove(maze_pointers_t *ptr);
 counters_t* get_follow_list(maze_pointers_t *ptr);
 int get_path_strength(maze_pointers_t *ptr);
 comm_t *get_comm(maze_pointers_t *ptr);
+int get_n_avatars(maze_pointers_t *ptr);
 
 /*
  * Dealing with Path Strength
