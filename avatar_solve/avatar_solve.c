@@ -46,7 +46,7 @@ void check_follower_solve_args(maze_t* maze, int id, XYPos* pos,
 void check_previous(maze_t* maze, lastmove_t* move, char* log, 
 				int strength, counters_t* followers)
 {
-	printf("within check_previous\n");
+	//printf("within check_previous\n");
 	
 	if (move == NULL) {
 		fprintf(stderr, "check_previous error: null last move\n");
@@ -56,7 +56,7 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 	int prev_id = move->avatarID;
 
     if (prev_id != -1) { // not the first move 
-	printf("within not the first move loop\n");
+	//printf("within not the first move loop\n");
     	int prev_dir = move->direction;
 	XYPos* after = move->after;
 	XYPos* before = move->before;
@@ -64,13 +64,13 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
     	check_previous_args(maze, move, strength, followers);
 
         if (is_pos_equal(after, before)) {
-		printf("found wall\n");
+		//printf("found wall\n");
         	// move has not been made, must be a wall
         	log_wall(move, log);
         	set_wall(maze, before, 1, prev_dir);
 
         } else { // move has been made
-		printf("move made\n");
+		//printf("move made\n");
         	log_move(move, log);
         	set_wall(maze, before, 0, prev_dir);
         	set_avatar_position(maze, after, prev_id); 
@@ -88,7 +88,7 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
         	}	
         }
 
-        //draw_maze(maze); // update maze
+        draw_maze(maze); // update maze
     }
 }
 
