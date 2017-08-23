@@ -63,26 +63,26 @@ int counters_add(counters_t *ctrs, const int key) {
 }
 
 /* Return current value of counter associated with the given key;
- * return 0 if ctrs is NULL or if key is not found.
+ * return -1 if ctrs is NULL or if key is not found.
  */
 int counters_get(counters_t *ctrs, const int key) {
   if(ctrs && key >= 0){
     //load ctrs up
     if(ctrs->head == NULL){
-      return 0;
+      return -1;
     } 
     counter_t *currnode = ctrs->head;
     //search for key
     while(currnode->key != key){
       if(currnode->next == NULL){
         //key not found
-        return 0;
+        return -1;
       }
       currnode = currnode->next;
     } //key found
     return currnode->count;
   } 
-  return 0;
+  return -1;
 }
 
 /* Set the current value of counter associated with the given key;
