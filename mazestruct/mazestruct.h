@@ -4,8 +4,7 @@
  * Mazestruct holds a structure representing a maze, as well as
  * all the functions required to get and set information from that maze.
  * 
- * It also contains functionality allowing it to draw the maze in an external 
- * window.
+ * It also contains functionality allowing it to draw the maze in the terminal.
  *
  * Emma Hobday, August 2017
  */
