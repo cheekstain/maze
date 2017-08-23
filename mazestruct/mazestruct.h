@@ -119,8 +119,8 @@ void maze_delete(maze_t *maze);
 
 /******************************** draw_maze *********************************/
 /*
- * Given a maze, draw_maze will print out ASCII art of the maze as it is at the 
- * instant of draw_maze's call to a window opened by gtk. For best use, 
+ * Given a maze, draw_maze will print out ASCII art of the maze as it is in the
+ * terminal, clearing the terminal before each printout. For best use, 
  * draw_maze should be called every time there is an update to the maze, such as
  * a new wall being discovered or an avatar moving.
  *
