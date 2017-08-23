@@ -111,6 +111,7 @@ int main(int argc, char* argv[]){
   	set_delete(avatars, maze_pointers_delete);
   	counters_delete(avatar_following);
     free(lastmove);
+    comm_delete(com);
 }
 
 /******************************** check_parameters ****************************/
