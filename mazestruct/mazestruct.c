@@ -462,7 +462,7 @@ void maze_delete(maze_t *maze)
 /******************************** draw_maze ***********************************/
 void draw_maze(maze_t *maze)
 {
-	usleep(500);
+	usleep(250);
 
 	system("clear");
 
