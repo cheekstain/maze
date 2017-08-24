@@ -15,7 +15,7 @@ $(PROG): $(OBJS)
 	$(CC) $(CFLAGS) -o $(PROG) $(OBJS) $(LIBS)
 
 
-avatar_solve.o: avatar_solve.h ../amazing.h ../mazestruct/mazestruct.h ../maze_pointer/maze_pointers.h ../libcs50/counters.h 
+avatar_solve.o: avatar_solve.h ../amazing.h ../mazestruct/mazestruct.h ../maze_pointers.h ../libcs50/counters.h 
 
 mazestruct.o: ../mazestruct/mazestruct.h 
 
@@ -23,7 +23,7 @@ memory.o: ../libcs50/memory.h
 
 counters.o: ../libcs50/memory.h ../libcs50/counters.h
 
-solve_test.o: avatar_solve.h ../amazing.h ../mazestruct/mazestruct.h ../maze_pointer/maze_pointers.h 
+solve_test.o: avatar_solve.h ../amazing.h ../mazestruct/mazestruct.h ../maze_pointers.h 
 
 
 .PHONY: test clean 
