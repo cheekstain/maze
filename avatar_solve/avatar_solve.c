@@ -22,24 +22,24 @@
 
 /*************** local functions ****************/
 //local but public for testing purposes
-//bool is_following(int me, int to_find, counters_t* followers);
-//bool is_leader_collide(maze_t* maze, int following, XYPos* pos);
+bool is_following(int me, int to_find, counters_t* followers);
+bool is_leader_collide(maze_t* maze, int following, XYPos* pos);
 
-static bool is_pos_equal(XYPos* before, XYPos* after);
-static bool is_pos_valid(XYPos* pos);
+bool is_pos_equal(XYPos* before, XYPos* after);
+bool is_pos_valid(XYPos* pos);
 
-static XYPos* get_adjacent_pos(XYPos* pos, int dir);
-static char* get_dir(int dir);
+XYPos* get_adjacent_pos(XYPos* pos, int dir);
+char* get_dir(int dir);
 
-static void log_wall(lastmove_t* move, char* log);
-static void log_move(lastmove_t* move, char* log);
-static void log_following(int me, int following, char* log);
-static void log_attempt(int id, int dir, XYPos* pos, char* log);
+void log_wall(lastmove_t* move, char* log);
+void log_move(lastmove_t* move, char* log);
+void log_following(int me, int following, char* log);
+void log_attempt(int id, int dir, XYPos* pos, char* log);
 
-static void check_previous_args(maze_t* maze, lastmove_t* move, int strength,								counters_t* followers);
-static void check_maze_solve_args(maze_t* maze, int id, XYPos* pos);
-static void check_leader_solve_args(maze_t* maze, int id, XYPos* pos);
-static void check_follower_solve_args(maze_t* maze, int id, XYPos* pos,									counters_t* followers);
+void check_previous_args(maze_t* maze, lastmove_t* move, int strength,								counters_t* followers);
+void check_maze_solve_args(maze_t* maze, int id, XYPos* pos);
+void check_leader_solve_args(maze_t* maze, int id, XYPos* pos);
+void check_follower_solve_args(maze_t* maze, int id, XYPos* pos,									counters_t* followers);
 
 
 /*************** check_previous() ***************/
@@ -446,7 +446,7 @@ bool is_leader_collide(maze_t* maze, int following, XYPos* pos)
 /* is_pos_equal is a helper function that returns true if the two XYPos
  * are equal and false otherwise.
  */
-static bool is_pos_equal(XYPos* before, XYPos* after)
+bool is_pos_equal(XYPos* before, XYPos* after)
 {
     if ((before->x == after->x) && (before->y == after->y)) {
     	return true;
@@ -457,7 +457,7 @@ static bool is_pos_equal(XYPos* before, XYPos* after)
 /* is_pos_valid is a helper function that returns true if the x and y
  * of the pos are between 0 and 99. otherwise, it returns false.
  */
-static bool is_pos_valid(XYPos* pos)
+bool is_pos_valid(XYPos* pos)
 {	
 	if (pos->x > 99 || pos->y > 99) {
 		return false;
@@ -468,7 +468,7 @@ static bool is_pos_valid(XYPos* pos)
 /* get_adjacent_pos returns the pos of the square at a certain adjacent
  * direction.
  */
-static XYPos* get_adjacent_pos(XYPos* pos, int dir) 
+XYPos* get_adjacent_pos(XYPos* pos, int dir) 
 {
 	uint32_t x = pos->x;
 	uint32_t y = pos->y;
@@ -495,7 +495,7 @@ static XYPos* get_adjacent_pos(XYPos* pos, int dir)
 /* get_dir takes an int dir (0 - west, 1 - north, 2 - south, 3 - east)
  * and returns a char string
  */
-static char* get_dir(int dir) {
+char* get_dir(int dir) {
 	char* string;
 
 	if (dir == 0) {
@@ -519,7 +519,7 @@ static char* get_dir(int dir) {
  *
  * it prints: "Move failed. [direction] wall added to (x, y)."
  */
-static void log_wall(lastmove_t* move, char* log)
+void log_wall(lastmove_t* move, char* log)
 {
 	FILE *fp = fopen(log, "a");
 
@@ -536,7 +536,7 @@ static void log_wall(lastmove_t* move, char* log)
  *
  * it prints: "Avatar [id] moved to (x, y)."
  */
-static void log_move(lastmove_t* move, char* log)
+void log_move(lastmove_t* move, char* log)
 {
 	FILE *fp = fopen(log, "a");
 
@@ -553,7 +553,7 @@ static void log_move(lastmove_t* move, char* log)
  *
  * it prints: "Avatar [id] is on avatar [id]'s path."
  */
-static void log_following(int me, int following, char* log)
+void log_following(int me, int following, char* log)
 {
 	FILE *fp = fopen(log, "a");
 
@@ -566,7 +566,7 @@ static void log_following(int me, int following, char* log)
  *
  * it prints: "Avatar [id] attempted to move [direction] to (x, y)."
  */
-static void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
+void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 {
 	FILE *fp = fopen(log, "a");
 	
@@ -587,7 +587,7 @@ static void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
  * and validates them. it exits with error code 1 if any are 
  * encountered.
  */
-static void check_previous_args(maze_t* maze, lastmove_t* move, int strength, 
+void check_previous_args(maze_t* maze, lastmove_t* move, int strength, 
 											counters_t* followers)
 {
 	int prev_id = move->avatarID;
@@ -636,9 +636,9 @@ static void check_previous_args(maze_t* maze, lastmove_t* move, int strength,
  * and validates them. it exits with error code 2 if any are 
  * encountered.
  */
-static void check_maze_solve_args(maze_t* maze, int id, XYPos* pos)
+void check_maze_solve_args(maze_t* maze, int id, XYPos* pos)
 {
-	if (maze == NULL) {
+if (maze == NULL) {
 		fprintf(stderr, "maze_solve error: null maze\n");
 		exit(2);
 	}
@@ -663,7 +663,7 @@ static void check_maze_solve_args(maze_t* maze, int id, XYPos* pos)
  * and validates them. it exits with error code 3 if any are 
  * encountered.
  */
-static void check_leader_solve_args(maze_t* maze, int id, XYPos* pos)
+void check_leader_solve_args(maze_t* maze, int id, XYPos* pos)
 {
 	if (maze == NULL) {
 		fprintf(stderr, "leader_solve error: null maze\n");
@@ -690,7 +690,7 @@ static void check_leader_solve_args(maze_t* maze, int id, XYPos* pos)
  * and validates them. it exits with error code 4 if any are 
  * encountered.
  */
-static void check_follower_solve_args(maze_t* maze, int id, XYPos* pos, 
+void check_follower_solve_args(maze_t* maze, int id, XYPos* pos, 
 							counters_t* followers)
 {
 	if (maze == NULL) {
