@@ -15,7 +15,7 @@
 #include <stdbool.h>
 #include <pthread.h>
 //#include "mazestruct.h"
-#include "amazing.h"
+#include "../amazing.h"
 
  
 typedef struct comm{     
