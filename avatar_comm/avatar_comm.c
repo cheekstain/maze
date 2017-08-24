@@ -418,6 +418,17 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
     return com->difficulty;
   }
 
+   /*
+  *
+  * A function to get the number of avatars when the maze has been solved
+  *
+  */
+  int get_nAvatars(comm_t *com)
+  {
+    return com->nAvatars;
+  }
+
+
 
   
 

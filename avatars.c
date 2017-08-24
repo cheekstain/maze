@@ -14,6 +14,8 @@
 #include "avatar_comm/avatar_comm.h"
 #include "maze_pointers.h"
 
+bool logfile_finished = false;
+
 /*
  * Helper struct for check_all_following et cetera functions.
  */
@@ -113,6 +115,11 @@ void* avatar_thread(void *ptr){
     }
     while (!receive_message(com, get_avatar_id(data), sock) && check_game_status(com) == 0){}
   }
+  
+  if (!logfile_finished){
+    finish_logfile(com, get_filestream(data));
+    logfile_finished = true;
+  }
   close(sock);
   return NULL;
 }
@@ -127,6 +134,15 @@ void check_all_following(void* follower, const int key, int count){
       a->is_last_leader = false;
     }
   }
+}
+
+void finish_logfile(comm_t *com, char *file){
+  FILE *fp = fopen(file, "a");
+  int difficulty = get_difficulty(com);
+  int nAvatars = get_nAvatars(com);
+  int num_moves = get_nMoves(com);
+  int hashcode = get_hash(com);
+  fprintf(fp, "\nMaze solved with nAvatars = %d, difficulty = %d, number of moves = %d, and hashcode %d.\n", nAvatars, difficulty, num_moves, hashcode);
 }
 
 

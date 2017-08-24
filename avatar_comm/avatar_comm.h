@@ -169,6 +169,13 @@ int get_nMoves (comm_t *com);
  */
 int get_difficulty(comm_t *com);
 
+  /*
+  *
+  * A function to get the number of avatars when the maze has been solved
+  *
+  */
+  int get_nAvatars(comm_t *com);
+
 
 
 
