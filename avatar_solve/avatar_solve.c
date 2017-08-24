@@ -85,7 +85,7 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 		    	}	
 		    }
     	}
-        draw_maze(maze); // update maze
+        //draw_maze(maze); // update maze
     }
 }
 
@@ -282,7 +282,11 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 	int colliders[10];
 	if (is_collision(maze, pos, colliders) && my_square == following) {
 		dir = 8;
-		log_attempt(id, dir, final_pos, log);
+
+		FILE *fp = fopen(log, "a");
+		fprintf(fp, "Avatar %d stays at (%d, %d).\n", id, pos->x, pos->y);
+		fclose(fp);
+
 		move_t* attempt = malloc(sizeof(move_t));
 		attempt->avatar_id = id;
 		attempt->direction = dir;
@@ -517,13 +521,12 @@ void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 	uint32_t x = pos->x;
 	uint32_t y = pos->y;
 	
-	if (attempt_dir == 8) {
-		fprintf(fp, "Avatar %d stays at (%d, %d).\n", id, x, y);
-	} else {
-		char* dir = get_dir(attempt_dir);
-		fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
-							   id, dir, x, y);
-	}
+	
+	char* dir = get_dir(attempt_dir);
+	fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
+						   id, dir, x, y);
+	
+
 	free(pos);
 	fclose(fp);
 }
