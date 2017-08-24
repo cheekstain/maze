@@ -133,13 +133,18 @@ static bool check_parameters(int argc, char* argv[]){
 		return false;
 	}
 
+	if (n < 1 || n > 10) {
+		fprintf(stderr, "n_avatars must be between 1 and 10\n");
+		return false;
+	}
+
 	if (sscanf(argv[2], "%d", &n) == 0) {
 		fprintf(stderr, "difficulty must be int\n");
 		return false;
 	}
 
 	if (n < 0 || n > 9) {
-		fprintf(stderr, "difficulty and number of avatars must be between 0 and 9\n");
+		fprintf(stderr, "difficulty must be between 0 and 9\n");
 		return false;
 	}
 
