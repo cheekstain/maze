@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include "../amazing.h"
 
+
 //color codes to change color of terminal output
 //WARNING: works for linux and mac, but portability beyond this is unclear
 #define RED 	"\033[22;31m"
@@ -33,6 +34,8 @@
 #define L_CYAN 	"\033[01;36m"
 #define WHITE 	"\033[01;37m"
 #define RESET 	"\033[22;0m"
+
+#define gotoxy(x, y) printf("\033[%d;%dH", x, y)
 
 /**************** local types ****************/
 typedef struct mazesquare {
@@ -464,7 +467,9 @@ void draw_maze(maze_t *maze)
 {
 	//usleep(250);
 
-	system("clear");
+	//system("clear");
+
+	gotoxy(0,0);
 
 	draw_top_row(maze->width);
 	

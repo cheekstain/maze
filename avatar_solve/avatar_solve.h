@@ -19,7 +19,9 @@ typedef struct move {
 	int direction; // 0 west, 1 north, 2 south, 3 east
 } move_t;
 
+// only availabe in header file for testing purposes
 bool is_leader_collide(maze_t* maze, int following, XYPos* pos);
+bool is_following(int me, int to_find, counters_t* followers);
 
 /* check_previous is called in order to check if the previous move was 
  * sucessful.
