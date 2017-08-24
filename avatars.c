@@ -89,11 +89,12 @@ void* avatar_thread(void *ptr){
             free(m);
           }
         } else {
+          move_t* m;
           if(!first_leader_solve){
-            move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
+            m = leader_solve(get_maze(data), get_avatar_id(data), 
                     &my_pos, get_filestream(data));
           } else {
-            move_t* m = malloc(sizeof(move_t));
+            m = malloc(sizeof(move_t));
 	        m->avatar_id = get_avatar_id(data);
 	        m->direction = 8;
           }
