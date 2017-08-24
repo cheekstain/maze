@@ -26,6 +26,7 @@ typedef struct following_bool {
 } follower_t;
 
 void check_all_following(void* follower, const int key, int count);
+void finish_logfile(comm_t *com, char *file);
 
 /*
  * the primary avatar thread. it should be passed with an arg
@@ -75,6 +76,7 @@ void* avatar_thread(void *ptr){
         f.is_last_leader = false;
         counters_iterate(follow_list, &f, check_all_following);
         if(!f.is_last_leader){
+            printf("mmyes\n");
           move_t* m = maze_solve(get_maze(data), get_avatar_id(data), 
                 &my_pos, get_follow_list(data), get_filestream(data));
           lm->avatarID = get_avatar_id(data);
@@ -83,9 +85,9 @@ void* avatar_thread(void *ptr){
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
-            free(m);
           }
         } else {
+            printf("mmno\n");
           move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
                 &my_pos, get_filestream(data));
           lm->avatarID = get_avatar_id(data);
@@ -94,7 +96,6 @@ void* avatar_thread(void *ptr){
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
-            free(m);
           }
         }
       } else {
@@ -106,7 +107,6 @@ void* avatar_thread(void *ptr){
         if(m != NULL){
           int move = m->direction;
           send_move(com, get_avatar_id(data), move, sock);
-          free(m);
         }
       }
       increment_path_strength(data);
@@ -119,7 +119,6 @@ void* avatar_thread(void *ptr){
   
   if (!logfile_finished){
     finish_logfile(com, get_filestream(data));
-    logfile_finished = true;
   }
   close(sock);
   return NULL;
@@ -137,13 +136,21 @@ void check_all_following(void* follower, const int key, int count){
   }
 }
 
-void finish_logfile(comm_t *com, char *file){
+/*
+*
+* Finishes the logfile when the game has finished.
+*
+*/
+void finish_logfile(comm_t *com, char *file)
+{
+  logfile_finished = true;
   FILE *fp = fopen(file, "a");
   int difficulty = get_difficulty(com);
   int nAvatars = get_nAvatars(com);
   int num_moves = get_nMoves(com);
   int hashcode = get_hash(com);
   fprintf(fp, "\nMaze solved with nAvatars = %d, difficulty = %d, number of moves = %d, and hashcode %d.\n", nAvatars, difficulty, num_moves, hashcode);
+  fclose(fp);
 }
 
 

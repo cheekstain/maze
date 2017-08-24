@@ -35,19 +35,17 @@ void log_following(int me, int following, char* log);
 void log_attempt(int id, int dir, XYPos* pos, char* log);
 
 void check_previous_args(maze_t* maze, lastmove_t* move, int strength, 
-							counters_t* followers);
+											counters_t* followers);
 void check_maze_solve_args(maze_t* maze, int id, XYPos* pos);
 void check_leader_solve_args(maze_t* maze, int id, XYPos* pos);
 void check_follower_solve_args(maze_t* maze, int id, XYPos* pos, 
-							counters_t* followers);
+												counters_t* followers);
 
 
 /*************** check_previous() ***************/
 void check_previous(maze_t* maze, lastmove_t* move, char* log, 
 				int strength, counters_t* followers)
 {
-	//printf("within check_previous\n");
-	
 	if (move == NULL) {
 		fprintf(stderr, "check_previous error: null last move\n");
 		exit(1);
@@ -56,38 +54,37 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 	int prev_id = move->avatarID;
 
     if (prev_id != -1) { // not the first move 
-	//printf("within not the first move loop\n");
     	int prev_dir = move->direction;
-	XYPos* after = move->after;
-	XYPos* before = move->before;
+		XYPos* after = move->after;
+		XYPos* before = move->before;
 
-    	check_previous_args(maze, move, strength, followers);
+		if (prev_dir != 8) {
+			check_previous_args(maze, move, strength, followers);
 
-        if (is_pos_equal(after, before)) {
-		//printf("found wall\n");
-        	// move has not been made, must be a wall
-        	log_wall(move, log);
-        	set_wall(maze, before, 1, prev_dir);
+		    if (is_pos_equal(after, before)) {
+		    	// move has not been made, must be a wall
+		    	log_wall(move, log);
+		    	set_wall(maze, before, 1, prev_dir);
 
-        } else { // move has been made
-		//printf("move made\n");
-        	log_move(move, log);
-        	set_wall(maze, before, 0, prev_dir);
-        	set_avatar_position(maze, after, prev_id); 
+		    } else { // move has been made
+		    	log_move(move, log);
+		    	set_wall(maze, before, 0, prev_dir);
+		    	set_avatar_position(maze, after, prev_id); 
 
-        	int tagger = get_tagged_by(maze, after);
+		    	int tagger = get_tagged_by(maze, after);
 
-        	if (tagger == -1 || is_following(tagger, prev_id, followers)) { 
-        		// unvisited or previously visited by me or below
-        		// me on chain
-        		visit(maze, after, prev_id, strength); // tag square
-        	} else { // found path, set following of avatar to tagger
-        		counters_set(followers, prev_id, tagger); 
-        		log_following(prev_id, tagger, log);
+		    	if (tagger == -1 || is_following(tagger, prev_id, 
+		    											followers)) { 
+		    		// unvisited or previously visited by me or below
+		    		// me on chain
+		    		visit(maze, after, prev_id, strength); // tag square
+		    	} else { // found path, set following of avatar to tagger
+		    		counters_set(followers, prev_id, tagger); 
+		    		log_following(prev_id, tagger, log);
 
-        	}	
-        }
-
+		    	}	
+		    }
+    	}
         draw_maze(maze); // update maze
     }
 }
@@ -97,7 +94,7 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 
 /****************** maze_solve() ******************/
 move_t* maze_solve(maze_t* maze, int id, XYPos* pos, 
-					counters_t* followers, char* log)
+							counters_t* followers, char* log)
 {	
 	check_maze_solve_args(maze, id, pos);
 
@@ -151,14 +148,14 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos,
 	strength = get_tag_strength(maze, pos);
 	if (is_pos_equal(final_pos, pos)) { // no new pos found so far
 		// only options are old squares tagged by me or my follower
-		// in a dead end, must backtrace
+		// in a dead end
+		// must backtrace
 		for (int i = 0; i < 4; i++) {
 			wall = get_wall(maze, pos, i);
 
 			if (wall == 0) {
 				XYPos *new_pos = get_adjacent_pos(pos, i);
-				int new_strength = get_tag_strength(maze, 
-								   new_pos);
+				int new_strength = get_tag_strength(maze, new_pos);
 
 				if (new_strength < strength) {
 
@@ -269,7 +266,7 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 
 /****************** follower_solve() ******************/
 move_t* follower_solve(maze_t* maze, int id, XYPos* pos, 
-					counters_t* followers, char* log)
+							counters_t* followers, char* log)
 {
 	check_follower_solve_args(maze, id, pos, followers);
 
@@ -279,6 +276,19 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 	int following = counters_get(followers, id);
 	bool found_new = false;
 	int wall;
+
+	// collision case with leader
+	int my_square = get_tagged_by(maze, pos);
+	int colliders[10];
+	if (is_collision(maze, pos, colliders) && my_square == following) {
+		dir = 8;
+		log_attempt(id, dir, final_pos, log);
+		move_t* attempt = malloc(sizeof(move_t));
+		attempt->avatar_id = id;
+		attempt->direction = dir;
+
+		return attempt;
+	}
 
 	for (int i = 0; i < 4; i++) {
 		wall = get_wall(maze, pos, i);
@@ -331,14 +341,12 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 	}
 
 	if (dir == 4) {
-		fprintf(stderr, 
-			"follower_solve error: no new direction found\n");
+		fprintf(stderr, "follower_solve error: no new direction found\n");
 		exit(4);
 	}
 
 	if (is_pos_equal(final_pos, pos)) {
-		fprintf(stderr, 
-			"follower_solve error: no new position found\n");
+		fprintf(stderr, "follower_solve error: no new position found\n");
 		exit(4);
 	}
 
@@ -508,11 +516,14 @@ void log_attempt(int id, int attempt_dir, XYPos* pos, char* log)
 	
 	uint32_t x = pos->x;
 	uint32_t y = pos->y;
-	char* dir = get_dir(attempt_dir);
 	
-		
-	fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
+	if (attempt_dir == 8) {
+		fprintf(fp, "Avatar %d stays at (%d, %d).\n", id, x, y);
+	} else {
+		char* dir = get_dir(attempt_dir);
+		fprintf(fp, "Avatar %d attempted to move %s to (%d, %d).\n", 
 							   id, dir, x, y);
+	}
 	free(pos);
 	fclose(fp);
 }
@@ -550,8 +561,7 @@ void check_previous_args(maze_t* maze, lastmove_t* move, int strength,
 	}
 
 	if (prev_dir < 0 || prev_dir > 3) {
-		fprintf(stderr, 
-			"check_previous error: direction out of range\n");
+		fprintf(stderr, "check_previous error: direction out of range\n");
 		exit(1);
 	}
 
