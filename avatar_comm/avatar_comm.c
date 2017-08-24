@@ -118,7 +118,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   int send_avatar_ready(comm_t *com, int avatarID)
   {
     pthread_mutex_lock(&mutex1); 
-    printf("sending avatar ready\n");
+    //printf("sending avatar ready\n");
 	//server.sin_family = AF_INET;
   	com->server.sin_port = htons(com->mazeport);
 	// Look up the hostname specified on command line
@@ -183,7 +183,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   		return false;
   	}
 
-    printf("move message sent by avatar %d!", avatarID);
+    //printf("move message sent by avatar %d!", avatarID);
   	return true;
 
   }
@@ -229,18 +229,18 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   		com->maze_width = ntohl(msg->init_ok.MazeWidth);
   		com->maze_height = ntohl(msg->init_ok.MazeHeight);
   		com->is_init_successful = true;
-      printf("init ok\n");
+      //printf("init ok\n");
   	}
 
   	else if (ntohl(msg->type) == AM_INIT_FAILED){
   		com->is_init_successful = false;
       com->is_game_over = true;
-      fprintf(stderr, "Init failed!");
+      //fprintf(stderr, "Init failed!");
   	}
   	else if (ntohl(msg->type) == AM_NO_SUCH_AVATAR){
   		fprintf(stderr, "No such Avatar!");
       com->is_game_over = true;
-      printf("no such avatar, thread %d\n", avatarID);
+      //printf("no such avatar, thread %d\n", avatarID);
   		return false;
   	}
   	else if (ntohl(msg->type) == AM_AVATAR_TURN){
@@ -252,7 +252,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
       	new_pos.x = ntohl(x);
       	new_pos.y = ntohl(y);
       	com->positions[i] = new_pos;
-        printf("avatar turn, thread %d\n", avatarID);
+        //printf("avatar turn, thread %d\n", avatarID);
        // return true;
       }
   	}
