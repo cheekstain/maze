@@ -1,4 +1,12 @@
-
+/*
+* avatar_comm.c - handles the client-server communication for the CS50 maze project
+* 
+* Sends messages to and from the server and keeps track of all of the information relayed to the client by the server.
+* 
+* Bashful-Brigade, August 2017
+* Written using class materials provided by Prof. Zhou
+* 
+*/
 #ifndef _XOPEN_SOURCE
 #define _XOPEN_SOURCE 500
 #endif //_XOPEN_SOURCE
@@ -213,6 +221,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 
 
   	AM_Message *msg = (AM_Message *) buf;
+    //The following if-statements test for the type of the message and update the information held within the datastructure appropriately
   	if (ntohl(msg->type) == AM_INIT_OK){
   		com->mazeport = ntohl(msg->init_ok.MazePort);
   		com->maze_width = ntohl(msg->init_ok.MazeWidth);
