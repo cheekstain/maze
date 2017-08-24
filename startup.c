@@ -102,7 +102,8 @@ int main(int argc, char* argv[]){
 
   	while(check_game_status(com) == 0){ 
   	}
-  
+  	
+  	finish_logfile(com, log_name);
   	//post-game cleanup
   
   	//FREE EVERYTHING
@@ -179,5 +180,13 @@ static char *make_log(const int num_avatars, const int difficulty, const int maz
 	return log_name;
 }
 
+void finish_logfile(comm_t *com, char *logfile){
+	FILE *fp = fopen(logfile, "a");
+	int num_avatars = get_nAvatars(com);
+	int diff = get_difficulty(com);
+	int nMoves = get_nMoves(com);
+	int hashcode = get_hash(com);
+	fprintf(fp, "Solved maze with nAvatars = %d, difficulty = %d, nMoves = %d, and hashcode = %d", num_avatars, diff, nMoves, hashcode);
+}
 
 
