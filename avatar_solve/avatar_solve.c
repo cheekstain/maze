@@ -176,17 +176,17 @@ move_t* maze_solve(maze_t* maze, int id, XYPos* pos,
 	}
 
 	if (dir == 4) {
-		fprintf(stderr, "maze_solve error: no new direction found\n");
+		fprintf(stderr, "maze_solve error: avatar %d no new direction found\n", id);
 		exit(2);
 	}
 
 	if (is_pos_equal(final_pos, pos)) {
-		fprintf(stderr, "maze_solve error: no new position found\n");
+		fprintf(stderr, "maze_solve error: avatar %d no new position found\n", id);
 		exit(2);
 	}
 
 	if (!is_pos_valid(final_pos)) {
-		fprintf(stderr, "maze_solve error: pos out of range\n");
+		fprintf(stderr, "maze_solve error: avatar %d pos out of range\n", id);
 		exit(2);
 	}
 
@@ -241,17 +241,17 @@ move_t* leader_solve(maze_t* maze, int id, XYPos* pos, char* log)
 	}
 
 	if (dir == 4) {
-		fprintf(stderr, "leader_solve error: no new direction found\n");
+		fprintf(stderr, "leader_solve error: avatar %d no new direction found\n", id);
 		exit(3);
 	}
 
 	if (is_pos_equal(final_pos, pos)) {
-		fprintf(stderr, "leader_solve error: no new position found\n");
+		fprintf(stderr, "leader_solve error: avatar %d no new position found\n", id);
 		exit(3);
 	}
 
 	if (!is_pos_valid(final_pos)) {
-		fprintf(stderr, "leader_solve error: pos out of range\n");
+		fprintf(stderr, "leader_solve error: avatar %d pos out of range\n", id);
 		exit(3);
 	}
 
@@ -346,17 +346,17 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 	}
 
 	if (dir == 4) {
-		fprintf(stderr, "follower_solve error: no new direction found\n");
+		fprintf(stderr, "follower_solve error: avatar %d no new direction found\n", id);
 		exit(4);
 	}
 
 	if (is_pos_equal(final_pos, pos)) {
-		fprintf(stderr, "follower_solve error: no new position found\n");
+		fprintf(stderr, "follower_solve error: avatar %d no new position found\n", id);
 		exit(4);
 	}
 
 	if (!is_pos_valid(final_pos)) {
-		fprintf(stderr, "follower_solve error: pos out of range\n");
+		fprintf(stderr, "follower_solve error: avatar %d pos out of range\n", id);
 		exit(4);
 	}
 
