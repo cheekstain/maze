@@ -1,0 +1,2926 @@
+User ID: 412598, MazePort: 44949, Date & Time: Thu Aug 24 02:02:16 2017
+Avatar 0 attempted to move East to (5, 9).
+Avatar 0 moved to (5, 9).
+Avatar 1 attempted to move East to (4, 7).
+Move failed. East wall added to (3, 7).
+Avatar 2 attempted to move East to (10, 1).
+Move failed. East wall added to (9, 1).
+Avatar 3 attempted to move East to (10, 5).
+Move failed. East wall added to (9, 5).
+Avatar 4 attempted to move East to (10, 7).
+Avatar 4 moved to (10, 7).
+Avatar 5 attempted to move East to (4, 6).
+Avatar 5 moved to (4, 6).
+Avatar 6 attempted to move East to (6, 3).
+Avatar 6 moved to (6, 3).
+Avatar 7 attempted to move East to (7, 5).
+Move failed. East wall added to (6, 5).
+Avatar 8 attempted to move East to (11, 3).
+Avatar 8 moved to (11, 3).
+Avatar 0 attempted to move East to (6, 9).
+Avatar 0 moved to (6, 9).
+Avatar 1 attempted to move South to (3, 8).
+Avatar 1 moved to (3, 8).
+Avatar 2 attempted to move South to (9, 2).
+Avatar 2 moved to (9, 2).
+Avatar 3 attempted to move South to (9, 6).
+Avatar 3 moved to (9, 6).
+Avatar 4 attempted to move East to (11, 7).
+Move failed. East wall added to (10, 7).
+Avatar 5 attempted to move East to (5, 6).
+Move failed. East wall added to (4, 6).
+Avatar 6 attempted to move East to (7, 3).
+Move failed. East wall added to (6, 3).
+Avatar 7 attempted to move South to (6, 6).
+Avatar 7 moved to (6, 6).
+Avatar 8 attempted to move South to (11, 4).
+Avatar 8 moved to (11, 4).
+Avatar 0 attempted to move East to (7, 9).
+Avatar 0 moved to (7, 9).
+Avatar 1 attempted to move East to (4, 8).
+Move failed. East wall added to (3, 8).
+Avatar 2 attempted to move East to (10, 2).
+Avatar 2 moved to (10, 2).
+Avatar 3 attempted to move East to (10, 6).
+Move failed. East wall added to (9, 6).
+Avatar 4 attempted to move South to (10, 8).
+Avatar 4 moved to (10, 8).
+Avatar 5 attempted to move South to (4, 7).
+Avatar 5 moved to (4, 7).
+Avatar 6 attempted to move South to (6, 4).
+Avatar 6 moved to (6, 4).
+Avatar 7 attempted to move East to (7, 6).
+Move failed. East wall added to (6, 6).
+Avatar 8 attempted to move South to (11, 5).
+Avatar 8 moved to (11, 5).
+Avatar 0 attempted to move East to (8, 9).
+Move failed. East wall added to (7, 9).
+Avatar 1 attempted to move South to (3, 9).
+Avatar 1 moved to (3, 9).
+Avatar 2 attempted to move East to (11, 2).
+Move failed. East wall added to (10, 2).
+Avatar 3 attempted to move South to (9, 7).
+Move failed. South wall added to (9, 6).
+Avatar 4 attempted to move East to (11, 8).
+Avatar 4 moved to (11, 8).
+Avatar 5 attempted to move East to (5, 7).
+Move failed. East wall added to (4, 7).
+Avatar 6 attempted to move East to (7, 4).
+Move failed. East wall added to (6, 4).
+Avatar 7 attempted to move South to (6, 7).
+Move failed. South wall added to (6, 6).
+Avatar 8 attempted to move South to (11, 6).
+Avatar 8 moved to (11, 6).
+Avatar 0 attempted to move North to (7, 8).
+Avatar 0 moved to (7, 8).
+Avatar 1 attempted to move East to (4, 9).
+Avatar 1 moved to (4, 9).
+Avatar 2 attempted to move South to (10, 3).
+Avatar 2 moved to (10, 3).
+Avatar 3 attempted to move West to (8, 6).
+Avatar 3 moved to (8, 6).
+Avatar 4 attempted to move South to (11, 9).
+Avatar 4 moved to (11, 9).
+Avatar 5 attempted to move South to (4, 8).
+Avatar 5 moved to (4, 8).
+Avatar 6 attempted to move South to (6, 5).
+Avatar 6 moved to (6, 5).
+Avatar 7 attempted to move North to (6, 5).
+Avatar 7 moved to (6, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (11, 7).
+Avatar 8 moved to (11, 7).
+Avatar 0 attempted to move East to (8, 8).
+Move failed. East wall added to (7, 8).
+Avatar 1 attempted to move East to (5, 9).
+Avatar 1 moved to (5, 9).
+Avatar 1 is on avatar 0's path.
+Avatar 2 attempted to move East to (11, 3).
+Avatar 2 moved to (11, 3).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move South to (8, 7).
+Avatar 3 moved to (8, 7).
+Avatar 4 attempted to move West to (10, 9).
+Avatar 4 moved to (10, 9).
+Avatar 5 attempted to move East to (5, 8).
+Avatar 5 moved to (5, 8).
+Avatar 6 attempted to move West to (5, 5).
+Move failed. West wall added to (6, 5).
+Avatar 7 stays at (6, 5).
+Avatar 8 attempted to move South to (11, 8).
+Move failed. South wall added to (11, 7).
+Avatar 0 attempted to move North to (7, 7).
+Move failed. North wall added to (7, 8).
+Avatar 1 attempted to move East to (6, 9).
+Avatar 1 moved to (6, 9).
+Avatar 1 is on avatar 0's path.
+Avatar 2 attempted to move South to (11, 4).
+Avatar 2 moved to (11, 4).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move East to (9, 7).
+Move failed. East wall added to (8, 7).
+Avatar 4 attempted to move North to (10, 8).
+Move failed. North wall added to (10, 9).
+Avatar 5 attempted to move East to (6, 8).
+Avatar 5 moved to (6, 8).
+Avatar 6 attempted to move South to (6, 6).
+Avatar 6 moved to (6, 6).
+Avatar 7 attempted to move South to (6, 6).
+Avatar 7 moved to (6, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (11, 6).
+Avatar 8 moved to (11, 6).
+Avatar 0 attempted to move West to (6, 8).
+Move failed. West wall added to (7, 8).
+Avatar 1 attempted to move East to (7, 9).
+Avatar 1 moved to (7, 9).
+Avatar 1 is on avatar 0's path.
+Avatar 2 attempted to move South to (11, 5).
+Avatar 2 moved to (11, 5).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move South to (8, 8).
+Avatar 3 moved to (8, 8).
+Avatar 4 attempted to move West to (9, 9).
+Avatar 4 moved to (9, 9).
+Avatar 5 attempted to move South to (6, 9).
+Move failed. South wall added to (6, 8).
+Avatar 6 attempted to move West to (5, 6).
+Avatar 6 moved to (5, 6).
+Avatar 7 attempted to move West to (5, 6).
+Avatar 7 moved to (5, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (10, 6).
+Move failed. West wall added to (11, 6).
+Avatar 0 attempted to move South to (7, 9).
+Avatar 0 moved to (7, 9).
+Avatar 1 stays at (7, 9).
+Avatar 2 attempted to move South to (11, 6).
+Avatar 2 moved to (11, 6).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move East to (9, 8).
+Avatar 3 moved to (9, 8).
+Avatar 4 attempted to move North to (9, 8).
+Avatar 4 moved to (9, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (6, 7).
+Avatar 5 moved to (6, 7).
+Avatar 6 attempted to move South to (5, 7).
+Avatar 6 moved to (5, 7).
+Avatar 7 attempted to move South to (5, 7).
+Avatar 7 moved to (5, 7).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (11, 5).
+Avatar 8 moved to (11, 5).
+Avatar 0 attempted to move West to (6, 9).
+Avatar 0 moved to (6, 9).
+Avatar 1 attempted to move West to (6, 9).
+Avatar 1 moved to (6, 9).
+Avatar 1 is on avatar 0's path.
+Avatar 2 attempted to move North to (11, 5).
+Avatar 2 moved to (11, 5).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move East to (10, 8).
+Move failed. East wall added to (9, 8).
+Avatar 4 stays at (9, 8).
+Avatar 5 attempted to move East to (7, 7).
+Avatar 5 moved to (7, 7).
+Avatar 6 attempted to move East to (6, 7).
+Move failed. East wall added to (5, 7).
+Avatar 7 stays at (5, 7).
+Avatar 8 attempted to move West to (10, 5).
+Move failed. West wall added to (11, 5).
+Avatar 0 attempted to move West to (5, 9).
+Avatar 0 moved to (5, 9).
+Avatar 1 attempted to move West to (5, 9).
+Avatar 1 moved to (5, 9).
+Avatar 1 is on avatar 0's path.
+Avatar 2 stays at (11, 5).
+Avatar 3 attempted to move North to (9, 7).
+Move failed. North wall added to (9, 8).
+Avatar 4 stays at (9, 8).
+Avatar 5 attempted to move East to (8, 7).
+Move failed. East wall added to (7, 7).
+Avatar 6 attempted to move South to (5, 8).
+Move failed. South wall added to (5, 7).
+Avatar 7 stays at (5, 7).
+Avatar 8 attempted to move North to (11, 4).
+Avatar 8 moved to (11, 4).
+Avatar 0 attempted to move North to (5, 8).
+Move failed. North wall added to (5, 9).
+Avatar 1 stays at (5, 9).
+Avatar 2 attempted to move North to (11, 4).
+Avatar 2 moved to (11, 4).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move West to (8, 8).
+Avatar 3 moved to (8, 8).
+Avatar 4 attempted to move West to (8, 8).
+Avatar 4 moved to (8, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (7, 6).
+Avatar 5 moved to (7, 6).
+Avatar 6 attempted to move North to (5, 6).
+Avatar 6 moved to (5, 6).
+Avatar 7 attempted to move North to (5, 6).
+Avatar 7 moved to (5, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (10, 4).
+Move failed. West wall added to (11, 4).
+Avatar 0 attempted to move West to (4, 9).
+Avatar 0 moved to (4, 9).
+Avatar 1 attempted to move West to (4, 9).
+Avatar 1 moved to (4, 9).
+Avatar 1 is on avatar 0's path.
+Avatar 2 stays at (11, 4).
+Avatar 3 attempted to move South to (8, 9).
+Move failed. South wall added to (8, 8).
+Avatar 4 stays at (8, 8).
+Avatar 5 attempted to move East to (8, 6).
+Move failed. East wall added to (7, 6).
+Avatar 6 attempted to move North to (5, 5).
+Avatar 6 moved to (5, 5).
+Avatar 7 attempted to move North to (5, 5).
+Avatar 7 moved to (5, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (11, 3).
+Avatar 8 moved to (11, 3).
+Avatar 0 attempted to move North to (4, 8).
+Move failed. North wall added to (4, 9).
+Avatar 1 stays at (4, 9).
+Avatar 2 attempted to move North to (11, 3).
+Avatar 2 moved to (11, 3).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move North to (8, 7).
+Avatar 3 moved to (8, 7).
+Avatar 4 attempted to move North to (8, 7).
+Avatar 4 moved to (8, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (7, 5).
+Avatar 5 moved to (7, 5).
+Avatar 6 attempted to move North to (5, 4).
+Move failed. North wall added to (5, 5).
+Avatar 7 stays at (5, 5).
+Avatar 8 attempted to move North to (11, 2).
+Avatar 8 moved to (11, 2).
+Avatar 0 attempted to move West to (3, 9).
+Avatar 0 moved to (3, 9).
+Avatar 1 attempted to move West to (3, 9).
+Avatar 1 moved to (3, 9).
+Avatar 1 is on avatar 0's path.
+Avatar 2 attempted to move North to (11, 2).
+Avatar 2 moved to (11, 2).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move North to (8, 6).
+Avatar 3 moved to (8, 6).
+Avatar 4 attempted to move North to (8, 6).
+Avatar 4 moved to (8, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (8, 5).
+Avatar 5 moved to (8, 5).
+Avatar 6 attempted to move West to (4, 5).
+Avatar 6 moved to (4, 5).
+Avatar 7 attempted to move West to (4, 5).
+Avatar 7 moved to (4, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (11, 1).
+Avatar 8 moved to (11, 1).
+Avatar 0 attempted to move West to (2, 9).
+Move failed. West wall added to (3, 9).
+Avatar 1 stays at (3, 9).
+Avatar 2 attempted to move North to (11, 1).
+Avatar 2 moved to (11, 1).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move North to (8, 5).
+Move failed. North wall added to (8, 6).
+Avatar 4 stays at (8, 6).
+Avatar 5 attempted to move East to (9, 5).
+Avatar 5 moved to (9, 5).
+Avatar 6 attempted to move South to (4, 6).
+Move failed. South wall added to (4, 5).
+Avatar 7 stays at (4, 5).
+Avatar 8 attempted to move North to (11, 0).
+Avatar 8 moved to (11, 0).
+Avatar 0 attempted to move North to (3, 8).
+Avatar 0 moved to (3, 8).
+Avatar 1 attempted to move North to (3, 8).
+Avatar 1 moved to (3, 8).
+Avatar 1 is on avatar 0's path.
+Avatar 2 attempted to move North to (11, 0).
+Avatar 2 moved to (11, 0).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move East to (9, 6).
+Avatar 3 moved to (9, 6).
+Avatar 4 attempted to move East to (9, 6).
+Avatar 4 moved to (9, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (9, 6).
+Avatar 5 moved to (9, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (4, 4).
+Move failed. North wall added to (4, 5).
+Avatar 7 stays at (4, 5).
+Avatar 8 attempted to move West to (10, 0).
+Move failed. West wall added to (11, 0).
+Avatar 0 attempted to move West to (2, 8).
+Move failed. West wall added to (3, 8).
+Avatar 1 stays at (3, 8).
+Avatar 2 stays at (11, 0).
+Avatar 3 attempted to move West to (8, 6).
+Avatar 3 moved to (8, 6).
+Avatar 4 attempted to move West to (8, 6).
+Avatar 4 moved to (8, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (8, 6).
+Avatar 5 moved to (8, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (3, 5).
+Avatar 6 moved to (3, 5).
+Avatar 7 attempted to move West to (3, 5).
+Avatar 7 moved to (3, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (11, 1).
+Avatar 8 moved to (11, 1).
+Avatar 0 attempted to move North to (3, 7).
+Avatar 0 moved to (3, 7).
+Avatar 1 attempted to move North to (3, 7).
+Avatar 1 moved to (3, 7).
+Avatar 1 is on avatar 0's path.
+Avatar 2 attempted to move South to (11, 1).
+Avatar 2 moved to (11, 1).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move South to (8, 7).
+Avatar 3 moved to (8, 7).
+Avatar 4 attempted to move South to (8, 7).
+Avatar 4 moved to (8, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (8, 7).
+Avatar 5 moved to (8, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (3, 6).
+Move failed. South wall added to (3, 5).
+Avatar 7 stays at (3, 5).
+Avatar 8 attempted to move West to (10, 1).
+Avatar 8 moved to (10, 1).
+Avatar 0 attempted to move North to (3, 6).
+Avatar 0 moved to (3, 6).
+Avatar 1 attempted to move North to (3, 6).
+Avatar 1 moved to (3, 6).
+Avatar 1 is on avatar 0's path.
+Avatar 2 attempted to move West to (10, 1).
+Avatar 2 moved to (10, 1).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move South to (8, 8).
+Avatar 3 moved to (8, 8).
+Avatar 4 attempted to move South to (8, 8).
+Avatar 4 moved to (8, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (8, 8).
+Avatar 5 moved to (8, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (3, 4).
+Move failed. North wall added to (3, 5).
+Avatar 7 stays at (3, 5).
+Avatar 8 attempted to move South to (10, 2).
+Move failed. South wall added to (10, 1).
+Avatar 0 attempted to move East to (4, 6).
+Avatar 0 moved to (4, 6).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move East to (4, 6).
+Avatar 1 moved to (4, 6).
+Avatar 1 is on avatar 5's path.
+Avatar 2 stays at (10, 1).
+Avatar 3 attempted to move East to (9, 8).
+Avatar 3 moved to (9, 8).
+Avatar 4 attempted to move East to (9, 8).
+Avatar 4 moved to (9, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (9, 8).
+Avatar 5 moved to (9, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (2, 5).
+Avatar 6 moved to (2, 5).
+Avatar 7 attempted to move West to (2, 5).
+Avatar 7 moved to (2, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (10, 0).
+Avatar 8 moved to (10, 0).
+Avatar 0 attempted to move South to (4, 7).
+Avatar 0 moved to (4, 7).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move South to (4, 7).
+Avatar 1 moved to (4, 7).
+Avatar 1 is on avatar 5's path.
+Avatar 2 attempted to move North to (10, 0).
+Avatar 2 moved to (10, 0).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move South to (9, 9).
+Avatar 3 moved to (9, 9).
+Avatar 4 attempted to move South to (9, 9).
+Avatar 4 moved to (9, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (9, 9).
+Avatar 5 moved to (9, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (2, 6).
+Avatar 6 moved to (2, 6).
+Avatar 7 attempted to move South to (2, 6).
+Avatar 7 moved to (2, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (9, 0).
+Avatar 8 moved to (9, 0).
+Avatar 0 attempted to move South to (4, 8).
+Avatar 0 moved to (4, 8).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move South to (4, 8).
+Avatar 1 moved to (4, 8).
+Avatar 1 is on avatar 5's path.
+Avatar 2 attempted to move West to (9, 0).
+Avatar 2 moved to (9, 0).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move West to (8, 9).
+Avatar 3 moved to (8, 9).
+Avatar 4 attempted to move West to (8, 9).
+Avatar 4 moved to (8, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (8, 9).
+Avatar 5 moved to (8, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (3, 6).
+Move failed. East wall added to (2, 6).
+Avatar 7 stays at (2, 6).
+Avatar 8 attempted to move South to (9, 1).
+Move failed. South wall added to (9, 0).
+Avatar 0 attempted to move East to (5, 8).
+Avatar 0 moved to (5, 8).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move East to (5, 8).
+Avatar 1 moved to (5, 8).
+Avatar 1 is on avatar 5's path.
+Avatar 2 stays at (9, 0).
+Avatar 3 attempted to move East to (9, 9).
+Avatar 3 moved to (9, 9).
+Avatar 4 attempted to move East to (9, 9).
+Avatar 4 moved to (9, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (9, 9).
+Avatar 5 moved to (9, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (2, 7).
+Move failed. South wall added to (2, 6).
+Avatar 7 stays at (2, 6).
+Avatar 8 attempted to move West to (8, 0).
+Avatar 8 moved to (8, 0).
+Avatar 0 attempted to move East to (6, 8).
+Avatar 0 moved to (6, 8).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move East to (6, 8).
+Avatar 1 moved to (6, 8).
+Avatar 1 is on avatar 5's path.
+Avatar 2 attempted to move West to (8, 0).
+Avatar 2 moved to (8, 0).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move East to (10, 9).
+Avatar 3 moved to (10, 9).
+Avatar 4 attempted to move East to (10, 9).
+Avatar 4 moved to (10, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (10, 9).
+Avatar 5 moved to (10, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (1, 6).
+Avatar 6 moved to (1, 6).
+Avatar 7 attempted to move West to (1, 6).
+Avatar 7 moved to (1, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (8, 1).
+Avatar 8 moved to (8, 1).
+Avatar 0 attempted to move North to (6, 7).
+Avatar 0 moved to (6, 7).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move North to (6, 7).
+Avatar 1 moved to (6, 7).
+Avatar 1 is on avatar 5's path.
+Avatar 2 attempted to move South to (8, 1).
+Avatar 2 moved to (8, 1).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move East to (11, 9).
+Avatar 3 moved to (11, 9).
+Avatar 4 attempted to move East to (11, 9).
+Avatar 4 moved to (11, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (11, 9).
+Avatar 5 moved to (11, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (1, 7).
+Move failed. South wall added to (1, 6).
+Avatar 7 stays at (1, 6).
+Avatar 8 attempted to move East to (9, 1).
+Move failed. East wall added to (8, 1).
+Avatar 0 attempted to move East to (7, 7).
+Avatar 0 moved to (7, 7).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move East to (7, 7).
+Avatar 1 moved to (7, 7).
+Avatar 1 is on avatar 5's path.
+Avatar 2 stays at (8, 1).
+Avatar 3 attempted to move North to (11, 8).
+Avatar 3 moved to (11, 8).
+Avatar 4 attempted to move North to (11, 8).
+Avatar 4 moved to (11, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (11, 8).
+Avatar 5 moved to (11, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (1, 5).
+Move failed. North wall added to (1, 6).
+Avatar 7 stays at (1, 6).
+Avatar 8 attempted to move South to (8, 2).
+Avatar 8 moved to (8, 2).
+Avatar 0 attempted to move North to (7, 6).
+Avatar 0 moved to (7, 6).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move North to (7, 6).
+Avatar 1 moved to (7, 6).
+Avatar 1 is on avatar 5's path.
+Avatar 2 attempted to move South to (8, 2).
+Avatar 2 moved to (8, 2).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move West to (10, 8).
+Avatar 3 moved to (10, 8).
+Avatar 4 attempted to move West to (10, 8).
+Avatar 4 moved to (10, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (10, 8).
+Avatar 5 moved to (10, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (0, 6).
+Avatar 6 moved to (0, 6).
+Avatar 7 attempted to move West to (0, 6).
+Avatar 7 moved to (0, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (9, 2).
+Move failed. East wall added to (8, 2).
+Avatar 0 attempted to move North to (7, 5).
+Avatar 0 moved to (7, 5).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move North to (7, 5).
+Avatar 1 moved to (7, 5).
+Avatar 1 is on avatar 5's path.
+Avatar 2 stays at (8, 2).
+Avatar 3 attempted to move North to (10, 7).
+Avatar 3 moved to (10, 7).
+Avatar 4 attempted to move North to (10, 7).
+Avatar 4 moved to (10, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (10, 7).
+Avatar 5 moved to (10, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (0, 7).
+Avatar 6 moved to (0, 7).
+Avatar 7 attempted to move South to (0, 7).
+Avatar 7 moved to (0, 7).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (8, 3).
+Avatar 8 moved to (8, 3).
+Avatar 0 attempted to move East to (8, 5).
+Avatar 0 moved to (8, 5).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move East to (8, 5).
+Avatar 1 moved to (8, 5).
+Avatar 1 is on avatar 5's path.
+Avatar 2 attempted to move South to (8, 3).
+Avatar 2 moved to (8, 3).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move North to (10, 6).
+Avatar 3 moved to (10, 6).
+Avatar 4 attempted to move North to (10, 6).
+Avatar 4 moved to (10, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (10, 6).
+Avatar 5 moved to (10, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (1, 7).
+Avatar 6 moved to (1, 7).
+Avatar 7 attempted to move East to (1, 7).
+Avatar 7 moved to (1, 7).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (9, 3).
+Move failed. East wall added to (8, 3).
+Avatar 0 attempted to move East to (9, 5).
+Avatar 0 moved to (9, 5).
+Avatar 0 is on avatar 5's path.
+Avatar 1 attempted to move East to (9, 5).
+Avatar 1 moved to (9, 5).
+Avatar 1 is on avatar 5's path.
+Avatar 2 stays at (8, 3).
+Avatar 3 attempted to move North to (10, 5).
+Avatar 3 moved to (10, 5).
+Avatar 4 attempted to move North to (10, 5).
+Avatar 4 moved to (10, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (10, 5).
+Avatar 5 moved to (10, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (2, 7).
+Avatar 6 moved to (2, 7).
+Avatar 7 attempted to move East to (2, 7).
+Avatar 7 moved to (2, 7).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (8, 4).
+Move failed. South wall added to (8, 3).
+Avatar 0 attempted to move South to (9, 6).
+Avatar 0 moved to (9, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (9, 6).
+Avatar 1 moved to (9, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 stays at (8, 3).
+Avatar 3 attempted to move North to (10, 4).
+Avatar 3 moved to (10, 4).
+Avatar 4 attempted to move North to (10, 4).
+Avatar 4 moved to (10, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (10, 4).
+Avatar 5 moved to (10, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (3, 7).
+Move failed. East wall added to (2, 7).
+Avatar 7 stays at (2, 7).
+Avatar 8 attempted to move West to (7, 3).
+Avatar 8 moved to (7, 3).
+Avatar 0 attempted to move West to (8, 6).
+Avatar 0 moved to (8, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (8, 6).
+Avatar 1 moved to (8, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (7, 3).
+Avatar 2 moved to (7, 3).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move North to (10, 3).
+Move failed. North wall added to (10, 4).
+Avatar 4 stays at (10, 4).
+Avatar 5 stays at (10, 4).
+Avatar 6 attempted to move South to (2, 8).
+Avatar 6 moved to (2, 8).
+Avatar 7 attempted to move South to (2, 8).
+Avatar 7 moved to (2, 8).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (7, 4).
+Avatar 8 moved to (7, 4).
+Avatar 0 attempted to move South to (8, 7).
+Avatar 0 moved to (8, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (8, 7).
+Avatar 1 moved to (8, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (7, 4).
+Avatar 2 moved to (7, 4).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move West to (9, 4).
+Avatar 3 moved to (9, 4).
+Avatar 4 attempted to move West to (9, 4).
+Avatar 4 moved to (9, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (9, 4).
+Avatar 5 moved to (9, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (2, 9).
+Move failed. South wall added to (2, 8).
+Avatar 7 stays at (2, 8).
+Avatar 8 attempted to move East to (8, 4).
+Avatar 8 moved to (8, 4).
+Avatar 0 attempted to move South to (8, 8).
+Avatar 0 moved to (8, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (8, 8).
+Avatar 1 moved to (8, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (8, 4).
+Avatar 2 moved to (8, 4).
+Avatar 2 is on avatar 8's path.
+Avatar 3 attempted to move South to (9, 5).
+Move failed. South wall added to (9, 4).
+Avatar 4 stays at (9, 4).
+Avatar 5 stays at (9, 4).
+Avatar 6 attempted to move West to (1, 8).
+Avatar 6 moved to (1, 8).
+Avatar 7 attempted to move West to (1, 8).
+Avatar 7 moved to (1, 8).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (9, 4).
+Avatar 8 moved to (9, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (9, 8).
+Avatar 0 moved to (9, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (9, 8).
+Avatar 1 moved to (9, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (9, 4).
+Avatar 2 moved to (9, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (9, 3).
+Move failed. North wall added to (9, 4).
+Avatar 4 stays at (9, 4).
+Avatar 5 stays at (9, 4).
+Avatar 6 attempted to move South to (1, 9).
+Avatar 6 moved to (1, 9).
+Avatar 7 attempted to move South to (1, 9).
+Avatar 7 moved to (1, 9).
+Avatar 7 is on avatar 6's path.
+Avatar 8 stays at (9, 4).
+Avatar 0 attempted to move South to (9, 9).
+Avatar 0 moved to (9, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (9, 9).
+Avatar 1 moved to (9, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 stays at (9, 4).
+Avatar 3 attempted to move East to (10, 4).
+Avatar 3 moved to (10, 4).
+Avatar 4 attempted to move East to (10, 4).
+Avatar 4 moved to (10, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (10, 4).
+Avatar 5 moved to (10, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (2, 9).
+Avatar 6 moved to (2, 9).
+Avatar 7 attempted to move East to (2, 9).
+Avatar 7 moved to (2, 9).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (10, 4).
+Avatar 8 moved to (10, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (10, 9).
+Avatar 0 moved to (10, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (10, 9).
+Avatar 1 moved to (10, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (10, 4).
+Avatar 2 moved to (10, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (10, 5).
+Avatar 3 moved to (10, 5).
+Avatar 4 attempted to move South to (10, 5).
+Avatar 4 moved to (10, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (10, 5).
+Avatar 5 moved to (10, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (1, 9).
+Avatar 6 moved to (1, 9).
+Avatar 7 attempted to move West to (1, 9).
+Avatar 7 moved to (1, 9).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (10, 5).
+Avatar 8 moved to (10, 5).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (11, 9).
+Avatar 0 moved to (11, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (11, 9).
+Avatar 1 moved to (11, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (10, 5).
+Avatar 2 moved to (10, 5).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (10, 6).
+Avatar 3 moved to (10, 6).
+Avatar 4 attempted to move South to (10, 6).
+Avatar 4 moved to (10, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (10, 6).
+Avatar 5 moved to (10, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (0, 9).
+Avatar 6 moved to (0, 9).
+Avatar 7 attempted to move West to (0, 9).
+Avatar 7 moved to (0, 9).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (10, 6).
+Avatar 8 moved to (10, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (11, 8).
+Avatar 0 moved to (11, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (11, 8).
+Avatar 1 moved to (11, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (10, 6).
+Avatar 2 moved to (10, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (10, 7).
+Avatar 3 moved to (10, 7).
+Avatar 4 attempted to move South to (10, 7).
+Avatar 4 moved to (10, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (10, 7).
+Avatar 5 moved to (10, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (0, 8).
+Avatar 6 moved to (0, 8).
+Avatar 7 attempted to move North to (0, 8).
+Avatar 7 moved to (0, 8).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (10, 7).
+Avatar 8 moved to (10, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (10, 8).
+Avatar 0 moved to (10, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (10, 8).
+Avatar 1 moved to (10, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (10, 7).
+Avatar 2 moved to (10, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (9, 7).
+Avatar 3 moved to (9, 7).
+Avatar 4 attempted to move West to (9, 7).
+Avatar 4 moved to (9, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (9, 7).
+Avatar 5 moved to (9, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (1, 8).
+Move failed. East wall added to (0, 8).
+Avatar 7 stays at (0, 8).
+Avatar 8 attempted to move West to (9, 7).
+Avatar 8 moved to (9, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (10, 7).
+Avatar 0 moved to (10, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (10, 7).
+Avatar 1 moved to (10, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (9, 7).
+Avatar 2 moved to (9, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (10, 7).
+Avatar 3 moved to (10, 7).
+Avatar 4 attempted to move East to (10, 7).
+Avatar 4 moved to (10, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (10, 7).
+Avatar 5 moved to (10, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (0, 7).
+Move failed. North wall added to (0, 8).
+Avatar 7 stays at (0, 8).
+Avatar 8 attempted to move East to (10, 7).
+Avatar 8 moved to (10, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 stays at (10, 7).
+Avatar 1 stays at (10, 7).
+Avatar 2 attempted to move East to (10, 7).
+Avatar 2 moved to (10, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (10, 8).
+Avatar 3 moved to (10, 8).
+Avatar 4 attempted to move South to (10, 8).
+Avatar 4 moved to (10, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (10, 8).
+Avatar 5 moved to (10, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (0, 9).
+Avatar 6 moved to (0, 9).
+Avatar 7 attempted to move South to (0, 9).
+Avatar 7 moved to (0, 9).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (10, 8).
+Avatar 8 moved to (10, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (10, 8).
+Avatar 0 moved to (10, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (10, 8).
+Avatar 1 moved to (10, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (10, 8).
+Avatar 2 moved to (10, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (11, 8).
+Avatar 3 moved to (11, 8).
+Avatar 4 attempted to move East to (11, 8).
+Avatar 4 moved to (11, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (11, 8).
+Avatar 5 moved to (11, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (1, 9).
+Avatar 6 moved to (1, 9).
+Avatar 7 attempted to move East to (1, 9).
+Avatar 7 moved to (1, 9).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (11, 8).
+Avatar 8 moved to (11, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (11, 8).
+Avatar 0 moved to (11, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (11, 8).
+Avatar 1 moved to (11, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (11, 8).
+Avatar 2 moved to (11, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (11, 9).
+Avatar 3 moved to (11, 9).
+Avatar 4 attempted to move South to (11, 9).
+Avatar 4 moved to (11, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (11, 9).
+Avatar 5 moved to (11, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (1, 8).
+Avatar 6 moved to (1, 8).
+Avatar 7 attempted to move North to (1, 8).
+Avatar 7 moved to (1, 8).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (11, 9).
+Avatar 8 moved to (11, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (11, 9).
+Avatar 0 moved to (11, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (11, 9).
+Avatar 1 moved to (11, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (11, 9).
+Avatar 2 moved to (11, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (10, 9).
+Avatar 3 moved to (10, 9).
+Avatar 4 attempted to move West to (10, 9).
+Avatar 4 moved to (10, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (10, 9).
+Avatar 5 moved to (10, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (1, 7).
+Move failed. North wall added to (1, 8).
+Avatar 7 stays at (1, 8).
+Avatar 8 attempted to move West to (10, 9).
+Avatar 8 moved to (10, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (10, 9).
+Avatar 0 moved to (10, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (10, 9).
+Avatar 1 moved to (10, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (10, 9).
+Avatar 2 moved to (10, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (9, 9).
+Avatar 3 moved to (9, 9).
+Avatar 4 attempted to move West to (9, 9).
+Avatar 4 moved to (9, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (9, 9).
+Avatar 5 moved to (9, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (2, 8).
+Avatar 6 moved to (2, 8).
+Avatar 7 attempted to move East to (2, 8).
+Avatar 7 moved to (2, 8).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (9, 9).
+Avatar 8 moved to (9, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (9, 9).
+Avatar 0 moved to (9, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (9, 9).
+Avatar 1 moved to (9, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (9, 9).
+Avatar 2 moved to (9, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (9, 8).
+Avatar 3 moved to (9, 8).
+Avatar 4 attempted to move North to (9, 8).
+Avatar 4 moved to (9, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (9, 8).
+Avatar 5 moved to (9, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (2, 7).
+Avatar 6 moved to (2, 7).
+Avatar 7 attempted to move North to (2, 7).
+Avatar 7 moved to (2, 7).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (9, 8).
+Avatar 8 moved to (9, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (9, 8).
+Avatar 0 moved to (9, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (9, 8).
+Avatar 1 moved to (9, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (9, 8).
+Avatar 2 moved to (9, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (8, 8).
+Avatar 3 moved to (8, 8).
+Avatar 4 attempted to move West to (8, 8).
+Avatar 4 moved to (8, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (8, 8).
+Avatar 5 moved to (8, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (1, 7).
+Avatar 6 moved to (1, 7).
+Avatar 7 attempted to move West to (1, 7).
+Avatar 7 moved to (1, 7).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (8, 8).
+Avatar 8 moved to (8, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (8, 8).
+Avatar 0 moved to (8, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (8, 8).
+Avatar 1 moved to (8, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (8, 8).
+Avatar 2 moved to (8, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (8, 7).
+Avatar 3 moved to (8, 7).
+Avatar 4 attempted to move North to (8, 7).
+Avatar 4 moved to (8, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (8, 7).
+Avatar 5 moved to (8, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (0, 7).
+Avatar 6 moved to (0, 7).
+Avatar 7 attempted to move West to (0, 7).
+Avatar 7 moved to (0, 7).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (8, 7).
+Avatar 8 moved to (8, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (8, 7).
+Avatar 0 moved to (8, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (8, 7).
+Avatar 1 moved to (8, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (8, 7).
+Avatar 2 moved to (8, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (8, 6).
+Avatar 3 moved to (8, 6).
+Avatar 4 attempted to move North to (8, 6).
+Avatar 4 moved to (8, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (8, 6).
+Avatar 5 moved to (8, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (0, 6).
+Avatar 6 moved to (0, 6).
+Avatar 7 attempted to move North to (0, 6).
+Avatar 7 moved to (0, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (8, 6).
+Avatar 8 moved to (8, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (8, 6).
+Avatar 0 moved to (8, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (8, 6).
+Avatar 1 moved to (8, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (8, 6).
+Avatar 2 moved to (8, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (9, 6).
+Avatar 3 moved to (9, 6).
+Avatar 4 attempted to move East to (9, 6).
+Avatar 4 moved to (9, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (9, 6).
+Avatar 5 moved to (9, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (0, 5).
+Avatar 6 moved to (0, 5).
+Avatar 7 attempted to move North to (0, 5).
+Avatar 7 moved to (0, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (9, 6).
+Avatar 8 moved to (9, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (9, 6).
+Avatar 0 moved to (9, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (9, 6).
+Avatar 1 moved to (9, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (9, 6).
+Avatar 2 moved to (9, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (9, 5).
+Avatar 3 moved to (9, 5).
+Avatar 4 attempted to move North to (9, 5).
+Avatar 4 moved to (9, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (9, 5).
+Avatar 5 moved to (9, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (1, 5).
+Avatar 6 moved to (1, 5).
+Avatar 7 attempted to move East to (1, 5).
+Avatar 7 moved to (1, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (9, 5).
+Avatar 8 moved to (9, 5).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (9, 5).
+Avatar 0 moved to (9, 5).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (9, 5).
+Avatar 1 moved to (9, 5).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (9, 5).
+Avatar 2 moved to (9, 5).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (8, 5).
+Avatar 3 moved to (8, 5).
+Avatar 4 attempted to move West to (8, 5).
+Avatar 4 moved to (8, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (8, 5).
+Avatar 5 moved to (8, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (2, 5).
+Move failed. East wall added to (1, 5).
+Avatar 7 stays at (1, 5).
+Avatar 8 attempted to move West to (8, 5).
+Avatar 8 moved to (8, 5).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (8, 5).
+Avatar 0 moved to (8, 5).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (8, 5).
+Avatar 1 moved to (8, 5).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (8, 5).
+Avatar 2 moved to (8, 5).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (8, 4).
+Move failed. North wall added to (8, 5).
+Avatar 4 stays at (8, 5).
+Avatar 5 stays at (8, 5).
+Avatar 6 attempted to move North to (1, 4).
+Move failed. North wall added to (1, 5).
+Avatar 7 stays at (1, 5).
+Avatar 8 stays at (8, 5).
+Avatar 0 stays at (8, 5).
+Avatar 1 stays at (8, 5).
+Avatar 2 stays at (8, 5).
+Avatar 3 attempted to move West to (7, 5).
+Avatar 3 moved to (7, 5).
+Avatar 4 attempted to move West to (7, 5).
+Avatar 4 moved to (7, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (7, 5).
+Avatar 5 moved to (7, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (0, 5).
+Avatar 6 moved to (0, 5).
+Avatar 7 attempted to move West to (0, 5).
+Avatar 7 moved to (0, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (7, 5).
+Avatar 8 moved to (7, 5).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (7, 5).
+Avatar 0 moved to (7, 5).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (7, 5).
+Avatar 1 moved to (7, 5).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (7, 5).
+Avatar 2 moved to (7, 5).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (7, 4).
+Move failed. North wall added to (7, 5).
+Avatar 4 stays at (7, 5).
+Avatar 5 stays at (7, 5).
+Avatar 6 attempted to move North to (0, 4).
+Move failed. North wall added to (0, 5).
+Avatar 7 stays at (0, 5).
+Avatar 8 stays at (7, 5).
+Avatar 0 stays at (7, 5).
+Avatar 1 stays at (7, 5).
+Avatar 2 stays at (7, 5).
+Avatar 3 attempted to move South to (7, 6).
+Avatar 3 moved to (7, 6).
+Avatar 4 attempted to move South to (7, 6).
+Avatar 4 moved to (7, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (7, 6).
+Avatar 5 moved to (7, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (0, 6).
+Avatar 6 moved to (0, 6).
+Avatar 7 attempted to move South to (0, 6).
+Avatar 7 moved to (0, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (7, 6).
+Avatar 8 moved to (7, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (7, 6).
+Avatar 0 moved to (7, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (7, 6).
+Avatar 1 moved to (7, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (7, 6).
+Avatar 2 moved to (7, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (7, 7).
+Avatar 3 moved to (7, 7).
+Avatar 4 attempted to move South to (7, 7).
+Avatar 4 moved to (7, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (7, 7).
+Avatar 5 moved to (7, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (1, 6).
+Avatar 6 moved to (1, 6).
+Avatar 7 attempted to move East to (1, 6).
+Avatar 7 moved to (1, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (7, 7).
+Avatar 8 moved to (7, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (7, 7).
+Avatar 0 moved to (7, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (7, 7).
+Avatar 1 moved to (7, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (7, 7).
+Avatar 2 moved to (7, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (6, 7).
+Avatar 3 moved to (6, 7).
+Avatar 4 attempted to move West to (6, 7).
+Avatar 4 moved to (6, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (6, 7).
+Avatar 5 moved to (6, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (2, 6).
+Avatar 6 moved to (2, 6).
+Avatar 7 attempted to move East to (2, 6).
+Avatar 7 moved to (2, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (6, 7).
+Avatar 8 moved to (6, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (6, 7).
+Avatar 0 moved to (6, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (6, 7).
+Avatar 1 moved to (6, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (6, 7).
+Avatar 2 moved to (6, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (6, 8).
+Avatar 3 moved to (6, 8).
+Avatar 4 attempted to move South to (6, 8).
+Avatar 4 moved to (6, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (6, 8).
+Avatar 5 moved to (6, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (2, 5).
+Avatar 6 moved to (2, 5).
+Avatar 7 attempted to move North to (2, 5).
+Avatar 7 moved to (2, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (6, 8).
+Avatar 8 moved to (6, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (6, 8).
+Avatar 0 moved to (6, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (6, 8).
+Avatar 1 moved to (6, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (6, 8).
+Avatar 2 moved to (6, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (5, 8).
+Avatar 3 moved to (5, 8).
+Avatar 4 attempted to move West to (5, 8).
+Avatar 4 moved to (5, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (5, 8).
+Avatar 5 moved to (5, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (2, 4).
+Move failed. North wall added to (2, 5).
+Avatar 7 stays at (2, 5).
+Avatar 8 attempted to move West to (5, 8).
+Avatar 8 moved to (5, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (5, 8).
+Avatar 0 moved to (5, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (5, 8).
+Avatar 1 moved to (5, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (5, 8).
+Avatar 2 moved to (5, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (4, 8).
+Avatar 3 moved to (4, 8).
+Avatar 4 attempted to move West to (4, 8).
+Avatar 4 moved to (4, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (4, 8).
+Avatar 5 moved to (4, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (3, 5).
+Avatar 6 moved to (3, 5).
+Avatar 7 attempted to move East to (3, 5).
+Avatar 7 moved to (3, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (4, 8).
+Avatar 8 moved to (4, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (4, 8).
+Avatar 0 moved to (4, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (4, 8).
+Avatar 1 moved to (4, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (4, 8).
+Avatar 2 moved to (4, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (4, 7).
+Avatar 3 moved to (4, 7).
+Avatar 4 attempted to move North to (4, 7).
+Avatar 4 moved to (4, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (4, 7).
+Avatar 5 moved to (4, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (4, 5).
+Avatar 6 moved to (4, 5).
+Avatar 7 attempted to move East to (4, 5).
+Avatar 7 moved to (4, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (4, 7).
+Avatar 8 moved to (4, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (4, 7).
+Avatar 0 moved to (4, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (4, 7).
+Avatar 1 moved to (4, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (4, 7).
+Avatar 2 moved to (4, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (4, 6).
+Avatar 3 moved to (4, 6).
+Avatar 4 attempted to move North to (4, 6).
+Avatar 4 moved to (4, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (4, 6).
+Avatar 5 moved to (4, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (5, 5).
+Avatar 6 moved to (5, 5).
+Avatar 7 attempted to move East to (5, 5).
+Avatar 7 moved to (5, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (4, 6).
+Avatar 8 moved to (4, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (4, 6).
+Avatar 0 moved to (4, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (4, 6).
+Avatar 1 moved to (4, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (4, 6).
+Avatar 2 moved to (4, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (3, 6).
+Avatar 3 moved to (3, 6).
+Avatar 4 attempted to move West to (3, 6).
+Avatar 4 moved to (3, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (3, 6).
+Avatar 5 moved to (3, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (5, 6).
+Avatar 6 moved to (5, 6).
+Avatar 7 attempted to move South to (5, 6).
+Avatar 7 moved to (5, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (3, 6).
+Avatar 8 moved to (3, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (3, 6).
+Avatar 0 moved to (3, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (3, 6).
+Avatar 1 moved to (3, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (3, 6).
+Avatar 2 moved to (3, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (3, 7).
+Avatar 3 moved to (3, 7).
+Avatar 4 attempted to move South to (3, 7).
+Avatar 4 moved to (3, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (3, 7).
+Avatar 5 moved to (3, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (6, 6).
+Avatar 6 moved to (6, 6).
+Avatar 7 attempted to move East to (6, 6).
+Avatar 7 moved to (6, 6).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (3, 7).
+Avatar 8 moved to (3, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (3, 7).
+Avatar 0 moved to (3, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (3, 7).
+Avatar 1 moved to (3, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (3, 7).
+Avatar 2 moved to (3, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (3, 8).
+Avatar 3 moved to (3, 8).
+Avatar 4 attempted to move South to (3, 8).
+Avatar 4 moved to (3, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (3, 8).
+Avatar 5 moved to (3, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (6, 5).
+Avatar 6 moved to (6, 5).
+Avatar 7 attempted to move North to (6, 5).
+Avatar 7 moved to (6, 5).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (3, 8).
+Avatar 8 moved to (3, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (3, 8).
+Avatar 0 moved to (3, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (3, 8).
+Avatar 1 moved to (3, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (3, 8).
+Avatar 2 moved to (3, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (3, 9).
+Avatar 3 moved to (3, 9).
+Avatar 4 attempted to move South to (3, 9).
+Avatar 4 moved to (3, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (3, 9).
+Avatar 5 moved to (3, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (6, 4).
+Avatar 6 moved to (6, 4).
+Avatar 7 attempted to move North to (6, 4).
+Avatar 7 moved to (6, 4).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (3, 9).
+Avatar 8 moved to (3, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (3, 9).
+Avatar 0 moved to (3, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (3, 9).
+Avatar 1 moved to (3, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (3, 9).
+Avatar 2 moved to (3, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (4, 9).
+Avatar 3 moved to (4, 9).
+Avatar 4 attempted to move East to (4, 9).
+Avatar 4 moved to (4, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (4, 9).
+Avatar 5 moved to (4, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (5, 4).
+Move failed. West wall added to (6, 4).
+Avatar 7 stays at (6, 4).
+Avatar 8 attempted to move East to (4, 9).
+Avatar 8 moved to (4, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (4, 9).
+Avatar 0 moved to (4, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (4, 9).
+Avatar 1 moved to (4, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (4, 9).
+Avatar 2 moved to (4, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (5, 9).
+Avatar 3 moved to (5, 9).
+Avatar 4 attempted to move East to (5, 9).
+Avatar 4 moved to (5, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (5, 9).
+Avatar 5 moved to (5, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (6, 3).
+Avatar 6 moved to (6, 3).
+Avatar 7 attempted to move North to (6, 3).
+Avatar 7 moved to (6, 3).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (5, 9).
+Avatar 8 moved to (5, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (5, 9).
+Avatar 0 moved to (5, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (5, 9).
+Avatar 1 moved to (5, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (5, 9).
+Avatar 2 moved to (5, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (6, 9).
+Avatar 3 moved to (6, 9).
+Avatar 4 attempted to move East to (6, 9).
+Avatar 4 moved to (6, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (6, 9).
+Avatar 5 moved to (6, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (6, 2).
+Move failed. North wall added to (6, 3).
+Avatar 7 stays at (6, 3).
+Avatar 8 attempted to move East to (6, 9).
+Avatar 8 moved to (6, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (6, 9).
+Avatar 0 moved to (6, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (6, 9).
+Avatar 1 moved to (6, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (6, 9).
+Avatar 2 moved to (6, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (7, 9).
+Avatar 3 moved to (7, 9).
+Avatar 4 attempted to move East to (7, 9).
+Avatar 4 moved to (7, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (7, 9).
+Avatar 5 moved to (7, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (5, 3).
+Avatar 6 moved to (5, 3).
+Avatar 7 attempted to move West to (5, 3).
+Avatar 7 moved to (5, 3).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (7, 9).
+Avatar 8 moved to (7, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (7, 9).
+Avatar 0 moved to (7, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (7, 9).
+Avatar 1 moved to (7, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (7, 9).
+Avatar 2 moved to (7, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (7, 8).
+Avatar 3 moved to (7, 8).
+Avatar 4 attempted to move North to (7, 8).
+Avatar 4 moved to (7, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (7, 8).
+Avatar 5 moved to (7, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (5, 4).
+Avatar 6 moved to (5, 4).
+Avatar 7 attempted to move South to (5, 4).
+Avatar 7 moved to (5, 4).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (7, 8).
+Avatar 8 moved to (7, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (7, 8).
+Avatar 0 moved to (7, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (7, 8).
+Avatar 1 moved to (7, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (7, 8).
+Avatar 2 moved to (7, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (7, 9).
+Avatar 3 moved to (7, 9).
+Avatar 4 attempted to move South to (7, 9).
+Avatar 4 moved to (7, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (7, 9).
+Avatar 5 moved to (7, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (4, 4).
+Avatar 6 moved to (4, 4).
+Avatar 7 attempted to move West to (4, 4).
+Avatar 7 moved to (4, 4).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (7, 9).
+Avatar 8 moved to (7, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (7, 9).
+Avatar 0 moved to (7, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (7, 9).
+Avatar 1 moved to (7, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (7, 9).
+Avatar 2 moved to (7, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (6, 9).
+Avatar 3 moved to (6, 9).
+Avatar 4 attempted to move West to (6, 9).
+Avatar 4 moved to (6, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (6, 9).
+Avatar 5 moved to (6, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (4, 3).
+Avatar 6 moved to (4, 3).
+Avatar 7 attempted to move North to (4, 3).
+Avatar 7 moved to (4, 3).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (6, 9).
+Avatar 8 moved to (6, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (6, 9).
+Avatar 0 moved to (6, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (6, 9).
+Avatar 1 moved to (6, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (6, 9).
+Avatar 2 moved to (6, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (5, 9).
+Avatar 3 moved to (5, 9).
+Avatar 4 attempted to move West to (5, 9).
+Avatar 4 moved to (5, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (5, 9).
+Avatar 5 moved to (5, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (5, 3).
+Move failed. East wall added to (4, 3).
+Avatar 7 stays at (4, 3).
+Avatar 8 attempted to move West to (5, 9).
+Avatar 8 moved to (5, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (5, 9).
+Avatar 0 moved to (5, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (5, 9).
+Avatar 1 moved to (5, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (5, 9).
+Avatar 2 moved to (5, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (4, 9).
+Avatar 3 moved to (4, 9).
+Avatar 4 attempted to move West to (4, 9).
+Avatar 4 moved to (4, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (4, 9).
+Avatar 5 moved to (4, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (4, 2).
+Move failed. North wall added to (4, 3).
+Avatar 7 stays at (4, 3).
+Avatar 8 attempted to move West to (4, 9).
+Avatar 8 moved to (4, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (4, 9).
+Avatar 0 moved to (4, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (4, 9).
+Avatar 1 moved to (4, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (4, 9).
+Avatar 2 moved to (4, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (3, 9).
+Avatar 3 moved to (3, 9).
+Avatar 4 attempted to move West to (3, 9).
+Avatar 4 moved to (3, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (3, 9).
+Avatar 5 moved to (3, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (3, 3).
+Avatar 6 moved to (3, 3).
+Avatar 7 attempted to move West to (3, 3).
+Avatar 7 moved to (3, 3).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (3, 9).
+Avatar 8 moved to (3, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (3, 9).
+Avatar 0 moved to (3, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (3, 9).
+Avatar 1 moved to (3, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (3, 9).
+Avatar 2 moved to (3, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (3, 8).
+Avatar 3 moved to (3, 8).
+Avatar 4 attempted to move North to (3, 8).
+Avatar 4 moved to (3, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (3, 8).
+Avatar 5 moved to (3, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (3, 4).
+Avatar 6 moved to (3, 4).
+Avatar 7 attempted to move South to (3, 4).
+Avatar 7 moved to (3, 4).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (3, 8).
+Avatar 8 moved to (3, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (3, 8).
+Avatar 0 moved to (3, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (3, 8).
+Avatar 1 moved to (3, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (3, 8).
+Avatar 2 moved to (3, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (3, 7).
+Avatar 3 moved to (3, 7).
+Avatar 4 attempted to move North to (3, 7).
+Avatar 4 moved to (3, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (3, 7).
+Avatar 5 moved to (3, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (4, 4).
+Move failed. East wall added to (3, 4).
+Avatar 7 stays at (3, 4).
+Avatar 8 attempted to move North to (3, 7).
+Avatar 8 moved to (3, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (3, 7).
+Avatar 0 moved to (3, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (3, 7).
+Avatar 1 moved to (3, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (3, 7).
+Avatar 2 moved to (3, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (3, 6).
+Avatar 3 moved to (3, 6).
+Avatar 4 attempted to move North to (3, 6).
+Avatar 4 moved to (3, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (3, 6).
+Avatar 5 moved to (3, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (2, 4).
+Avatar 6 moved to (2, 4).
+Avatar 7 attempted to move West to (2, 4).
+Avatar 7 moved to (2, 4).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (3, 6).
+Avatar 8 moved to (3, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (3, 6).
+Avatar 0 moved to (3, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (3, 6).
+Avatar 1 moved to (3, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (3, 6).
+Avatar 2 moved to (3, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (4, 6).
+Avatar 3 moved to (4, 6).
+Avatar 4 attempted to move East to (4, 6).
+Avatar 4 moved to (4, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (4, 6).
+Avatar 5 moved to (4, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (2, 3).
+Avatar 6 moved to (2, 3).
+Avatar 7 attempted to move North to (2, 3).
+Avatar 7 moved to (2, 3).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (4, 6).
+Avatar 8 moved to (4, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (4, 6).
+Avatar 0 moved to (4, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (4, 6).
+Avatar 1 moved to (4, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (4, 6).
+Avatar 2 moved to (4, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (4, 7).
+Avatar 3 moved to (4, 7).
+Avatar 4 attempted to move South to (4, 7).
+Avatar 4 moved to (4, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (4, 7).
+Avatar 5 moved to (4, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (3, 3).
+Move failed. East wall added to (2, 3).
+Avatar 7 stays at (2, 3).
+Avatar 8 attempted to move South to (4, 7).
+Avatar 8 moved to (4, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (4, 7).
+Avatar 0 moved to (4, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (4, 7).
+Avatar 1 moved to (4, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (4, 7).
+Avatar 2 moved to (4, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (4, 8).
+Avatar 3 moved to (4, 8).
+Avatar 4 attempted to move South to (4, 8).
+Avatar 4 moved to (4, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (4, 8).
+Avatar 5 moved to (4, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (2, 2).
+Move failed. North wall added to (2, 3).
+Avatar 7 stays at (2, 3).
+Avatar 8 attempted to move South to (4, 8).
+Avatar 8 moved to (4, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (4, 8).
+Avatar 0 moved to (4, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (4, 8).
+Avatar 1 moved to (4, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (4, 8).
+Avatar 2 moved to (4, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (5, 8).
+Avatar 3 moved to (5, 8).
+Avatar 4 attempted to move East to (5, 8).
+Avatar 4 moved to (5, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (5, 8).
+Avatar 5 moved to (5, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (1, 3).
+Avatar 6 moved to (1, 3).
+Avatar 7 attempted to move West to (1, 3).
+Avatar 7 moved to (1, 3).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (5, 8).
+Avatar 8 moved to (5, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (5, 8).
+Avatar 0 moved to (5, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (5, 8).
+Avatar 1 moved to (5, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (5, 8).
+Avatar 2 moved to (5, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (6, 8).
+Avatar 3 moved to (6, 8).
+Avatar 4 attempted to move East to (6, 8).
+Avatar 4 moved to (6, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (6, 8).
+Avatar 5 moved to (6, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (1, 4).
+Avatar 6 moved to (1, 4).
+Avatar 7 attempted to move South to (1, 4).
+Avatar 7 moved to (1, 4).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (6, 8).
+Avatar 8 moved to (6, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (6, 8).
+Avatar 0 moved to (6, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (6, 8).
+Avatar 1 moved to (6, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (6, 8).
+Avatar 2 moved to (6, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (6, 7).
+Avatar 3 moved to (6, 7).
+Avatar 4 attempted to move North to (6, 7).
+Avatar 4 moved to (6, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (6, 7).
+Avatar 5 moved to (6, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (2, 4).
+Move failed. East wall added to (1, 4).
+Avatar 7 stays at (1, 4).
+Avatar 8 attempted to move North to (6, 7).
+Avatar 8 moved to (6, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (6, 7).
+Avatar 0 moved to (6, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (6, 7).
+Avatar 1 moved to (6, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (6, 7).
+Avatar 2 moved to (6, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (7, 7).
+Avatar 3 moved to (7, 7).
+Avatar 4 attempted to move East to (7, 7).
+Avatar 4 moved to (7, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (7, 7).
+Avatar 5 moved to (7, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (0, 4).
+Avatar 6 moved to (0, 4).
+Avatar 7 attempted to move West to (0, 4).
+Avatar 7 moved to (0, 4).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (7, 7).
+Avatar 8 moved to (7, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (7, 7).
+Avatar 0 moved to (7, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (7, 7).
+Avatar 1 moved to (7, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (7, 7).
+Avatar 2 moved to (7, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (7, 6).
+Avatar 3 moved to (7, 6).
+Avatar 4 attempted to move North to (7, 6).
+Avatar 4 moved to (7, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (7, 6).
+Avatar 5 moved to (7, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (0, 3).
+Avatar 6 moved to (0, 3).
+Avatar 7 attempted to move North to (0, 3).
+Avatar 7 moved to (0, 3).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (7, 6).
+Avatar 8 moved to (7, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (7, 6).
+Avatar 0 moved to (7, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (7, 6).
+Avatar 1 moved to (7, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (7, 6).
+Avatar 2 moved to (7, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (7, 5).
+Avatar 3 moved to (7, 5).
+Avatar 4 attempted to move North to (7, 5).
+Avatar 4 moved to (7, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (7, 5).
+Avatar 5 moved to (7, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (1, 3).
+Move failed. East wall added to (0, 3).
+Avatar 7 stays at (0, 3).
+Avatar 8 attempted to move North to (7, 5).
+Avatar 8 moved to (7, 5).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (7, 5).
+Avatar 0 moved to (7, 5).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (7, 5).
+Avatar 1 moved to (7, 5).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (7, 5).
+Avatar 2 moved to (7, 5).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (8, 5).
+Avatar 3 moved to (8, 5).
+Avatar 4 attempted to move East to (8, 5).
+Avatar 4 moved to (8, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (8, 5).
+Avatar 5 moved to (8, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (0, 2).
+Avatar 6 moved to (0, 2).
+Avatar 7 attempted to move North to (0, 2).
+Avatar 7 moved to (0, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (8, 5).
+Avatar 8 moved to (8, 5).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (8, 5).
+Avatar 0 moved to (8, 5).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (8, 5).
+Avatar 1 moved to (8, 5).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (8, 5).
+Avatar 2 moved to (8, 5).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (9, 5).
+Avatar 3 moved to (9, 5).
+Avatar 4 attempted to move East to (9, 5).
+Avatar 4 moved to (9, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (9, 5).
+Avatar 5 moved to (9, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (1, 2).
+Avatar 6 moved to (1, 2).
+Avatar 7 attempted to move East to (1, 2).
+Avatar 7 moved to (1, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (9, 5).
+Avatar 8 moved to (9, 5).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (9, 5).
+Avatar 0 moved to (9, 5).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (9, 5).
+Avatar 1 moved to (9, 5).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (9, 5).
+Avatar 2 moved to (9, 5).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (9, 6).
+Avatar 3 moved to (9, 6).
+Avatar 4 attempted to move South to (9, 6).
+Avatar 4 moved to (9, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (9, 6).
+Avatar 5 moved to (9, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (2, 2).
+Avatar 6 moved to (2, 2).
+Avatar 7 attempted to move East to (2, 2).
+Avatar 7 moved to (2, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (9, 6).
+Avatar 8 moved to (9, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (9, 6).
+Avatar 0 moved to (9, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (9, 6).
+Avatar 1 moved to (9, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (9, 6).
+Avatar 2 moved to (9, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (8, 6).
+Avatar 3 moved to (8, 6).
+Avatar 4 attempted to move West to (8, 6).
+Avatar 4 moved to (8, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (8, 6).
+Avatar 5 moved to (8, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (3, 2).
+Move failed. East wall added to (2, 2).
+Avatar 7 stays at (2, 2).
+Avatar 8 attempted to move West to (8, 6).
+Avatar 8 moved to (8, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (8, 6).
+Avatar 0 moved to (8, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (8, 6).
+Avatar 1 moved to (8, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (8, 6).
+Avatar 2 moved to (8, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (8, 7).
+Avatar 3 moved to (8, 7).
+Avatar 4 attempted to move South to (8, 7).
+Avatar 4 moved to (8, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (8, 7).
+Avatar 5 moved to (8, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (2, 1).
+Avatar 6 moved to (2, 1).
+Avatar 7 attempted to move North to (2, 1).
+Avatar 7 moved to (2, 1).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (8, 7).
+Avatar 8 moved to (8, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (8, 7).
+Avatar 0 moved to (8, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (8, 7).
+Avatar 1 moved to (8, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (8, 7).
+Avatar 2 moved to (8, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (8, 8).
+Avatar 3 moved to (8, 8).
+Avatar 4 attempted to move South to (8, 8).
+Avatar 4 moved to (8, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (8, 8).
+Avatar 5 moved to (8, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (3, 1).
+Avatar 6 moved to (3, 1).
+Avatar 7 attempted to move East to (3, 1).
+Avatar 7 moved to (3, 1).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (8, 8).
+Avatar 8 moved to (8, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (8, 8).
+Avatar 0 moved to (8, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (8, 8).
+Avatar 1 moved to (8, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (8, 8).
+Avatar 2 moved to (8, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (9, 8).
+Avatar 3 moved to (9, 8).
+Avatar 4 attempted to move East to (9, 8).
+Avatar 4 moved to (9, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (9, 8).
+Avatar 5 moved to (9, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (4, 1).
+Move failed. East wall added to (3, 1).
+Avatar 7 stays at (3, 1).
+Avatar 8 attempted to move East to (9, 8).
+Avatar 8 moved to (9, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (9, 8).
+Avatar 0 moved to (9, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (9, 8).
+Avatar 1 moved to (9, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (9, 8).
+Avatar 2 moved to (9, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (9, 9).
+Avatar 3 moved to (9, 9).
+Avatar 4 attempted to move South to (9, 9).
+Avatar 4 moved to (9, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (9, 9).
+Avatar 5 moved to (9, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (3, 2).
+Avatar 6 moved to (3, 2).
+Avatar 7 attempted to move South to (3, 2).
+Avatar 7 moved to (3, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move South to (9, 9).
+Avatar 8 moved to (9, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (9, 9).
+Avatar 0 moved to (9, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (9, 9).
+Avatar 1 moved to (9, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (9, 9).
+Avatar 2 moved to (9, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (8, 9).
+Avatar 3 moved to (8, 9).
+Avatar 4 attempted to move West to (8, 9).
+Avatar 4 moved to (8, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (8, 9).
+Avatar 5 moved to (8, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (4, 2).
+Avatar 6 moved to (4, 2).
+Avatar 7 attempted to move East to (4, 2).
+Avatar 7 moved to (4, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (8, 9).
+Avatar 8 moved to (8, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (8, 9).
+Avatar 0 moved to (8, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (8, 9).
+Avatar 1 moved to (8, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (8, 9).
+Avatar 2 moved to (8, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (9, 9).
+Avatar 3 moved to (9, 9).
+Avatar 4 attempted to move East to (9, 9).
+Avatar 4 moved to (9, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (9, 9).
+Avatar 5 moved to (9, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (5, 2).
+Avatar 6 moved to (5, 2).
+Avatar 7 attempted to move East to (5, 2).
+Avatar 7 moved to (5, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (9, 9).
+Avatar 8 moved to (9, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (9, 9).
+Avatar 0 moved to (9, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (9, 9).
+Avatar 1 moved to (9, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (9, 9).
+Avatar 2 moved to (9, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (10, 9).
+Avatar 3 moved to (10, 9).
+Avatar 4 attempted to move East to (10, 9).
+Avatar 4 moved to (10, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (10, 9).
+Avatar 5 moved to (10, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (6, 2).
+Avatar 6 moved to (6, 2).
+Avatar 7 attempted to move East to (6, 2).
+Avatar 7 moved to (6, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (10, 9).
+Avatar 8 moved to (10, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (10, 9).
+Avatar 0 moved to (10, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (10, 9).
+Avatar 1 moved to (10, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (10, 9).
+Avatar 2 moved to (10, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (11, 9).
+Avatar 3 moved to (11, 9).
+Avatar 4 attempted to move East to (11, 9).
+Avatar 4 moved to (11, 9).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (11, 9).
+Avatar 5 moved to (11, 9).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (7, 2).
+Avatar 6 moved to (7, 2).
+Avatar 7 attempted to move East to (7, 2).
+Avatar 7 moved to (7, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (11, 9).
+Avatar 8 moved to (11, 9).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (11, 9).
+Avatar 0 moved to (11, 9).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (11, 9).
+Avatar 1 moved to (11, 9).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (11, 9).
+Avatar 2 moved to (11, 9).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (11, 8).
+Avatar 3 moved to (11, 8).
+Avatar 4 attempted to move North to (11, 8).
+Avatar 4 moved to (11, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (11, 8).
+Avatar 5 moved to (11, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (8, 2).
+Move failed. East wall added to (7, 2).
+Avatar 7 stays at (7, 2).
+Avatar 8 attempted to move North to (11, 8).
+Avatar 8 moved to (11, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (11, 8).
+Avatar 0 moved to (11, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (11, 8).
+Avatar 1 moved to (11, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (11, 8).
+Avatar 2 moved to (11, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (10, 8).
+Avatar 3 moved to (10, 8).
+Avatar 4 attempted to move West to (10, 8).
+Avatar 4 moved to (10, 8).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (10, 8).
+Avatar 5 moved to (10, 8).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (7, 3).
+Move failed. South wall added to (7, 2).
+Avatar 7 stays at (7, 2).
+Avatar 8 attempted to move West to (10, 8).
+Avatar 8 moved to (10, 8).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (10, 8).
+Avatar 0 moved to (10, 8).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (10, 8).
+Avatar 1 moved to (10, 8).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (10, 8).
+Avatar 2 moved to (10, 8).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (10, 7).
+Avatar 3 moved to (10, 7).
+Avatar 4 attempted to move North to (10, 7).
+Avatar 4 moved to (10, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (10, 7).
+Avatar 5 moved to (10, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (7, 1).
+Avatar 6 moved to (7, 1).
+Avatar 7 attempted to move North to (7, 1).
+Avatar 7 moved to (7, 1).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (10, 7).
+Avatar 8 moved to (10, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (10, 7).
+Avatar 0 moved to (10, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (10, 7).
+Avatar 1 moved to (10, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (10, 7).
+Avatar 2 moved to (10, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (10, 6).
+Avatar 3 moved to (10, 6).
+Avatar 4 attempted to move North to (10, 6).
+Avatar 4 moved to (10, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (10, 6).
+Avatar 5 moved to (10, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (8, 1).
+Move failed. East wall added to (7, 1).
+Avatar 7 stays at (7, 1).
+Avatar 8 attempted to move North to (10, 6).
+Avatar 8 moved to (10, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (10, 6).
+Avatar 0 moved to (10, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (10, 6).
+Avatar 1 moved to (10, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (10, 6).
+Avatar 2 moved to (10, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (10, 5).
+Avatar 3 moved to (10, 5).
+Avatar 4 attempted to move North to (10, 5).
+Avatar 4 moved to (10, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (10, 5).
+Avatar 5 moved to (10, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (7, 0).
+Move failed. North wall added to (7, 1).
+Avatar 7 stays at (7, 1).
+Avatar 8 attempted to move North to (10, 5).
+Avatar 8 moved to (10, 5).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (10, 5).
+Avatar 0 moved to (10, 5).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (10, 5).
+Avatar 1 moved to (10, 5).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (10, 5).
+Avatar 2 moved to (10, 5).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (10, 4).
+Avatar 3 moved to (10, 4).
+Avatar 4 attempted to move North to (10, 4).
+Avatar 4 moved to (10, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (10, 4).
+Avatar 5 moved to (10, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (6, 1).
+Move failed. West wall added to (7, 1).
+Avatar 7 stays at (7, 1).
+Avatar 8 attempted to move North to (10, 4).
+Avatar 8 moved to (10, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (10, 4).
+Avatar 0 moved to (10, 4).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (10, 4).
+Avatar 1 moved to (10, 4).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (10, 4).
+Avatar 2 moved to (10, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (9, 4).
+Avatar 3 moved to (9, 4).
+Avatar 4 attempted to move West to (9, 4).
+Avatar 4 moved to (9, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (9, 4).
+Avatar 5 moved to (9, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (7, 2).
+Avatar 6 moved to (7, 2).
+Avatar 7 attempted to move South to (7, 2).
+Avatar 7 moved to (7, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (9, 4).
+Avatar 8 moved to (9, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (9, 4).
+Avatar 0 moved to (9, 4).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (9, 4).
+Avatar 1 moved to (9, 4).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (9, 4).
+Avatar 2 moved to (9, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (8, 4).
+Avatar 3 moved to (8, 4).
+Avatar 4 attempted to move West to (8, 4).
+Avatar 4 moved to (8, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (8, 4).
+Avatar 5 moved to (8, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (6, 2).
+Avatar 6 moved to (6, 2).
+Avatar 7 attempted to move West to (6, 2).
+Avatar 7 moved to (6, 2).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (8, 4).
+Avatar 8 moved to (8, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (8, 4).
+Avatar 0 moved to (8, 4).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (8, 4).
+Avatar 1 moved to (8, 4).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (8, 4).
+Avatar 2 moved to (8, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (7, 4).
+Avatar 3 moved to (7, 4).
+Avatar 4 attempted to move West to (7, 4).
+Avatar 4 moved to (7, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (7, 4).
+Avatar 5 moved to (7, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (6, 1).
+Avatar 6 moved to (6, 1).
+Avatar 7 attempted to move North to (6, 1).
+Avatar 7 moved to (6, 1).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move West to (7, 4).
+Avatar 8 moved to (7, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (7, 4).
+Avatar 0 moved to (7, 4).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (7, 4).
+Avatar 1 moved to (7, 4).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (7, 4).
+Avatar 2 moved to (7, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (7, 3).
+Avatar 3 moved to (7, 3).
+Avatar 4 attempted to move North to (7, 3).
+Avatar 4 moved to (7, 3).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (7, 3).
+Avatar 5 moved to (7, 3).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move North to (6, 0).
+Avatar 6 moved to (6, 0).
+Avatar 7 attempted to move North to (6, 0).
+Avatar 7 moved to (6, 0).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move North to (7, 3).
+Avatar 8 moved to (7, 3).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (7, 3).
+Avatar 0 moved to (7, 3).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (7, 3).
+Avatar 1 moved to (7, 3).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (7, 3).
+Avatar 2 moved to (7, 3).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (8, 3).
+Avatar 3 moved to (8, 3).
+Avatar 4 attempted to move East to (8, 3).
+Avatar 4 moved to (8, 3).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (8, 3).
+Avatar 5 moved to (8, 3).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (7, 0).
+Avatar 6 moved to (7, 0).
+Avatar 7 attempted to move East to (7, 0).
+Avatar 7 moved to (7, 0).
+Avatar 7 is on avatar 6's path.
+Avatar 8 attempted to move East to (8, 3).
+Avatar 8 moved to (8, 3).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (8, 3).
+Avatar 0 moved to (8, 3).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (8, 3).
+Avatar 1 moved to (8, 3).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (8, 3).
+Avatar 2 moved to (8, 3).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move North to (8, 2).
+Avatar 3 moved to (8, 2).
+Avatar 4 attempted to move North to (8, 2).
+Avatar 4 moved to (8, 2).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move North to (8, 2).
+Avatar 5 moved to (8, 2).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (8, 0).
+Avatar 6 moved to (8, 0).
+Avatar 6 is on avatar 8's path.
+Avatar 7 attempted to move East to (8, 0).
+Avatar 7 moved to (8, 0).
+Avatar 7 is on avatar 8's path.
+Avatar 8 attempted to move North to (8, 2).
+Avatar 8 moved to (8, 2).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move North to (8, 2).
+Avatar 0 moved to (8, 2).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move North to (8, 2).
+Avatar 1 moved to (8, 2).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move North to (8, 2).
+Avatar 2 moved to (8, 2).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (8, 3).
+Avatar 3 moved to (8, 3).
+Avatar 4 attempted to move South to (8, 3).
+Avatar 4 moved to (8, 3).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (8, 3).
+Avatar 5 moved to (8, 3).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (8, 1).
+Avatar 6 moved to (8, 1).
+Avatar 6 is on avatar 8's path.
+Avatar 7 attempted to move South to (8, 1).
+Avatar 7 moved to (8, 1).
+Avatar 7 is on avatar 8's path.
+Avatar 8 attempted to move South to (8, 3).
+Avatar 8 moved to (8, 3).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (8, 3).
+Avatar 0 moved to (8, 3).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (8, 3).
+Avatar 1 moved to (8, 3).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (8, 3).
+Avatar 2 moved to (8, 3).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (7, 3).
+Avatar 3 moved to (7, 3).
+Avatar 4 attempted to move West to (7, 3).
+Avatar 4 moved to (7, 3).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (7, 3).
+Avatar 5 moved to (7, 3).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (8, 2).
+Avatar 6 moved to (8, 2).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move South to (8, 2).
+Avatar 7 moved to (8, 2).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move West to (7, 3).
+Avatar 8 moved to (7, 3).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (7, 3).
+Avatar 0 moved to (7, 3).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (7, 3).
+Avatar 1 moved to (7, 3).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (7, 3).
+Avatar 2 moved to (7, 3).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (7, 4).
+Avatar 3 moved to (7, 4).
+Avatar 4 attempted to move South to (7, 4).
+Avatar 4 moved to (7, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (7, 4).
+Avatar 5 moved to (7, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (8, 3).
+Avatar 6 moved to (8, 3).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move South to (8, 3).
+Avatar 7 moved to (8, 3).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move South to (7, 4).
+Avatar 8 moved to (7, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (7, 4).
+Avatar 0 moved to (7, 4).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (7, 4).
+Avatar 1 moved to (7, 4).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (7, 4).
+Avatar 2 moved to (7, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (8, 4).
+Avatar 3 moved to (8, 4).
+Avatar 4 attempted to move East to (8, 4).
+Avatar 4 moved to (8, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (8, 4).
+Avatar 5 moved to (8, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move West to (7, 3).
+Avatar 6 moved to (7, 3).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move West to (7, 3).
+Avatar 7 moved to (7, 3).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move East to (8, 4).
+Avatar 8 moved to (8, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (8, 4).
+Avatar 0 moved to (8, 4).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (8, 4).
+Avatar 1 moved to (8, 4).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (8, 4).
+Avatar 2 moved to (8, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (9, 4).
+Avatar 3 moved to (9, 4).
+Avatar 4 attempted to move East to (9, 4).
+Avatar 4 moved to (9, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (9, 4).
+Avatar 5 moved to (9, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (7, 4).
+Avatar 6 moved to (7, 4).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move South to (7, 4).
+Avatar 7 moved to (7, 4).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move East to (9, 4).
+Avatar 8 moved to (9, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (9, 4).
+Avatar 0 moved to (9, 4).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (9, 4).
+Avatar 1 moved to (9, 4).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (9, 4).
+Avatar 2 moved to (9, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (10, 4).
+Avatar 3 moved to (10, 4).
+Avatar 4 attempted to move East to (10, 4).
+Avatar 4 moved to (10, 4).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (10, 4).
+Avatar 5 moved to (10, 4).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (8, 4).
+Avatar 6 moved to (8, 4).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move East to (8, 4).
+Avatar 7 moved to (8, 4).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move East to (10, 4).
+Avatar 8 moved to (10, 4).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (10, 4).
+Avatar 0 moved to (10, 4).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (10, 4).
+Avatar 1 moved to (10, 4).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (10, 4).
+Avatar 2 moved to (10, 4).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (10, 5).
+Avatar 3 moved to (10, 5).
+Avatar 4 attempted to move South to (10, 5).
+Avatar 4 moved to (10, 5).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (10, 5).
+Avatar 5 moved to (10, 5).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (9, 4).
+Avatar 6 moved to (9, 4).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move East to (9, 4).
+Avatar 7 moved to (9, 4).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move South to (10, 5).
+Avatar 8 moved to (10, 5).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (10, 5).
+Avatar 0 moved to (10, 5).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (10, 5).
+Avatar 1 moved to (10, 5).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (10, 5).
+Avatar 2 moved to (10, 5).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (10, 6).
+Avatar 3 moved to (10, 6).
+Avatar 4 attempted to move South to (10, 6).
+Avatar 4 moved to (10, 6).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (10, 6).
+Avatar 5 moved to (10, 6).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move East to (10, 4).
+Avatar 6 moved to (10, 4).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move East to (10, 4).
+Avatar 7 moved to (10, 4).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move South to (10, 6).
+Avatar 8 moved to (10, 6).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (10, 6).
+Avatar 0 moved to (10, 6).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (10, 6).
+Avatar 1 moved to (10, 6).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (10, 6).
+Avatar 2 moved to (10, 6).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move South to (10, 7).
+Avatar 3 moved to (10, 7).
+Avatar 4 attempted to move South to (10, 7).
+Avatar 4 moved to (10, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move South to (10, 7).
+Avatar 5 moved to (10, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (10, 5).
+Avatar 6 moved to (10, 5).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move South to (10, 5).
+Avatar 7 moved to (10, 5).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move South to (10, 7).
+Avatar 8 moved to (10, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move South to (10, 7).
+Avatar 0 moved to (10, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move South to (10, 7).
+Avatar 1 moved to (10, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move South to (10, 7).
+Avatar 2 moved to (10, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move West to (9, 7).
+Avatar 3 moved to (9, 7).
+Avatar 4 attempted to move West to (9, 7).
+Avatar 4 moved to (9, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move West to (9, 7).
+Avatar 5 moved to (9, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (10, 6).
+Avatar 6 moved to (10, 6).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move South to (10, 6).
+Avatar 7 moved to (10, 6).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move West to (9, 7).
+Avatar 8 moved to (9, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move West to (9, 7).
+Avatar 0 moved to (9, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move West to (9, 7).
+Avatar 1 moved to (9, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move West to (9, 7).
+Avatar 2 moved to (9, 7).
+Avatar 2 is on avatar 3's path.
+Avatar 3 attempted to move East to (10, 7).
+Avatar 3 moved to (10, 7).
+Avatar 4 attempted to move East to (10, 7).
+Avatar 4 moved to (10, 7).
+Avatar 4 is on avatar 3's path.
+Avatar 5 attempted to move East to (10, 7).
+Avatar 5 moved to (10, 7).
+Avatar 5 is on avatar 3's path.
+Avatar 6 attempted to move South to (10, 7).
+Avatar 6 moved to (10, 7).
+Avatar 6 is on avatar 3's path.
+Avatar 7 attempted to move South to (10, 7).
+Avatar 7 moved to (10, 7).
+Avatar 7 is on avatar 3's path.
+Avatar 8 attempted to move East to (10, 7).
+Avatar 8 moved to (10, 7).
+Avatar 8 is on avatar 3's path.
+Avatar 0 attempted to move East to (10, 7).
+Avatar 0 moved to (10, 7).
+Avatar 0 is on avatar 3's path.
+Avatar 1 attempted to move East to (10, 7).
+Avatar 1 moved to (10, 7).
+Avatar 1 is on avatar 3's path.
+Avatar 2 attempted to move East to (10, 7).
+
+Maze solved with nAvatars = 9, difficulty = 2, number of moves = 1136, and hashcode 63244596.

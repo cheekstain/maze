@@ -24,9 +24,12 @@
 
 /**************** functions ****************/
 static bool check_parameters(int argc, char* argv[]);
-static char *make_log(const int num_avatars, const int difficulty, const int maze_port);
+static char *make_log(const int num_avatars, const int difficulty, 
+						const int maze_port);
+void finish_logfile(comm_t *com, char *logfile);
 
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	if (!check_parameters(argc, argv)) {
 		exit(1);
 	}
@@ -39,16 +42,17 @@ int main(int argc, char* argv[]){
 	send_init(com, n_avatars, difficulty, hostname);
 	bool received = receive_message(com, -1, -1);
 
-	if (received && is_init_successful(com)){
+	if (received && is_init_successful(com)) {
    		printf("Connected! The mazeport is %d ", get_mazeport(com));
    		printf("the width of the maze is %d ", get_maze_width(com));
    		printf("and the height of the maze is %d.\n", get_maze_height(com)); 
-  	}
-	else if (!is_init_successful(com)){
-    	fprintf(stderr, "Error: init unsuccessful\n");
-    	exit(2);
+
+  	} else if (!is_init_successful(com)) {
+    		fprintf(stderr, "Error: init unsuccessful\n");
+    		exit(2);
 	}
-	if (!received){
+
+	if (!received) {
   		fprintf(stderr, "Error: no message recieved from server\n");
   		exit(3);
 	}
@@ -60,7 +64,6 @@ int main(int argc, char* argv[]){
 
 	char *log_name = make_log(n_avatars, difficulty, maze_port);
 
-
 	// Main "Program"
 	
 	//initialize the public dataset that everyone has access to
@@ -71,48 +74,52 @@ int main(int argc, char* argv[]){
   	maze_t* maze = maze_new(maze_width, maze_height, n_avatars);
   	counters_t* avatar_following = counters_new();
   	lastmove_t* lastmove = allocate(sizeof(lastmove_t));
-    lastmove->avatarID = -1;
+	lastmove->avatarID = -1;
   	maze_pointers_t* data;
-  	for(int i = 0; i < n_avatars; i++){
+
+  	for (int i = 0; i < n_avatars; i++) {
    		//generate individual data for avatars 1, 2, 3...etc.
-    	counters_set(avatar_following, i, i);
-    	data = maze_pointers_new(hostname, maze_port, log_name, i, maze, lastmove, avatar_following, com, n_avatars);
-    	char str[80];
-    	sprintf(str, "%d", i);
-    	set_insert(avatars, str, data);
+		counters_set(avatar_following, i, i);
+		data = maze_pointers_new(hostname, maze_port, log_name, i,
+		           maze, lastmove, avatar_following, com, n_avatars);
+		char str[80];
+		sprintf(str, "%d", i);
+		set_insert(avatars, str, data);
   	}
 
   	pthread_t threads[n_avatars];
   	int thread_error;
+
   	//set the threads running
-  	for(int i = 0; i < n_avatars; i++){
-  	    char str[80];
-    	sprintf(str, "%d", i);
-    	thread_error = pthread_create(&threads[i], NULL, avatar_thread, set_find(avatars, str));
-    	if(thread_error) {
-      		printf("thread creation failed, rc=%d.\n", thread_error);
-      		return (thread_error);
-    	}
+  	for (int i = 0; i < n_avatars; i++) {
+  		char str[80];
+		sprintf(str, "%d", i);
+		thread_error = pthread_create(&threads[i], NULL, 
+				      avatar_thread, set_find(avatars, str));
+		if (thread_error) {
+			printf("thread creation failed, rc=%d.\n",
+								 thread_error);
+			return (thread_error);
+		}
   	}
 
   	//join all the threads, so they'll end gracefully
   	for (int i = 0; i < n_avatars; i++) {
-  		pthread_join(threads[i],NULL);
+  		pthread_join(threads[i], NULL);
   	}
 
-  	while(check_game_status(com) == 0){ 
+  	while (check_game_status(com) == 0) { 
   	}
   	
   	finish_logfile(com, log_name);
+
   	//post-game cleanup
-  
-  	//FREE EVERYTHING
-  	free(log_name);
+    	free(log_name);
   	maze_delete(maze);
   	set_delete(avatars, maze_pointers_delete);
   	counters_delete(avatar_following);
-    free(lastmove);
-    comm_delete(com);
+	free(lastmove);
+	comm_delete(com);
 }
 
 /******************************** check_parameters ****************************/
@@ -122,7 +129,8 @@ int main(int argc, char* argv[]){
  * 
  * If any argument is not what we expect, return false. Otherwise, return true.
  */
-static bool check_parameters(int argc, char* argv[]){
+static bool check_parameters(int argc, char* argv[])
+{
 	if (argc != 4) {
 		fprintf(stderr, "usage: ./AM_STARTUP n_avatars difficulty hostname\n");
 		return false;
@@ -155,6 +163,7 @@ static bool check_parameters(int argc, char* argv[]){
 		fprintf(stderr, "invalid hostname\n");
 		return false;
 	}
+
 	return true;
 }
 
@@ -165,28 +174,39 @@ static bool check_parameters(int argc, char* argv[]){
  *
  * Returns the string name of the logfile.
  */
-static char *make_log(const int num_avatars, const int difficulty, const int maze_port){
+static char *make_log(const int num_avatars, const int difficulty, 
+							const int maze_port)
+{
 	// make log file, open for appending
 	char* log_name = malloc(sizeof(char) * 50);
 	sprintf(log_name, "Amazing_%d_%d_%d.log", getuid(), num_avatars, difficulty);
 	
 	time_t curtime;
-    time(&curtime);
+	time(&curtime);
 
 	FILE *fp = fopen(log_name, "a");
 	fprintf(fp, "User ID: %d, MazePort: %d, Date & Time: %s", getuid(),
-		maze_port, ctime(&curtime));
+					     	maze_port, ctime(&curtime));
 	fclose(fp);
 	return log_name;
 }
 
-void finish_logfile(comm_t *com, char *logfile){
+/******************************** finish_logfile  ************************************/
+/*
+ * Appends the final end of game message from the server to the log file. Includes
+ * number of avatars, difficulty, number of moves, and hashcode.
+ * 
+ */
+
+void finish_logfile(comm_t *com, char *logfile)
+{
 	FILE *fp = fopen(logfile, "a");
 	int num_avatars = get_nAvatars(com);
 	int diff = get_difficulty(com);
 	int nMoves = get_nMoves(com);
 	int hashcode = get_hash(com);
-	fprintf(fp, "Solved maze with nAvatars = %d, difficulty = %d, nMoves = %d, and hashcode = %d", num_avatars, diff, nMoves, hashcode);
+
+	fprintf(fp, "Solved maze with nAvatars = %d, difficulty = %d, nMoves = %d, and hashcode = %d\n", num_avatars, diff, nMoves, hashcode);
 	fclose(fp);
 	
 }

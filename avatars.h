@@ -7,8 +7,8 @@
  * Bashful Brigage: Emma Hobday, August 2017
  */
 
-#ifndef __MAZESTRUCT_H
-#define __MAZESTRUCT_H
+#ifndef __AVATARS_H
+#define __AVATARS_H
 
 /******************************** avatar_thread *******************************/
 /*
@@ -30,12 +30,6 @@ void* avatar_thread(void *ptr);
  */
 void check_all_following(void* follower, const int key, int count);
 
-/*
-*
-* Finishes the logfile when the game has finished.
-*
-*/
-void finish_logfile(comm_t *com, char *file);
 
 
-#endif //__MAZESTRUCT_H
+#endif //__AVATARS_H
