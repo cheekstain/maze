@@ -353,7 +353,7 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 				XYPos* new_pos = get_adjacent_pos(pos, i);
 				int tagger = get_tagged_by(maze, new_pos);
 
-				if (tagger != -1 || tagger != following) {
+				if (tagger != -1 && tagger != following) {
 					if (!is_pos_equal(final_pos, pos)) {
 						free(final_pos);
 					}
