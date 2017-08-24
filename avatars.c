@@ -102,8 +102,7 @@ void* avatar_thread(void *ptr){
             send_move(com, get_avatar_id(data), move, sock);
           }
         } else {
-            printf("mmno\n");
-          move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
+                 move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
                 &my_pos, get_filestream(data));
           lm->avatarID = get_avatar_id(data);
           lm->direction = m->direction;
