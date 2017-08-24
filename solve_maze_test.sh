@@ -9,6 +9,9 @@
 
 echo "TESTING AM_STARTUP"
 
-./AM_STARTUP 3 1 flume.cs.dartmouth.edu
+make clean
+make
+
+./AM_STARTUP 2 1 flume.cs.dartmouth.edu
 
 

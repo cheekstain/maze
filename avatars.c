@@ -44,6 +44,7 @@ void* avatar_thread(void *ptr){
     printf("Error receiving avatar's socket, avatarID = %d", get_avatar_id(data));
     return NULL;
   }
+  bool first_leader_solve = true;
   while(!receive_message(com, get_avatar_id(data), sock)){}
   XYPos *position = get_position_array(com);
   set_avatar_position(get_maze(data), &position[get_avatar_id(data)], get_avatar_id(data));
@@ -89,8 +90,16 @@ void* avatar_thread(void *ptr){
             free(m);
           }
         } else {
-          move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
-                &my_pos, get_filestream(data));
+          move_t* m;
+          if(!first_leader_solve){
+            m = leader_solve(get_maze(data), get_avatar_id(data), 
+                    &my_pos, get_filestream(data));
+          } else {
+            m = malloc(sizeof(move_t));
+	        m->avatar_id = get_avatar_id(data);
+	        m->direction = 8;
+	        first_leader_solve = false;
+          }
           lm->avatarID = get_avatar_id(data);
           lm->direction = m->direction;
           lm->before = &my_pos;
