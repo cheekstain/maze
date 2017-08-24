@@ -48,7 +48,7 @@ itself contains only the main `avatar_thread` and a few helper functions.
 other files to accomplish the task at hand.
 
 #### Assumptions
-Communications with Server follow the standard laid out in the documentation.
+Communications with Server follow the standard laid out in the documentation. Any unexpected messages from the server will cause the program to crash.
 
 The width and height of the maze will not be greater than 100.
 

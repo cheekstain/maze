@@ -120,6 +120,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   int send_avatar_ready(comm_t *com, int avatarID)
   {
     pthread_mutex_lock(&mutex1); 
+    //printf("testing: sending avatar_ready for avatarID = %d", avatarID);
   	com->server.sin_port = htons(com->mazeport);
   int avatar_sock = socket(AF_INET, SOCK_STREAM, 0);
   if (avatar_sock < 0) {
@@ -161,6 +162,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 */
   bool send_move(comm_t *com, int avatarID, int direction, int sock)
   {
+    //printf("testing: sending move for avatarID = %d", avatarID);
   	AM_Message msg;
   	msg.type = htonl(AM_AVATAR_MOVE);
   	msg.avatar_move.AvatarId = htonl(avatarID);
@@ -186,6 +188,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   bool receive_message(comm_t *com, int avatarID, int sock)
   {
     //pthread_mutex_lock(&mutex2);
+    //printf("testing: receiving message for avatar_id = %d", avatarID);
   	char buf [BUFSIZE];
     int bytes_read;
     if (sock == -1){

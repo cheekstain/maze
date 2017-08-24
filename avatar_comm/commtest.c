@@ -139,7 +139,7 @@ void* run_avatar (void *ptr)
   int *avatarID = ptr;
   int sock = 0;
   if ((sock = send_avatar_ready(com, *avatarID)) == -1){
-    printf("noooo!");
+    fprintf(stderr, "Error creating socket.");
     return NULL;
   }
   while (!receive_message(com, *avatarID, sock)){}
@@ -168,11 +168,10 @@ void* run_avatar (void *ptr)
     else{
       //was_my_turn = false;
     }
-    printf("nummoves = %d", num_moves);
     while (!receive_message(com, *avatarID, sock) && check_game_status(com) == 0){}
     //printf("received message in thread %d\n", *avatarID);
   }
-  printf("numer of moves made = %d", get_nMoves(com));
+  printf("\nnumer of moves made = %d", get_nMoves(com));
   return NULL;
 }
 
