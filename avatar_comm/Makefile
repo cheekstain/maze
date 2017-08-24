@@ -18,8 +18,8 @@ MAKE = make
 $(PROG): $(OBJS)
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
 
-commtest.o: amazing.h avatar_comm.h
-avatar_comm.o: amazing.h avatar_comm.h
+commtest.o: ../amazing.h avatar_comm.h
+avatar_comm.o: ../amazing.h avatar_comm.h
 #hashtable.o: ../libcs50/hashtable.h ../libcs50/jhash.h ../libcs50/set/set.h
 #webpage.o: ../libcs50/file.h ../libcs50/webpage.h ../libcs50/memory.h
 #bag.o: ../libcs50/bag.h
