@@ -25,6 +25,7 @@
 bool is_following(int me, int to_find, counters_t* followers);
 bool is_pos_equal(XYPos* before, XYPos* after);
 bool is_pos_valid(XYPos* pos);
+bool is_leader_collide(maze_t* maze, int following, XYPos* pos);
 
 XYPos* get_adjacent_pos(XYPos* pos, int dir);
 char* get_dir(int dir);
@@ -389,6 +390,20 @@ bool is_following(int me, int to_find, counters_t* followers)
 	} else {
 		return is_following(leader, to_find, followers);
 	}
+}
+
+bool is_leader_collide(maze_t* maze, int following, XYPos* pos)
+{
+	int colliders[10];
+	int num = get_num_avatars_here(maze, pos, colliders);
+	if (num != 0) {
+		for (int i = 0; i < num; i++) {
+			if (following == colliders[i]) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 /* is_pos_equal is a helper function that returns true if the two XYPos
