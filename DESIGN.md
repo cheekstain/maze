@@ -121,8 +121,9 @@ log name, the strength of the path, and the counters which keeps track of
 the followers. 
 * If the current move is not the first, the function will begin checking the 
 outcome of the last attempted move. It will figure out if there is a wall or
-an opening, and whether the avatar has found a path or not. It updates the 
-log file with the outcome, modifies the maze, and changes the followers 
+an opening, and whether the avatar has found a path or not. Paths are rewritten
+if they are laid by someone below the avatar in the following chain. It updates
+the log file with the outcome, modifies the maze, and changes the followers 
 struct if necessary. It finishes by redrawing the maze if it has been 
 modified. 
 * `maze_solve` is the default move selection method for an Avatar in 
@@ -130,18 +131,19 @@ modified.
 pointer to the XYPos of the Avatar, and the name of the log file. It checks
 all four adjacent squares, and attempts to move to another Avatar's path if 
 possible. Otherwise, it moves towards an unknown direction to continue
-exploring. It writes its attempt to move to the log, then returns the 
+exploring. If all squares are discovered, it backtraces. It writes its attempt to move to the log, then returns the desired move.
 * `leader_solve` is a move used for the leader of all paths. It also takes the
 maze structure, the ID of the avatar, a pointer to the XYPos of the Avatar, 
 and the name of the log file. It selects the move that allows the Avatar to
-backtrack its own trail, and writes its attempt to the log.
+backtrack its own trail, and writes its attempt to the log, then returns the desired move.
 * `follower_solve` is a move used for an Avatar that is in *Following Mode* and
 on the path of another Avatar. It takes the maze structure, the Avatar ID, the
 pointer to the XYPos of the Avatar, the counters that keeps track of all 
-followers, and the file name of the log. It attempts to move to a third 
-Avatar's path if the third Avatar is being followed by the Avatar the current
-Avatar is following. Otherwise, it continues to follow the path it is on. It
-writes its attempt to move to the log.
+followers, and the file name of the log. If it collides with its leader, it 
+freezes, in order to allow the leader to select a direction. Otherwise, it 
+attempts to move to a third Avatar's path if the third Avatar is above the first
+avatar in the following chain. Otherwise, it continues to follow the path it is 
+on. It writes its attempt to move to the log, then returns the desired move.
 
 ### avatar_solve Data Structures
 The `avatar_solve` module exports one data structure, `move_t`. This structure
@@ -158,7 +160,7 @@ The `avatar_solve` module has two primary modes: *Exploration*, and *Following*.
 
 In *Exploration Mode*, avatars will explore the maze randomly, while leaving behind a “trail” of variables under `int strength`. The count begins at 0 and increments with every step. The program tags the current coordinate of the avatar in the `maze_struct` with `strength`, and tags the coordinate with its `avatar_id`.
 
-If, in its random exploration, an avatar meets the trail left by some other avatar, it will enter *Following Mode* and follow the trail in ascending order; in this way, the follower avatar is guaranteed to trace the path of the avatar that it follows. If the follower avatar encounters along its path the path of another avatar, it will switch its leader if and only if the new avatar is a leader of the avatar that it currently follows. 
+If, in its random exploration, an avatar meets the trail left by some other avatar, it will enter *Following Mode* and follow the trail in ascending order; in this way, the follower avatar is guaranteed to trace the path of the avatar that it follows. If the follower avatar encounters along its path the path of another avatar, it will switch its leader if and only if the new avatar is a somewhere above its current following chain.
 
 When all but one avatar is following another avatar (indicating that all avatars are in a “train” of sorts), the only avatar that remains a leader will stop its random exploration and backtrack until it meets another avatar.
 
