@@ -75,7 +75,7 @@ void* avatar_thread(void *ptr){
       if(counters_get(follow_list, get_avatar_id(data)) == get_avatar_id(data)){
         follower_t f;
         f.id = get_avatar_id(data);
-        f.is_last_leader = false;
+        f.is_last_leader = true;
         counters_iterate(follow_list, &f, check_all_following);
         if(!f.is_last_leader){
           move_t* m = maze_solve(get_maze(data), get_avatar_id(data), 

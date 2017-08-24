@@ -73,7 +73,7 @@ void comm_delete(comm_t *com)
 */
 bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 {
-  printf("sending init\n");
+  //printf("sending init\n");
 	AM_Message msg;
 	msg.type = htonl(AM_INIT);
 	msg.init.nAvatars = htonl(nAvatars);
@@ -175,7 +175,7 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
 */
   bool send_move(comm_t *com, int avatarID, int direction, int sock)
   {
-    printf("sending move, thread %d\n", avatarID);
+    //printf("sending move, thread %d\n", avatarID);
   	AM_Message msg;
   	msg.type = htonl(AM_AVATAR_MOVE);
   	msg.avatar_move.AvatarId = htonl(avatarID);
@@ -291,7 +291,6 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   		return false;
   	}
     else if (ntohl(msg->type) == AM_MAZE_SOLVED){
-      fprintf(stdout, "MAZE SOLVED");
       com->is_game_over = true;
       com->is_maze_solved = true;
       com->nAvatars = ntohl(msg->maze_solved.nAvatars);

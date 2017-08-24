@@ -70,7 +70,7 @@ int main()
 	counters_delete(followers);
 	return 0;*/
 	
-	counters_t* followers = counters_new();
+	/*counters_t* followers = counters_new();
 	counters_set(followers, 5, 8);
 	counters_set(followers, 8, 2);
 	counters_set(followers, 2, 3);
@@ -86,6 +86,23 @@ int main()
 		printf("result: true\n");
 	} else {
 		printf("result: false\n");
-	}
+	}*/
+
+    XYPos me = { 2, 4 };
+
+    int id = 0;
+    int id1 = 1;
+    maze_t* maze = maze_new(5, 5, 3);
+    set_avatar_position(maze, &me, id);
+    set_avatar_position(maze, &me, id1);
+
+    
+
+    if (is_leader_collide(maze, 1, &me)) {
+        printf("fuck yeah\n");
+    } else {
+        printf("fuck no\n");
+    }
+    
 }
 
