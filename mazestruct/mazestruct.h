@@ -109,6 +109,18 @@ void set_avatar_position(maze_t *maze, XYPos *pos, int avatar);
  */
 bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[]);
 
+/******************************** get_num_avatars_here ************************/
+/*
+ * Takes in an empty array that has at least as many slots as there are avatars
+ * in the maze. In running is_collision, it will be filled with every avatar 
+ * that is on the squre associated with the given pos. It may end up still 
+ * empty if there are no avatars on that square.
+ *
+ * Returns how many avatars there currently are in a given square of the maze,
+ * which is necessary to iterate through the now-filled array.
+ */
+int get_num_avatars_here(maze_t *maze, XYPos *pos, int colliding_avatars[]);
+
 /******************************** maze_delete *********************************/
 /*
  * Frees the maze as well as all of the allocated structures within it. No 

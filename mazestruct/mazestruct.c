@@ -62,6 +62,7 @@ int get_tag_strength(maze_t *maze, XYPos *pos);
 void set_avatar_position(maze_t *maze, XYPos *pos, int avatar);
 void visit(maze_t *maze, XYPos *pos, int visitor, int tag_strength);
 bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[]);
+int get_num_avatars_here(maze_t *maze, XYPos *pos, int colliding_avatars[]);
 void maze_delete(maze_t *maze);
 void draw_maze(maze_t *maze);
 
@@ -79,7 +80,6 @@ static void set_south_wall(maze_t *maze, XYPos *pos, int new_val);
 static void set_east_wall(maze_t *maze, XYPos *pos, int new_val);
 static void set_west_wall(maze_t *maze, XYPos *pos, int new_val);
 
-static int get_num_avatars_here(maze_t *maze, XYPos *pos, int colliding_avatars[]);
 static void draw_top_row(int width);
 static void draw_floor(int floor_status);
 static void draw_wall(int wall_status);
@@ -424,7 +424,7 @@ bool is_collision(maze_t *maze, XYPos *pos, int colliding_avatars[])
  * Helper method for `draw_maze()` necessary because a square with more than one
  * avatar in it draws a * instead of an avatar number.
  */
-static int get_num_avatars_here(maze_t *maze, XYPos *pos, int colliding_avatars[])
+int get_num_avatars_here(maze_t *maze, XYPos *pos, int colliding_avatars[])
 {
 	mazesquare_t *square = get_square_at_coords(maze, pos);
 
