@@ -187,6 +187,8 @@ void finish_logfile(comm_t *com, char *logfile){
 	int nMoves = get_nMoves(com);
 	int hashcode = get_hash(com);
 	fprintf(fp, "Solved maze with nAvatars = %d, difficulty = %d, nMoves = %d, and hashcode = %d", num_avatars, diff, nMoves, hashcode);
+	fclose(fp);
+	
 }
 
 
