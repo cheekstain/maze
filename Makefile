@@ -24,7 +24,7 @@ test:
 	bash solve_maze_test.sh
 
 clean:
-	rm -f *~ *.o *.dSYM *.log
+	rm -f *~ *.o *.dSYM
 	rm -f $(PROG)
 	$(MAKE) -C avatar_comm clean
 	$(MAKE) -C avatar_solve clean
