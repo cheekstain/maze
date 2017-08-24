@@ -4,8 +4,8 @@
 
 PROG = AM_STARTUP
 OBJS = startup.o mazestruct/mazestruct.o avatar_comm/avatar_comm.o maze_pointers.o avatar_solve/avatar_solve.o 
-LIBS = -lpthread libcs50/libcs50.a
-CFLAGS = -Wall -pedantic -std=c11 -ggdb
+LIBS = -lpthread -lm libcs50/libcs50.a 
+CFLAGS = -Wall -pedantic -std=gnu11 -ggdb
 CC = gcc
 MAKE = make
 
