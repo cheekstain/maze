@@ -13,7 +13,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <unistd.h>	      // read, write, close
-#include <strings.h>	      // bcopy, bzero
+#include <strings.h>	  // bcopy, bzero
 #include <netdb.h>	      // socket-related structures
 #include <time.h>
 #include "libcs50/set.h"
@@ -21,6 +21,8 @@
 #include "avatars.c"
 #include "avatar_comm/avatar_comm.h"
 #include "mazestruct/mazestruct.h"
+
+#define update() printf("\033[H\033[J")
 
 /**************** functions ****************/
 static bool check_parameters(int argc, char* argv[]);
@@ -43,9 +45,10 @@ int main(int argc, char* argv[])
 	bool received = receive_message(com, -1, -1);
 
 	if (received && is_init_successful(com)) {
-   		printf("Connected! The mazeport is %d ", get_mazeport(com));
-   		printf("the width of the maze is %d ", get_maze_width(com));
+   		printf("Connected! The mazeport is %d, ", get_mazeport(com));
+   		printf("the width of the maze is %d, ", get_maze_width(com));
    		printf("and the height of the maze is %d.\n", get_maze_height(com)); 
+   		update(); //clear the console in prep to draw the maze
 
   	} else if (!is_init_successful(com)) {
     		fprintf(stderr, "Error: init unsuccessful\n");
@@ -114,7 +117,7 @@ int main(int argc, char* argv[])
   	finish_logfile(com, log_name);
 
   	//post-game cleanup
-    	free(log_name);
+    free(log_name);
   	maze_delete(maze);
   	set_delete(avatars, maze_pointers_delete);
   	counters_delete(avatar_following);
