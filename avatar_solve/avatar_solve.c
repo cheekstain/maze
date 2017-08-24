@@ -279,13 +279,16 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 	int wall;
 
 	// collision case with leader
-	int my_square = get_tagged_by(maze, pos);
-	int colliders[10];
-	if (is_collision(maze, pos, colliders) && my_square == following) {
+	int my_square = get_tagged_by(maze, pos);	
+	if (is_leader_collide(maze, following, pos) && my_square == following) {
 		dir = 8;
-
+		
+		printf("following: %d\n", following);
+		printf("my_square: %d\n", my_square);
+	
 		FILE *fp = fopen(log, "a");
-		fprintf(fp, "Avatar %d stays at (%d, %d).\n", id, pos->x, pos->y);
+		fprintf(fp, "Avatar %d stays at (%d, %d).\n", id, pos->x, 
+									pos->y);
 		fclose(fp);
 
 		move_t* attempt = malloc(sizeof(move_t));
@@ -396,8 +399,11 @@ bool is_leader_collide(maze_t* maze, int following, XYPos* pos)
 {
 	int colliders[10];
 	int num = get_num_avatars_here(maze, pos, colliders);
+		
+	printf("num avatars here: %d\n", num);
 	if (num != 0) {
 		for (int i = 0; i < num; i++) {
+			printf("on square: %d\n", colliders[i]);
 			if (following == colliders[i]) {
 				return true;
 			}
