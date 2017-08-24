@@ -345,6 +345,29 @@ move_t* follower_solve(maze_t* maze, int id, XYPos* pos,
 		}
 	}
 
+    if (dir == 4) {
+		// edge case where fork in chain, just take the path
+		for (int i = 0; i < 4; i++) {
+			wall = get_wall(maze, pos, i);
+			if (wall == 0) {
+				XYPos* new_pos = get_adjacent_pos(pos, i);
+				int tagger = get_tagged_by(maze, new_pos);
+
+				if (tagger != -1) {
+					if (!is_pos_equal(final_pos, pos)) {
+						free(final_pos);
+					}
+
+					final_pos = new_pos;
+					dir = i;
+					
+				} else {
+					free(new_pos);
+				}
+			}
+		} 
+	}
+
 	if (dir == 4) {
 		fprintf(stderr, "follower_solve error: avatar %d no new direction found\n", id);
 		exit(4);
