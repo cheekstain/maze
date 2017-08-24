@@ -35,4 +35,4 @@ test: $(PROG)
 clean: 
 	rm -rf $(PROG)
 	rm -rf *.o
-	#rm ./test_file
+	
