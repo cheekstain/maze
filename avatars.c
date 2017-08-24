@@ -108,7 +108,7 @@ void* avatar_thread(void *ptr)
           	m = maze_solve(get_maze(data), get_avatar_id(data), 
                 	&my_pos, get_follow_list(data), get_filestream(data));
           } else {
-		m  = malloc(sizeof(move));
+		m  = malloc(sizeof(move_t));
 		m->avatar_id = get_avatar_id(data);
 		m->direction = 8;
 		first_leader_solve = false;
