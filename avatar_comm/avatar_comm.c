@@ -291,7 +291,6 @@ bool send_init(comm_t *com, int nAvatars, int difficulty, char *hostname)
   		return false;
   	}
     else if (ntohl(msg->type) == AM_MAZE_SOLVED){
-      fprintf(stdout, "MAZE SOLVED");
       com->is_game_over = true;
       com->is_maze_solved = true;
       com->nAvatars = ntohl(msg->maze_solved.nAvatars);
