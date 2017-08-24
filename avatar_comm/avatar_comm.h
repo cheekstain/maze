@@ -1,8 +1,9 @@
 /*
  * avatar_comm.h - header file for CS50 'avatarComm' module
  *
+ * Module to handle all communications with the maze server.
  *
-  * Compiled using class materials provided by Prof Zhou, July, 2017
+ * Compiled using class materials provided by Prof Zhou, July, 2017
  * Arun Anand, August 2017
  */
 
@@ -61,7 +62,7 @@ bool send_move(comm_t *com, int avatarID, int Direction, int sock);
 /*
  *
  * Calling this function alerts the module that a new message should be received 
- *  from the server. This function must be called whenever a server-to-client 
+ * from the server. This function must be called whenever a server-to-client 
  * message is expected. In other words, it must be called any time a mesage is 
  * sent from the client to the server.
  * 
