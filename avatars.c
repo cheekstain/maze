@@ -63,7 +63,7 @@ void* avatar_thread(void *ptr)
   set_avatar_position(get_maze(data), &position[get_avatar_id(data)], 
 							get_avatar_id(data));
   bool was_my_turn = false;
-
+  bool first_leader_solve = true;
   while (check_game_status(com) == 0) {
     if (get_turnID(com) == get_avatar_id(data) && !was_my_turn) {
       was_my_turn = true;
@@ -103,9 +103,17 @@ void* avatar_thread(void *ptr)
         counters_iterate(follow_list, &f, check_all_following);
        
 	 if(!f.is_last_leader) {
-          move_t* m = maze_solve(get_maze(data), get_avatar_id(data), 
-                &my_pos, get_follow_list(data), get_filestream(data));
-          lm->avatarID = get_avatar_id(data);
+	  move_t* m;
+	  if(!first_leader_solve){
+          	m = maze_solve(get_maze(data), get_avatar_id(data), 
+                	&my_pos, get_follow_list(data), get_filestream(data));
+          } else {
+		m  = malloc(sizeof(move));
+		m->avatar_id = get_avatar_id(data);
+		m->direction = 8;
+		first_leader_solve = false;
+	  }
+	  lm->avatarID = get_avatar_id(data);
           lm->direction = m->direction;
           lm->before = &my_pos;
 
