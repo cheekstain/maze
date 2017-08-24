@@ -85,9 +85,10 @@ We anticipate the following modules:
 * *avatar_solve* Module, which takes information obtained from the maze_struct and the Server and computes the next best move, which is sent to the Server.
 * *maze_struct* Module, which contains the logic for making a maze data structure, which will be shared among all of the client threads.  
 
-### avatar_comm Module
+## avatar_comm Module
 This module contains all the necessary functions for communication with the server. It allows messages to be constructed easily and parses the messages received with the necessary information. These commands will be used by both the Avatars and the startup program.
 
+### avatar_comm Exported Functions
 This module consists of the following functions, exported through avatar_comm.h
 * `comm_t *comm_new()` is a function that initializes the comm_t struct that holds all the information relevant to the server-client communication, as
 well as the maze information passed back and forth between the server and client.
@@ -114,31 +115,27 @@ The `avatar_solve` module exports four functions, three of which are called
 in different circumstances in order to decide the next move an avatar should
 take.
 
-`check_previous` is a function which checks if the previous move was 
+* `check_previous` is a function which checks if the previous move was 
 sucessful or not. It takes the maze structure, a lastmove structure, the
 log name, the strength of the path, and the counters which keeps track of
 the followers. 
-
-If the current move is not the first, the function will begin checking the 
+* If the current move is not the first, the function will begin checking the 
 outcome of the last attempted move. It will figure out if there is a wall or
 an opening, and whether the avatar has found a path or not. It updates the 
 log file with the outcome, modifies the maze, and changes the followers 
 struct if necessary. It finishes by redrawing the maze if it has been 
 modified. 
-
-`maze_solve` is the default move selection method for an Avatar in 
+* `maze_solve` is the default move selection method for an Avatar in 
 *Exploration Mode*. It takes the maze structure, the ID of the avatar, a 
 pointer to the XYPos of the Avatar, and the name of the log file. It checks
 all four adjacent squares, and attempts to move to another Avatar's path if 
 possible. Otherwise, it moves towards an unknown direction to continue
 exploring. It writes its attempt to move to the log, then returns the 
-
-`leader_solve` is a move used for the leader of all paths. It also takes the
+* `leader_solve` is a move used for the leader of all paths. It also takes the
 maze structure, the ID of the avatar, a pointer to the XYPos of the Avatar, 
 and the name of the log file. It selects the move that allows the Avatar to
 backtrack its own trail, and writes its attempt to the log.
-
-`follower_solve` is a move used for an Avatar that is in *Following Mode* and
+* `follower_solve` is a move used for an Avatar that is in *Following Mode* and
 on the path of another Avatar. It takes the maze structure, the Avatar ID, the
 pointer to the XYPos of the Avatar, the counters that keeps track of all 
 followers, and the file name of the log. It attempts to move to a third 

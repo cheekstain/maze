@@ -86,7 +86,7 @@ void check_previous(maze_t* maze, lastmove_t* move, char* log,
 		    	}	
 		    }
     	}
-        draw_maze(maze); // update maze
+        //draw_maze(maze); // update maze
     }
 }
 

@@ -98,7 +98,7 @@ int main()
 
     
 
-    if (is_leader_collide(maze, 1, &me)) {
+    if (is_leader_collide(maze, 2, &me)) {
         printf("fuck yeah\n");
     } else {
         printf("fuck no\n");

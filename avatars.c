@@ -100,6 +100,8 @@ void* avatar_thread(void *ptr){
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
+	    free(m);
+	    
           }
         } else {
                  move_t* m = leader_solve(get_maze(data), get_avatar_id(data), 
@@ -110,6 +112,7 @@ void* avatar_thread(void *ptr){
           if(m != NULL){
             int move = m->direction;
             send_move(com, get_avatar_id(data), move, sock);
+	    free(m);
           }
         }
       } else {
@@ -121,6 +124,7 @@ void* avatar_thread(void *ptr){
         if(m != NULL){
           int move = m->direction;
           send_move(com, get_avatar_id(data), move, sock);
+	  free(m);
         }
       }
       increment_path_strength(data);
