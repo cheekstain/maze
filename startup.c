@@ -40,9 +40,9 @@ int main(int argc, char* argv[]){
 	bool received = receive_message(com, -1, -1);
 
 	if (received && is_init_successful(com)){
-   		printf("Connected! The mazeport is %d", get_mazeport(com));
-   		printf("the width of the maze is %d", get_maze_width(com));
-   		printf("and the height of the maze is %d\n", get_maze_height(com)); 
+   		printf("Connected! The mazeport is %d ", get_mazeport(com));
+   		printf("the width of the maze is %d ", get_maze_width(com));
+   		printf("and the height of the maze is %d.\n", get_maze_height(com)); 
   	}
 	else if (!is_init_successful(com)){
     	fprintf(stderr, "Error: init unsuccessful\n");
@@ -133,7 +133,7 @@ static bool check_parameters(int argc, char* argv[]){
 		return false;
 	}
 
-	if (n < 1 || n > 10) {
+	if (n < 2 || n > 10) {
 		fprintf(stderr, "n_avatars must be between 1 and 10\n");
 		return false;
 	}

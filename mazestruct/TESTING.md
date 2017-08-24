@@ -5,7 +5,7 @@ Essentially comes down to unit testing for functions in mazestruct.
 
 ### Output from running mazestructtest.sh
 
-dalishi-2:mazestruct emma$ make test
+$ make test
 bash testmaze.sh
 TESTING MAZESTRUCT
 Creating maze...
@@ -126,4 +126,5 @@ Drawing maze...(and implicitly testing getters)
 |     ?     ?     ?     ?     ?     ?     ?     ?     ?     |
 +-----------------------------------------------------------+
 Deleting maze...
+$
 

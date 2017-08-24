@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "amazing.h"
+#include "../amazing.h"
 #include "avatar_comm.h"
 
 
