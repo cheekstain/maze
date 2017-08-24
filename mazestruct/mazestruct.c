@@ -6,6 +6,10 @@
 * Emma Hobday, August 2017
 */
 
+#ifndef _XOPEN_SOURCE
+#define _XOPEN_SOURCE 500
+#endif //_XOPEN_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -458,6 +462,8 @@ void maze_delete(maze_t *maze)
 /******************************** draw_maze ***********************************/
 void draw_maze(maze_t *maze)
 {
+	usleep(500);
+
 	system("clear");
 
 	draw_top_row(maze->width);
