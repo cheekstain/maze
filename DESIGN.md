@@ -249,19 +249,14 @@ way to the coordinates of the only remaining leader.
 
 In order to execute this algorithm we will make use of a `counters_t` that 
 contains as its keys the `avatar_id` and the id of the avatar it is following as 
-the
-count.
+the count.
 
-## maze_struct Module
+## Mazestruct Module
 
-This module contains the functions necessary for constructing and utilizing a 
-`maze_struct` structure. It also contains methods for the visualization of the 
-maze in a GUI.
-
-The `maze_struct` structure will be a two dimensional array of `mazesquare` 
+The `maze_t` structure is a two dimensional array of `mazesquare_t` 
 structs, representing a coordinate plane of squares.
 
-Each `maze_square` contains information about a single square of the maze, 
+Each `mazesquare_t` contains information about a single square of the maze, 
 including:
 * the presence or absence of walls (North, South, East, West)
 * whether this square has been visited
@@ -271,6 +266,38 @@ including:
 In addition to the struct itself, mazestruct contains methods to update and get 
 information about each square, to be used by the avatars as they decide which 
 way to go, as well as a function to draw the maze in its current known form.
+
+### Mazestruct Exported Functions
+This module consists of the following functions, exported through mazestruct.h:
+
+* `get_wall()` returns the wall status (wall, space, unknown) of the provided 
+wall at the provided position.
+* `get_tagged_by()` returns which avatar has currently tagged the provided 
+square.
+* `get_tag_strength()` returns the numerical strength of the tag currently on
+the provided square, which is the strength of the trail on that square.
+* `set_wall()` sets a given wall in the maze to a given value, based on whether
+an avatar was just able to walk through it or not.
+* `maze_new()` creates and returns a maze object, with mazesquare objects for
+each coordinate within it.
+* `visit()` tags a square with a certain strength by a certain avatar. This is 
+usually only called the first time a square is visited, but it is also called in
+some edge cases.
+* `set_avatar_position()` changes which squares contain the given avatar; it is
+placed inside the provided square, and removed from any square it could have 
+been in previously. This is for the sole purpose of drawing the UI.
+* `is_collision()` returns whether there are more than one avatar on the
+provided square, as well as filling any avatars that are there into the provided
+array.
+* `get_num_avatars_here()` returns how many avatars are on the provided square, 
+as well as filling any avatars that are there into the provided array. This 
+function should only be used instead of `is_collision()` if it's necessary to
+iterate over the filled array.
+* `maze_delete()` frees the maze as well as all allocated structures within it.
+* `draw_maze()` draws the provided maze into the terminal each time it is called,
+drawing directly over any text that may be at the top of the screen, which is 
+almost always simply the previous frame of the maze. Calling it every time a 
+move is made makes for an animated UI effect in the terminal.
 
 ### Major Data Structures 
 `maze_t` is a struct representing the maze itself, represented by a 
