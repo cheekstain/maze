@@ -15,24 +15,6 @@
 
 int main()
 {
-	/*
-    printf("%sblack\n", BLACK);
-    printf("%sred\n", RED);
-    printf("%sgreen\n", GREEN);
-    printf("%syellow\n", YELLOW);
-    printf("%sblue\n", BLUE);
-    printf("%smagenta\n", MAGENTA);
-    printf("%scyan\n", CYAN);
-    printf("%sgray\n", GRAY);
-    printf("%slight red\n", L_RED);
-    printf("%slight green\n", L_GREEN);
-    printf("%slight yellow\n", L_YEL);
-    printf("%slight blue\n", L_BLUE);
-    printf("%slight magenta\n", L_MAG);
-    printf("%slight cyan\n", L_CYAN);
-    printf("%swhite\n", WHITE);
-    printf("%slinux reset\n", LIN_RESET);
-    */
 
 	//set up maze for simple test
 	const int width = 10;
@@ -116,6 +98,8 @@ int main()
 
 
 	printf("Drawing maze...(and implicitly testing getters)\n");
+
+	printf("\033[H\033[J");
 
 	draw_maze(maze);
 
