@@ -57,6 +57,7 @@ void* avatar_thread(void *ptr)
     return NULL;
   }
 
+  // pause while no message received
   while (!receive_message(com, get_avatar_id(data), sock)) {}
 
   XYPos *position = get_position_array(com);
@@ -74,7 +75,8 @@ void* avatar_thread(void *ptr)
       XYPos *positions = get_position_array(com);
       XYPos my_pos = positions[get_avatar_id(data)];
 
-      if (get_avatar_id(data) == 0) {
+      // prepare data to pass into move selection functions
+      if (get_avatar_id(data) == 0) { 
         prev_strength = get_path_strength(data);
 
       } else {
@@ -91,10 +93,12 @@ void* avatar_thread(void *ptr)
       XYPos prev_pos = positions[prev_id];
       lastmove_t* lm = get_lastmove(data);
       lm->after = &prev_pos;
-
+	
+      // check the previous move by passing in info from server
       check_previous(get_maze(data), lm, 
                get_filestream(data), prev_strength, get_follow_list(data));
 
+      // determine which move selection function to call
       counters_t* follow_list = get_follow_list(data);
       if (counters_get(follow_list, get_avatar_id(data)) == get_avatar_id(data)) {
         follower_t f;
@@ -102,7 +106,8 @@ void* avatar_thread(void *ptr)
         f.is_last_leader = true;
         counters_iterate(follow_list, &f, check_all_following);
        
-	 if(!f.is_last_leader) {
+	 if(!f.is_last_leader) { // if avatar is not a follower nor the
+		// last leader, default move selection
 	  move_t* m;
           m = maze_solve(get_maze(data), get_avatar_id(data), 
                 	&my_pos, get_follow_list(data), get_filestream(data));
@@ -118,16 +123,18 @@ void* avatar_thread(void *ptr)
 
         } else {
 	  move_t* m;
-          if(first_leader_solve > 0){
+          if(first_leader_solve > 0){ // avatar is a leader, call leader
+		// backtracking algorithm
 		m = leader_solve(get_maze(data), get_avatar_id(data), 
           			 		&my_pos, get_filestream(data));
-          } else {
+          } else { // on the first move the avatar becomes a leader
+		// it freezes in case of a collision
 		m = allocate(sizeof(move_t));
 		m->avatar_id = get_avatar_id(data);
 		m->direction = 8;
 		first_leader_solve++;
 	  }
-	lm->avatarID = get_avatar_id(data);
+	  lm->avatarID = get_avatar_id(data);
           lm->direction = m->direction;
           lm->before = &my_pos;
 
@@ -138,9 +145,8 @@ void* avatar_thread(void *ptr)
           }
         }
 
-      } else {
-        move_t* m = follower_solve(get_maze(data), get_avatar_id(data), &my_pos, 
-                			follow_list, get_filestream(data));
+      } else { // avatar is a follower, call follower function
+        move_t* m = follower_solve(get_maze(data), get_avatar_id(data), &my_pos,					follow_list, get_filestream(data));
         lm->avatarID = get_avatar_id(data);
         lm->direction = m->direction;
         lm->before = &my_pos;
@@ -158,7 +164,10 @@ void* avatar_thread(void *ptr)
       was_my_turn = false;
     }
 
-    while (!receive_message(com, get_avatar_id(data), sock) && check_game_status(com) == 0){}
+	// pause when no message received
+    while (!receive_message(com, 
+		get_avatar_id(data), sock) && check_game_status(com) == 0){} 
+	 
   }
   
   close(sock);
