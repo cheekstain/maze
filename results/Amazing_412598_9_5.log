@@ -1,4 +1,4 @@
-User ID: 412598, MazePort: 34129, Date & Time: Thu Aug 24 02:13:56 2017
+User ID: 412598, MazePort: 35369, Date & Time: Thu Aug 24 21:07:10 2017
 Avatar 0 attempted to move East to (13, 2).
 Avatar 0 moved to (13, 2).
 Avatar 1 attempted to move East to (22, 6).
@@ -15905,6 +15905,16 @@ Avatar 2 is on avatar 4's path.
 Avatar 3 attempted to move East to (6, 11).
 Avatar 3 moved to (6, 11).
 Avatar 3 is on avatar 5's path.
+Avatar 5 stays at (20, 21).
+Avatar 6 stays at (20, 21).
+Avatar 7 stays at (20, 21).
+Avatar 8 stays at (20, 21).
+Avatar 0 stays at (20, 21).
+Avatar 1 stays at (20, 21).
+Avatar 2 stays at (20, 21).
+Avatar 3 attempted to move East to (7, 11).
+Avatar 3 moved to (7, 11).
+Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (20, 20).
 Avatar 4 moved to (20, 20).
 Avatar 5 attempted to move North to (20, 20).
@@ -15928,8 +15938,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (20, 20).
 Avatar 2 moved to (20, 20).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (7, 11).
-Avatar 3 moved to (7, 11).
+Avatar 3 attempted to move South to (7, 12).
+Avatar 3 moved to (7, 12).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (20, 19).
 Avatar 4 moved to (20, 19).
@@ -15954,8 +15964,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (20, 19).
 Avatar 2 moved to (20, 19).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (7, 12).
-Avatar 3 moved to (7, 12).
+Avatar 3 attempted to move South to (7, 13).
+Avatar 3 moved to (7, 13).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (19, 19).
 Avatar 4 moved to (19, 19).
@@ -15980,8 +15990,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (19, 19).
 Avatar 2 moved to (19, 19).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (7, 13).
-Avatar 3 moved to (7, 13).
+Avatar 3 attempted to move South to (7, 14).
+Avatar 3 moved to (7, 14).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move South to (19, 20).
 Avatar 4 moved to (19, 20).
@@ -16006,8 +16016,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (19, 20).
 Avatar 2 moved to (19, 20).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (7, 14).
-Avatar 3 moved to (7, 14).
+Avatar 3 attempted to move South to (7, 15).
+Avatar 3 moved to (7, 15).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (18, 20).
 Avatar 4 moved to (18, 20).
@@ -16032,8 +16042,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (18, 20).
 Avatar 2 moved to (18, 20).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (7, 15).
-Avatar 3 moved to (7, 15).
+Avatar 3 attempted to move South to (7, 16).
+Avatar 3 moved to (7, 16).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (18, 19).
 Avatar 4 moved to (18, 19).
@@ -16058,8 +16068,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (18, 19).
 Avatar 2 moved to (18, 19).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (7, 16).
-Avatar 3 moved to (7, 16).
+Avatar 3 attempted to move South to (7, 17).
+Avatar 3 moved to (7, 17).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (18, 18).
 Avatar 4 moved to (18, 18).
@@ -16084,8 +16094,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (18, 18).
 Avatar 2 moved to (18, 18).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (7, 17).
-Avatar 3 moved to (7, 17).
+Avatar 3 attempted to move West to (6, 17).
+Avatar 3 moved to (6, 17).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (17, 18).
 Avatar 4 moved to (17, 18).
@@ -16110,8 +16120,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (17, 18).
 Avatar 2 moved to (17, 18).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (6, 17).
-Avatar 3 moved to (6, 17).
+Avatar 3 attempted to move West to (5, 17).
+Avatar 3 moved to (5, 17).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move South to (17, 19).
 Avatar 4 moved to (17, 19).
@@ -16136,8 +16146,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (17, 19).
 Avatar 2 moved to (17, 19).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (5, 17).
-Avatar 3 moved to (5, 17).
+Avatar 3 attempted to move South to (5, 18).
+Avatar 3 moved to (5, 18).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (16, 19).
 Avatar 4 moved to (16, 19).
@@ -16162,8 +16172,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (16, 19).
 Avatar 2 moved to (16, 19).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (5, 18).
-Avatar 3 moved to (5, 18).
+Avatar 3 attempted to move South to (5, 19).
+Avatar 3 moved to (5, 19).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move South to (16, 20).
 Avatar 4 moved to (16, 20).
@@ -16188,8 +16198,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (16, 20).
 Avatar 2 moved to (16, 20).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (5, 19).
-Avatar 3 moved to (5, 19).
+Avatar 3 attempted to move South to (5, 20).
+Avatar 3 moved to (5, 20).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (15, 20).
 Avatar 4 moved to (15, 20).
@@ -16214,8 +16224,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (15, 20).
 Avatar 2 moved to (15, 20).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (5, 20).
-Avatar 3 moved to (5, 20).
+Avatar 3 attempted to move South to (5, 21).
+Avatar 3 moved to (5, 21).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (14, 20).
 Avatar 4 moved to (14, 20).
@@ -16240,8 +16250,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (14, 20).
 Avatar 2 moved to (14, 20).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (5, 21).
-Avatar 3 moved to (5, 21).
+Avatar 3 attempted to move West to (4, 21).
+Avatar 3 moved to (4, 21).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (14, 19).
 Avatar 4 moved to (14, 19).
@@ -16266,8 +16276,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (14, 19).
 Avatar 2 moved to (14, 19).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (4, 21).
-Avatar 3 moved to (4, 21).
+Avatar 3 attempted to move North to (4, 20).
+Avatar 3 moved to (4, 20).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (14, 18).
 Avatar 4 moved to (14, 18).
@@ -16292,8 +16302,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (14, 18).
 Avatar 2 moved to (14, 18).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (4, 20).
-Avatar 3 moved to (4, 20).
+Avatar 3 attempted to move North to (4, 19).
+Avatar 3 moved to (4, 19).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (15, 18).
 Avatar 4 moved to (15, 18).
@@ -16318,8 +16328,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (15, 18).
 Avatar 2 moved to (15, 18).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (4, 19).
-Avatar 3 moved to (4, 19).
+Avatar 3 attempted to move North to (4, 18).
+Avatar 3 moved to (4, 18).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (16, 18).
 Avatar 4 moved to (16, 18).
@@ -16344,8 +16354,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (16, 18).
 Avatar 2 moved to (16, 18).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (4, 18).
-Avatar 3 moved to (4, 18).
+Avatar 3 attempted to move North to (4, 17).
+Avatar 3 moved to (4, 17).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (16, 17).
 Avatar 4 moved to (16, 17).
@@ -16370,8 +16380,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (16, 17).
 Avatar 2 moved to (16, 17).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (4, 17).
-Avatar 3 moved to (4, 17).
+Avatar 3 attempted to move North to (4, 16).
+Avatar 3 moved to (4, 16).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (17, 17).
 Avatar 4 moved to (17, 17).
@@ -16396,8 +16406,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (17, 17).
 Avatar 2 moved to (17, 17).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (4, 16).
-Avatar 3 moved to (4, 16).
+Avatar 3 attempted to move North to (4, 15).
+Avatar 3 moved to (4, 15).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (17, 16).
 Avatar 4 moved to (17, 16).
@@ -16422,8 +16432,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (17, 16).
 Avatar 2 moved to (17, 16).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (4, 15).
-Avatar 3 moved to (4, 15).
+Avatar 3 attempted to move West to (3, 15).
+Avatar 3 moved to (3, 15).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (16, 16).
 Avatar 4 moved to (16, 16).
@@ -16448,8 +16458,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (16, 16).
 Avatar 2 moved to (16, 16).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (3, 15).
-Avatar 3 moved to (3, 15).
+Avatar 3 attempted to move North to (3, 14).
+Avatar 3 moved to (3, 14).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (15, 16).
 Avatar 4 moved to (15, 16).
@@ -16474,8 +16484,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (15, 16).
 Avatar 2 moved to (15, 16).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (3, 14).
-Avatar 3 moved to (3, 14).
+Avatar 3 attempted to move West to (2, 14).
+Avatar 3 moved to (2, 14).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (15, 15).
 Avatar 4 moved to (15, 15).
@@ -16500,8 +16510,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (15, 15).
 Avatar 2 moved to (15, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (2, 14).
-Avatar 3 moved to (2, 14).
+Avatar 3 attempted to move North to (2, 13).
+Avatar 3 moved to (2, 13).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (15, 14).
 Avatar 4 moved to (15, 14).
@@ -16526,8 +16536,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (15, 14).
 Avatar 2 moved to (15, 14).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (2, 13).
-Avatar 3 moved to (2, 13).
+Avatar 3 attempted to move North to (2, 12).
+Avatar 3 moved to (2, 12).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (15, 13).
 Avatar 4 moved to (15, 13).
@@ -16552,8 +16562,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (15, 13).
 Avatar 2 moved to (15, 13).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (2, 12).
-Avatar 3 moved to (2, 12).
+Avatar 3 attempted to move North to (2, 11).
+Avatar 3 moved to (2, 11).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (14, 13).
 Avatar 4 moved to (14, 13).
@@ -16578,8 +16588,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (14, 13).
 Avatar 2 moved to (14, 13).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (2, 11).
-Avatar 3 moved to (2, 11).
+Avatar 3 attempted to move West to (1, 11).
+Avatar 3 moved to (1, 11).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move South to (14, 14).
 Avatar 4 moved to (14, 14).
@@ -16604,8 +16614,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (14, 14).
 Avatar 2 moved to (14, 14).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (1, 11).
-Avatar 3 moved to (1, 11).
+Avatar 3 attempted to move North to (1, 10).
+Avatar 3 moved to (1, 10).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (13, 14).
 Avatar 4 moved to (13, 14).
@@ -16630,8 +16640,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (13, 14).
 Avatar 2 moved to (13, 14).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (1, 10).
-Avatar 3 moved to (1, 10).
+Avatar 3 attempted to move East to (2, 10).
+Avatar 3 moved to (2, 10).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (12, 14).
 Avatar 4 moved to (12, 14).
@@ -16656,8 +16666,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (12, 14).
 Avatar 2 moved to (12, 14).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (2, 10).
-Avatar 3 moved to (2, 10).
+Avatar 3 attempted to move North to (2, 9).
+Avatar 3 moved to (2, 9).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move South to (12, 15).
 Avatar 4 moved to (12, 15).
@@ -16682,8 +16692,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (12, 15).
 Avatar 2 moved to (12, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (2, 9).
-Avatar 3 moved to (2, 9).
+Avatar 3 attempted to move West to (1, 9).
+Avatar 3 moved to (1, 9).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (13, 15).
 Avatar 4 moved to (13, 15).
@@ -16708,8 +16718,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (13, 15).
 Avatar 2 moved to (13, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (1, 9).
-Avatar 3 moved to (1, 9).
+Avatar 3 attempted to move West to (0, 9).
+Avatar 3 moved to (0, 9).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move South to (13, 16).
 Avatar 4 moved to (13, 16).
@@ -16734,8 +16744,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (13, 16).
 Avatar 2 moved to (13, 16).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (0, 9).
-Avatar 3 moved to (0, 9).
+Avatar 3 attempted to move North to (0, 8).
+Avatar 3 moved to (0, 8).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (12, 16).
 Avatar 4 moved to (12, 16).
@@ -16760,8 +16770,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (12, 16).
 Avatar 2 moved to (12, 16).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (0, 8).
-Avatar 3 moved to (0, 8).
+Avatar 3 attempted to move East to (1, 8).
+Avatar 3 moved to (1, 8).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (11, 16).
 Avatar 4 moved to (11, 16).
@@ -16786,8 +16796,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (11, 16).
 Avatar 2 moved to (11, 16).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (1, 8).
-Avatar 3 moved to (1, 8).
+Avatar 3 attempted to move North to (1, 7).
+Avatar 3 moved to (1, 7).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (11, 15).
 Avatar 4 moved to (11, 15).
@@ -16812,8 +16822,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (11, 15).
 Avatar 2 moved to (11, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (1, 7).
-Avatar 3 moved to (1, 7).
+Avatar 3 attempted to move West to (0, 7).
+Avatar 3 moved to (0, 7).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (11, 14).
 Avatar 4 moved to (11, 14).
@@ -16838,8 +16848,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (11, 14).
 Avatar 2 moved to (11, 14).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (0, 7).
-Avatar 3 moved to (0, 7).
+Avatar 3 attempted to move North to (0, 6).
+Avatar 3 moved to (0, 6).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (11, 13).
 Avatar 4 moved to (11, 13).
@@ -16864,8 +16874,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (11, 13).
 Avatar 2 moved to (11, 13).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (0, 6).
-Avatar 3 moved to (0, 6).
+Avatar 3 attempted to move East to (1, 6).
+Avatar 3 moved to (1, 6).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (11, 12).
 Avatar 4 moved to (11, 12).
@@ -16890,8 +16900,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (11, 12).
 Avatar 2 moved to (11, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (1, 6).
-Avatar 3 moved to (1, 6).
+Avatar 3 attempted to move North to (1, 5).
+Avatar 3 moved to (1, 5).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (12, 12).
 Avatar 4 moved to (12, 12).
@@ -16916,8 +16926,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (12, 12).
 Avatar 2 moved to (12, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (1, 5).
-Avatar 3 moved to (1, 5).
+Avatar 3 attempted to move North to (1, 4).
+Avatar 3 moved to (1, 4).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (13, 12).
 Avatar 4 moved to (13, 12).
@@ -16942,8 +16952,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (13, 12).
 Avatar 2 moved to (13, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (1, 4).
-Avatar 3 moved to (1, 4).
+Avatar 3 attempted to move East to (2, 4).
+Avatar 3 moved to (2, 4).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (14, 12).
 Avatar 4 moved to (14, 12).
@@ -16968,8 +16978,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (14, 12).
 Avatar 2 moved to (14, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (2, 4).
-Avatar 3 moved to (2, 4).
+Avatar 3 attempted to move North to (2, 3).
+Avatar 3 moved to (2, 3).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (15, 12).
 Avatar 4 moved to (15, 12).
@@ -16994,8 +17004,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (15, 12).
 Avatar 2 moved to (15, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (2, 3).
-Avatar 3 moved to (2, 3).
+Avatar 3 attempted to move East to (3, 3).
+Avatar 3 moved to (3, 3).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (15, 11).
 Avatar 4 moved to (15, 11).
@@ -17020,8 +17030,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (15, 11).
 Avatar 2 moved to (15, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (3, 3).
-Avatar 3 moved to (3, 3).
+Avatar 3 attempted to move East to (4, 3).
+Avatar 3 moved to (4, 3).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (16, 11).
 Avatar 4 moved to (16, 11).
@@ -17046,8 +17056,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (16, 11).
 Avatar 2 moved to (16, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (4, 3).
-Avatar 3 moved to (4, 3).
+Avatar 3 attempted to move South to (4, 4).
+Avatar 3 moved to (4, 4).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move South to (16, 12).
 Avatar 4 moved to (16, 12).
@@ -17072,8 +17082,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (16, 12).
 Avatar 2 moved to (16, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (4, 4).
-Avatar 3 moved to (4, 4).
+Avatar 3 attempted to move South to (4, 5).
+Avatar 3 moved to (4, 5).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (17, 12).
 Avatar 4 moved to (17, 12).
@@ -17098,8 +17108,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (17, 12).
 Avatar 2 moved to (17, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (4, 5).
-Avatar 3 moved to (4, 5).
+Avatar 3 attempted to move East to (5, 5).
+Avatar 3 moved to (5, 5).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (18, 12).
 Avatar 4 moved to (18, 12).
@@ -17124,8 +17134,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (18, 12).
 Avatar 2 moved to (18, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (5, 5).
-Avatar 3 moved to (5, 5).
+Avatar 3 attempted to move South to (5, 6).
+Avatar 3 moved to (5, 6).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (19, 12).
 Avatar 4 moved to (19, 12).
@@ -17150,8 +17160,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (19, 12).
 Avatar 2 moved to (19, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (5, 6).
-Avatar 3 moved to (5, 6).
+Avatar 3 attempted to move South to (5, 7).
+Avatar 3 moved to (5, 7).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (20, 12).
 Avatar 4 moved to (20, 12).
@@ -17176,8 +17186,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (20, 12).
 Avatar 2 moved to (20, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (5, 7).
-Avatar 3 moved to (5, 7).
+Avatar 3 attempted to move East to (6, 7).
+Avatar 3 moved to (6, 7).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (21, 12).
 Avatar 4 moved to (21, 12).
@@ -17202,8 +17212,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (21, 12).
 Avatar 2 moved to (21, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (6, 7).
-Avatar 3 moved to (6, 7).
+Avatar 3 attempted to move East to (7, 7).
+Avatar 3 moved to (7, 7).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (21, 11).
 Avatar 4 moved to (21, 11).
@@ -17228,8 +17238,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (21, 11).
 Avatar 2 moved to (21, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (7, 7).
-Avatar 3 moved to (7, 7).
+Avatar 3 attempted to move North to (7, 6).
+Avatar 3 moved to (7, 6).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (21, 10).
 Avatar 4 moved to (21, 10).
@@ -17254,8 +17264,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (21, 10).
 Avatar 2 moved to (21, 10).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (7, 6).
-Avatar 3 moved to (7, 6).
+Avatar 3 attempted to move East to (8, 6).
+Avatar 3 moved to (8, 6).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (20, 10).
 Avatar 4 moved to (20, 10).
@@ -17280,8 +17290,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (20, 10).
 Avatar 2 moved to (20, 10).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (8, 6).
-Avatar 3 moved to (8, 6).
+Avatar 3 attempted to move North to (8, 5).
+Avatar 3 moved to (8, 5).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move South to (20, 11).
 Avatar 4 moved to (20, 11).
@@ -17306,8 +17316,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (20, 11).
 Avatar 2 moved to (20, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (8, 5).
-Avatar 3 moved to (8, 5).
+Avatar 3 attempted to move West to (7, 5).
+Avatar 3 moved to (7, 5).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (19, 11).
 Avatar 4 moved to (19, 11).
@@ -17332,8 +17342,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (19, 11).
 Avatar 2 moved to (19, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (7, 5).
-Avatar 3 moved to (7, 5).
+Avatar 3 attempted to move North to (7, 4).
+Avatar 3 moved to (7, 4).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (18, 11).
 Avatar 4 moved to (18, 11).
@@ -17358,8 +17368,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (18, 11).
 Avatar 2 moved to (18, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (7, 4).
-Avatar 3 moved to (7, 4).
+Avatar 3 attempted to move North to (7, 3).
+Avatar 3 moved to (7, 3).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move West to (17, 11).
 Avatar 4 moved to (17, 11).
@@ -17384,8 +17394,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (17, 11).
 Avatar 2 moved to (17, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (7, 3).
-Avatar 3 moved to (7, 3).
+Avatar 3 attempted to move West to (6, 3).
+Avatar 3 moved to (6, 3).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (17, 10).
 Avatar 4 moved to (17, 10).
@@ -17410,8 +17420,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (17, 10).
 Avatar 2 moved to (17, 10).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (6, 3).
-Avatar 3 moved to (6, 3).
+Avatar 3 attempted to move West to (5, 3).
+Avatar 3 moved to (5, 3).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (17, 9).
 Avatar 4 moved to (17, 9).
@@ -17436,8 +17446,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (17, 9).
 Avatar 2 moved to (17, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (5, 3).
-Avatar 3 moved to (5, 3).
+Avatar 3 attempted to move North to (5, 2).
+Avatar 3 moved to (5, 2).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (18, 9).
 Avatar 4 moved to (18, 9).
@@ -17462,8 +17472,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (18, 9).
 Avatar 2 moved to (18, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (5, 2).
-Avatar 3 moved to (5, 2).
+Avatar 3 attempted to move West to (4, 2).
+Avatar 3 moved to (4, 2).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move North to (18, 8).
 Avatar 4 moved to (18, 8).
@@ -17488,8 +17498,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (18, 8).
 Avatar 2 moved to (18, 8).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (4, 2).
-Avatar 3 moved to (4, 2).
+Avatar 3 attempted to move North to (4, 1).
+Avatar 3 moved to (4, 1).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (19, 8).
 Avatar 4 moved to (19, 8).
@@ -17514,8 +17524,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (19, 8).
 Avatar 2 moved to (19, 8).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (4, 1).
-Avatar 3 moved to (4, 1).
+Avatar 3 attempted to move West to (3, 1).
+Avatar 3 moved to (3, 1).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (20, 8).
 Avatar 4 moved to (20, 8).
@@ -17540,8 +17550,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (20, 8).
 Avatar 2 moved to (20, 8).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (3, 1).
-Avatar 3 moved to (3, 1).
+Avatar 3 attempted to move West to (2, 1).
+Avatar 3 moved to (2, 1).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move South to (20, 9).
 Avatar 4 moved to (20, 9).
@@ -17566,8 +17576,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (20, 9).
 Avatar 2 moved to (20, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (2, 1).
-Avatar 3 moved to (2, 1).
+Avatar 3 attempted to move West to (1, 1).
+Avatar 3 moved to (1, 1).
 Avatar 3 is on avatar 5's path.
 Avatar 4 attempted to move East to (21, 9).
 Avatar 4 moved to (21, 9).
@@ -17592,9 +17602,9 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (21, 9).
 Avatar 2 moved to (21, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (1, 1).
-Avatar 3 moved to (1, 1).
-Avatar 3 is on avatar 5's path.
+Avatar 3 attempted to move North to (1, 0).
+Avatar 3 moved to (1, 0).
+Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (22, 9).
 Avatar 4 moved to (22, 9).
 Avatar 5 attempted to move East to (22, 9).
@@ -17618,8 +17628,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (22, 9).
 Avatar 2 moved to (22, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (1, 0).
-Avatar 3 moved to (1, 0).
+Avatar 3 attempted to move East to (2, 0).
+Avatar 3 moved to (2, 0).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move South to (22, 10).
 Avatar 4 moved to (22, 10).
@@ -17644,8 +17654,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (22, 10).
 Avatar 2 moved to (22, 10).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (2, 0).
-Avatar 3 moved to (2, 0).
+Avatar 3 attempted to move East to (3, 0).
+Avatar 3 moved to (3, 0).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (23, 10).
 Avatar 4 moved to (23, 10).
@@ -17670,8 +17680,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (23, 10).
 Avatar 2 moved to (23, 10).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (3, 0).
-Avatar 3 moved to (3, 0).
+Avatar 3 attempted to move East to (4, 0).
+Avatar 3 moved to (4, 0).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (24, 10).
 Avatar 4 moved to (24, 10).
@@ -17696,8 +17706,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (24, 10).
 Avatar 2 moved to (24, 10).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (4, 0).
-Avatar 3 moved to (4, 0).
+Avatar 3 attempted to move East to (5, 0).
+Avatar 3 moved to (5, 0).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move South to (24, 11).
 Avatar 4 moved to (24, 11).
@@ -17722,8 +17732,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (24, 11).
 Avatar 2 moved to (24, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (5, 0).
-Avatar 3 moved to (5, 0).
+Avatar 3 attempted to move East to (6, 0).
+Avatar 3 moved to (6, 0).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (25, 11).
 Avatar 4 moved to (25, 11).
@@ -17748,8 +17758,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (25, 11).
 Avatar 2 moved to (25, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (6, 0).
-Avatar 3 moved to (6, 0).
+Avatar 3 attempted to move East to (7, 0).
+Avatar 3 moved to (7, 0).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move South to (25, 12).
 Avatar 4 moved to (25, 12).
@@ -17774,8 +17784,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (25, 12).
 Avatar 2 moved to (25, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (7, 0).
-Avatar 3 moved to (7, 0).
+Avatar 3 attempted to move South to (7, 1).
+Avatar 3 moved to (7, 1).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move West to (24, 12).
 Avatar 4 moved to (24, 12).
@@ -17800,8 +17810,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (24, 12).
 Avatar 2 moved to (24, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (7, 1).
-Avatar 3 moved to (7, 1).
+Avatar 3 attempted to move West to (6, 1).
+Avatar 3 moved to (6, 1).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move South to (24, 13).
 Avatar 4 moved to (24, 13).
@@ -17826,8 +17836,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (24, 13).
 Avatar 2 moved to (24, 13).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (6, 1).
-Avatar 3 moved to (6, 1).
+Avatar 3 attempted to move South to (6, 2).
+Avatar 3 moved to (6, 2).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move West to (23, 13).
 Avatar 4 moved to (23, 13).
@@ -17852,8 +17862,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (23, 13).
 Avatar 2 moved to (23, 13).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (6, 2).
-Avatar 3 moved to (6, 2).
+Avatar 3 attempted to move East to (7, 2).
+Avatar 3 moved to (7, 2).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move West to (22, 13).
 Avatar 4 moved to (22, 13).
@@ -17878,8 +17888,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (22, 13).
 Avatar 2 moved to (22, 13).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (7, 2).
-Avatar 3 moved to (7, 2).
+Avatar 3 attempted to move East to (8, 2).
+Avatar 3 moved to (8, 2).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move West to (21, 13).
 Avatar 4 moved to (21, 13).
@@ -17904,8 +17914,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (21, 13).
 Avatar 2 moved to (21, 13).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (8, 2).
-Avatar 3 moved to (8, 2).
+Avatar 3 attempted to move North to (8, 1).
+Avatar 3 moved to (8, 1).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move South to (21, 14).
 Avatar 4 moved to (21, 14).
@@ -17930,8 +17940,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (21, 14).
 Avatar 2 moved to (21, 14).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (8, 1).
-Avatar 3 moved to (8, 1).
+Avatar 3 attempted to move North to (8, 0).
+Avatar 3 moved to (8, 0).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move South to (21, 15).
 Avatar 4 moved to (21, 15).
@@ -17956,8 +17966,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (21, 15).
 Avatar 2 moved to (21, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (8, 0).
-Avatar 3 moved to (8, 0).
+Avatar 3 attempted to move East to (9, 0).
+Avatar 3 moved to (9, 0).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (22, 15).
 Avatar 4 moved to (22, 15).
@@ -17982,8 +17992,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (22, 15).
 Avatar 2 moved to (22, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (9, 0).
-Avatar 3 moved to (9, 0).
+Avatar 3 attempted to move South to (9, 1).
+Avatar 3 moved to (9, 1).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (23, 15).
 Avatar 4 moved to (23, 15).
@@ -18008,8 +18018,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (23, 15).
 Avatar 2 moved to (23, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (9, 1).
-Avatar 3 moved to (9, 1).
+Avatar 3 attempted to move East to (10, 1).
+Avatar 3 moved to (10, 1).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (24, 15).
 Avatar 4 moved to (24, 15).
@@ -18034,8 +18044,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (24, 15).
 Avatar 2 moved to (24, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (10, 1).
-Avatar 3 moved to (10, 1).
+Avatar 3 attempted to move East to (11, 1).
+Avatar 3 moved to (11, 1).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move South to (24, 16).
 Avatar 4 moved to (24, 16).
@@ -18060,8 +18070,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (24, 16).
 Avatar 2 moved to (24, 16).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (11, 1).
-Avatar 3 moved to (11, 1).
+Avatar 3 attempted to move South to (11, 2).
+Avatar 3 moved to (11, 2).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move South to (24, 17).
 Avatar 4 moved to (24, 17).
@@ -18086,8 +18096,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (24, 17).
 Avatar 2 moved to (24, 17).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (11, 2).
-Avatar 3 moved to (11, 2).
+Avatar 3 attempted to move South to (11, 3).
+Avatar 3 moved to (11, 3).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (25, 17).
 Avatar 4 moved to (25, 17).
@@ -18112,8 +18122,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (25, 17).
 Avatar 2 moved to (25, 17).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (11, 3).
-Avatar 3 moved to (11, 3).
+Avatar 3 attempted to move South to (11, 4).
+Avatar 3 moved to (11, 4).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (26, 17).
 Avatar 4 moved to (26, 17).
@@ -18138,8 +18148,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (26, 17).
 Avatar 2 moved to (26, 17).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (11, 4).
-Avatar 3 moved to (11, 4).
+Avatar 3 attempted to move South to (11, 5).
+Avatar 3 moved to (11, 5).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move North to (26, 16).
 Avatar 4 moved to (26, 16).
@@ -18164,8 +18174,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (26, 16).
 Avatar 2 moved to (26, 16).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (11, 5).
-Avatar 3 moved to (11, 5).
+Avatar 3 attempted to move West to (10, 5).
+Avatar 3 moved to (10, 5).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move West to (25, 16).
 Avatar 4 moved to (25, 16).
@@ -18190,8 +18200,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (25, 16).
 Avatar 2 moved to (25, 16).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (10, 5).
-Avatar 3 moved to (10, 5).
+Avatar 3 attempted to move South to (10, 6).
+Avatar 3 moved to (10, 6).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move North to (25, 15).
 Avatar 4 moved to (25, 15).
@@ -18216,8 +18226,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (25, 15).
 Avatar 2 moved to (25, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (10, 6).
-Avatar 3 moved to (10, 6).
+Avatar 3 attempted to move West to (9, 6).
+Avatar 3 moved to (9, 6).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (26, 15).
 Avatar 4 moved to (26, 15).
@@ -18242,8 +18252,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (26, 15).
 Avatar 2 moved to (26, 15).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (9, 6).
-Avatar 3 moved to (9, 6).
+Avatar 3 attempted to move South to (9, 7).
+Avatar 3 moved to (9, 7).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move North to (26, 14).
 Avatar 4 moved to (26, 14).
@@ -18268,8 +18278,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (26, 14).
 Avatar 2 moved to (26, 14).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (9, 7).
-Avatar 3 moved to (9, 7).
+Avatar 3 attempted to move South to (9, 8).
+Avatar 3 moved to (9, 8).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move West to (25, 14).
 Avatar 4 moved to (25, 14).
@@ -18294,8 +18304,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (25, 14).
 Avatar 2 moved to (25, 14).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (9, 8).
-Avatar 3 moved to (9, 8).
+Avatar 3 attempted to move West to (8, 8).
+Avatar 3 moved to (8, 8).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move North to (25, 13).
 Avatar 4 moved to (25, 13).
@@ -18320,8 +18330,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (25, 13).
 Avatar 2 moved to (25, 13).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (8, 8).
-Avatar 3 moved to (8, 8).
+Avatar 3 attempted to move South to (8, 9).
+Avatar 3 moved to (8, 9).
 Avatar 3 is on avatar 6's path.
 Avatar 4 attempted to move East to (26, 13).
 Avatar 4 moved to (26, 13).
@@ -18346,9 +18356,9 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (26, 13).
 Avatar 2 moved to (26, 13).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (8, 9).
-Avatar 3 moved to (8, 9).
-Avatar 3 is on avatar 6's path.
+Avatar 3 attempted to move East to (9, 9).
+Avatar 3 moved to (9, 9).
+Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (26, 12).
 Avatar 4 moved to (26, 12).
 Avatar 5 attempted to move North to (26, 12).
@@ -18372,8 +18382,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (26, 12).
 Avatar 2 moved to (26, 12).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (9, 9).
-Avatar 3 moved to (9, 9).
+Avatar 3 attempted to move East to (10, 9).
+Avatar 3 moved to (10, 9).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (26, 11).
 Avatar 4 moved to (26, 11).
@@ -18398,8 +18408,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (26, 11).
 Avatar 2 moved to (26, 11).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (10, 9).
-Avatar 3 moved to (10, 9).
+Avatar 3 attempted to move East to (11, 9).
+Avatar 3 moved to (11, 9).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (26, 10).
 Avatar 4 moved to (26, 10).
@@ -18424,8 +18434,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (26, 10).
 Avatar 2 moved to (26, 10).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (11, 9).
-Avatar 3 moved to (11, 9).
+Avatar 3 attempted to move South to (11, 10).
+Avatar 3 moved to (11, 10).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (26, 9).
 Avatar 4 moved to (26, 9).
@@ -18450,8 +18460,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (26, 9).
 Avatar 2 moved to (26, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (11, 10).
-Avatar 3 moved to (11, 10).
+Avatar 3 attempted to move West to (10, 10).
+Avatar 3 moved to (10, 10).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (27, 9).
 Avatar 4 moved to (27, 9).
@@ -18476,8 +18486,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (27, 9).
 Avatar 2 moved to (27, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (10, 10).
-Avatar 3 moved to (10, 10).
+Avatar 3 attempted to move South to (10, 11).
+Avatar 3 moved to (10, 11).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (27, 8).
 Avatar 4 moved to (27, 8).
@@ -18502,8 +18512,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (27, 8).
 Avatar 2 moved to (27, 8).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (10, 11).
-Avatar 3 moved to (10, 11).
+Avatar 3 attempted to move East to (11, 11).
+Avatar 3 moved to (11, 11).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (28, 8).
 Avatar 4 moved to (28, 8).
@@ -18528,8 +18538,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (28, 8).
 Avatar 2 moved to (28, 8).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (11, 11).
-Avatar 3 moved to (11, 11).
+Avatar 3 attempted to move East to (12, 11).
+Avatar 3 moved to (12, 11).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (28, 9).
 Avatar 4 moved to (28, 9).
@@ -18554,8 +18564,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (28, 9).
 Avatar 2 moved to (28, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (12, 11).
-Avatar 3 moved to (12, 11).
+Avatar 3 attempted to move East to (13, 11).
+Avatar 3 moved to (13, 11).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (28, 10).
 Avatar 4 moved to (28, 10).
@@ -18580,8 +18590,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (28, 10).
 Avatar 2 moved to (28, 10).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (13, 11).
-Avatar 3 moved to (13, 11).
+Avatar 3 attempted to move East to (14, 11).
+Avatar 3 moved to (14, 11).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (29, 10).
 Avatar 4 moved to (29, 10).
@@ -18606,8 +18616,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (29, 10).
 Avatar 2 moved to (29, 10).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (14, 11).
-Avatar 3 moved to (14, 11).
+Avatar 3 attempted to move North to (14, 10).
+Avatar 3 moved to (14, 10).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (29, 9).
 Avatar 4 moved to (29, 9).
@@ -18632,8 +18642,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (29, 9).
 Avatar 2 moved to (29, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (14, 10).
-Avatar 3 moved to (14, 10).
+Avatar 3 attempted to move North to (14, 9).
+Avatar 3 moved to (14, 9).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (29, 8).
 Avatar 4 moved to (29, 8).
@@ -18658,8 +18668,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (29, 8).
 Avatar 2 moved to (29, 8).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (14, 9).
-Avatar 3 moved to (14, 9).
+Avatar 3 attempted to move North to (14, 8).
+Avatar 3 moved to (14, 8).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (29, 7).
 Avatar 4 moved to (29, 7).
@@ -18684,8 +18694,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (29, 7).
 Avatar 2 moved to (29, 7).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (14, 8).
-Avatar 3 moved to (14, 8).
+Avatar 3 attempted to move North to (14, 7).
+Avatar 3 moved to (14, 7).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (29, 6).
 Avatar 4 moved to (29, 6).
@@ -18710,8 +18720,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (29, 6).
 Avatar 2 moved to (29, 6).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (14, 7).
-Avatar 3 moved to (14, 7).
+Avatar 3 attempted to move North to (14, 6).
+Avatar 3 moved to (14, 6).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (29, 5).
 Avatar 4 moved to (29, 5).
@@ -18736,8 +18746,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (29, 5).
 Avatar 2 moved to (29, 5).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (14, 6).
-Avatar 3 moved to (14, 6).
+Avatar 3 attempted to move East to (15, 6).
+Avatar 3 moved to (15, 6).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (29, 4).
 Avatar 4 moved to (29, 4).
@@ -18762,8 +18772,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (29, 4).
 Avatar 2 moved to (29, 4).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (15, 6).
-Avatar 3 moved to (15, 6).
+Avatar 3 attempted to move South to (15, 7).
+Avatar 3 moved to (15, 7).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (29, 3).
 Avatar 4 moved to (29, 3).
@@ -18788,8 +18798,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (29, 3).
 Avatar 2 moved to (29, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (15, 7).
-Avatar 3 moved to (15, 7).
+Avatar 3 attempted to move South to (15, 8).
+Avatar 3 moved to (15, 8).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (28, 3).
 Avatar 4 moved to (28, 3).
@@ -18814,8 +18824,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (28, 3).
 Avatar 2 moved to (28, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (15, 8).
-Avatar 3 moved to (15, 8).
+Avatar 3 attempted to move South to (15, 9).
+Avatar 3 moved to (15, 9).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (27, 3).
 Avatar 4 moved to (27, 3).
@@ -18840,8 +18850,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (27, 3).
 Avatar 2 moved to (27, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (15, 9).
-Avatar 3 moved to (15, 9).
+Avatar 3 attempted to move South to (15, 10).
+Avatar 3 moved to (15, 10).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (26, 3).
 Avatar 4 moved to (26, 3).
@@ -18866,8 +18876,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (26, 3).
 Avatar 2 moved to (26, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (15, 10).
-Avatar 3 moved to (15, 10).
+Avatar 3 attempted to move East to (16, 10).
+Avatar 3 moved to (16, 10).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (26, 2).
 Avatar 4 moved to (26, 2).
@@ -18892,8 +18902,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (26, 2).
 Avatar 2 moved to (26, 2).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (16, 10).
-Avatar 3 moved to (16, 10).
+Avatar 3 attempted to move North to (16, 9).
+Avatar 3 moved to (16, 9).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (27, 2).
 Avatar 4 moved to (27, 2).
@@ -18918,8 +18928,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (27, 2).
 Avatar 2 moved to (27, 2).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (16, 9).
-Avatar 3 moved to (16, 9).
+Avatar 3 attempted to move North to (16, 8).
+Avatar 3 moved to (16, 8).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (28, 2).
 Avatar 4 moved to (28, 2).
@@ -18944,8 +18954,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (28, 2).
 Avatar 2 moved to (28, 2).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (16, 8).
-Avatar 3 moved to (16, 8).
+Avatar 3 attempted to move East to (17, 8).
+Avatar 3 moved to (17, 8).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (29, 2).
 Avatar 4 moved to (29, 2).
@@ -18970,8 +18980,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (29, 2).
 Avatar 2 moved to (29, 2).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (17, 8).
-Avatar 3 moved to (17, 8).
+Avatar 3 attempted to move North to (17, 7).
+Avatar 3 moved to (17, 7).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (29, 1).
 Avatar 4 moved to (29, 1).
@@ -18996,8 +19006,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (29, 1).
 Avatar 2 moved to (29, 1).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (17, 7).
-Avatar 3 moved to (17, 7).
+Avatar 3 attempted to move West to (16, 7).
+Avatar 3 moved to (16, 7).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (29, 0).
 Avatar 4 moved to (29, 0).
@@ -19022,8 +19032,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (29, 0).
 Avatar 2 moved to (29, 0).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (16, 7).
-Avatar 3 moved to (16, 7).
+Avatar 3 attempted to move North to (16, 6).
+Avatar 3 moved to (16, 6).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (28, 0).
 Avatar 4 moved to (28, 0).
@@ -19048,8 +19058,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (28, 0).
 Avatar 2 moved to (28, 0).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (16, 6).
-Avatar 3 moved to (16, 6).
+Avatar 3 attempted to move North to (16, 5).
+Avatar 3 moved to (16, 5).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (27, 0).
 Avatar 4 moved to (27, 0).
@@ -19074,8 +19084,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (27, 0).
 Avatar 2 moved to (27, 0).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (16, 5).
-Avatar 3 moved to (16, 5).
+Avatar 3 attempted to move North to (16, 4).
+Avatar 3 moved to (16, 4).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (26, 0).
 Avatar 4 moved to (26, 0).
@@ -19100,8 +19110,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (26, 0).
 Avatar 2 moved to (26, 0).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (16, 4).
-Avatar 3 moved to (16, 4).
+Avatar 3 attempted to move North to (16, 3).
+Avatar 3 moved to (16, 3).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (26, 1).
 Avatar 4 moved to (26, 1).
@@ -19126,8 +19136,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (26, 1).
 Avatar 2 moved to (26, 1).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (16, 3).
-Avatar 3 moved to (16, 3).
+Avatar 3 attempted to move West to (15, 3).
+Avatar 3 moved to (15, 3).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (25, 1).
 Avatar 4 moved to (25, 1).
@@ -19152,8 +19162,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (25, 1).
 Avatar 2 moved to (25, 1).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (15, 3).
-Avatar 3 moved to (15, 3).
+Avatar 3 attempted to move West to (14, 3).
+Avatar 3 moved to (14, 3).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (25, 0).
 Avatar 4 moved to (25, 0).
@@ -19178,8 +19188,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (25, 0).
 Avatar 2 moved to (25, 0).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (14, 3).
-Avatar 3 moved to (14, 3).
+Avatar 3 attempted to move South to (14, 4).
+Avatar 3 moved to (14, 4).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (24, 0).
 Avatar 4 moved to (24, 0).
@@ -19204,8 +19214,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (24, 0).
 Avatar 2 moved to (24, 0).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (14, 4).
-Avatar 3 moved to (14, 4).
+Avatar 3 attempted to move South to (14, 5).
+Avatar 3 moved to (14, 5).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (24, 1).
 Avatar 4 moved to (24, 1).
@@ -19230,8 +19240,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (24, 1).
 Avatar 2 moved to (24, 1).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (14, 5).
-Avatar 3 moved to (14, 5).
+Avatar 3 attempted to move West to (13, 5).
+Avatar 3 moved to (13, 5).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (24, 2).
 Avatar 4 moved to (24, 2).
@@ -19256,8 +19266,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (24, 2).
 Avatar 2 moved to (24, 2).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (13, 5).
-Avatar 3 moved to (13, 5).
+Avatar 3 attempted to move North to (13, 4).
+Avatar 3 moved to (13, 4).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (25, 2).
 Avatar 4 moved to (25, 2).
@@ -19282,8 +19292,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (25, 2).
 Avatar 2 moved to (25, 2).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (13, 4).
-Avatar 3 moved to (13, 4).
+Avatar 3 attempted to move West to (12, 4).
+Avatar 3 moved to (12, 4).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (25, 3).
 Avatar 4 moved to (25, 3).
@@ -19308,8 +19318,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (25, 3).
 Avatar 2 moved to (25, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (12, 4).
-Avatar 3 moved to (12, 4).
+Avatar 3 attempted to move North to (12, 3).
+Avatar 3 moved to (12, 3).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (24, 3).
 Avatar 4 moved to (24, 3).
@@ -19334,8 +19344,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (24, 3).
 Avatar 2 moved to (24, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (12, 3).
-Avatar 3 moved to (12, 3).
+Avatar 3 attempted to move East to (13, 3).
+Avatar 3 moved to (13, 3).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (24, 4).
 Avatar 4 moved to (24, 4).
@@ -19360,8 +19370,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (24, 4).
 Avatar 2 moved to (24, 4).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (13, 3).
-Avatar 3 moved to (13, 3).
+Avatar 3 attempted to move North to (13, 2).
+Avatar 3 moved to (13, 2).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (24, 5).
 Avatar 4 moved to (24, 5).
@@ -19386,8 +19396,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (24, 5).
 Avatar 2 moved to (24, 5).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (13, 2).
-Avatar 3 moved to (13, 2).
+Avatar 3 attempted to move West to (12, 2).
+Avatar 3 moved to (12, 2).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (25, 5).
 Avatar 4 moved to (25, 5).
@@ -19412,8 +19422,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (25, 5).
 Avatar 2 moved to (25, 5).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (12, 2).
-Avatar 3 moved to (12, 2).
+Avatar 3 attempted to move North to (12, 1).
+Avatar 3 moved to (12, 1).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (25, 6).
 Avatar 4 moved to (25, 6).
@@ -19438,8 +19448,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (25, 6).
 Avatar 2 moved to (25, 6).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (12, 1).
-Avatar 3 moved to (12, 1).
+Avatar 3 attempted to move North to (12, 0).
+Avatar 3 moved to (12, 0).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (26, 6).
 Avatar 4 moved to (26, 6).
@@ -19464,8 +19474,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (26, 6).
 Avatar 2 moved to (26, 6).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (12, 0).
-Avatar 3 moved to (12, 0).
+Avatar 3 attempted to move East to (13, 0).
+Avatar 3 moved to (13, 0).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (26, 7).
 Avatar 4 moved to (26, 7).
@@ -19490,8 +19500,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (26, 7).
 Avatar 2 moved to (26, 7).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (13, 0).
-Avatar 3 moved to (13, 0).
+Avatar 3 attempted to move South to (13, 1).
+Avatar 3 moved to (13, 1).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (25, 7).
 Avatar 4 moved to (25, 7).
@@ -19516,8 +19526,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (25, 7).
 Avatar 2 moved to (25, 7).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (13, 1).
-Avatar 3 moved to (13, 1).
+Avatar 3 attempted to move East to (14, 1).
+Avatar 3 moved to (14, 1).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (25, 8).
 Avatar 4 moved to (25, 8).
@@ -19542,8 +19552,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (25, 8).
 Avatar 2 moved to (25, 8).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (14, 1).
-Avatar 3 moved to (14, 1).
+Avatar 3 attempted to move East to (15, 1).
+Avatar 3 moved to (15, 1).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move South to (25, 9).
 Avatar 4 moved to (25, 9).
@@ -19568,8 +19578,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (25, 9).
 Avatar 2 moved to (25, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (15, 1).
-Avatar 3 moved to (15, 1).
+Avatar 3 attempted to move South to (15, 2).
+Avatar 3 moved to (15, 2).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (24, 9).
 Avatar 4 moved to (24, 9).
@@ -19594,8 +19604,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (24, 9).
 Avatar 2 moved to (24, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (15, 2).
-Avatar 3 moved to (15, 2).
+Avatar 3 attempted to move East to (16, 2).
+Avatar 3 moved to (16, 2).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (23, 9).
 Avatar 4 moved to (23, 9).
@@ -19620,8 +19630,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (23, 9).
 Avatar 2 moved to (23, 9).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (16, 2).
-Avatar 3 moved to (16, 2).
+Avatar 3 attempted to move North to (16, 1).
+Avatar 3 moved to (16, 1).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (23, 8).
 Avatar 4 moved to (23, 8).
@@ -19646,8 +19656,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (23, 8).
 Avatar 2 moved to (23, 8).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (16, 1).
-Avatar 3 moved to (16, 1).
+Avatar 3 attempted to move East to (17, 1).
+Avatar 3 moved to (17, 1).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move East to (24, 8).
 Avatar 4 moved to (24, 8).
@@ -19672,8 +19682,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (24, 8).
 Avatar 2 moved to (24, 8).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (17, 1).
-Avatar 3 moved to (17, 1).
+Avatar 3 attempted to move South to (17, 2).
+Avatar 3 moved to (17, 2).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (24, 7).
 Avatar 4 moved to (24, 7).
@@ -19698,8 +19708,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (24, 7).
 Avatar 2 moved to (24, 7).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (17, 2).
-Avatar 3 moved to (17, 2).
+Avatar 3 attempted to move South to (17, 3).
+Avatar 3 moved to (17, 3).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move West to (23, 7).
 Avatar 4 moved to (23, 7).
@@ -19724,8 +19734,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (23, 7).
 Avatar 2 moved to (23, 7).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (17, 3).
-Avatar 3 moved to (17, 3).
+Avatar 3 attempted to move South to (17, 4).
+Avatar 3 moved to (17, 4).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (23, 6).
 Avatar 4 moved to (23, 6).
@@ -19750,8 +19760,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (23, 6).
 Avatar 2 moved to (23, 6).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (17, 4).
-Avatar 3 moved to (17, 4).
+Avatar 3 attempted to move East to (18, 4).
+Avatar 3 moved to (18, 4).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (23, 5).
 Avatar 4 moved to (23, 5).
@@ -19776,8 +19786,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (23, 5).
 Avatar 2 moved to (23, 5).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (18, 4).
-Avatar 3 moved to (18, 4).
+Avatar 3 attempted to move East to (19, 4).
+Avatar 3 moved to (19, 4).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (23, 4).
 Avatar 4 moved to (23, 4).
@@ -19802,8 +19812,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (23, 4).
 Avatar 2 moved to (23, 4).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (19, 4).
-Avatar 3 moved to (19, 4).
+Avatar 3 attempted to move South to (19, 5).
+Avatar 3 moved to (19, 5).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (23, 3).
 Avatar 4 moved to (23, 3).
@@ -19828,8 +19838,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (23, 3).
 Avatar 2 moved to (23, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (19, 5).
-Avatar 3 moved to (19, 5).
+Avatar 3 attempted to move West to (18, 5).
+Avatar 3 moved to (18, 5).
 Avatar 3 is on avatar 8's path.
 Avatar 4 attempted to move North to (23, 2).
 Avatar 4 moved to (23, 2).
@@ -19854,9 +19864,9 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move North to (23, 2).
 Avatar 2 moved to (23, 2).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move West to (18, 5).
-Avatar 3 moved to (18, 5).
-Avatar 3 is on avatar 8's path.
+Avatar 3 attempted to move South to (18, 6).
+Avatar 3 moved to (18, 6).
+Avatar 3 is on avatar 4's path.
 Avatar 4 attempted to move West to (22, 2).
 Avatar 4 moved to (22, 2).
 Avatar 5 attempted to move West to (22, 2).
@@ -19880,8 +19890,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (22, 2).
 Avatar 2 moved to (22, 2).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (18, 6).
-Avatar 3 moved to (18, 6).
+Avatar 3 attempted to move South to (18, 7).
+Avatar 3 moved to (18, 7).
 Avatar 3 is on avatar 4's path.
 Avatar 4 attempted to move South to (22, 3).
 Avatar 4 moved to (22, 3).
@@ -19906,8 +19916,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (22, 3).
 Avatar 2 moved to (22, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move South to (18, 7).
-Avatar 3 moved to (18, 7).
+Avatar 3 attempted to move East to (19, 7).
+Avatar 3 moved to (19, 7).
 Avatar 3 is on avatar 4's path.
 Avatar 4 attempted to move West to (21, 3).
 Avatar 4 moved to (21, 3).
@@ -19932,8 +19942,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (21, 3).
 Avatar 2 moved to (21, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (19, 7).
-Avatar 3 moved to (19, 7).
+Avatar 3 attempted to move North to (19, 6).
+Avatar 3 moved to (19, 6).
 Avatar 3 is on avatar 4's path.
 Avatar 4 attempted to move West to (20, 3).
 Avatar 4 moved to (20, 3).
@@ -19958,8 +19968,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move West to (20, 3).
 Avatar 2 moved to (20, 3).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (19, 6).
-Avatar 3 moved to (19, 6).
+Avatar 3 attempted to move East to (20, 6).
+Avatar 3 moved to (20, 6).
 Avatar 3 is on avatar 4's path.
 Avatar 4 attempted to move South to (20, 4).
 Avatar 4 moved to (20, 4).
@@ -19984,8 +19994,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (20, 4).
 Avatar 2 moved to (20, 4).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (20, 6).
-Avatar 3 moved to (20, 6).
+Avatar 3 attempted to move North to (20, 5).
+Avatar 3 moved to (20, 5).
 Avatar 3 is on avatar 4's path.
 Avatar 4 attempted to move East to (21, 4).
 Avatar 4 moved to (21, 4).
@@ -20010,8 +20020,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (21, 4).
 Avatar 2 moved to (21, 4).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move North to (20, 5).
-Avatar 3 moved to (20, 5).
+Avatar 3 attempted to move East to (21, 5).
+Avatar 3 moved to (21, 5).
 Avatar 3 is on avatar 4's path.
 Avatar 4 attempted to move East to (22, 4).
 Avatar 4 moved to (22, 4).
@@ -20036,8 +20046,8 @@ Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move East to (22, 4).
 Avatar 2 moved to (22, 4).
 Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (21, 5).
-Avatar 3 moved to (21, 5).
+Avatar 3 attempted to move East to (22, 5).
+Avatar 3 moved to (22, 5).
 Avatar 3 is on avatar 4's path.
 Avatar 4 attempted to move South to (22, 5).
 Avatar 4 moved to (22, 5).
@@ -20060,6 +20070,4 @@ Avatar 1 attempted to move South to (22, 5).
 Avatar 1 moved to (22, 5).
 Avatar 1 is on avatar 4's path.
 Avatar 2 attempted to move South to (22, 5).
-Avatar 2 moved to (22, 5).
-Avatar 2 is on avatar 4's path.
-Avatar 3 attempted to move East to (22, 5).
+Solved maze with nAvatars = 9, difficulty = 5, nMoves = 8300, and hashcode = 459882010
